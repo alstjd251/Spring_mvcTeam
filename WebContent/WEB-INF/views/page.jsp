@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>test</h1>
-<script type="text/javascript">
-	location.href="main";
-</script>
+<h1>저장 성공</h1>
 </body>
 </html>

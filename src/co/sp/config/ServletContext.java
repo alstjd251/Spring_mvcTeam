@@ -13,26 +13,29 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import co.sp.database.MapInter;
+import co.sp.mapper.MapInter;
 
 // MVC 프로젝트 설정
 
 @Configuration
 @EnableWebMvc
 @ComponentScan("co.sp.controller")
-@PropertySource("/WEB-INF/properties/db.properties")
+@ComponentScan("co.sp.dao")
+@ComponentScan("co.sp.service")
+
+@PropertySource("/WEB-INF/properties/dbconnection.properties")
 public class ServletContext implements WebMvcConfigurer {
 
-	@Value("${db.classname}")
+	@Value("${dbconnection.classname}")
 	private String db_classname;
 
-	@Value("${db.url}")
+	@Value("${dbconnection.url}")
 	private String db_url;
 
-	@Value("${db.username}")
+	@Value("${dbconnection.username}")
 	private String db_username;
 
-	@Value("${db.password}")
+	@Value("${dbconnection.password}")
 	private String db_password;
 
 	@Override

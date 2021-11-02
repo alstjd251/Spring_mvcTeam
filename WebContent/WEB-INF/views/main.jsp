@@ -10,46 +10,58 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="member_proc" method="post" modelAttribute="s_member">
-			id :
-			<form:input type="text" path="mem_id" />
-			<br>
+	<form:form action="member_proc" method="post" modelAttribute="member">
+			<table>
+			<tr>
+			<td><form:label path="mem_id">아이디 : </form:label></td>
+			<td><form:input path="mem_id" /></td>
+			</tr>
+			
+			<tr>
+			<td><form:label path="mem_pw">비밀번호 : </form:label></td>
+			<td><form:password path="mem_pw" /></td>
+			</tr>
+			
+			<tr>
+			<td><form:label path="mem_name">이름 : </form:label></td>
+			<td><form:input path="mem_name" /></td>
+			</tr>
+			
+
+			<tr>
+			<td><form:label path="mem_joomin">주민등록번호 : </form:label></td>
+			<td><form:input path="mem_joomin" />
+			<form:input path="mem_gender" /></td>
+			</tr>
+			
 
 
-			pw :
-			<form:input type="password" path="mem_pw" />
-			<br>
+			<tr>
+			<td><form:label path="mem_phone">연락처 : </form:label></td>
+			<td><form:input path="mem_phone" /></td>
+			</tr>
+			
 
-
-			name :
-			<form:input type="text" path="mem_name" />
-			<br>
-
-
-			주민등록번호 :
-
-			<form:input type="text" path="mem_joomin" />
-			<form:input type="text" path="mem_gender" />
-			<br>
-
-
-
-			phone :
-			<form:input type="tel" path="mem_phone" />
-			<br>
-
-
-			email :
-			<form:input type="email" path="mem_mail" />
-			<br>
-
-			우편번호 :
-			<form:input type="text" path="mem_post" />
-
-			<form:input type="text" path="mem_addr1" />
-			<form:input type="text" path="mem_addr2" />
-			<br>
-			<form:button>회원가입</form:button>
+			<tr>
+			<td><form:label path="mem_mail">메일 : </form:label></td>
+			<td><form:input type="email" path="mem_mail" /></td>
+			</tr>
+			
+			<tr>
+			<td><form:label path="mem_post">우편번호 : </form:label></td>
+			<td><form:input path="mem_post" /></td>
+			</tr>
+			<tr>
+			<td><form:label path="mem_addr1">주소1 : </form:label>
+			<form:input path="mem_addr1" /></td>
+			<td><form:label path="mem_addr2">주소2 : </form:label>
+			<form:input path="mem_addr2" /></td>
+			</tr>
+			
+			<tr>
+			<td colspan="2"><form:button>회원가입</form:button></td>
+			</tr>
+			</table>	
 	</form:form>
 </body>
 </html>

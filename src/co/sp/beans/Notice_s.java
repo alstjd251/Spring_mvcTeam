@@ -1,6 +1,6 @@
 package co.sp.beans;
 
-public class s_notice {
+public class Notice_s {
 
 //	n_noticenum number primary key,
 //	n_noticetitle varchar2(50),

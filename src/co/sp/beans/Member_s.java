@@ -1,6 +1,6 @@
 package co.sp.beans;
 
-public class s_member {
+public class Member_s {
 
 //	mem_num number primary key,
 //	mem_id varchar2(20),

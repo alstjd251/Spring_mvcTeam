@@ -1,6 +1,6 @@
 package co.sp.beans;
 
-public class s_reservation {
+public class Reservation_s {
 
 	private String res_num;
 	private String res_date;
@@ -47,5 +47,4 @@ public class s_reservation {
 	public void setRes_coursenum(String res_coursenum) {
 		this.res_coursenum = res_coursenum;
 	}
-
 }

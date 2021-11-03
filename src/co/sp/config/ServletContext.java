@@ -10,6 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -42,6 +43,14 @@ public class ServletContext implements WebMvcConfigurer {
 	public void configureViewResolvers(ViewResolverRegistry re) {
 		WebMvcConfigurer.super.configureViewResolvers(re);
 		re.jsp("/WEB-INF/views/", ".jsp");
+	}
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		// TODO Auto-generated method stub
+		WebMvcConfigurer.super.addResourceHandlers(registry);
+		registry.addResourceHandler("/resource/**").addResourceLocations("/resource/");
+		registry.addResourceHandler("/img/**").addResourceLocations("/resource/img/");
 	}
 
 	// DB 접속 정보 관리

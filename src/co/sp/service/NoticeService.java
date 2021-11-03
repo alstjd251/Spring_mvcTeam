@@ -1,5 +1,10 @@
 package co.sp.service;
 
-public class NoticeService {
+import org.springframework.beans.factory.annotation.Autowired;
 
+import co.sp.dao.NoticeDao;
+
+public class NoticeService {
+	@Autowired
+	private NoticeDao noticedao;
 }

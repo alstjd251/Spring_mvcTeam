@@ -7,7 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1><a href="main">회원가입</a></h1>
-<h1><a href="board/NoticeRead">글작성</a></h1>
+	${noticeBean.n_noticenum }<br>
+	${noticeBean.n_noticetitle }<br>
+	${noticeBean.n_noticecontent }<br>
+	${noticeBean.n_noticedate }<br>
+	${noticeBean.n_noticecnt }<br>
+	${noticeBean.n_nnum }<br>
 </body>
 </html>

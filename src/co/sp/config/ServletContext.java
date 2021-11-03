@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import co.sp.mapper.MemMapper;
+import co.sp.mapper.ResMapper;
 import co.sp.mapper.NoticeMapper;
 
 // MVC 프로젝트 설정
@@ -80,13 +81,24 @@ public class ServletContext implements WebMvcConfigurer {
 	// mapper를 주입받아 쿼리문을 실행시킨다.
 	@Bean
 	public MapperFactoryBean<MemMapper> MemMapper(SqlSessionFactory fac) throws Exception {
+
 		MapperFactoryBean<MemMapper> f = new MapperFactoryBean<MemMapper>(MemMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;
 	}
 
 	@Bean
+	public MapperFactoryBean<ResMapper> ResMapper(SqlSessionFactory fac) throws Exception {
+
+		MapperFactoryBean<ResMapper> f = new MapperFactoryBean<ResMapper>(ResMapper.class);
+		f.setSqlSessionFactory(fac);
+		return f;
+
+	}
+
+	@Bean
 	public MapperFactoryBean<NoticeMapper> NoticeMapper(SqlSessionFactory fac) throws Exception {
+
 		MapperFactoryBean<NoticeMapper> f = new MapperFactoryBean<NoticeMapper>(NoticeMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;

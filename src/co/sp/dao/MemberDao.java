@@ -12,7 +12,7 @@ public class MemberDao {
 	@Autowired
 	private MemMapper memmapper;
 	
-	public void addMember(Member_s member) {
-		memmapper.addMember(member);
+	public void addMember(Member_s memberBean) {
+		memmapper.addMember(memberBean);
 	}
 }

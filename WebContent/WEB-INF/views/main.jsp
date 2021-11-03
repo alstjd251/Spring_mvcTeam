@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="member_proc" method="post" modelAttribute="member">
+	<form:form action="member_proc" method="post" modelAttribute="memberBean">
 			<table>
 			<tr>
 			<td><form:label path="mem_id">아이디 : </form:label></td>

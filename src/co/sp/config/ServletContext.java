@@ -15,6 +15,7 @@ import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import co.sp.mapper.MemMapper;
+import co.sp.mapper.ResMapper;
 
 // MVC 프로젝트 설정
 
@@ -83,6 +84,15 @@ public class ServletContext implements WebMvcConfigurer {
 	public MapperFactoryBean<MemMapper> MemMapper(SqlSessionFactory fac) throws Exception {
 		
 		MapperFactoryBean<MemMapper> f = new MapperFactoryBean<MemMapper>(MemMapper.class);
+		f.setSqlSessionFactory(fac);
+		return f;
+
+	}
+	
+	@Bean
+	public MapperFactoryBean<ResMapper> ResMapper(SqlSessionFactory fac) throws Exception {
+		
+		MapperFactoryBean<ResMapper> f = new MapperFactoryBean<ResMapper>(ResMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;
 

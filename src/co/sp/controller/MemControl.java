@@ -1,5 +1,8 @@
 package co.sp.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,14 +22,13 @@ public class MemControl {
 	@GetMapping("/main")
 	public String main(@ModelAttribute s_member member, Model m) {
 		m.addAttribute("member", member);
+		
 		return "main";
 	}
-
+	
 	@PostMapping("/member_proc")
 	public String join(@ModelAttribute s_member member) {
-
 		ms.addMember(member);
-
 		return "page";
 	}
 }

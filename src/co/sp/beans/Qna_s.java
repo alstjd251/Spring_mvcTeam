@@ -1,5 +1,5 @@
 package co.sp.beans;
 
-public class s_chat {
+public class Qna_s {
 
 }

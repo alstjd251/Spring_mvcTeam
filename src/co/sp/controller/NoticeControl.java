@@ -1,23 +1,17 @@
 package co.sp.controller;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import co.sp.beans.Member_s;
-import co.sp.service.MemService;
+import co.sp.service.NoticeService;
 
-@Controller
-public class MemControl {
-
+public class NoticeControl {
 	@Autowired
-	private MemService ms;
+	private NoticeService ms;
 
 	@GetMapping("/main")
 	public String main(@ModelAttribute Member_s member, Model m) {

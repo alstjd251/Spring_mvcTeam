@@ -1,5 +1,5 @@
 package co.sp.beans;
 
-public class s_qna {
+public class Course_s {
 
 }

@@ -1,5 +1,5 @@
 package co.sp.beans;
 
-public class s_course {
+public class Chat_s {
 
 }

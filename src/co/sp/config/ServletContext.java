@@ -1,5 +1,7 @@
 package co.sp.config;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -14,9 +16,10 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import co.sp.beans.Member_s;
 import co.sp.mapper.MemMapper;
-import co.sp.mapper.ResMapper;
 import co.sp.mapper.NoticeMapper;
+import co.sp.mapper.ResMapper;
 
 // MVC 프로젝트 설정
 
@@ -40,7 +43,10 @@ public class ServletContext implements WebMvcConfigurer {
 
 	@Value("${dbconnection.password}")
 	private String db_password;
-
+	
+	@Resource(name = "loginBean")
+	private Member_s loginBean;
+	
 	@Override
 	public void configureViewResolvers(ViewResolverRegistry re) {
 		WebMvcConfigurer.super.configureViewResolvers(re);

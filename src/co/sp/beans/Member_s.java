@@ -30,6 +30,14 @@ public class Member_s {
 	private String mem_addr2;
 	private String mem_grade;
 
+	private boolean idExist;
+	private boolean memLogin;
+
+	public Member_s() {
+		this.idExist = false;
+		this.memLogin = false;
+	}
+
 	public int getMem_num() {
 		return mem_num;
 	}
@@ -132,6 +140,22 @@ public class Member_s {
 
 	public void setMem_grade(String mem_grade) {
 		this.mem_grade = mem_grade;
+	}
+
+	public boolean isIdExist() {
+		return idExist;
+	}
+
+	public void setIdExist(boolean idExist) {
+		this.idExist = idExist;
+	}
+
+	public boolean isMemLogin() {
+		return memLogin;
+	}
+
+	public void setMemLogin(boolean memLogin) {
+		this.memLogin = memLogin;
 	}
 
 }

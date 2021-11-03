@@ -16,6 +16,9 @@ public class Reservation_s {
 	private int res_mnum;
 	private int res_coursenum;
 
+	private int loginNum;
+	private String loginName;
+
 	public String getRes_num() {
 		return res_num;
 	}
@@ -62,6 +65,22 @@ public class Reservation_s {
 
 	public void setRes_coursenum(int res_coursenum) {
 		this.res_coursenum = res_coursenum;
+	}
+
+	public int getLoginNum() {
+		return loginNum;
+	}
+
+	public void setLoginNum(int loginNum) {
+		this.loginNum = loginNum;
+	}
+
+	public String getLoginName() {
+		return loginName;
+	}
+
+	public void setLoginName(String loginName) {
+		this.loginName = loginName;
 	}
 
 }

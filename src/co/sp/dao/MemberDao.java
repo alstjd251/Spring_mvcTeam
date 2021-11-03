@@ -10,9 +10,13 @@ import co.sp.mapper.MemMapper;
 public class MemberDao {
 
 	@Autowired
-	private MemMapper memmapper;
+	private MemMapper memMapper;
 	
 	public void addMember(Member_s memberBean) {
-		memmapper.addMember(memberBean);
+		memMapper.addMember(memberBean);
+	}
+	
+	public Member_s getLoginMemberInfo(Member_s tempLoginMemberBean) {
+		return memMapper.getLoginMemberInfo(tempLoginMemberBean);
 	}
 }

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import co.sp.mapper.MapInter;
+import co.sp.mapper.MemMapper;
 
 // MVC 프로젝트 설정
 
@@ -80,9 +80,9 @@ public class ServletContext implements WebMvcConfigurer {
 	// 쿼리문 실행
 	// mapper를 주입받아 쿼리문을 실행시킨다.
 	@Bean
-	public MapperFactoryBean<MapInter> mapper(SqlSessionFactory fac) throws Exception {
+	public MapperFactoryBean<MemMapper> MemMapper(SqlSessionFactory fac) throws Exception {
 		
-		MapperFactoryBean<MapInter> f = new MapperFactoryBean<MapInter>(MapInter.class);
+		MapperFactoryBean<MemMapper> f = new MapperFactoryBean<MemMapper>(MemMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;
 

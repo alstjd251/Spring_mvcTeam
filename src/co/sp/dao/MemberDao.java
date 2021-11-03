@@ -4,15 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.sp.beans.s_member;
-import co.sp.mapper.MapInter;
+import co.sp.mapper.MemMapper;
 
 @Repository
 public class MemberDao {
 
 	@Autowired
-	private MapInter map;
+	private MemMapper memmapper;
 	
 	public void addMember(s_member member) {
-		map.addMember(member);
+		memmapper.addMember(member);
 	}
 }

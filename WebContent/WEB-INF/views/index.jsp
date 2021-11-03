@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>test</h1>
-<script type="text/javascript">
-	location.href="main";
-</script>
+<h1><a href="main">회원가입</a></h1>
+
 </body>
 </html>

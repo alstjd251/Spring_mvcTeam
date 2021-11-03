@@ -12,7 +12,7 @@ public class MemService {
 	@Autowired
 	private MemberDao memdao;
 	
-	public void addMember(Member_s member) {
-		memdao.addMember(member);
+	public void addMember(Member_s memberBean) {
+		memdao.addMember(memberBean);
 	}
 }

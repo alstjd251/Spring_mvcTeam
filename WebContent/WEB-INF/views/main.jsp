@@ -14,7 +14,7 @@
 	<form:form action="member_proc" method="post" modelAttribute="memberBean">
 			<table>
 			<tr>
-			<td>아이디 : </td>
+			<td><form:label path="mem_id">아이디 : </form:label></td>
 			<td><form:input path="mem_id" /></td>
 			</tr>
 			

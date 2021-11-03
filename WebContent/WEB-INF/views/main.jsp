@@ -65,6 +65,6 @@
 			</table>	
 	</form:form>
 	<br>
-	<img src="<c:url value='img/라면.jpg'/>">
+	<img src="img/라면.jpg">
 </body>
 </html>

@@ -24,6 +24,15 @@
 		</tr>
 		
 		<tr>
+		<td>
+		<form:select path="res_coursenum">
+			<c:forEach var="obj" items="${getCourseIdx }">
+				<form:option value="${obj.course_num }" >${obj.course_names }</form:option>
+			</c:forEach>
+		</form:select>
+		</tr>
+		
+		<tr>
 		<td colspan="2"><form:button>예약완료</form:button></td>
 		</tr>
 	</table>

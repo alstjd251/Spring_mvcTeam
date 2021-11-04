@@ -63,4 +63,5 @@ public class ConfigClass extends AbstractAnnotationConfigDispatcherServletInitia
 		encodingFilter.setEncoding("UTF-8");
 		return new Filter[] { encodingFilter };
 	}
+
 }

@@ -56,8 +56,8 @@ public class MemControl {
 	}
 	
 	@GetMapping("/home")
-	public String home() {
-		
+	public String home(Model m) {
+		m.addAttribute("loginBean", loginBean);
 		return "home";
 	}
 	

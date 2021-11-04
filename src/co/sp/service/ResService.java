@@ -1,5 +1,7 @@
 package co.sp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,14 +12,18 @@ import co.sp.dao.ReservationDao;
 public class ResService {
 
 	@Autowired
-	private ReservationDao resdao;
+	private ReservationDao resDao;
 
 	public void addReservation(Reservation_s reservationBean) {
-		resdao.addReservation(reservationBean);
+		resDao.addReservation(reservationBean);
 	}
 
 	public String getRes_seqval() {
-		String res_numval = resdao.getRes_seqval();
+		String res_numval = resDao.getRes_seqval();
 		return res_numval;
+	}
+
+	public List<Reservation_s> getCourseIdx() {
+		return resDao.getCourseIdx();
 	}
 }

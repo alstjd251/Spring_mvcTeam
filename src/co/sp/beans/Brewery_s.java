@@ -1,6 +1,6 @@
 package co.sp.beans;
 
-public class brewery_s {
+public class Brewery_s {
 //	brew_code varchar2(50)
 //	brew_name varchar2(30)
 //	brew_loc varchar2(100)

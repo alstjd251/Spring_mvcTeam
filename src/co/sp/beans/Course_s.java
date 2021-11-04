@@ -13,7 +13,7 @@ public class Course_s {
 //	c_route6 varchar(50)
 //	c_route7 varchar(50)
 //	c_lcode varchar2(10)
-
+	
 	private int c_coursenum;
 	private String c_coursename;
 	private int c_price;

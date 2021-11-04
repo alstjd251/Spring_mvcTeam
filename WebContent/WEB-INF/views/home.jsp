@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>로그인 된 사용자</h1>
+<h1>${loginBean.mem_name }님 환영합니다.</h1>
 <h2><a href="reservation/main">예약하기</a></h2>
 </body>
 </html>

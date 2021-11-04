@@ -1,5 +1,7 @@
 package co.sp.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
@@ -14,5 +16,8 @@ public interface ResMapper {
 	
 	@Select("SELECT res_num_seq.NEXTVAL FROM DUAL")
 	String getRes_seqval();
+	
+	@Select("select c_coursename as course_names, c_coursenum as course_num from course_s")
+	List<Reservation_s> getCourseIdx();
 	
 }

@@ -64,7 +64,6 @@ public class ServletContext implements WebMvcConfigurer {
 	// DB 접속 정보 관리
 	@Bean
 	public BasicDataSource dataSource() {
-
 		BasicDataSource source = new BasicDataSource();
 		source.setDriverClassName(db_classname);
 		source.setUrl(db_url);
@@ -77,7 +76,6 @@ public class ServletContext implements WebMvcConfigurer {
 	// 쿼리문과 접속 관리 하는 객체
 	@Bean
 	public SqlSessionFactory fac(BasicDataSource source) throws Exception {
-
 		SqlSessionFactoryBean f = new SqlSessionFactoryBean();
 		f.setDataSource(source);
 
@@ -93,7 +91,6 @@ public class ServletContext implements WebMvcConfigurer {
 		MapperFactoryBean<MemMapper> f = new MapperFactoryBean<MemMapper>(MemMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;
-
 	}
 
 	@Bean
@@ -110,7 +107,5 @@ public class ServletContext implements WebMvcConfigurer {
 		MapperFactoryBean<NoticeMapper> f = new MapperFactoryBean<NoticeMapper>(NoticeMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;
-
 	}
-
 }

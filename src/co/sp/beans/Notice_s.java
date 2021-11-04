@@ -14,7 +14,7 @@ public class Notice_s {
 	private String n_noticecontent;
 	private String n_noticedate;
 	private int n_noticecnt;
-	private int n_nnum;
+	private int n_mnum;
 
 	public int getN_noticenum() {
 		return n_noticenum;
@@ -56,12 +56,12 @@ public class Notice_s {
 		this.n_noticecnt = n_noticecnt;
 	}
 
-	public int getN_nnum() {
-		return n_nnum;
+	public int getN_mnum() {
+		return n_mnum;
 	}
 
-	public void setN_nnum(int n_nnum) {
-		this.n_nnum = n_nnum;
+	public void setN_mnum(int n_nnum) {
+		this.n_mnum = n_nnum;
 	}
 
 }

@@ -102,6 +102,7 @@ public class ServletContext implements WebMvcConfigurer {
 
 	}
 
+	@Bean
 	public MapperFactoryBean<NoticeMapper> NoticeMapper(SqlSessionFactory fac) throws Exception {
 
 		MapperFactoryBean<NoticeMapper> f = new MapperFactoryBean<NoticeMapper>(NoticeMapper.class);

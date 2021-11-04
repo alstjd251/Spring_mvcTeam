@@ -19,6 +19,25 @@ public class Reservation_s {
 	private int loginNum;
 	private String loginName;
 
+	private int course_num;
+	private String course_names;
+
+	public int getCourse_num() {
+		return course_num;
+	}
+
+	public void setCourse_num(int course_num) {
+		this.course_num = course_num;
+	}
+
+	public String getCourse_names() {
+		return course_names;
+	}
+
+	public void setCourse_names(String course_names) {
+		this.course_names = course_names;
+	}
+
 	public String getRes_num() {
 		return res_num;
 	}

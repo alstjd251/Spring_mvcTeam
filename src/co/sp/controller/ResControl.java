@@ -2,6 +2,7 @@ package co.sp.controller;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -23,22 +24,24 @@ public class ResControl {
 
 	@Autowired
 	private ResService resService;
-	
+
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
 
 	@GetMapping("/main")
-	public String resmain(@ModelAttribute("reservationBean") Reservation_s reservationBean) {
+	public String resmain(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
+		List<Reservation_s> getCourseIdx = resService.getCourseIdx();
+		m.addAttribute("getCourseIdx", getCourseIdx);
 
 		return "reservation/main";
 	}
 
 	@PostMapping("/reserve")
 	public String reserved(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
-		
+
 		String res_num = resService.getRes_seqval();
-		
-		switch(res_num.length()) {
+
+		switch (res_num.length()) {
 		case 1:
 			res_num = "00000" + res_num;
 			break;
@@ -56,15 +59,16 @@ public class ResControl {
 			break;
 		}
 		String now = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyMMddss"));
-		
+
 		res_num = res_num + now;
-		
+
 		reservationBean.setRes_num(res_num);
 		reservationBean.setLoginNum(loginBean.getMem_num());
 		reservationBean.setLoginName(loginBean.getMem_name());
-		
+
 		resService.addReservation(reservationBean);
-		
+
 		return "reservation/reserve";
 	}
+
 }

@@ -1,6 +1,6 @@
 package co.sp.beans;
 
-public class partners_s {
+public class Partners_s {
 //	partners_code varchar2(10)
 //	partners_name varchar2(30)
 //	partners_tel varchar2(11)

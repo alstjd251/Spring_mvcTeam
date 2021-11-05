@@ -141,7 +141,7 @@ function showSection($idx) {
   });
 }
 /* 광고 또는 배너 사이즈와 js */
-$("#ad").css({ height: innerHeight - 400 + "px" });
+$("#ad").css({ height: innerHeight - 400+ + "px" });
 /*메인페이지 ad 좌우슬라이딩*/
 setInterval(function () {
   //함수 반복

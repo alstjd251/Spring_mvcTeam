@@ -59,6 +59,8 @@ public class ServletContext implements WebMvcConfigurer {
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/resource/**").addResourceLocations("/resource/");
 		registry.addResourceHandler("/img/**").addResourceLocations("/resource/img/");
+		registry.addResourceHandler("/js/**").addResourceLocations("/resource/js/");
+		registry.addResourceHandler("/css/**").addResourceLocations("/resource/css/");
 	}
 
 	// DB 접속 정보 관리

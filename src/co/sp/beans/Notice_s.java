@@ -15,6 +15,9 @@ public class Notice_s {
 	private String n_noticedate;
 	private int n_noticecnt;
 	private int n_mnum;
+	
+	private String mem_name;
+	private String mem_grade;
 
 	public int getN_noticenum() {
 		return n_noticenum;
@@ -64,4 +67,19 @@ public class Notice_s {
 		this.n_mnum = n_nnum;
 	}
 
+	public String getMem_name() {
+		return mem_name;
+	}
+
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
+	}
+
+	public String getMem_grade() {
+		return mem_grade;
+	}
+
+	public void setMem_grade(String mem_grade) {
+		this.mem_grade = mem_grade;
+	}
 }

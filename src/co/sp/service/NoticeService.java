@@ -14,4 +14,16 @@ public class NoticeService {
 	public void addNotice(Notice_s noticeBean) {
 		noticedao.addNotice(noticeBean);
 	}
+	
+	public void deleteNotice(Notice_s noticeBean) {
+		noticedao.deleteNotice(noticeBean);
+	}
+	
+	public void getNotice(Notice_s noticeBean) {
+		noticedao.getNotice(noticeBean);
+	}
+	
+	public void updateNotice(Notice_s noticeBean) {
+		noticedao.updateNotice(noticeBean);
+	}
 }

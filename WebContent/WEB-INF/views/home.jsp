@@ -11,5 +11,6 @@
 <body>
 <h1>${loginBean.mem_name }님 환영합니다.</h1>
 <h2><a href="reservation/main">예약하기</a></h2>
+<h1><a href="board/NoticeRead">글작성</a></h1>
 </body>
 </html>

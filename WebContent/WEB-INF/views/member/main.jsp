@@ -531,17 +531,17 @@
         공지사항 및 문의 게시판입니다
       </div>
       
-<div id="footad" class="sect">
+<div id="footgg" class="sect">
         <div id="ad">
-          <li><a href="#"><img src="${root }img/ad/1330.jpg" class="pimg1"></a></li>
-          <li><a href="#"><img src="${root }img/ad/야놀자.png" class="pimg2"></a></li>
-          <li><a href="#"><img src="${root }img/ad/하미앙.png" class="pimg3"></a></li>
-          <li><a href="#"><img src="${root }img/ad/여긴어때.png" class="pimg4"></a></li>
-          <li><a href="#"><img src="${root }img/ad/숙박대전.jpg" class="pimg5"></a></li></div>
+          <li><a href="#"><img src="${root }img/ad/1330.jpg" class="pimg1"/></a></li>
+          <li><a href="#"><img src="${root }img/ad/야놀자.png" class="pimg2"/></a></li>
+          <li><a href="#"><img src="${root }img/ad/하미앙.png" class="pimg3"/></a></li>
+          <li><a href="#"><img src="${root }img/ad/여긴어때.png" class="pimg4"/></a></li>
+          <li><a href="#"><img src="${root }img/ad/숙박대전.jpg" class="pimg5"/></a></li></div>
         <footer>
           <div class="FOOTER_TOTAL">
                 <div class="F_i F_i1">
-                  <img src="${root }img/footer/MLOGE.jpg">
+                  <img src="${root }img/footer/M_LOGE.jpg"/>
                   <p><strong>대표자</strong>박치언</p>
                   <p><strong>사업자등록번호</strong> 052-34-56789</p>
                   <p>통신판매업신고 제2015-울산울주-0164호</p>
@@ -551,13 +551,13 @@
                   <p><strong>울산광역시 울주군 상북면 향산동길 48</strong></p>
                 </div>
                 <div class="F_i F_i3">
-                  <img src="${root }img/footer/call.png" width="180px">
+                  <img src="${root }img/footer/call.png" width="180px"/>
                   <p>전화 052-879-1234</p>
                   <p>팩스&nbsp;&nbsp;1577-6746</p>
                   <p>soldesk@gmail.com</p>
                 </div>
                 <div class="F_i F_i4">
-                  <img src="${root }img/footer/open.png" width="180px">
+                  <img src="${root }img/footer/open.png" width="180px"/>
                   <p><strong>매주</strong></p>
                   <p id="line"><strong>오전</strong> 9:00 ~ <strong>오후</strong> 18:00</p>
                   <p><strong>매주 월요일 휴무</strong></p>

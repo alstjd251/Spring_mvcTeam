@@ -80,8 +80,16 @@ function sectionResize() {
   var introduce = document.querySelector("#introduce");
   var reservation = document.querySelector("#reservation");
   var board = document.querySelector("#board");
-  var pimg = document.querySelector(".pimg");
-  pimg.style.width = window.innerWidth + "px";
+  var pimg1 = document.querySelector(".pimg1");
+  var pimg2 = document.querySelector(".pimg2");
+  var pimg3 = document.querySelector(".pimg3");
+  var pimg4 = document.querySelector(".pimg4");
+  var pimg5 = document.querySelector(".pimg5");
+  pimg1.style.width = window.innerWidth + "px";
+  pimg2.style.width = window.innerWidth + "px";
+  pimg3.style.width = window.innerWidth + "px";
+  pimg4.style.width = window.innerWidth + "px";
+  pimg5.style.width = window.innerWidth + "px";
   section.style.height = window.innerHeight + "px";
   fade1.style.height = window.innerHeight + "px";
   introduce.style.height = window.innerHeight + "px";
@@ -141,14 +149,14 @@ function showSection($idx) {
   });
 }
 /* 광고 또는 배너 사이즈와 js */
-$("#ad").css({ height: innerHeight - 400+ + "px" });
+$("#ad").css({ height: innerHeight - 400 + "px" });
 /*메인페이지 ad 좌우슬라이딩*/
 setInterval(function () {
   //함수 반복
   $("#ad>li>a").delay(2500); //2.5초 정지
   $("#ad>li>a").animate({ marginLeft: "-200%" });
   $("#ad>li>a").delay(2500);
-  $("#ad>li>a").animate({ marginLeft: "-400%" });
+  $("#gg>li>a").animate({ marginLeft: "-400%" });
   $("#ad>li>a").delay(2500);
   $("#ad>li>a").animate({ marginLeft: "-600%" });
   $("#ad>li>a").delay(2500);

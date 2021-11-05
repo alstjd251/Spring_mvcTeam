@@ -15,7 +15,7 @@
 			<table>
 			<tr>
 			<td><form:label path="mem_id">아이디 : </form:label></td>
-			<td><form:input path="mem_id" /></td>
+			<td><form:input path="mem_id" placeholder="zzzz"/></td>
 			</tr>
 			
 			<tr>

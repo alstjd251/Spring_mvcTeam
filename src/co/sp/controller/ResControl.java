@@ -70,5 +70,10 @@ public class ResControl {
 
 		return "reservation/reserve";
 	}
-
+	
+	@GetMapping("/checkRes")
+	public String checkRes() {
+		return "reservation/checkRes";
+	}
+	
 }

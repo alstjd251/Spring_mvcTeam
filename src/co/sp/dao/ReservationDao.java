@@ -12,19 +12,23 @@ import co.sp.mapper.ResMapper;
 public class ReservationDao {
 
 	@Autowired
-	private ResMapper resmapper;
+	private ResMapper resMapper;
 
 	public void addReservation(Reservation_s reservationBean) {
-		resmapper.addReservation(reservationBean);
+		resMapper.addReservation(reservationBean);
 	}
 
 	public String getRes_seqval() {
-		String res_numval = resmapper.getRes_seqval();
+		String res_numval = resMapper.getRes_seqval();
 		return res_numval;
 	}
 
 	public List<Reservation_s> getCourseIdx() {
-		return resmapper.getCourseIdx();
+		return resMapper.getCourseIdx();
+	}
+	
+	public List<Reservation_s> getAllList(String mem_num) {
+		return resMapper.getAllList(mem_num);
 	}
 
 }

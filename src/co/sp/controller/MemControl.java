@@ -64,8 +64,8 @@ public class MemControl {
 	}
 	
 	@GetMapping("/mypage")
-	public String mypg() {
-		
+	public String mypg(Model m) {
+		m.addAttribute("loginBean", loginBean);
 		return "member/mypage";
 	}
 	

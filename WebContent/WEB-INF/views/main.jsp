@@ -225,7 +225,12 @@
                 <form:input type="email" placeholder="이메일 입력" path="mem_mail" />
               </td>
             </tr>
-
+            <tr height="40">
+              <td align="right" width="100">연락처 :</td>
+              <td>
+                <form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" />
+              </td>
+            </tr>
             <tr height="40">
               <td align="right" width="100">주소 :</td>
               <td>

@@ -149,18 +149,18 @@ function showSection($idx) {
   });
 }
 /* 광고 또는 배너 사이즈와 js */
-$("#ad").css({ height: innerHeight - 400 + "px" });
+$("#gg").css({ height: innerHeight - 400 + "px" });
 /*메인페이지 ad 좌우슬라이딩*/
 setInterval(function () {
   //함수 반복
-  $("#ad>li>a").delay(2500); //2.5초 정지
-  $("#ad>li>a").animate({ marginLeft: "-200%" });
-  $("#ad>li>a").delay(2500);
+  $("#gg>li>a").delay(2500); //2.5초 정지
+  $("#gg>li>a").animate({ marginLeft: "-200%" });
+  $("#gg>li>a").delay(2500);
   $("#gg>li>a").animate({ marginLeft: "-400%" });
-  $("#ad>li>a").delay(2500);
-  $("#ad>li>a").animate({ marginLeft: "-600%" });
-  $("#ad>li>a").delay(2500);
-  $("#ad>li>a").animate({ marginLeft: "-800%" });
-  $("#ad>li>a").delay(2500);
-  $("#ad>li>a").animate({ marginLeft: "0" }, "fast");
+  $("#gg>li>a").delay(2500);
+  $("#gg>li>a").animate({ marginLeft: "-600%" });
+  $("#gg>li>a").delay(2500);
+  $("#gg>li>a").animate({ marginLeft: "-800%" });
+  $("#gg>li>a").delay(2500);
+  $("#gg>li>a").animate({ marginLeft: "0" }, "fast");
 });

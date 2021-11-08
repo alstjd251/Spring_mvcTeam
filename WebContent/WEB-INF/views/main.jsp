@@ -10,15 +10,16 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="${root }css/main.css?after" />
+    <link rel="stylesheet" href="${root }css/mainCss.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="${root }js/zip.js"></script>
 <title>Sul Sure</title>
 </head>
 <body>
+<div id="modalBg"></div>
 <!-- 로그인 모달 -->
-    <div id="be_login_modal">
+    <div id="be_login_modal" display="none">
       <div class="be_login">
         <div class="be_login-screen">
           <div class="be_login-title">
@@ -26,7 +27,7 @@
             <h1 class="modal_h">로그인</h1>
           </div>
           <div class="be_login-form">
-            <form:form action="member/login_proc" modelAttribute="memberBean">
+            <form:form action="member/login_proc" method="post" modelAttribute="memberBean">
             <div class="be_control-group">
               <form:input
               	path="mem_id"
@@ -167,7 +168,7 @@
           "
         >
           <h2>회원가입</h2>
-          <form:form action="member_proc" modelAttribute="memberBean">
+          <form:form action="member/member_proc" method="post" modelAttribute="memberBean">
           <table>
             <tr height="40">
               <td align="right" width="100">아이디 :</td>
@@ -186,12 +187,10 @@
             <tr height="40">
               <td align="right" width="100">비밀번호 :</td>
               <td>
-                <input
-                  type="password"
-                  name="pwd"
+                <form:password
                   maxlength="20"
                   placeholder="비밀번호입력"
-                  name="mem_pw"
+                  path="mem_pw"
                 />
               </td>
             </tr>
@@ -199,27 +198,23 @@
             <tr height="40">
               <td align="right" width="100">이름 :</td>
               <td>
-                <input
-                  type="text"
-                  name="name"
+                <form:input
                   maxlength="20"
                   placeholder="이름입력"
-                  name="mem_name"
+                  path="mem_name"
                 />
               </td>
             </tr>
             <tr height="40">
               <td align="right" width="100">주민번호 :</td>
               <td>
-                <input
-                  type="text"
-                  name="birth"
+                <form:input
                   maxlength="6"
                   placeholder="생년월일 6자리 000000"
-                  name="mem_joomin"
+                  path="mem_joomin"
                 />
                 -
-                <input type="text" name="gender" maxlength="1" size="1" name="mem_gender" />
+                <form:input path="mem_gender" maxlength="1" size="1" />
                 ******
               </td>
             </tr>
@@ -227,41 +222,32 @@
             <tr height="40">
               <td align="right" width="100">이메일 :</td>
               <td>
-                <input type="email" name="email" placeholder="이메일 입력" name="mem_mail" />
+                <form:input type="email" placeholder="이메일 입력" path="mem_mail" />
               </td>
             </tr>
 
             <tr height="40">
               <td align="right" width="100">주소 :</td>
               <td>
-                <input
-                  type="text"
+                <form:input
                   id="sample6_postcode"
                   placeholder="우편번호"
-                  name="mem_post"
+                  path="mem_post"
                 />
                 <input
                   type="button"
                   onclick="sample6_execDaumPostcode()"
                   value="우편번호 찾기"
                 /><br />
-                <input
-                  type="text"
+                <form:input
                   id="sample6_address"
                   placeholder="주소"
-                  name="mem_addr1"
+                  path="mem_addr1"
                 /><br />
-                <input
-                  type="text"
+                <form:input
                   id="sample6_detailAddress"
                   placeholder="상세주소"
-                  name="mem_addr2"
-                />
-                <input
-                  type="text"
-                  id="sample6_extraAddress"
-                  placeholder="참고항목"
-                  name="mem_grade"
+                  path="mem_addr2"
                 />
               </td>
             </tr>
@@ -269,7 +255,6 @@
               <td colspan="2">
                 <input type="reset" value="다시 쓰기" />
                 <form:button>가입완료</form:button>
-                />
               </td>
             </tr>
           </table>
@@ -539,7 +524,7 @@
       </div>
       
 <div id="footgg" class="sect">
-        <div id="ad">
+        <div id="gg">
           <li><a href="#"><img src="${root }img/ad/1330.jpg" class="pimg1"/></a></li>
           <li><a href="#"><img src="${root }img/ad/야놀자.png" class="pimg2"/></a></li>
           <li><a href="#"><img src="${root }img/ad/하미앙.png" class="pimg3"/></a></li>
@@ -574,7 +559,8 @@
         </footer>
       </div>
     </div>
-    <script type="text/javascript" src="${root }js/sooldesk.js"></script>
+    <script type="text/javascript" src="${root }js/sooldesk2.js"></script>
+    <script type="text/javascript" src="${root }js/modal.js"></script>
     <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

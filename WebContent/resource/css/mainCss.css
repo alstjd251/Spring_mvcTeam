@@ -9,6 +9,8 @@ header {
   position: fixed;
   z-index: 100;
 }
+
+/* header 로고 css */
 header .logo {
   width: 200px;
   height: 60px;
@@ -23,6 +25,8 @@ header .logo a img {
   width: 100%;
   height: 100%;
 }
+
+/* header 메뉴 css */
 header .menu_bar {
   display: flex;
   height: 60px;
@@ -41,6 +45,8 @@ header .menu_bar li a {
   font-size: 20px;
   font-weight: 700;
 }
+
+/* header 로그인 css */
 header .login {
   width: 200px;
   height: 60px;
@@ -53,14 +59,21 @@ header .login a img {
   margin-top: 5px;
 }
 header .login #logout_button {
+  padding: 2px ;
+  font-weight: bold;
   text-decoration: none;
-  color: gray;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: black;
   position: absolute;
   bottom: 10px;
 }
 header .login #logout_button:hover {
-  text-decoration: underline;
+  border-color: gray;
+  color: gray;
 }
+
+/* 섹션 풀페이지 적용 css */
 .section {
   width: 100%;
   margin: 0;
@@ -87,23 +100,8 @@ header .login #logout_button:hover {
   height: 100%;
   opacity: 0.85;
 }
-.section #footad {
-  display: flex;
-  flex-direction: column;
-}
-.section #footad #ad {
-  display: flex;
-  margin-top: 60px;
-  margin-bottom: 40px;
-}
-.section #footad #ad li {
-  list-style: none;
-  width: 100%;
-}
 
-.section #footad #ad li img {
-  height: 100%;
-}
+/* 양조장 코스 01 ( 서울, 경기, 충청) */
 #yang01 #yang01-course {
   display: flex;
   align-items: center;
@@ -117,10 +115,14 @@ header .login #logout_button:hover {
   margin-left: 10%;
   margin-right: 10%;
   height: 30%;
+  margin-top: 40px;
 }
 .chi-course01 #course01-text01 {
   margin-left: auto;
   vertical-align: middle;
+  height: 100%;
+}
+.chi-course01 #course01-image01 {
   height: 100%;
 }
 .chi-course01 #course01-image01 img {
@@ -140,6 +142,9 @@ header .login #logout_button:hover {
   vertical-align: middle;
   height: 100%;
 }
+.chi-course02 #course01-image02 {
+  height: 100%;
+}
 .chi-course02 #course01-image02 img {
   width: 300px;
   height: 100%;
@@ -154,6 +159,7 @@ header .login #logout_button:hover {
 }
 .chi-course03 #course01-image03 {
   margin-right: 5%;
+  height: 100%;
 }
 .chi-course03 #course01-text03 {
   margin-left: auto;
@@ -164,6 +170,7 @@ header .login #logout_button:hover {
   width: 300px;
   height: 100%;
 }
+
 /* <!--양조장 코스 02 (전라도 ,경상북도, 경상남도)--> */
 #yang02 #yang02-course {
   display: flex;
@@ -177,14 +184,20 @@ header .login #logout_button:hover {
   width: 60%;
   margin-left: 10%;
   margin-right: 10%;
+  height: 30%;
+  margin-top: 40px;
 }
 .chi-course04 #course02-text04 {
   margin-right: auto;
   vertical-align: middle;
+  height: 100%;
+}
+.chi-course04 #course02-image04 {
+  height: 100%;
 }
 .chi-course04 #course02-image04 img {
   width: 350px;
-  height: 300px;
+  height: 100%;
 }
 .chi-course05 {
   display: flex;
@@ -192,10 +205,14 @@ header .login #logout_button:hover {
   width: 60%;
   margin-left: 10%;
   margin-right: 10%;
+  height: 30%;
 }
 .chi-course05 #course02-text05 {
   margin-left: auto;
   vertical-align: middle;
+}
+.chi-course05 #course02-image05 {
+  height: 100%;
 }
 .chi-course05 #course02-image05 img {
   width: 400px;
@@ -207,15 +224,40 @@ header .login #logout_button:hover {
   width: 60%;
   margin-left: 10%;
   margin-right: 10%;
+  height: 30%;
 }
 .chi-course06 #course02-text06 {
   margin-right: auto;
   vertical-align: middle;
 }
+.chi-course06 #course02-image06 {
+  height: 100%;
+}
 .chi-course06 #course02-image06 img {
   width: 400px;
-  height: 350px;
+  height: 100%;
 }
+
+/* 광고 css */
+.section #footgg {
+  display: flex;
+  flex-direction: column;
+}
+.section #footgg #gg {
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+.section #footgg #gg li {
+  list-style: none;
+  width: 100%;
+}
+
+.section #footgg #gg li img {
+  height: 100%;
+}
+
+/* footer css */
 footer {
   background-color: rgb(201, 154, 67, 0.4);
   width: 100%;
@@ -248,11 +290,11 @@ footer {
 .F_i #line {
   border-bottom: 3px solid;
 }
+
 /* 로그인 모달 css */
 #be_login_modal {
   display: none;
 }
-
 #be_login_modal .be_close_btn {
   position: absolute;
   top: 10px;
@@ -268,19 +310,16 @@ footer {
   padding: 20px;
   border-radius: 5px;
 }
-
 .be_login-title {
   text-align: center;
   color: #777;
 }
-
 .be_login-form {
   text-align: center;
 }
 .be_control-group {
   margin-bottom: 10px;
 }
-
 .be_login input {
   text-align: center;
   background-color: #eac7a1;
@@ -292,12 +331,10 @@ footer {
   width: 250px;
   transition: border 0.5s;
 }
-
 .be_login input:focus {
   border: 2px solid #ad7954;
   box-shadow: none;
 }
-
 .be_login .btn {
   border: 2px solid transparent;
   background: #ad7954;
@@ -314,11 +351,9 @@ footer {
   width: 250px;
   margin: 0 auto;
 }
-
 .be_login .btn:hover {
   background-color: #eac7a1;
 }
-
 #id_pw_search,
 #new_login,
 #new_com_login {
@@ -327,11 +362,9 @@ footer {
   display: block;
   margin-top: 12px;
 }
-
 .be_close_btn:hover {
   cursor: pointer;
 }
-
 .be_close_btn1:hover {
   cursor: pointer;
 }

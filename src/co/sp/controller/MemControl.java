@@ -33,7 +33,7 @@ public class MemControl {
 	@PostMapping("/member_proc")
 	public String join(@ModelAttribute("memberBean") Member_s memberBean) {
 		ms.addMember(memberBean);
-		return "/page";
+		return "member/join_success";
 	}
 	
 //	@GetMapping("/login")

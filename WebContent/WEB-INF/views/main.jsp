@@ -419,15 +419,15 @@
       </div>
       <div class="login">
       <c:choose>
-      <c:when test="${loginBean.memLogin == false }">
-      <a href="#" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
-      <a href="#" id="mypage_open_btn" style="display:none;"><img src="${root }img/menu_bar/mypage.jpg"/></a>
-      </c:when>
-      <c:otherwise>
-      <a href="#" id="popup_open_btn" style="display:none;"><img src="${root }img/menu_bar/loginimg.png"/></a>
-      <a href="${root }member/mypage"><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/></a>
-      <a href="member/logout_proc" id="logout_button">로그아웃</a>
-      </c:otherwise>
+	    <c:when test="${loginBean.memLogin == false }">
+	      	<a href="#" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
+	      	<a href="#" id="mypage_open_btn" style="display:none;"><img src="${root }img/menu_bar/mypage.jpg"/></a>
+      	</c:when>
+		<c:otherwise>
+			<a href="#" id="popup_open_btn" style="display:none;"><img src="${root }img/menu_bar/loginimg.png"/></a>
+			<a href="${root }member/mypage"><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/></a>
+			<a href="member/logout_proc" id="logout_button">로그아웃</a>
+		</c:otherwise>
       </c:choose>
       </div>
     </header>

@@ -52,6 +52,15 @@ header .login a img {
   height: 60px;
   margin-top: 5px;
 }
+header .login #logout_button {
+  text-decoration: none;
+  color: gray;
+  position: absolute;
+  bottom: 10px;
+}
+header .login #logout_button:hover {
+  text-decoration: underline;
+}
 .section {
   width: 100%;
   margin: 0;

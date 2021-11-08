@@ -57,6 +57,18 @@ public class MemControl {
 		
 	}
 	
+	@GetMapping("/logout_proc")
+	public String logout_proc() {
+		loginBean.setMemLogin(false);
+		return "member/logout_success";
+	}
+	
+	@GetMapping("/mypage")
+	public String mypg() {
+		
+		return "member/mypage";
+	}
+	
 	@GetMapping("/home")
 	public String home(Model m) {
 		m.addAttribute("loginBean", loginBean);

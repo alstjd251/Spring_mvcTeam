@@ -5,6 +5,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <c:set var='root' value="${pageContext.request.contextPath }/"/>
 <script>
-	alert('로그인 되었습니다')
+	alert('로그아웃 완료')
 	location.href = '${root}main'
 </script>

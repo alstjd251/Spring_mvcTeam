@@ -24,11 +24,11 @@ public class MemControl {
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
 
-	@GetMapping("/main")
-	public String main(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
-	
-		return "member/main";
-	}
+//	@GetMapping("/main")
+//	public String main(@ModelAttribute("memberBean") Member_s tempLoginMemberBean,  @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
+//		m.addAttribute("fail", fail);
+//		return "member/main";
+//	}
 	
 	@PostMapping("/member_proc")
 	public String join(@ModelAttribute("memberBean") Member_s memberBean) {
@@ -36,25 +36,37 @@ public class MemControl {
 		return "/page";
 	}
 	
-	@GetMapping("/login")
-	public String login(@ModelAttribute("tempLoginMemberBean") Member_s tempLoginMemberBean, @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
-		
-		m.addAttribute("fail", fail);
-		
-		return "/login";
-	}
+//	@GetMapping("/login")
+//	public String login(@ModelAttribute("tempLoginMemberBean") Member_s tempLoginMemberBean, @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
+//		
+//		m.addAttribute("fail", fail);
+//		
+//		return "/login";
+//	}
 	
 	@PostMapping("/login_proc")
-	public String login_proc(@ModelAttribute("tempLoginMemberBean") Member_s tempLoginMemberBean) {
+	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean) {
 		
-		ms.getLoginMemberInfo(tempLoginMemberBean);
+		ms.getLoginMemberInfo(memberBean);
 		
 		if(loginBean.isMemLogin() == true) {
-			return "/login_success";
+			return "member/login_success";
 		} else {
-			return "/login_fail";
+			return "member/login_fail";
 		}
 		
+	}
+	
+	@GetMapping("/logout_proc")
+	public String logout_proc() {
+		loginBean.setMemLogin(false);
+		return "member/logout_success";
+	}
+	
+	@GetMapping("/mypage")
+	public String mypg() {
+		
+		return "member/mypage";
 	}
 	
 	@GetMapping("/home")

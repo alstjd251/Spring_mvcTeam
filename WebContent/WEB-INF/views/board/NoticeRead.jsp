@@ -34,6 +34,7 @@
 			<tr>
 				<td colspan="2">
 					<form:button>목록</form:button>
+					<a href = "${root }board/NoticeDelete">삭제</a>
 				</td>
 			</tr>
 		</table>

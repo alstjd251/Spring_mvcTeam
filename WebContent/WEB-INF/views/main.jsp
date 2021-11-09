@@ -19,7 +19,7 @@
 <body>
 <div id="modalBg"></div>
 <!-- 로그인 모달 -->
-    <div id="be_login_modal" display="none">
+    <div id="be_login_modal" style="display:none;">
       <div class="be_login">
         <div class="be_login-screen">
           <div class="be_login-title">
@@ -48,10 +48,7 @@
               />
               <label class="login-field-icon fui-lock" for="login-pass"></label>
             </div>
-            <form:button
-              class="btn btn-primary btn-large btn-block"
-              
-            >로그인</form:button>
+            <form:button class="btn btn-primary btn-large btn-block">로그인</form:button>
             </form:form>
             <a id="id_pw_search" href="#">아이디/비밀번호 찾기</a>
             <a id="new_login" href="#">회원 가입</a>

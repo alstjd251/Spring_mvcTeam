@@ -75,4 +75,6 @@ public class MemControl {
 		return "home";
 	}
 	
+//	@PostMapping("/idFinder")
+//	public 
 }

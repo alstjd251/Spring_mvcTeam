@@ -1,5 +1,7 @@
 package co.sp.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
 import co.sp.beans.Notice_s;
@@ -37,12 +38,27 @@ public class NoticeControl {
 	}
 	
 	@GetMapping("/NoticeList")
-	public String read(@RequestParam("n_noticetitle") String n_noticetitle, 
+	public String list(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		List<Notice_s> nl = ns.getNotice(noticeBean);
+		m.addAttribute("noticeList", nl);
+		return "board/NoticeList";
+	}
+	
+	@GetMapping("/NoticeWrite")
+	public String write(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		m.addAttribute("noticeBean", noticeBean);
+		return "board/NoticeWrite";
+	}
+	/*
+	@GetMapping("/NoticeList")
+	public String read(@RequestParam("n_noticecontent") String n_noticecontent, @RequestParam("n_noticetitle") String n_noticetitle, 
 					   Model m) {
 		m.addAttribute("loginBean", loginBean);
 		m.addAttribute("n_noticetitle", n_noticetitle);
+		m.addAttribute("n_noticecontent", n_noticecontent);
 		
 		return "board/NoticeList";
 	}
+	*/
 }
 

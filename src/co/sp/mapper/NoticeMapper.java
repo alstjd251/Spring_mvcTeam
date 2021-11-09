@@ -1,5 +1,7 @@
 package co.sp.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -14,8 +16,8 @@ public interface NoticeMapper {
 	@Delete("delete from notice_s where n_mnum LIKE #{n_mnum}")
 	void deleteNotice(Notice_s noticeBean);
 	
-	@Select("select n.*, m.mem_name, m.mem_grade from notice_s n, member_s m where m.mem_num LIKE #{n.n_mnum}")
-	void getNotice(Notice_s noticeBean);
+	@Select("select n.*, m.mem_name, m.mem_grade from notice_s n, member_s m where m.mem_num LIKE #{n_mnum}")
+	List<Notice_s> getNotice(Notice_s noticeBean);
 	
 	@Update("update notice_s set n_noticetitle = #{n_noticetitle}, n_noticecontent = #{n_noticecontent} where n_mnum LIKE #{n_mnum}")
 	void updateNotice(Notice_s noticeBean);

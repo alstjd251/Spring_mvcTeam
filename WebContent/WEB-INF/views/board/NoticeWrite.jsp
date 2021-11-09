@@ -20,11 +20,11 @@
 				</tr>
 				<tr>
 					<th>내용 :</th>
-					<td><textarea cols="80" rows="30" placeholder="내용을 입력하세요."></textarea></td>
+					<td><form:textarea cols="80" rows="30" placeholder="내용을 입력하세요." path="n_noticecontent"></form:textarea></td>
 				</tr>
 			</tbody>
 		</table>
-		<input type="submit" value="저장하기">
+		<form:button>작성완료</form:button>
 	</form:form>
 </body>
 </html>

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html>
 
@@ -136,20 +137,22 @@ tbody.cs-tbody {
 						</thead>
 						<tbody class="cs-tbody">
 							<!--게시글 <td> 들어가는 곳-->
-							<tr>
-								<td>1</td>
-								<td>아니,이거 왜 이래! 살려조..</td>
-								<td>2021-11-07</td>
-								<td>1002</td>
-								<td>0</td>
-							</tr>
+							<c:forEach var='obj' items="${noticeList }">
+								<tr>
+									<td></td>
+									<td>${obj.n_noticetitle }</td>
+									<td></td>
+									<td>${obj.mem_name }</td>
+									<td></td>
+								</tr>
+							</c:forEach>
 						</tbody>
 					</table>
 					<hr>
 					<!--관리자용! 일반페이지에는 없앨것-->
 					<div id="cs-button">
 						<button>
-							<a href="">글쓰기</a>
+							<a href="${root }board/NoticeWrite">글쓰기</a>
 						</button>
 					</div>
 				</div>

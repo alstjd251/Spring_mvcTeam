@@ -1,5 +1,7 @@
 package co.sp.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +21,8 @@ public class NoticeService {
 		noticedao.deleteNotice(noticeBean);
 	}
 	
-	public void getNotice(Notice_s noticeBean) {
-		noticedao.getNotice(noticeBean);
+	public List<Notice_s> getNotice(Notice_s noticeBean) {
+		return noticedao.getNotice(noticeBean);
 	}
 	
 	public void updateNotice(Notice_s noticeBean) {

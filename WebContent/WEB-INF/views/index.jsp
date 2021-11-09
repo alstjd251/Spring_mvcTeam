@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1><a href="main">회원가입</a></h1>
+<h1><a href="main">메인으로</a></h1>
 <h1><a href="board/NoticeRead">글작성</a></h1>
 </body>
 </html>

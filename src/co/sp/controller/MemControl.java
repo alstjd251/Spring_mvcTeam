@@ -33,7 +33,7 @@ public class MemControl {
 	@PostMapping("/member_proc")
 	public String join(@ModelAttribute("memberBean") Member_s memberBean) {
 		ms.addMember(memberBean);
-		return "/page";
+		return "member/join_success";
 	}
 	
 //	@GetMapping("/login")
@@ -64,8 +64,8 @@ public class MemControl {
 	}
 	
 	@GetMapping("/mypage")
-	public String mypg() {
-		
+	public String mypg(Model m) {
+		m.addAttribute("loginBean", loginBean);
 		return "member/mypage";
 	}
 	
@@ -75,4 +75,6 @@ public class MemControl {
 		return "home";
 	}
 	
+//	@PostMapping("/idFinder")
+//	public 
 }

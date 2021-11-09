@@ -18,7 +18,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form:form action="notice_proc" method="post"
+	<form:form action="NoticeList" method="post"
 		modelAttribute="noticeBean">
 		<table>
 			<tr>
@@ -28,7 +28,13 @@
 
 			<tr>
 				<td><form:label path="n_noticecontent">글내용 : </form:label></td>
-				<td><form:input path="n_noticecontent" /></td>
+				<td><form:textarea path="n_noticecontent" /></td>
+			</tr>
+			
+			<tr>
+				<td colspan="2">
+					<form:button>목록</form:button>
+				</td>
 			</tr>
 		</table>
 	</form:form>

@@ -75,6 +75,11 @@ public class MemControl {
 		return "home";
 	}
 	
-//	@PostMapping("/idFinder")
-//	public 
+	@PostMapping("/idFinder")
+	public String idFinder(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		memberBean = ms.getFindId(memberBean);
+		m.addAttribute("memberBean", memberBean);
+		
+		return  "member/idFinder";
+	}
 }

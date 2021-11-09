@@ -17,9 +17,9 @@
 <title>Sul Sure</title>
 </head>
 <body>
-<div id="modalBg"></div>
-<!-- 로그인 모달 -->
-    <div id="be_login_modal" style="display:none;">
+<c:import url="/WEB-INF/views/include/modal.jsp"/>
+<%-- <!-- 로그인 모달 -->
+     <div id="be_login_modal" style="display:none;">
       <div class="be_login">
         <div class="be_login-screen">
           <div class="be_login-title">
@@ -52,7 +52,6 @@
             </form:form>
             <a id="id_pw_search" href="#">아이디/비밀번호 찾기</a>
             <a id="new_login" href="#">회원 가입</a>
-            <a id="new_com_login" href="#">기업 가입</a>
           </div>
         </div>
       </div>
@@ -86,63 +85,57 @@
           >
             <div class="be_idpwsearch-idsearch">
               <h3 style="text-align: center">아이디 찾기</h3>
+              <form:form action="member/idFinder" modelAttribute="memberBean">
               이름 :
-              <input
-                type="text"
+              <form:input
                 class="id-search"
-                value=""
                 placeholder="이름"
-                name="mem_name"
+                path="mem_name"
                 style="margin-bottom: 10px; width: 200px; height: 30px"
               /><br />
               주민번호 :
-              <input
-                type="text"
+              <form:input
                 class="id-search"
                 value=""
                 placeholder="주민번호 앞 6자리"
-                name="mem_joomin"
+                maxlength="6"
+                path="mem_joomin"
                 style="margin-bottom: 20px; width: 200px; height: 30px"
               /><br />
-              <input
-                type="submit"
-                value="아이디 찾기"
+              <form:button
                 id="idsearch"
                 style="width: 200px; height: 50px"
-              />
+              >아이디 찾기</form:button>
+              </form:form>
             </div>
             <div class="be_idpwsearch-pwsearch">
               <h3 style="text-align: center">비밀번호 찾기</h3>
+              <form:form action="member/pwFinder" modelAttribute="memberBean">
               아이디 :
-              <input
-                type="text"
+              <form:input
                 class="pw-search"
-                value=""
                 placeholder="아이디 입력"
-                name="mem_id"
+                path="mem_id"
                 style="margin-bottom: 10px; width: 200px; height: 30px"
               />
               <br />
               이름 :
-              <input
-                type="text"
+              <form:input
                 class="pw-search"
-                value=""
                 placeholder="이름"
-                name="mem_name"
+                path="mem_name"
                 style="margin-bottom: 10px; width: 200px; height: 30px"
               />
               <br />
               주민번호 :
-              <input
-                type="text"
+              <form:input
                 class="pw-search"
-                value=""
                 placeholder="주민번호 앞 6자리"
-                name="mem_joomin"
+                path="mem_joomin"
                 style="margin-bottom: 10px; width: 200px; height: 30px"
               /><br />
-              <input type="submit" value="비밀번호 찾기" id="pwsearch" />
+              <form:button id="pwsearch" >비밀번호 찾기</form:button>
+              </form:form>
             </div>
           </div>
         </div>
@@ -158,12 +151,13 @@
           style="
             border: 2px double black;
             width: 500px;
-            height: 400px;
+            height: 500px;
             padding: 20px;
             background-color: bisque;
             text-align: center;
           "
         >
+          <a class="be_close_btn2" style="position: absolute; top: 10px; right: 10px">닫기</a>
           <h2>회원가입</h2>
           <form:form action="member/member_proc" method="post" modelAttribute="memberBean">
           <table>
@@ -263,140 +257,11 @@
           </form:form>
         </div>
       </div>
-      <!-- 기업가입 -->
-      <div class="new_com_login" style="display: none">
-        <div
-          style="
-            border: 2px double black;
-            width: 500px;
-            height: 500px;
-            padding: 20px;
-            background-color: bisque;
-            text-align: center;
-          ">
-          <h2>기업가입</h2>
-          <table>
-            <tr height="40">
-              <td align="right" width="100">사업자 번호 :</td>
-              <td>
-                <input
-                  type="text"
-                  name="partners_code"
-                  id="p_code"
-                  maxlength="10"
-                  placeholder="사업자 번호 입력 -없이 입력하세요"
-                />
-              </td>
-            </tr>
-            <tr height="40">
-              <td align="right" width="100">대표자 이름 :</td>
-              <td>
-                <input
-                  type="text"
-                  name="partners_name"
-                  id="p_name"
-                  maxlength="20"
-                  placeholder="대표자 이름 입력"
-                />
-              </td>
-            </tr>
-            <tr height="40">
-              <td align="right" width="100">대표자 휴대폰 번호 :</td>
-              <td>
-                <input
-                  type="tel"
-                  name="partners_tel"
-                  id="p_tel"
-                  maxlength="20"
-                  placeholder="대표자 휴대폰 입력"
-                />
-              </td>
-            </tr>
-            <tr height="40">
-              <td align="right" width="100">대표자 이메일 :</td>
-              <td>
-                <input
-                  type="tel"
-                  name="partners_mail"
-                  id="p_mail"
-                  maxlength="20"
-                  placeholder="대표자 이메일 입력"
-                />
-              </td>
-            </tr>
-            <tr height="40">
-              <td align="right" width="100">양조장 이름 :</td>
-              <td>
-                <input
-                  type="text"
-                  name="brew_name"
-                  id="b_name"
-                  maxlength="20"
-                  placeholder="양조장 이름 입력"
-                />
-              </td>
-            </tr>
-            <tr height="40">
-              <td align="right" width="100">주소 :</td>
-              <td>
-                <input
-                  type="text"
-                  id="sample6_postcode"
-                  placeholder="우편번호"
-                />
-                <input
-                  type="button"
-                  onclick="sample6_execDaumPostcode()"
-                  value="우편번호 찾기"
-                /><br />
-                <input
-                  type="text"
-                  id="sample6_address"
-                  placeholder="주소"
-                /><br />
-                <input
-                  type="text"
-                  id="sample6_detailAddress"
-                  placeholder="상세주소"
-                />
-                <input
-                  type="text"
-                  id="sample6_extraAddress"
-                  placeholder="참고항목"
-                />
-              </td>
-            </tr>
-            <tr height="40">
-              <td align="right" width="100">양조장 연락처 :</td>
-              <td>
-                <input
-                  type="tel"
-                  name="brew_tel"
-                  id="b_tel"
-                  maxlength="20"
-                  placeholder="양조장 연락처 입력"
-                />
-              </td>
-            </tr>
-            <tr height="40" style="text-align: center">
-              <td colspan="2">
-                <input type="reset" value="다시 쓰기" />
-                <input
-                  type="submit"
-                  onclick="return checkform()"
-                  value="가입완료"
-                />
-              </td>
-            </tr>
-          </table>
-        </div>
-      </div>
-    </div>
-
+    </div> --%>
     <!-- 헤더 -->
     <header>
       <div class="logo">
-        <a href="#"><img src="${root }img/menu_bar/logoimg.jpg" /></a>
+        <a href="${root }main"><img src="${root }img/menu_bar/logoimg.jpg" /></a>
       </div>
       <div class="menu_bar">
         <li><a href="#기관소개">기관소개</a></li>
@@ -407,12 +272,15 @@
       <div class="login">
       <c:choose>
 	    <c:when test="${loginBean.memLogin == false }">
-	      	<a href="#" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
+	      	<a style="position:absolute; right:5em;" href="#" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
 	      	<a href="#" id="mypage_open_btn" style="display:none;"><img src="${root }img/menu_bar/mypage.jpg"/></a>
       	</c:when>
 		<c:otherwise>
 			<a href="#" id="popup_open_btn" style="display:none;"><img src="${root }img/menu_bar/loginimg.png"/></a>
-			<a href="${root }member/mypage"><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/></a>
+			<a href="${root }member/mypage">
+			<span><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/>
+			<span id="my_name">${loginBean.mem_name }님</span></span>
+			</a>
 			<a href="member/logout_proc" id="logout_button">로그아웃</a>
 		</c:otherwise>
       </c:choose>

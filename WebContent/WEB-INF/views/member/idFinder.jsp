@@ -12,16 +12,24 @@
 </head>
 <body>
 <script type="text/javascript">
+var id = '${memberBean.mem_id}';
+if(id == ""){
+	Swal.fire({
+		title : "아이디 찾기 결과",
+	    text  : "가입된 회원정보가 없습니다.",
+	    closeOnClickOutside : false
+	}).then(function(){
+		location.href="${root}main";
+	});
+}else{
 Swal.fire({
 	title : "아이디 찾기 결과",
-    text  : "${memberBean.mem_id}",
+    text  : "회원님의 아이디는 '${memberBean.mem_id}' 입니다.",
     closeOnClickOutside : false
 }).then(function(){
 	location.href="${root}main";
 });
-
-//Swal.fire("${memberBean.mem_id}");
-
+}
 </script>
 </body>
 </html>

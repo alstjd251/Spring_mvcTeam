@@ -102,7 +102,6 @@ public class ServletContext implements WebMvcConfigurer {
 		MapperFactoryBean<ResMapper> f = new MapperFactoryBean<ResMapper>(ResMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;
-
 	}
 
 	@Bean

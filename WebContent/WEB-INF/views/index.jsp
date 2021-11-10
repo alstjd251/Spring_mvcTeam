@@ -12,7 +12,7 @@
 Swal.fire({
 	title : "PROJECT NAME 'SUL SURE'",
     text  : "by soldesk 2팀",
-    closeOnClickOutside : false
+    closeOnClickOutside : false,
 }).then(function(){
 	location.href="${root}main";
 });

@@ -9,7 +9,6 @@ header {
   position: fixed;
   z-index: 100;
 }
-
 /* header 로고 css */
 header .logo {
   width: 200px;
@@ -48,21 +47,33 @@ header .menu_bar li a {
 
 /* header 로그인 css */
 header .login {
-  width: 200px;
+  width: 240px;
   height: 60px;
   position: absolute;
   right: 0;
 }
+
+header .login a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 header .login a img {
   width: 60px;
   height: 60px;
   margin-top: 5px;
 }
+header .login a span #my_name {
+  position: absolute; 
+  bottom:15px;
+}
 header .login #logout_button {
-  margin-left: 1em;
+  margin-left: 5em;
   padding: 2px ;
   font-weight: bold;
   text-decoration: none;
+  text-align: right;
   border: 2px solid black;
   border-radius: 10px;
   color: black;
@@ -363,9 +374,14 @@ footer {
   display: block;
   margin-top: 12px;
 }
+
+/* 닫기버튼 hover */
 .be_close_btn:hover {
   cursor: pointer;
 }
 .be_close_btn1:hover {
+  cursor: pointer;
+}
+.be_close_btn2:hover {
   cursor: pointer;
 }

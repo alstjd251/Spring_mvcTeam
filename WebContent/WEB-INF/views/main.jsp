@@ -401,7 +401,7 @@
       <div class="menu_bar">
         <li><a href="#기관소개">기관소개</a></li>
         <li><a href="#양조장">양조장</a></li>
-        <li><a href="#예약">예약</a></li>
+        <li><a href="${root }reservation/main">예약</a></li>
         <li><a href="${root }board/NoticeList">공지사항 및 문의</a></li>
       </div>
       <div class="login">
@@ -563,6 +563,7 @@
     </div>
     <script type="text/javascript" src="${root }js/sooldesk2.js"></script>
     <script type="text/javascript" src="${root }js/modal.js"></script>
+    <script type="text/javascript" src="${root }js/reservation.js"></script>
     <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

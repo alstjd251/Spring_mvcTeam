@@ -8,7 +8,7 @@
 </head>
 <body>
 <script>
-	alert('삭제되었습니다')
+	alert('작성이 완료되었습니다.')
 	location.href='NoticeList'
 </script>
 </body>

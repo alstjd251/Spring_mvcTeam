@@ -8,15 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form:form action="notice_proc" method="post" modelAttribute="noticeBean">
+	<form:form action="NoticePorc" method="post" modelAttribute="noticeBean">
 		<table>
-			<thead>
 			<caption>글 쓰기</caption>
-			</thead>
 			<tbody>
 				<tr>
 					<th>제목 :</th>
-					<td><form:input type="text" placeholder="제목을 입력해 주세요." path="n_noticetitle"/></td>
+					<td><form:input type="text" placeholder="제목을 입력해 주세요." path="n_noticetitle" /></td>
 				</tr>
 				<tr>
 					<th>내용 :</th>

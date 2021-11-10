@@ -1,5 +1,6 @@
 package co.sp.beans;
 
+//게시판 페이징용 빈
 public class BoardPage {
 	private int contentNum;
 	private int pageNum;

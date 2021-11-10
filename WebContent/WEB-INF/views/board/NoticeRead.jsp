@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>우리반 화이팅</title>
+<title>Insert title here</title>
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -18,8 +18,8 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form:form action="NoticeList" method="post"
-		modelAttribute="noticeBean">
+	<form:form action="NoticeDelete" modelAttribute="noticeBean" method="post">
+		<form:hidden path="n_noticenum"/>
 		<table>
 			<tr>
 				<td><form:label path="n_noticetitle">글제목 : </form:label></td>
@@ -33,8 +33,8 @@
 			
 			<tr>
 				<td colspan="2">
-					<form:button>목록</form:button>
-					<a href = "${root }board/NoticeDelete">삭제</a>
+					<form:button>삭제</form:button>
+					<a href = "${root }board/NoticeList">목록</a>
 				</td>
 			</tr>
 		</table>

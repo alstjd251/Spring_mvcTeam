@@ -5,7 +5,8 @@
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html>
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
 <head>
 <style>
 body {
@@ -139,13 +140,15 @@ tbody.cs-tbody {
 							<!--게시글 <td> 들어가는 곳-->
 							<c:forEach var='obj' items="${noticeList }">
 								<tr>
-									<c:set var='listcnt' value="${noticeCnt }"/>
+									<c:set var='listcnt' value="${noticeTotal }"/>
 									<c:set var='i' value="${i+1 }"/>
-									<td>${noticeCnt - i + 1}</td>
-									<td>${obj.n_noticetitle }</td>
+									<td>${noticeTotal - i + 1}</td>
+									<td>
+									<a href="${root }board/NoticeRead?n_noticetitle=${obj.n_noticetitle }&n_noticecontent=${obj.n_noticecontent}&n_noticenum=${obj.n_noticenum}">${obj.n_noticetitle }</a>
+									</td>
 									<td>${obj.n_noticedate }</td>
 									<td>${obj.mem_name }</td>
-									<td></td>
+									<td>${obj.n_noticecnt }</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -153,9 +156,7 @@ tbody.cs-tbody {
 					<hr>
 					<!--관리자용! 일반페이지에는 없앨것-->
 					<div id="cs-button">
-						<button>
-							<a href="${root }board/NoticeWrite">글쓰기</a>
-						</button>
+						<a href="${root }board/NoticeWrite">글쓰기</a>
 					</div>
 				</div>
 			</div>

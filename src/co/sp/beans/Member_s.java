@@ -1,5 +1,10 @@
 package co.sp.beans;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Member_s {
 
 //	mem_num number primary key,
@@ -15,19 +20,52 @@ public class Member_s {
 //	mem_addr1 varchar2(50),
 //	mem_addr2 varchar2(50),
 //	mem_grade varchar2(20));
-
+	
 	private int mem_num;
+	
+	@Size(min = 5, max = 20)
+	@Pattern(regexp = "[a-zA-Z0-9]*")
+	@NotBlank
 	private String mem_id;
+	
+	@Size(min = 8, max = 20)
+	@Pattern(regexp = "[a-zA-Z0-9~!@#$%^&*()_+|<>?:{}]*")
+	@NotBlank
 	private String mem_pw;
+	
+	@Size(min = 2, max = 10)
+	@Pattern(regexp = "[가-힣]*")
+	@NotBlank
 	private String mem_name;
+	
+	@Pattern(regexp = "[0-9]*")
+	@NotBlank
 	private String mem_joomin;
+	
+	@Pattern(regexp = "[0-9]*")
+	@NotBlank
 	private String mem_gender;
+	
+	@Pattern(regexp = "[0-9]*")
+	@NotBlank
 	private String mem_phone;
+	
+	@Email
+	@NotBlank
 	private String mem_mail;
+	
 	private String mem_date;
+	
+	@Pattern(regexp = "[0-9]*")
+	@NotBlank
 	private String mem_post;
+	
+	@NotBlank
 	private String mem_addr1;
+	
+	@NotBlank
 	private String mem_addr2;
+
 	private String mem_grade;
 
 	private boolean idExist;

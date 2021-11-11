@@ -19,4 +19,8 @@ public class MemberDao {
 	public Member_s getLoginMemberInfo(Member_s tempLoginMemberBean) {
 		return memMapper.getLoginMemberInfo(tempLoginMemberBean);
 	}
+	
+	public Member_s getFindId(Member_s memberBean) {
+		return memMapper.getFindId(memberBean);
+	}
 }

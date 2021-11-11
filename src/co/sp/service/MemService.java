@@ -35,4 +35,8 @@ public class MemService {
 			loginBean.setMemLogin(true);
 		}
 	}
+	
+	public Member_s getFindId(Member_s memberBean) {
+		return memDao.getFindId(memberBean);
+	}
 }

@@ -1,19 +1,22 @@
 package co.sp.controller;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import co.sp.beans.Member_s;
 import co.sp.service.MemService;
 
 @Controller
+@RequestMapping("/member")
 public class MemControl {
 
 	@Autowired
@@ -22,37 +25,54 @@ public class MemControl {
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
 
-	@GetMapping("/main")
-	public String main(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+//	@GetMapping("/main")
+//	public String main(@ModelAttribute("memberBean") Member_s tempLoginMemberBean,  @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
+//		m.addAttribute("fail", fail);
+//		return "member/main";
+//	}
 	
-		return "main";
-	}
-	
-	@PostMapping("/member_proc")
-	public String join(@ModelAttribute("memberBean") Member_s memberBean) {
+	@PostMapping("/join_proc")
+	public String join(@Valid @ModelAttribute("memberBean") Member_s memberBean, BindingResult result) {
+		if(result.hasErrors()) {
+			return "main";
+		}
 		ms.addMember(memberBean);
-		return "page";
+		return "member/join_success";
 	}
 	
-	@GetMapping("/login")
-	public String login(@ModelAttribute("tempLoginMemberBean") Member_s tempLoginMemberBean, @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
-		
-		m.addAttribute("fail", fail);
-		
-		return "/login";
-	}
+//	@GetMapping("/login")
+//	public String login(@ModelAttribute("tempLoginMemberBean") Member_s tempLoginMemberBean, @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
+//		
+//		m.addAttribute("fail", fail);
+//		
+//		return "/login";
+//	}
 	
 	@PostMapping("/login_proc")
-	public String login_proc(@ModelAttribute("tempLoginMemberBean") Member_s tempLoginMemberBean) {
+	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean) {
 		
-		ms.getLoginMemberInfo(tempLoginMemberBean);
+		ms.getLoginMemberInfo(memberBean);
 		
 		if(loginBean.isMemLogin() == true) {
-			return "/login_success";
+			return "member/login_success";
 		} else {
-			return "/login_fail";
+			return "member/login_fail";
 		}
 		
+	}
+	
+	@GetMapping("/logout_proc")
+	public String logout_proc() {
+		loginBean.setMemLogin(false);
+		loginBean.setMem_num(-1);
+		loginBean.setMem_name(null);
+		return "member/logout_success";
+	}
+	
+	@GetMapping("/mypage")
+	public String mypg(Model m) {
+		m.addAttribute("loginBean", loginBean);
+		return "member/mypage";
 	}
 	
 	@GetMapping("/home")
@@ -61,4 +81,11 @@ public class MemControl {
 		return "home";
 	}
 	
+	@PostMapping("/idFinder")
+	public String idFinder(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		memberBean = ms.getFindId(memberBean);
+		m.addAttribute("memberBean", memberBean);
+		
+		return  "member/idFinder";
+	}
 }

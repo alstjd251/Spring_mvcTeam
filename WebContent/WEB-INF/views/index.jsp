@@ -5,10 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-<h1><a href="login">로그인</a></h1>
-<h1><a href="main">회원가입</a></h1>
-<h1><a href="board/NoticeRead">글작성</a></h1>
+<script type="text/javascript">
+Swal.fire({
+	title : "PROJECT NAME 'SUL SURE'",
+    text  : "by soldesk 2팀",
+    closeOnClickOutside : false,
+}).then(function(){
+	location.href="${root}main";
+});
+</script>
 </body>
 </html>

@@ -12,6 +12,8 @@
 	${noticeBean.n_noticecontent }<br>
 	${noticeBean.n_noticedate }<br>
 	${noticeBean.n_noticecnt }<br>
-	${noticeBean.n_nnum }<br>
+	${noticeBean.n_mnum }<br>
+	<h1><a href="home">글작성</a></h1>
+	<h1><a href="board/NoticeList">글목록</a></h1>
 </body>
 </html>

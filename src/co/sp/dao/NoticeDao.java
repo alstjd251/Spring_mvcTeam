@@ -14,4 +14,16 @@ public class NoticeDao {
 	public void addNotice(Notice_s noticeBean) {
 		noticemapper.addNotice(noticeBean);
 	}
+	
+	public void deleteNotice(Notice_s noticeBean) {
+		noticemapper.deleteNotice(noticeBean);
+	}
+	
+	public void getNotice(Notice_s noticeBean) {
+		noticemapper.getNotice(noticeBean);
+	}
+	
+	public void updateNotice(Notice_s noticeBean) {
+		noticemapper.updateNotice(noticeBean);
+	}
 }

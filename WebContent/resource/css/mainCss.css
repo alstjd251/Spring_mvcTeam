@@ -260,12 +260,21 @@ header .login #logout_button:hover {
   margin-top: 60px;
   margin-bottom: 40px;
 }
-.section #footgg #gg li {
-  list-style: none;
+.section #footgg #gg #ggone {
+  height: 100%;
+  z-index: 100;
+}
+.section #footgg #gg #ggone img {
+  height: 100%;
   width: 100%;
 }
-
-.section #footgg #gg li img {
+.section #footgg #gg #ggtwo {
+  display: flex;
+}
+.section #footgg #gg #ggtwo li {
+  list-style: none;
+}
+.section #footgg #gg #ggtwo li img {
   height: 100%;
 }
 

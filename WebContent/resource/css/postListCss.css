@@ -27,7 +27,7 @@ body {
 .cs-board01 #cs-backimg {
 	width: 700px;
 	height: 300px;
-	background: url('C:/Users/user/Downloads/notice.jpg') center/cover
+	background: url('/Spring_mvcTeam/WebContent/resource/img/boardIcon/notice.jpg') center/cover
 		no-repeat;
 	margin: 50px;
 }

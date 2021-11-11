@@ -32,12 +32,12 @@ public class NoticeControl {
 		return "board/NoticeRead";
 	}
 
-	@PostMapping("/NoticePorc")
+	@PostMapping("/NoticeProc")
 	public String join(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
 		noticeBean.setN_mnum(loginBean.getMem_num());
 		ns.addNotice(noticeBean);
 		
-		return "board/NoticePorc";
+		return "board/NoticeProc";
 	}
 	
 	@GetMapping("/NoticeList")

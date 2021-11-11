@@ -247,7 +247,7 @@
 	</header>
 	<!--*** 게시글 섹션 ***-->
 	<section id="post">
-		<form:form action="NoticeProc" method="post" modelAttribute="noticeBean">
+		<form:form action="${root }board/NoticeProc" method="post" modelAttribute="noticeBean">
 			<form:hidden path="n_noticenum" />
 			<div>
 				<div id="postContainer01">
@@ -336,8 +336,8 @@
 		</div>
 	</footer>
 	<!-- 모달로그인 js -->
-	<script type="text/javascript" src="modal.js"></script>
-	<script type="text/javascript" src="page.js"></script>
+	<script type="text/javascript" src="${root }js/modal.js"></script>
+	<script type="text/javascript" src="${root }js/page.js"></script>
 </body>
 
 </html>

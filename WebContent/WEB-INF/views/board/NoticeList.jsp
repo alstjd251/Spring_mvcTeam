@@ -20,7 +20,7 @@
 				<li>Q&A</li>
 				<li>Contact Us</li>
 			</div>
-			<div id="cs-backimg">.</div>
+			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
 		</div>
 
 		<div class="cs-board02">

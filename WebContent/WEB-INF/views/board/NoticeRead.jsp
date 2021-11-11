@@ -10,7 +10,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="${root }css/mainCss.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="${root }css/page.css" />
 <link href="${root }css/postCss.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -244,61 +244,59 @@
 				</div>
 			</div>
 		</div>
-
 	</header>
 	<!--*** 게시글 섹션 ***-->
 	<section id="post">
 		<form:form action="NoticeDelete" modelAttribute="noticeBean"
 			method="post">
-			<div id="postContainer01">
-				<div class="postTop">
-					<div class="postTop-board01">
-						<h2>공지사항</h2>
-					</div>
-					<div>
-						<a href="${root }board/NoticeList">수정</a> <a
-							href="${root }board/NoticeModify">목록</a>
-					</div>
-
-				</div>
-
-				<div id="postMiddle">
-
-					<form:hidden path="n_noticenum" />
-					<div class="postMiddle-board01">
+			<form:hidden path="n_noticenum" />
+			<div>
+				<div id="postContainer01">
+					<div class="postTop">
+						<div class="postTop-board01">
+							<h2>공지사항</h2>
+						</div>
 						<div>
-							<form:label path="n_noticetitle">글제목 : </form:label>
-							<form:input path="n_noticetitle" />
-						</div>
-						<!--제목DB-->
-					</div>
-					<div class="postMiddle-board02">
-						<img src="${root }img/boardIcon/eye_new.png"><span></span>
-						<!--조회수DB-->
-						<img src="${root }img/boardIcon/sub_date_new.png"><span></span>
-						<!-- 등록일DB -->
-					</div>
-				</div>
-				<div id="postBottom">
-					<div class="postBottom-board">
-						<div class="poatBottom">
-							<!--게시글 내용-->
-							<form:label path="n_noticecontent">글내용 : </form:label>
-							<form:textarea path="n_noticecontent" />
+							<a href="${root }board/NoticeList">목록</a>
+							<a href="${root }board/NoticeModify">수정</a>
 						</div>
 					</div>
-				</div>
+					<div id="postMiddle">
+						<div class="postMiddle-board01">
+							<div class="postTitle">
+								<div>
+									<form:label path="n_noticetitle">글제목 : ${noticeBean.n_noticetitle}</form:label>
+								</div>
+								<div class="postMiddle-board02">
+									<img src="${root }img/boardIcon/eye_new.png"><span></span>
+									<!--조회수DB-->
+									<img src="${root }img/boardIcon/sub_date_new.png"><span></span>
+									<!-- 등록일DB -->
+								</div>
+							</div>
+							<!--제목DB-->
+						</div>
 
-				<div class="postButton">
-					<div>
-						<form:button>삭제</form:button>
+					</div>
+					<div id="postBottom">
+						<div class="postBottom-board">
+							<div class="poatBottom">
+								<!--게시글 내용-->
+								<form:textarea path="n_noticecontent" />
+							</div>
+						</div>
+					</div>
+
+					<div class="postButton">
+						<div>
+							<form:button>삭제</form:button>
+						</div>
 					</div>
 				</div>
+				<div id="postContainer02"></div>
 			</div>
-			<div id="postContainer02"></div>
 		</form:form>
 	</section>
-
 	<!-- 푸터 -->
 	<footer>
 		<div class="FOOTER_TOTAL">

@@ -7,6 +7,8 @@
 <title>Sul Sure</title>
 </head>
 <body>
-
+<script>
+	location.href='NoticeWrite;
+</script>
 </body>
 </html>

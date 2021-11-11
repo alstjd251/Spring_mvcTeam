@@ -65,8 +65,10 @@ public class NoticeControl {
 		return "board/NoticeDelete";
 	}
 	
-	@GetMapping("/NOticeModify")
+	@GetMapping("/NoticeModify")
 	public String modify(@ModelAttribute("noticeBean") Notice_s noticeBean) {
+		ns.updateNotice(noticeBean);
+		
 		return "board/NoticeModify";
 	}
 }

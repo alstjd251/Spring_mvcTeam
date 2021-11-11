@@ -1,6 +1,7 @@
 package co.sp.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,11 +50,12 @@ public class MemControl {
 //	}
 	
 	@PostMapping("/login_proc")
-	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean) {
+	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean, HttpSession session) {
 		
 		ms.getLoginMemberInfo(memberBean);
 		
-		if(loginBean.isMemLogin() == true) {
+		session.setAttribute("lobinBean", loginBean);
+		if(loginBean.isMemLogin() == true) {	
 			return "member/login_success";
 		} else {
 			return "member/login_fail";
@@ -62,10 +64,9 @@ public class MemControl {
 	}
 	
 	@GetMapping("/logout_proc")
-	public String logout_proc() {
+	public String logout_proc(HttpSession session) {
 		loginBean.setMemLogin(false);
-		loginBean.setMem_num(-1);
-		loginBean.setMem_name(null);
+		session.invalidate();
 		return "member/logout_success";
 	}
 	

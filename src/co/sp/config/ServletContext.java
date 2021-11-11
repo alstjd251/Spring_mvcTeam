@@ -33,6 +33,7 @@ import co.sp.mapper.ResMapper;
 @ComponentScan("co.sp.service")
 
 @PropertySource("/WEB-INF/properties/dbconnection.properties")
+@PropertySource("/WEB-INF/properties/error_message.properties")
 public class ServletContext implements WebMvcConfigurer {
 
 	@Value("${dbconnection.classname}")
@@ -125,7 +126,7 @@ public class ServletContext implements WebMvcConfigurer {
 	@Bean
 	public ReloadableResourceBundleMessageSource messageSource() {
 		ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();
-		res.setBasenames("/WEB-INF/properties/error_message.properties");
+		res.setBasenames("/WEB-INF/properties/error_message");
 		return res;
 	}
 	

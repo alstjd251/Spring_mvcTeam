@@ -73,16 +73,43 @@ header .menu .menu1 .menu_bar li a {
 }
 
 /* header 로그인 css */
-header .menu .menu1 .login {
-  width: 200px;
+header .login {
+  width: 240px;
   height: 60px;
   position: absolute;
   right: 0;
 }
-header .menu .menu1 .login a img {
+
+header .login a {
+  color: black;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header .login a img {
   width: 60px;
   height: 60px;
   margin-top: 5px;
+}
+header .login a span #my_name {
+  position: absolute; 
+  bottom:15px;
+}
+header .login #logout_button {
+  margin-left: 5em;
+  padding: 2px ;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: right;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: black;
+  position: absolute;
+  bottom: 10px;
+}
+header .login #logout_button:hover {
+  border-color: gray;
+  color: gray;
 }
 
 /* 상세 페이지 section css */

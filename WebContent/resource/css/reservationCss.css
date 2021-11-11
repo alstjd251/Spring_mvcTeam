@@ -238,7 +238,6 @@ section #reservation #res_maincategory{
 section #reservation #res_maincategory, section #reservation #res_subcategory{
   padding-left: 10px;
   margin-right: 10px;
-  background: url(C:/Users/pyo/Desktop/bg_select.png) no-repeat right 13px center;
   width: 180px;
   height: 40px;
   font-size: 12px;
@@ -353,7 +352,7 @@ section #reservation #minus:hover, section #reservation #plus:hover{
   background-color: rgba(141, 141, 141, 0.466);
 }
 
-section #reservation #minus-button:hover, section #reservation #plus-button:hover{
+section #reservation #minus:hover, section #reservation #plus:hover{
   cursor: pointer;
 }
 

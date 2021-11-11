@@ -18,11 +18,10 @@
 <script src="${root }js/zip.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script type="text/javascript" src="/resource/js/bootstrap.js"></script>
 <title>Sul Sure</title>
 </head>
 <body>
-	<!-- 로그인 모달 -->
-
 	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
@@ -33,7 +32,8 @@
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
 				<div class="logo">
-					<a href="#"><img src="${root }img/menu_bar/logoimg.jpg" /></a>
+					<a href="${root }main"><img
+						src="${root }img/menu_bar/logoimg.jpg" /></a>
 				</div>
 				<div class="menu_bar">
 					<li><a href="#기관소개">기관소개</a></li>
@@ -44,7 +44,8 @@
 				<div class="login">
 					<c:choose>
 						<c:when test="${loginBean.memLogin == false }">
-							<a href="#" id="popup_open_btn"><img
+							<a style="position: absolute; right: 5em;" href="#"
+								id="popup_open_btn"><img
 								src="${root }img/menu_bar/loginimg.png" /></a>
 							<a href="#" id="mypage_open_btn" style="display: none;"><img
 								src="${root }img/menu_bar/mypage.jpg" /></a>
@@ -52,14 +53,13 @@
 						<c:otherwise>
 							<a href="#" id="popup_open_btn" style="display: none;"><img
 								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="${root }member/mypage"><img id="mypage_open_btn"
-								src="${root }img/menu_bar/mypage.jpg" /></a>
+							<a href="${root }member/mypage"> <span><img
+									id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg" />
+									<span id="my_name">${loginBean.mem_name }님</span></span>
+							</a>
 							<a href="member/logout_proc" id="logout_button">로그아웃</a>
 						</c:otherwise>
 					</c:choose>
-				</div>
-			</div>
-		</div>
 	</header>
 	<section>
 		<div id="reservation" class="sect">
@@ -70,10 +70,12 @@
 					위한 완벽한 코스
 				</h3>
 				<div id="res_con1">
-					<select id="res_maincategory">
+					<select id="res_maincategory"
+						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 						<option>지역을 선택하세요.</option>
 					</select>
-					<form:select path="res_coursenum" id="res_subcategory">
+					<form:select path="res_coursenum" id="res_subcategory"
+						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 						<c:forEach var="obj" items="${getCourseIdx }">
 							<form:option value="${obj.course_num }">${obj.course_names }</form:option>
 						</c:forEach>
@@ -129,7 +131,8 @@
 							<table class="table" id="table3">
 								<tr>
 									<th>인원</th>
-									<td><form:input type="number" path="res_personnel" id="res_personnel" /></td>
+									<td><form:input type="number" path="res_personnel"
+											id="res_personnel" /></td>
 								</tr>
 								<tr>
 									<td colspan="2"><img

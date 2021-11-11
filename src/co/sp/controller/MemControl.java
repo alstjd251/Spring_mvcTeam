@@ -1,6 +1,9 @@
 package co.sp.controller;
 
+import java.io.IOException;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -33,7 +36,7 @@ public class MemControl {
 //	}
 	
 	@PostMapping("/join_proc")
-	public String join(@Valid @ModelAttribute("memberBean") Member_s memberBean, BindingResult result) {
+	public String join(@ModelAttribute("memberBean") @Valid Member_s memberBean, BindingResult result) {
 		if(result.hasErrors()) {
 			return "main";
 		}
@@ -54,7 +57,6 @@ public class MemControl {
 		
 		ms.getLoginMemberInfo(memberBean);
 		
-		session.setAttribute("lobinBean", loginBean);
 		if(loginBean.isMemLogin() == true) {	
 			return "member/login_success";
 		} else {
@@ -66,7 +68,7 @@ public class MemControl {
 	@GetMapping("/logout_proc")
 	public String logout_proc(HttpSession session) {
 		loginBean.setMemLogin(false);
-		session.invalidate();
+		session.setAttribute("loginBean", loginBean);
 		return "member/logout_success";
 	}
 	

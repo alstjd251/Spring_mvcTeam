@@ -155,11 +155,14 @@
       
 <div id="footgg" class="sect">
         <div id="gg">
+        <div id="ggone"><a href="http://ursa.co.kr/" target="_blank"><img src="${root }img/ad/우루샷.jpg" class="pimg"></a></div>
+          <div id="ggtwo">
           <li><a href="#"><img src="${root }img/ad/1330.jpg" class="pimg1"/></a></li>
           <li><a href="#"><img src="${root }img/ad/야놀자.png" class="pimg2"/></a></li>
           <li><a href="#"><img src="${root }img/ad/하미앙.png" class="pimg3"/></a></li>
           <li><a href="#"><img src="${root }img/ad/여긴어때.png" class="pimg4"/></a></li>
           <li><a href="#"><img src="${root }img/ad/숙박대전.jpg" class="pimg5"/></a></li></div>
+          </div>`
         <footer>
           <div class="FOOTER_TOTAL">
                 <div class="F_i F_i1">
@@ -189,7 +192,7 @@
         </footer>
       </div>
     </div>
-    <script type="text/javascript" src="${root }js/sooldesk2.js"></script>
+    <script type="text/javascript" src="${root }js/sooldesk.js"></script>
     <script type="text/javascript" src="${root }js/modal.js"></script>
     <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>

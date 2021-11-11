@@ -26,9 +26,9 @@ public class NoticeControl {
 	private Member_s loginBean;
 
 	@GetMapping("/NoticeRead")
-	public String main(@ModelAttribute("noticeBean") Notice_s noticeBean) {
+	public String main(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
 		ns.increaseNoticeCnt(noticeBean);
-		
+		m.addAttribute(noticeBean);
 		return "board/NoticeRead";
 	}
 
@@ -63,6 +63,11 @@ public class NoticeControl {
 		ns.deleteNotice(noticeBean);
 		
 		return "board/NoticeDelete";
+	}
+	
+	@GetMapping("/NOticeModify")
+	public String modify(@ModelAttribute("noticeBean") Notice_s noticeBean) {
+		return "board/NoticeModify";
 	}
 }
 

@@ -6,97 +6,9 @@
 <!DOCTYPE html>
 <html>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Sul Sure</title>
 <head>
-<style>
-body {
-	margin: 0%;
-}
-
-.cs-container {
-	text-align: center;
-}
-
-.cs-board01 {
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-	align-items: center;
-}
-
-.cs-board01 #cs-menu {
-	display: flex;
-}
-
-.cs-board01 #cs-menu li {
-	list-style-type: none;
-	padding: 10px;
-	margin: 20px;
-	border-bottom: solid lightslategrey;
-}
-
-.cs-board01 #cs-backimg {
-	width: 700px;
-	height: 300px;
-	background: url('C:/Users/user/Downloads/notice.jpg') center/cover
-		no-repeat;
-	margin: 50px;
-}
-
-.cs-board02 {
-	display: flex;
-	justify-content: center;
-	margin: 20px;
-}
-
-#cs-titleBox {
-	height: auto;
-	text-align: left;
-	vertical-align: top;
-}
-
-#cs-listContainer {
-	vertical-align: top;
-	width: 60%;
-}
-
-#cs-listContainer #cs-search {
-	text-align: right;
-}
-
-.cs-table {
-	width: 100%;
-	margin-top: 20px;
-}
-
-table.cs-table {
-	border-collapse: collapse;
-	text-align: center;
-	line-height: 1.5;
-}
-
-table.cs-table thead tr th {
-	padding: 10px;
-	font-weight: bold;
-	vertical-align: top;
-	color: #369;
-	border-bottom: 3px solid lightslategrey;
-}
-
-tbody.cs-tbody {
-	/* 게시글 css for문 적용방법 찾기*/
-	border-collapse: separate;
-	border-spacing: 1px;
-	text-align: center;
-	line-height: 1.5;
-	border-top: 1px solid #ccc;
-	margin: 20px 10px;
-}
-
-#cs-button {
-	text-align: right;
-}
-</style>
+	<link href="${root }css/postListCss.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>

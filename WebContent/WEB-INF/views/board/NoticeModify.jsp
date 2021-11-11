@@ -7,9 +7,6 @@
 <title>Sul Sure</title>
 </head>
 <body>
-<script>
-	alert('작성이 완료되었습니다.')
-	location.href='NoticeList'
-</script>
+
 </body>
 </html>

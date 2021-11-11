@@ -7,6 +7,7 @@ import org.springframework.web.context.annotation.SessionScope;
 import co.sp.beans.Member_s;
 
 @Configuration
+
 public class RootContext {
 
 	@Bean("loginBean")

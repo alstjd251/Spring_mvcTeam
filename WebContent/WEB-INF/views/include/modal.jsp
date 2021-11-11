@@ -70,7 +70,7 @@
           >
             <div class="be_idpwsearch-idsearch">
               <h3 style="text-align: center">아이디 찾기</h3>
-              <form:form action="member/idFinder" modelAttribute="memberBean">
+              <form:form action="member/idFinder" modelAttribute="memberBean" method="post">
               이름 :
               <form:input
                 class="id-search"
@@ -144,7 +144,7 @@
         >
           <a class="be_close_btn2" style="position: absolute; top: 10px; right: 10px">닫기</a>
           <h2>회원가입</h2>
-          <form:form action="member/member_proc" method="post" modelAttribute="memberBean">
+          <form:form action="member/join_proc" method="post" modelAttribute="memberBean">
           <table>
             <tr height="40">
               <td align="right" width="100">아이디 :</td>
@@ -157,8 +157,10 @@
                 />
                 <input type="button" value="ID중복확인" onclick="memCheck()" />
                 <input type="hidden" id="idchecked" value="no" />
+                <form:errors path="mem_id" style="color:red;"/>
               </td>
             </tr>
+            
 
             <tr height="40">
               <td align="right" width="100">비밀번호 :</td>
@@ -168,6 +170,7 @@
                   placeholder="비밀번호입력"
                   path="mem_pw"
                 />
+                <form:errors path="mem_pw" style="color:red;"/>
               </td>
             </tr>
 
@@ -179,6 +182,7 @@
                   placeholder="이름입력"
                   path="mem_name"
                 />
+                <form:errors path="mem_name" style="color:red;"/>
               </td>
             </tr>
             <tr height="40">
@@ -193,6 +197,7 @@
                 <form:input path="mem_gender" maxlength="1" size="1" />
                 ******
               </td>
+              <form:errors path="mem_joomin" style="color:red;"/>
             </tr>
 
             <tr height="40">
@@ -214,6 +219,7 @@
                   id="sample6_postcode"
                   placeholder="우편번호"
                   path="mem_post"
+                  readonly="true"
                 />
                 <input
                   type="button"

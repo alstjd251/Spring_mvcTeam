@@ -64,13 +64,14 @@
 	<section>
 		<div id="reservation" class="sect">
 			<form:form action="reserve" modelAttribute="reservationBean">
+			<!--유효성검사 해야함-->
 				<h1>예약</h1>
 				<h3>
 					여행 내내 운전하느라 술을 즐기지 못한 <span style="color: rgb(248, 15, 15);">애주가</span>를
 					위한 완벽한 코스
 				</h3>
 				<div id="res_con1">
-					<select id="res_maincategory"
+					<select path="loc_name" id="res_maincategory"
 						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 						<option>지역을 선택하세요.</option>
 					</select>
@@ -88,8 +89,8 @@
 							<p id="res_personnel">1</p>
 							<p id="plus" onclick="plus()">+</p>
 							<img src="${root }img/reservation/icon/won.png" id="res_priceimg" />
-							<input type="text" id="res_price">
-							<form:input type="button" path="" id="res_ch" value="선택" />
+							<input type="text" path="c_price" id="res_price" >
+							<input type="button" id="res_ch" value="선택">
 						</div>
 					</div>
 				</div>
@@ -98,9 +99,9 @@
 					<div id="res_info">
 						<table class="table" id="table1">
 							<tr>
-								<!-- 예약코스, 예약일자, 예약자 정보(이름,연락처,이메일) 불러와야함! -->
+								<!-- 예약코스(선택한 코스), 예약일자(선택한 일자), 예약자 정보(이름,연락처,이메일) 불러와야함! -->
 								<th>예약코스</th>
-								<td><form:input type="text" path="" /></td>
+								<td><form:input type="text" path="c_coursename" /></td>
 							</tr>
 							<tr>
 								<th>예약일자</th>
@@ -111,13 +112,13 @@
 						<table class="table" id="table2">
 							<tr>
 								<th>이름</th>
-								<td><input type="text" id="mem_name"></td>
+								<td><input type="text" path="mem_name" id="mem_name"></td>
 								<th>연락처</th>
-								<td><input type="tel" id="mem_phone"></td>
+								<td><input type="tel" path="mem_phone" id="mem_phone"></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td colspan="3"><input type="email" id="mem_mail"></td>
+								<td colspan="3"><input type="email" path="mem_mail" id="mem_mail"></td>
 							</tr>
 							<tr>
 								<td colspan="4"><b>요청사항은 02-123-4567로 연락주세요.</b></td>
@@ -125,7 +126,7 @@
 						</table>
 					</div>
 					<div id="res_right">
-						<div id="res_gg">a</div>
+						<div id="res_gg">광고배너</div>
 						<div id="res_perinfo">
 							<h4>인원정보</h4>
 							<table class="table" id="table3">
@@ -137,7 +138,7 @@
 								<tr>
 									<td colspan="2"><img
 										src="${root }img/reservation/icon/won.png" id="res_priceimg" /><input
-										type="text" id="res_price"></td>
+										type="text" path="c_price" id="res_price"></td>
 								</tr>
 							</table>
 							<form:button id="res_button">예약</form:button>

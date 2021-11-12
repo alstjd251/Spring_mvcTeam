@@ -9,13 +9,18 @@
 <meta charset="UTF-8">
 <title>Sul Sure</title>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script type="text/javascript" src="/resource/js/bootstrap.js"></script>
 <link rel="stylesheet" href="${root }css/mypageCss.css" />
 <script src="${root }js/zip.js"></script>
 <script src="${root }js/mypage.js"></script>
+<link href="${root }css/include/header_footer.css" rel="stylesheet"
+	type="text/css" />
 </head>
 <body>
 	<!-- 헤더 -->
@@ -23,33 +28,31 @@
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
-				<div class="logo">
-					<a href="${root }main"><img
-						src="${root }img/menu_bar/logoimg.jpg" /></a>
-				</div>
-				<div class="menu2">
-					<h1>${loginBean.mem_name }님의MyPage</h1>
-				</div>
-				<div class="login">
-					<c:choose>
-						<c:when test="${loginBean.memLogin == false }">
-							<a style="position: absolute; right: 5em;" href="#"
-								id="popup_open_btn"><img
-								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="#" id="mypage_open_btn" style="display: none;"><img
-								src="${root }img/menu_bar/mypage.jpg" /></a>
-						</c:when>
-						<c:otherwise>
-							<a href="#" id="popup_open_btn" style="display: none;"><img
-								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="${root }member/mypage"> <span><img
-									id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg" /> <span
-									id="my_name">${loginBean.mem_name }님</span></span>
-							</a>
-							<a href="member/logout_proc" id="logout_button">로그아웃</a>
-						</c:otherwise>
-					</c:choose>
-				</div>
+			 <div class="logo">
+        <a href="${root }main"><img src="${root }img/menu_bar/logoimg.jpg" /></a>
+      </div>
+      <div class="menu_bar">
+        <li><a href="#기관소개">기관소개</a></li>
+        <li><a href="#양조장">양조장</a></li>
+        <li><a href="${root }reservation/main">예약</a></li>
+        <li><a href="${root }board/NoticeList">공지사항 및 문의</a></li>
+      </div>
+      <div class="login">
+      <c:choose>
+	    <c:when test="${loginBean.memLogin == false }">
+	      	<a style="position:absolute; right:5em;" href="member/login" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
+	      	<a href="#" id="mypage_open_btn" style="display:none;"><img src="${root }img/menu_bar/mypage.jpg"/></a>
+      	</c:when>
+		<c:otherwise>
+			<a href="member/login" id="popup_open_btn" style="display:none;"><img src="${root }img/menu_bar/loginimg.png"/></a>
+			<a href="${root }member/mypage">
+			<span><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/>
+			<span id="my_name">${loginBean.mem_name }님</span></span>
+			</a>
+			<a href="member/logout_proc" id="logout_button">로그아웃</a>
+		</c:otherwise>
+      </c:choose>
+      </div>
 			</div>
 		</div>
 	</header>
@@ -57,6 +60,7 @@
 	<section>
 		<div id="mypage">
 			<div id="mypage_con1">
+			   <div id="name_text"><h4>${loginBean.mem_name }님의 MyPage</h4></div>
 				<ul class="tabs">
 					<li class="tab_link current" data-tab="modify">회원정보 수정</li>
 					<li class="tab_link" data-tab="res_info">예약정보 조회</li>
@@ -89,9 +93,9 @@
 							<tr>
 								<td>주민번호</td>
 								<td><input type="text" maxlength="6"
-									placeholder="생년월일 6자리 000000" path="mem_joomin" id="mem_joomin"> - <input
-									type="text" path="mem_gender" id="mem_gender"  maxlength="1" size="1">
-									******</td>
+									placeholder="생년월일 6자리 000000" path="mem_joomin" id="mem_joomin">
+									- <input type="text" path="mem_gender" id="mem_gender"
+									maxlength="1" size="1"> ******</td>
 							</tr>
 
 							<tr>
@@ -101,8 +105,8 @@
 							</tr>
 							<tr>
 								<td>연락처</td>
-								<td><input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone">
-								</td>
+								<td><input type="tel" placeholder="연락처 - 제외"
+									path="mem_phone" id="mem_phone"></td>
 							</tr>
 							<tr>
 								<td>주소</td>
@@ -127,11 +131,13 @@
 						<table class="table table-bordered">
 							<tr>
 								<th>코스</th>
-								<td><input type="text" path="c_coursename" id="c_coursename"></td>
+								<td><input type="text" path="c_coursename"
+									id="c_coursename"></td>
 							</tr>
 							<tr>
 								<th>예약일자</th>
-								<td><input type="text" path="res_startdate" id="res_startdate"></td>
+								<td><input type="text" path="res_startdate"
+									id="res_startdate"></td>
 							</tr>
 							<tr>
 								<th>금액</th>
@@ -147,7 +153,8 @@
 							</tr>
 							<tr>
 								<th>인원</th>
-								<td><input type="text" path="res_personnel" id="res_personnel"></td>
+								<td><input type="text" path="res_personnel"
+									id="res_personnel"></td>
 							</tr>
 							<tr>
 								<td colspan="2"><input class="btn btn-default"
@@ -167,19 +174,23 @@
 							</tr>
 							<tr>
 								<th>사업자등록번호</th>
-								<td><input type="text" path="partners_code" id="partners_code"></td>
+								<td><input type="text" path="partners_code"
+									id="partners_code"></td>
 							</tr>
 							<tr>
 								<th>대표자성명</th>
-								<td><input type="text" path="partners_name" id="partners_name"></td>
+								<td><input type="text" path="partners_name"
+									id="partners_name"></td>
 							</tr>
 							<tr>
 								<th>회사대표번호</th>
-								<td><input type="text" path="partners_tel" id="partners_tel"></td>
+								<td><input type="text" path="partners_tel"
+									id="partners_tel"></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td><input type="text" path="partners_mail" id="partners_mail"></td>
+								<td><input type="text" path="partners_mail"
+									id="partners_mail"></td>
 							</tr>
 							<tr>
 								<th>사업장주소</th>
@@ -211,46 +222,7 @@
 	</section>
 	<!-- 푸터 -->
 	<footer>
-		<div class="FOOTER_TOTAL">
-			<div class="F_i F_i1">
-				<img src="C:/Users/USER/Desktop/3/footer/M_LOGE.jpg">
-				<p>
-					<strong>대표자</strong>_박치언
-				</p>
-				<p>
-					<strong>사업자등록번호</strong> 052-34-56789
-				</p>
-				<p>통신판매업신고 제2015-울산울주-0164호</p>
-			</div>
-			<div class="F_i F_i2">
-				<img src="C:/Users/USER/Desktop/3/footer/location.png" width="180px">
-				<p>
-					<strong>울산광역시 울주군 상북면 향산동길 48</strong>
-				</p>
-			</div>
-			<div class="F_i F_i3">
-				<img src="C:/Users/USER/Desktop/3/footer/call.png" width="180px">
-				<p>전화 052-879-1234</p>
-				<p>팩스&nbsp;&nbsp;1577-6746</p>
-				<p>soldesk@gmail.com</p>
-			</div>
-			<div class="F_i F_i4">
-				<img src="C:/Users/USER/Desktop/3/footer/open.png" width="180px">
-				<p>
-					<strong>매주</strong>
-				</p>
-				<p id="line">
-					<strong>오전</strong> 9:00 ~ <strong>오후</strong> 18:00
-				</p>
-				<p>
-					<strong>매주 월요일 휴무</strong>
-				</p>
-			</div>
-		</div>
+		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</footer>
-	<!-- 모달로그인 js -->
-	<script type="text/javascript" src="modal.js"></script>
-
-
 </body>
 </html>

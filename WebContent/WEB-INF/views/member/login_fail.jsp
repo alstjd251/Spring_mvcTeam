@@ -5,6 +5,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <c:set var='root' value="${pageContext.request.contextPath }/"/>
 <script>
-	alert('로그인에 실패하였습니다')
-	location.href = '${root}/main?fail=true'
+	alert('로그인에 실패하였습니다');
+	location.href = 'login';
 </script>

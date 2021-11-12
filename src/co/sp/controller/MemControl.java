@@ -1,9 +1,6 @@
 package co.sp.controller;
 
-import java.io.IOException;
-
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -15,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
 import co.sp.service.MemService;
@@ -28,12 +26,6 @@ public class MemControl {
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
-
-//	@GetMapping("/main")
-//	public String main(@ModelAttribute("memberBean") Member_s tempLoginMemberBean,  @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
-//		m.addAttribute("fail", fail);
-//		return "member/main";
-//	}
 	
 	@PostMapping("/join_proc")
 	public String join(@ModelAttribute("memberBean") @Valid Member_s memberBean, BindingResult result) {
@@ -44,13 +36,12 @@ public class MemControl {
 		return "member/join_success";
 	}
 	
-//	@GetMapping("/login")
-//	public String login(@ModelAttribute("tempLoginMemberBean") Member_s tempLoginMemberBean, @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
-//		
-//		m.addAttribute("fail", fail);
-//		
-//		return "/login";
-//	}
+	@GetMapping("/login")
+	public String login(@ModelAttribute("memberBean") Member_s memberBean,@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
+		m.addAttribute("memberBean", memberBean);
+		m.addAttribute("fail", fail);
+		return "member/login";
+	}
 	
 	@PostMapping("/login_proc")
 	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean, HttpSession session) {

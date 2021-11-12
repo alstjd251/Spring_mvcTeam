@@ -8,10 +8,22 @@
 <meta charset="UTF-8">
 <title>Sul Sure</title>
 <head>
-	<link href="${root }css/postListCss.css" rel="stylesheet" type="text/css" />
+	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
+	<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+<!-- 헤더 -->
+	<header>
+		<!-- 헤더 배너광고 -->
+		<c:import url="/WEB-INF/views/include/ad.jsp"/>
+		<!-- 헤더 메뉴 -->
+		<div class="menu" onscroll="menuscroll()">
+			<div class="menu1">
+				<c:import url="/WEB-INF/views/include/header.jsp"/>
+			</div>
+		</div>
+	</header>
 	<div class="cs-container">
 		<h2>고객센터</h2>
 		<div class="cs-board01">
@@ -74,6 +86,11 @@
 			</div>
 		</div>
 	</div>
+	<!-- 푸터 -->
+	<footer>
+		<c:import url="/WEB-INF/views/include/footer.jsp"/>
+		</div>
+	</footer>
+	<script type="text/javascript" src="${root }js/page.js"></script>
 </body>
-
 </html>

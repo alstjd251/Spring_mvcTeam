@@ -29,7 +29,7 @@
 			<span><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/>
 			<span id="my_name">${loginBean.mem_name }님</span></span>
 			</a>
-			<a href="member/logout_proc" id="logout_button">로그아웃</a>
+			<a href="${root }member/logout_proc" id="logout_button">로그아웃</a>
 		</c:otherwise>
       </c:choose>
       </div>

@@ -17,7 +17,6 @@
 <title>Sul Sure</title>
 </head>
 <body>
-<c:import url="/WEB-INF/views/include/modal.jsp"/>
     <!-- 헤더 -->
     <header>
     <c:import url="/WEB-INF/views/include/header.jsp"/>
@@ -183,7 +182,6 @@
       </div>
     </div>
     <script type="text/javascript" src="${root }js/sooldesk.js"></script>
-    <script type="text/javascript" src="${root }js/modal.js"></script>
     <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

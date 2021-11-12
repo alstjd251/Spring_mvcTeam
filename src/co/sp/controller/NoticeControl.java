@@ -61,6 +61,7 @@ public class NoticeControl {
 		
 		m.addAttribute("noticeList", nl);
 		m.addAttribute("noticePaging", bp);
+		m.addAttribute("noticeTotal", noticeTotal);
 		
 		return "board/NoticeList";
 	}

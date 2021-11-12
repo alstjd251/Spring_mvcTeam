@@ -2,92 +2,92 @@ package co.sp.beans;
 
 //게시판 페이징용 빈
 public class BoardPage {
-	private int contentNum;
-	private int pageNum;
+	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
+	private int cntPage = 5;
 	
-	private int prevPage;
-	private int nextPage;
-	private int currentPage;
+	public BoardPage() {
+	}
+	public BoardPage(int total, int nowPage, int cntPerPage) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage());
+	}
+	// 제일 마지막 페이지 계산
+	public void calcLastPage(int total, int cntPerPage) {
+		setLastPage((int) Math.ceil((double)total / (double)cntPerPage));
+	}
+	// 시작, 끝 페이지 계산
+	public void calcStartEndPage(int nowPage, int cntPage) {
+		setEndPage(((int)Math.ceil((double)nowPage / (double)cntPage)) * cntPage);
+		if (getLastPage() < getEndPage()) {
+			setEndPage(getLastPage());
+		}
+		setStartPage(getEndPage() - cntPage + 1);
+		if (getStartPage() < 1) {
+			setStartPage(1);
+		}
+	}
+	// DB 쿼리에서 사용할 start, end값 계산
+	public void calcStartEnd(int nowPage, int cntPerPage) {
+		setEnd(nowPage * cntPerPage);
+		setStart(getEnd() - cntPerPage + 1);
+	}
 	
-	private int min;
-	private int max;
-
-	public BoardPage(int contentCount, int currentPage, int contentPageCount, int pa) {
-
-		this.currentPage = currentPage;
-
-		pageNum = contentCount / contentPageCount;
-		if (contentCount % contentPageCount > 0) {
-			pageNum++;
-		}
-
-		min = ((currentPage - 1) / contentPageCount) * contentPageCount + 1;
-		max = min + pa - 1;
-
-		if (max > pageNum) {
-			max = pageNum;
-		}
-
-		prevPage = min - 1;
-		nextPage = max + 1;
-		if (nextPage > pageNum) {
-			nextPage = pageNum;
-		}
+	public int getNowPage() {
+		return nowPage;
 	}
-
-	public int getContentNum() {
-		return contentNum;
+	public void setNowPage(int nowPage) {
+		this.nowPage = nowPage;
 	}
-
-	public void setContentNum(int contentNum) {
-		this.contentNum = contentNum;
+	public int getStartPage() {
+		return startPage;
 	}
-
-	public int getPageNum() {
-		return pageNum;
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
 	}
-
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
+	public int getEndPage() {
+		return endPage;
 	}
-
-	public int getPrevPage() {
-		return prevPage;
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
 	}
-
-	public void setPrevPage(int prevPage) {
-		this.prevPage = prevPage;
+	public int getTotal() {
+		return total;
 	}
-
-	public int getNextPage() {
-		return nextPage;
+	public void setTotal(int total) {
+		this.total = total;
 	}
-
-	public void setNextPage(int nextPage) {
-		this.nextPage = nextPage;
+	public int getCntPerPage() {
+		return cntPerPage;
 	}
-
-	public int getCurrentPage() {
-		return currentPage;
+	public void setCntPerPage(int cntPerPage) {
+		this.cntPerPage = cntPerPage;
 	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
+	public int getLastPage() {
+		return lastPage;
 	}
-
-	public int getMin() {
-		return min;
+	public void setLastPage(int lastPage) {
+		this.lastPage = lastPage;
 	}
-
-	public void setMin(int min) {
-		this.min = min;
+	public int getStart() {
+		return start;
 	}
-
-	public int getMax() {
-		return max;
+	public void setStart(int start) {
+		this.start = start;
 	}
-
-	public void setMax(int max) {
-		this.max = max;
+	public int getEnd() {
+		return end;
+	}
+	public void setEnd(int end) {
+		this.end = end;
+	}	
+	public int setCntPage() {
+		return cntPage;
+	}
+	public void getCntPage(int cntPage) {
+		this.cntPage = cntPage;
 	}
 }

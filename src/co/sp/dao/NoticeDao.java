@@ -36,4 +36,7 @@ public class NoticeDao {
 	public void increaseNoticeCnt(Notice_s noticeBean) {
 		noticemapper.increaseNoticeCnt(noticeBean);
 	}
+	public List<Notice_s> getNotice_desc(Notice_s noticeBean){
+		return noticemapper.getNotice_desc(noticeBean);
+	}
 }

@@ -36,4 +36,7 @@ public class NoticeService {
 	public void increaseNoticeCnt(Notice_s noticeBean) {
 		noticedao.increaseNoticeCnt(noticeBean);
 	}
+	public List<Notice_s> getNotice_desc(Notice_s noticeBean){
+		return noticedao.getNotice_desc(noticeBean);
+	}
 }

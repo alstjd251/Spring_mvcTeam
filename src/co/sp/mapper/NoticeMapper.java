@@ -27,4 +27,7 @@ public interface NoticeMapper {
 	
 	@Update("update notice_s set n_noticecnt = n_noticecnt + 1 where n_noticenum = #{n_noticenum}")
 	void increaseNoticeCnt(Notice_s noticeBean);
+	
+	@Select("select * from (select ROWNUM RN, *.A from (select * from notice_s order by n_noticenum desc)A) where RN between #{start} and #{end}")
+	List<Notice_s> getNotice_desc(Notice_s noticeBean);
 }

@@ -20,11 +20,11 @@
       <div class="login">
       <c:choose>
 	    <c:when test="${loginBean.memLogin == false }">
-	      	<a style="position:absolute; right:5em;" href="#" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
+	      	<a style="position:absolute; right:5em;" href="member/login" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
 	      	<a href="#" id="mypage_open_btn" style="display:none;"><img src="${root }img/menu_bar/mypage.jpg"/></a>
       	</c:when>
 		<c:otherwise>
-			<a href="#" id="popup_open_btn" style="display:none;"><img src="${root }img/menu_bar/loginimg.png"/></a>
+			<a href="member/login" id="popup_open_btn" style="display:none;"><img src="${root }img/menu_bar/loginimg.png"/></a>
 			<a href="${root }member/mypage">
 			<span><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/>
 			<span id="my_name">${loginBean.mem_name }님</span></span>

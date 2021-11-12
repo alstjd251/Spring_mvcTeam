@@ -9,55 +9,62 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="page.css?after" />
+    <link rel="stylesheet" href="${root }css/board/page.css" />
+    <link rel="stylesheet" href="${root }css/include/header_footer.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <title>Sul Sure</title>
   </head>
   <body>
     <!-- 헤더 -->
     <header>
       <!-- 헤더 배너광고 -->
-      <div id="gg">
-        <div id="gggg">
-            <li><a href="#"><img src="C:/Users/user/Desktop/3/ad/1330.jpg" class="pimg1"></a></li>
-            <li><a href="#"><img src="C:/Users/user/Desktop/3/ad/야놀자.png" class="pimg2"></a></li>
-            <li><a href="#"><img src="C:/Users/user/Desktop/3/ad/하미앙.png" class="pimg3"></a></li>
-            <li><a href="#"><img src="C:/Users/user/Desktop/3/ad/여긴어때.png" class="pimg4"></a></li>
-            <li><a href="#"><img src="C:/Users/user/Desktop/3/ad/숙박대전.jpg" class="pimg5"></a></li>
-        </div>
-      </div>
+      <c:import url="/WEB-INF/views/include/ad.jsp"/>
       <!-- 헤더 메뉴 -->
       <div class="menu" onscroll="menuscroll()">
         <div class="menu1">
-          <div class="logo">
-            <a href="#"
-              ><img src="C:/Users/USER/Desktop/3/menu_bar/logoimg.jpg"
-            /></a>
-          </div>
-          <div class="menu_bar">
-            <li><a href="#기관소개">기관소개</a></li>
-            <li><a href="#양조장">양조장</a></li>
-            <li><a href="#예약">예약</a></li>
-            <li><a href="#공지사항 및 문의">공지사항 및 문의</a></li>
-          </div>
-          <div class="login">
-            <a href="#" id="popup_open_btn"
-              ><img src="C:/Users/USER/Desktop/3/menu_bar/loginimg.jpg"
-            /></a>
-          </div>
+           <c:import url="/WEB-INF/views/include/header.jsp"/>
         </div>
       </div>
     </header>
-    <!-- 기관소개 섹션부분 -->
-    <section>섹션부분 내용 추가 요망
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>vv
+    <!-- 로그인 폼 부분 -->
+    <section>
+    <div style="
+          margin: 240px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        ">
+      <form:form class="form-horizontal" action="login_proc" modelAttribute="memberBean" >
+  <div class="form-group">
+    <form:label path="mem_id" for="id" class="col-sm-2 control-label">ID</form:label>
+    <div class="col-sm-5">
+      <form:input path="mem_id" class="form-control" id="id" placeholder="아이디"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <form:label path="mem_pw" for="inputPassword3" class="col-sm-2 control-label">Password</form:label>
+    <div class="col-sm-5">
+      <form:input path="mem_pw" class="form-control" id="inputPassword3" placeholder="패스워드"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <form:button class="btn btn-default">Sign in</form:button>
+    </div>
+  </div>
+</form:form>
+</div>
     </section>
     <!-- 푸터 -->
     <footer>
       <c:import url="/WEB-INF/views/include/footer.jsp"/>
     </footer>
-    <script type="text/javascript" src="page.js"></script>
+    <script type="text/javascript" src="${root}js/page.js"></script>
   </body>
 </html>

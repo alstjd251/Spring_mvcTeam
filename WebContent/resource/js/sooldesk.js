@@ -12,6 +12,7 @@ $(window).on("load", function () {
   ).css({
     height: innerHeight + "px",
   });
+  $("#gg").css({ height: innerHeight - 400 + "px" });
   /* 풀페이지 설정 */
   var sectionWrap = $(".section");
   var sect = $(".sect");
@@ -49,6 +50,10 @@ $(window).on("load", function () {
       },
     });
   }
+  $("#drink").css({
+    left: $("#intro").width() - $("#drink").width() / 2 + "px",
+    top: innerHeight * 0.9 - $("#drink").height() + 25 + "px",
+  });
 });
 $(window).on("resize", function () {
   /* 반응형 가로 세로 길이 */
@@ -63,6 +68,7 @@ $(window).on("resize", function () {
   ).css({
     height: innerHeight + "px",
   });
+  $("#gg").css({ height: innerHeight - 400 + "px" });
   /* 풀페이지 설정 */
   var sectionWrap = $(".section");
   var sect = $(".sect");
@@ -100,17 +106,21 @@ $(window).on("resize", function () {
       },
     });
   }
+  $("#drink").css({
+    left: $("#intro").width() - $("#drink").width() / 2 + "px",
+    top: innerHeight * 0.9 - $("#drink").height() + 25 + "px",
+  });
 });
 /* 메인페이지 페이드인아웃 설정 */
-$("#fade1>li").hide();
-$("#fade1>li:first-child").show();
+$("#fade2>li").hide();
+$("#fade2>li:first-child").show();
 setInterval(function () {
-  $("#fade1>li:first-child")
+  $("#fade2>li:first-child")
     .fadeOut()
     .next()
     .fadeIn()
     .end(1000)
-    .appendTo("#fade1");
+    .appendTo("#fade2");
 }, 4000);
 
 /* 광고 또는 배너 사이즈와 js */

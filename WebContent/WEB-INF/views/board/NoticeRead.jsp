@@ -10,8 +10,8 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="${root }css/page.css" />
-<link href="${root }css/postCss.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/board/postCss.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script
@@ -27,41 +27,11 @@
 	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
-		<div class="ad">
-			<div class="adad">광고 배너입니다</div>
-		</div>
+		<c:import url="/WEB-INF/views/include/ad.jsp"/>
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
-				<div class="logo">
-					<a href="#"><img src="${root }img/menu_bar/logoimg.jpg" /></a>
-				</div>
-				<div class="menu_bar">
-					<li><a href="#기관소개">기관소개</a></li>
-					<li><a href="#양조장">양조장</a></li>
-					<li><a href="#예약">예약</a></li>
-					<li><a href="#공지사항 및 문의">공지사항 및 문의</a></li>
-				</div>
-				<div class="login">
-					<c:choose>
-						<c:when test="${loginBean.memLogin == false }">
-							<a style="position: absolute; right: 5em;" href="#"
-								id="popup_open_btn"><img
-								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="#" id="mypage_open_btn" style="display: none;"><img
-								src="${root }img/menu_bar/mypage.jpg" /></a>
-						</c:when>
-						<c:otherwise>
-							<a href="#" id="popup_open_btn" style="display: none;"><img
-								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="${root }member/mypage"> <span><img
-									id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg" />
-									<span id="my_name">${loginBean.mem_name }님</span></span>
-							</a>
-							<a href="${root }member/logout_proc" id="logout_button">로그아웃</a>
-						</c:otherwise>
-					</c:choose>
-				</div>
+				<c:import url="/WEB-INF/views/include/header.jsp"/>
 			</div>
 		</div>
 	</header>
@@ -120,45 +90,9 @@
 	<!-- 푸터 -->
 	<footer>
 		<div class="FOOTER_TOTAL">
-			<div class="F_i F_i1">
-				<img src="${root }img/footer/M_LOGE.jpg">
-				<p>
-					<strong>대표자</strong>_박치언
-				</p>
-				<p>
-					<strong>사업자등록번호</strong> 052-34-56789
-				</p>
-				<p>통신판매업신고 제2015-울산울주-0164호</p>
-			</div>
-			<div class="F_i F_i2">
-				<img src="${root }img/footer/location.png" width="180px">
-				<p>
-					<strong>울산광역시 울주군 상북면 향산동길 48</strong>
-				</p>
-			</div>
-			<div class="F_i F_i3">
-				<img src="${root }img/footer/call.png" width="180px">
-				<p>전화 052-879-1234</p>
-				<p>팩스&nbsp;&nbsp;1577-6746</p>
-				<p>soldesk@gmail.com</p>
-			</div>
-			<div class="F_i F_i4">
-				<img src="${root }img/footer/open.png" width="180px">
-				<p>
-					<strong>매주</strong>
-				</p>
-				<p id="line">
-					<strong>오전</strong> 9:00 ~ <strong>오후</strong> 18:00
-				</p>
-				<p>
-					<strong>매주 월요일 휴무</strong>
-				</p>
-			</div>
-		</div>
+		<c:import url="/WEB-INF/views/include/footer.jsp"/>
 		</div>
 	</footer>
-	<!-- 모달로그인 js -->
-	<script type="text/javascript" src="${root }js/modal.js"></script>
 	<script type="text/javascript" src="${root }js/page.js"></script>
 </body>
 

@@ -53,7 +53,7 @@
 					<div class="form-group">
 						<form:label path="mem_pw" for="inputPassword3" class="col-sm-2 control-label">PW</form:label>
 						<div class="col-sm-10">
-							<form:input style="width:255px;" path="mem_pw" class="form-control" id="inputPassword3" placeholder="패스워드" />
+							<form:password style="width:255px;" path="mem_pw" class="form-control" id="inputPassword3" placeholder="패스워드" />
 						</div>
 					</div>
 					</div>

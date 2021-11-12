@@ -28,4 +28,12 @@ public class NoticeService {
 	public void updateNotice(Notice_s noticeBean) {
 		noticedao.updateNotice(noticeBean);
 	}
+	
+	public int getNoticeTotal() {
+		return noticedao.getNoticeTotal();
+	}
+	
+	public void increaseNoticeCnt(Notice_s noticeBean) {
+		noticedao.increaseNoticeCnt(noticeBean);
+	}
 }

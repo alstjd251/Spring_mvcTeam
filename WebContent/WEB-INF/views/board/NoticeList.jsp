@@ -5,100 +5,27 @@
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html>
-
+<meta charset="UTF-8">
+<title>Sul Sure</title>
 <head>
-<style>
-body {
-	margin: 0%;
-}
-
-.cs-container {
-	text-align: center;
-}
-
-.cs-board01 {
-	display: flex;
-	width: 100%;
-	flex-direction: column;
-	align-items: center;
-}
-
-.cs-board01 #cs-menu {
-	display: flex;
-}
-
-.cs-board01 #cs-menu li {
-	list-style-type: none;
-	padding: 10px;
-	margin: 20px;
-	border-bottom: solid lightslategrey;
-}
-
-.cs-board01 #cs-backimg {
-	width: 700px;
-	height: 300px;
-	background: url('C:/Users/user/Downloads/notice.jpg') center/cover
-		no-repeat;
-	margin: 50px;
-}
-
-.cs-board02 {
-	display: flex;
-	justify-content: center;
-	margin: 20px;
-}
-
-#cs-titleBox {
-	height: auto;
-	text-align: left;
-	vertical-align: top;
-}
-
-#cs-listContainer {
-	vertical-align: top;
-	width: 60%;
-}
-
-#cs-listContainer #cs-search {
-	text-align: right;
-}
-
-.cs-table {
-	width: 100%;
-	margin-top: 20px;
-}
-
-table.cs-table {
-	border-collapse: collapse;
-	text-align: center;
-	line-height: 1.5;
-}
-
-table.cs-table thead tr th {
-	padding: 10px;
-	font-weight: bold;
-	vertical-align: top;
-	color: #369;
-	border-bottom: 3px solid lightslategrey;
-}
-
-tbody.cs-tbody {
-	/* 게시글 css for문 적용방법 찾기*/
-	border-collapse: separate;
-	border-spacing: 1px;
-	text-align: center;
-	line-height: 1.5;
-	border-top: 1px solid #ccc;
-	margin: 20px 10px;
-}
-
-#cs-button {
-	text-align: right;
-}
-</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
+	<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
+<!-- 헤더 -->
+	<header>
+		<!-- 헤더 배너광고 -->
+		<c:import url="/WEB-INF/views/include/ad.jsp"/>
+		<!-- 헤더 메뉴 -->
+		<div class="menu" onscroll="menuscroll()">
+			<div class="menu1">
+				<c:import url="/WEB-INF/views/include/header.jsp"/>
+			</div>
+		</div>
+	</header>
 	<div class="cs-container">
 		<h2>고객센터</h2>
 		<div class="cs-board01">
@@ -107,7 +34,7 @@ tbody.cs-tbody {
 				<li>Q&A</li>
 				<li>Contact Us</li>
 			</div>
-			<div id="cs-backimg">.</div>
+			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
 		</div>
 
 		<div class="cs-board02">
@@ -139,11 +66,15 @@ tbody.cs-tbody {
 							<!--게시글 <td> 들어가는 곳-->
 							<c:forEach var='obj' items="${noticeList }">
 								<tr>
-									<td></td>
-									<td>${obj.n_noticetitle }</td>
-									<td></td>
+									<c:set var='listcnt' value="${noticeTotal }"/>
+									<c:set var='i' value="${i+1 }"/>
+									<td>${noticeTotal - i + 1}</td>
+									<td>
+									<a href="${root }board/NoticeRead?n_noticetitle=${obj.n_noticetitle }&n_noticecontent=${obj.n_noticecontent}&n_noticenum=${obj.n_noticenum}">${obj.n_noticetitle }</a>
+									</td>
+									<td>${obj.n_noticedate }</td>
 									<td>${obj.mem_name }</td>
-									<td></td>
+									<td>${obj.n_noticecnt }</td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -151,14 +82,17 @@ tbody.cs-tbody {
 					<hr>
 					<!--관리자용! 일반페이지에는 없앨것-->
 					<div id="cs-button">
-						<button>
-							<a href="${root }board/NoticeWrite">글쓰기</a>
-						</button>
+						<a href="${root }board/NoticeWrite">글쓰기</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- 푸터 -->
+	<footer>
+		<c:import url="/WEB-INF/views/include/footer.jsp"/>
+		</div>
+	</footer>
+	<script type="text/javascript" src="${root }js/page.js"></script>
 </body>
-
 </html>

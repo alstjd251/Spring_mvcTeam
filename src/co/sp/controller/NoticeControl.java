@@ -26,39 +26,50 @@ public class NoticeControl {
 	private Member_s loginBean;
 
 	@GetMapping("/NoticeRead")
-	public String main(@ModelAttribute("noticeBean") Notice_s notice) {
+	public String main(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		ns.increaseNoticeCnt(noticeBean);
+		m.addAttribute(noticeBean);
 		return "board/NoticeRead";
 	}
 
-	@PostMapping("/notice_proc")
+	@PostMapping("/NoticeProc")
 	public String join(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
-		m.addAttribute("noticeBean", noticeBean);
+		noticeBean.setN_mnum(loginBean.getMem_num());
 		ns.addNotice(noticeBean);
-		return "board/NoticeList";
+		
+		return "board/NoticeProc";
 	}
 	
 	@GetMapping("/NoticeList")
 	public String list(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
 		List<Notice_s> nl = ns.getNotice(noticeBean);
+		int noticeTotal = ns.getNoticeTotal();
+		
 		m.addAttribute("noticeList", nl);
+		m.addAttribute("noticeTotal", noticeTotal);
+		
 		return "board/NoticeList";
 	}
 	
 	@GetMapping("/NoticeWrite")
 	public String write(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
 		m.addAttribute("noticeBean", noticeBean);
+		
 		return "board/NoticeWrite";
 	}
-	/*
-	@GetMapping("/NoticeList")
-	public String read(@RequestParam("n_noticecontent") String n_noticecontent, @RequestParam("n_noticetitle") String n_noticetitle, 
-					   Model m) {
-		m.addAttribute("loginBean", loginBean);
-		m.addAttribute("n_noticetitle", n_noticetitle);
-		m.addAttribute("n_noticecontent", n_noticecontent);
+	
+	@PostMapping("/NoticeDelete")
+	public String delete(@ModelAttribute("noticeBean") Notice_s noticeBean) {
+		ns.deleteNotice(noticeBean);
 		
-		return "board/NoticeList";
+		return "board/NoticeDelete";
 	}
-	*/
+	
+	@GetMapping("/NoticeModify")
+	public String modify(@ModelAttribute("noticeBean") Notice_s noticeBean) {
+		ns.updateNotice(noticeBean);
+		
+		return "board/NoticeModify";
+	}
 }
 

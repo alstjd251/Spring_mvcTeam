@@ -1,15 +1,20 @@
 package co.sp.controller;
 
+import java.io.IOException;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
 import co.sp.service.MemService;
@@ -30,8 +35,11 @@ public class MemControl {
 //		return "member/main";
 //	}
 	
-	@PostMapping("/member_proc")
-	public String join(@ModelAttribute("memberBean") Member_s memberBean) {
+	@PostMapping("/join_proc")
+	public String join(@ModelAttribute("memberBean") @Valid Member_s memberBean, BindingResult result) {
+		if(result.hasErrors()) {
+			return "main";
+		}
 		ms.addMember(memberBean);
 		return "member/join_success";
 	}
@@ -45,11 +53,11 @@ public class MemControl {
 //	}
 	
 	@PostMapping("/login_proc")
-	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean) {
+	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean, HttpSession session) {
 		
 		ms.getLoginMemberInfo(memberBean);
 		
-		if(loginBean.isMemLogin() == true) {
+		if(loginBean.isMemLogin() == true) {	
 			return "member/login_success";
 		} else {
 			return "member/login_fail";
@@ -58,8 +66,9 @@ public class MemControl {
 	}
 	
 	@GetMapping("/logout_proc")
-	public String logout_proc() {
+	public String logout_proc(HttpSession session) {
 		loginBean.setMemLogin(false);
+		session.setAttribute("loginBean", loginBean);
 		return "member/logout_success";
 	}
 	

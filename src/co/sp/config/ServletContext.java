@@ -11,7 +11,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -30,6 +33,7 @@ import co.sp.mapper.ResMapper;
 @ComponentScan("co.sp.service")
 
 @PropertySource("/WEB-INF/properties/dbconnection.properties")
+@PropertySource("/WEB-INF/properties/error_message.properties")
 public class ServletContext implements WebMvcConfigurer {
 
 	@Value("${dbconnection.classname}")
@@ -85,7 +89,7 @@ public class ServletContext implements WebMvcConfigurer {
 		SqlSessionFactory fac = f.getObject();
 		return fac;
 	}
-
+	
 	// 쿼리문 실행
 	// mapper를 주입받아 쿼리문을 실행시킨다.
 	@Bean
@@ -102,7 +106,6 @@ public class ServletContext implements WebMvcConfigurer {
 		MapperFactoryBean<ResMapper> f = new MapperFactoryBean<ResMapper>(ResMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;
-
 	}
 
 	@Bean
@@ -111,5 +114,40 @@ public class ServletContext implements WebMvcConfigurer {
 		MapperFactoryBean<NoticeMapper> f = new MapperFactoryBean<NoticeMapper>(NoticeMapper.class);
 		f.setSqlSessionFactory(fac);
 		return f;
+	}
+	
+
+	@Bean
+	public static PropertySourcesPlaceholderConfigurer PropertySourcesPlaceholderConfigurer() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+	
+	// Validation
+	@Bean
+	public ReloadableResourceBundleMessageSource messageSource() {
+		ReloadableResourceBundleMessageSource res = new ReloadableResourceBundleMessageSource();
+		res.setBasenames("/WEB-INF/properties/error_message");
+		return res;
+	}
+	
+	// Interceptors
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		// TODO Auto-generated method stub
+		WebMvcConfigurer.super.addInterceptors(registry);
+		
+//		TopMenuInterceptor topMenuInterceptor = new TopMenuInterceptor(topMenuService, loginBean);
+//		
+//		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
+//		reg1.addPathPatterns("/**");
+//		
+//		LoginInterceptor loginInterceptor = new LoginInterceptor(loginBean);
+//		InterceptorRegistration reg2 = registry.addInterceptor(loginInterceptor);
+//		reg2.addPathPatterns("/user/modify", "/user/logout", "/board/*");
+//		reg2.excludePathPatterns("/board/main");
+//		
+//		WriterInterceptor writerInterceptor = new WriterInterceptor(loginBean, boardService);
+//		InterceptorRegistration reg3 = registry.addInterceptor(writerInterceptor);
+//		reg3.addPathPatterns("/board/modify", "/board/delete");
 	}
 }

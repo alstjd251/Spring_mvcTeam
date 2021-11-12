@@ -28,4 +28,12 @@ public class NoticeDao {
 	public void updateNotice(Notice_s noticeBean) {
 		noticemapper.updateNotice(noticeBean);
 	}
+	
+	public int getNoticeTotal() {
+		return noticemapper.getNoticeTotal();
+	}
+	
+	public void increaseNoticeCnt(Notice_s noticeBean) {
+		noticemapper.increaseNoticeCnt(noticeBean);
+	}
 }

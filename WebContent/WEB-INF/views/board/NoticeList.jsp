@@ -82,6 +82,22 @@
 					<div id="cs-button">
 						<a href="${root }board/NoticeWrite">글쓰기</a>
 					</div>
+					<c:if test="${noticePaging.startPage != 1 }">
+						<a href="/NoticeList?nowPage=${noticePaging.startPage - 1 }&cntPerPage=${noticePaging.cntPerPage}">&lt;</a>
+					</c:if>
+					<c:forEach begin="${noticePaging.startPage }" end="${noticePaging.endPage }" var="p">
+						<c:choose>
+							<c:when test="${p == noticePaging.nowPage }">
+								<b>${p }</b>
+							</c:when>
+							<c:when test="${p != noticePaging.nowPage }">
+								<a href="/NoticeList?nowPage=${p }&cntPerPage=${noticePaging.cntPerPage}">${p }</a>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${noticePaging.endPage != noticePaging.lastPage}">
+					<a href="/NoticeList?nowPage=${noticePaging.endPage+1 }&cntPerPage=${noticePaging.cntPerPage}">&gt;</a>
+				</c:if>
 				</div>
 			</div>
 		</div>

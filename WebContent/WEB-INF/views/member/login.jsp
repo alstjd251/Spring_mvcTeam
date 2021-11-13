@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="${root }css/board/page.css" />
-<link rel="stylesheet" href="${root }css/include/header_footer.css" />
+<link rel="stylesheet" href="${root }css/include/n_header_footer.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -38,6 +38,9 @@
 	</header>
 	<!-- 로그인 폼 부분 -->
 	<section>
+	<div class="page-header" align="center">
+	 		<h1>로그인</h1>
+	</div>
 	<div style="display: flex; align-items: center; justify-content: center">
 		<div style="margin-bottom: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
 			<form:form class="form-horizontal" action="login_proc" modelAttribute="memberBean">
@@ -66,7 +69,7 @@
 			</form:form>
 			<ol class="breadcrumb" style="position:absolute; margin:-80px 0 0 -60px">
 			  <li><a href="#">아이디 & 비밀번호 찾기</a></li>
-			  <li><a href="#">회원가입</a></li>
+			  <li><a href="${root }member/join">회원가입</a></li>
 			</ol>
 		</div>
 	</section>
@@ -74,6 +77,6 @@
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</footer>
-	<script type="text/javascript" src="${root}js/page.js"></script>
+	<script type="text/javascript" src="${root}js/n_page.js"></script>
 </body>
 </html>

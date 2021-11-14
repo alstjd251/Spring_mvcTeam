@@ -11,19 +11,57 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="${root }css/board/page.css" />
 <link rel="stylesheet" href="${root }css/include/n_header_footer.css" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-<script
-	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <title>Sul Sure</title>
+<script type="text/javascript">
+	function idchecking() {
+		var mem_id = $("#inputid").val()
+		
+		if(mem_id.length == 0){
+			Swal.fire({
+				title : "입력 오류",
+			    text  : "아이디를 입력해주세요.",
+			});
+			return
+		}
+		
+		$.ajax({
+			url : '${root}member/idcheck/' + mem_id,
+			type : 'get',
+			dataType : 'text',
+			success : function(result){
+				if(result.trim() == 'true'){
+					Swal.fire({
+						title : "사용 가능",
+					    text  : "사용 가능한 아이디 입니다.",
+					}).then(function(){
+						$("#idExist").val('true')
+					});
+				}else{
+					Swal.fire({
+						title : "사용 불가능",
+					    text  : "사용할 수 없는 아이디 입니다.",
+					}).then(function(){
+						$("#idExist").val('false')
+						$("#inputid").val("");
+					});
+				}
+			}
+		})
+	}
+	
+	function resetUserIdExist(){
+		$("#idExist").val('false')
+	}
+</script>
+
+
 </head>
 <body>
 	<!-- 헤더 -->
@@ -43,12 +81,13 @@
 		</div>
 		<div style="margin-bottom: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
 			<form:form class="form-horizontal" action="join_proc" modelAttribute="memberBean">
+				<form:hidden path="idExist"/>
 					<!-- 아이디 -->
 					<div class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_id" for="inputid" class="col-sm-2 control-label">아이디*</form:label>
 						<div class="col-sm-10" style="display:flex;">
-							<form:input style="width:235px;" path="mem_id" class="form-control" id="inputid" placeholder="아이디" />
-							<input type="button" style="margin-left:10px;" id="idcheck" onclick="idcheck()" value="중복확인"/>
+							<form:input style="width:235px;" path="mem_id" class="form-control" id="inputid" onkeypress="resetUserIdExist()" placeholder="아이디" />
+							<input type="button" style="margin-left:10px;" id="idcheck" onclick="idchecking()" value="중복확인"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">

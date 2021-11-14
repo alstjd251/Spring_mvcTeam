@@ -28,39 +28,45 @@
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
-			 <div class="logo">
-        <a href="${root }main"><img src="${root }img/menu_bar/logoimg.jpg" /></a>
-      </div>
-      <div class="menu_bar">
-        <li><a href="#기관소개">기관소개</a></li>
-        <li><a href="#양조장">양조장</a></li>
-        <li><a href="${root }reservation/main">예약</a></li>
-        <li><a href="${root }board/NoticeList">공지사항 및 문의</a></li>
-      </div>
-      <div class="login">
-      <c:choose>
-	    <c:when test="${loginBean.memLogin == false }">
-	      	<a style="position:absolute; right:5em;" href="member/login" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
-	      	<a href="#" id="mypage_open_btn" style="display:none;"><img src="${root }img/menu_bar/mypage.jpg"/></a>
-      	</c:when>
-		<c:otherwise>
-			<a href="member/login" id="popup_open_btn" style="display:none;"><img src="${root }img/menu_bar/loginimg.png"/></a>
-			<a href="${root }member/mypage">
-			<span><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/>
-			<span id="my_name">${loginBean.mem_name }님</span></span>
-			</a>
-			<a href="member/logout_proc" id="logout_button">로그아웃</a>
-		</c:otherwise>
-      </c:choose>
-      </div>
+				<div class="logo">
+					<a href="${root }main"><img
+						src="${root }img/menu_bar/logoimg.jpg" /></a>
+				</div>
+				<div class="menu_bar">
+					<li><a href="#기관소개">기관소개</a></li>
+					<li><a href="#양조장">양조장</a></li>
+					<li><a href="${root }reservation/main">예약</a></li>
+					<li><a href="${root }board/NoticeList">공지사항 및 문의</a></li>
+				</div>
+				<div class="login">
+					<c:choose>
+						<c:when test="${loginBean.memLogin == false }">
+							<a style="position: absolute; right: 5em;" href="member/login"
+								id="popup_open_btn"><img
+								src="${root }img/menu_bar/loginimg.png" /></a>
+							<a href="#" id="mypage_open_btn" style="display: none;"><img
+								src="${root }img/menu_bar/mypage.jpg" /></a>
+						</c:when>
+						<c:otherwise>
+							<a href="member/login" id="popup_open_btn" style="display: none;"><img
+								src="${root }img/menu_bar/loginimg.png" /></a>
+							<a href="${root }member/mypage"> <span><img
+									id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg" />
+									<span id="my_name">${loginBean.mem_name }님</span></span>
+							</a>
+							<a href="member/logout_proc" id="logout_button">로그아웃</a>
+						</c:otherwise>
+					</c:choose>
+				</div>
 			</div>
 		</div>
 	</header>
-	<!-- 기관소개 섹션부분 -->
 	<section>
 		<div id="mypage">
 			<div id="mypage_con1">
-			   <div id="name_text"><h4>${loginBean.mem_name }님의 MyPage</h4></div>
+				<div id="name_text">
+					<h4>${loginBean.mem_name }님의MyPage</h4>
+				</div>
 				<ul class="tabs">
 					<li class="tab_link current" data-tab="modify">회원정보 수정</li>
 					<li class="tab_link" data-tab="res_info">예약정보 조회</li>
@@ -118,11 +124,8 @@
 									<input type="text" id="sample6_detailAddress"
 									placeholder="상세주소" path="mem_addr2"></td>
 							</tr>
-							<tr>
-								<td colspan="2"><input class="btn btn-default"
-									type="button" value="수정">
-							</tr>
 						</table>
+						<input class="btn btn-default" type="button" value="수정">
 					</form:form>
 				</div>
 				<div id="res_info" class="tab_content">
@@ -156,11 +159,8 @@
 								<td><input type="text" path="res_personnel"
 									id="res_personnel"></td>
 							</tr>
-							<tr>
-								<td colspan="2"><input class="btn btn-default"
-									type="button" id="" value="예약취소"></td>
-							</tr>
 						</table>
+						<input class="btn btn-default" type="button" id="" value="예약취소">
 					</form>
 				</div>
 				<div id="partners" class="tab_content">
@@ -202,11 +202,8 @@
 									<input type="text" id="sample6_detailAddress"
 									placeholder="상세주소" path="mem_addr2"></td>
 							</tr>
-							<tr>
-								<td colspan="2"><input class="btn btn-default"
-									type="button" id="" value="신청"></td>
-							</tr>
 						</table>
+						<input class="btn btn-default" type="button" id="" value="신청">
 					</form>
 				</div>
 				<div id="delete" class="tab_content">

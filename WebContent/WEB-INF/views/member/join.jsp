@@ -30,6 +30,16 @@
 			});
 			return
 		}
+		if(mem_id.length < 5){
+			Swal.fire({
+				title : "입력 오류",
+			    text  : "아이디는 최소 5자 이상 입력해야 합니다.",
+			}).then(function(){
+				document.getElementById("idGroup").className = "form-group has-error has-feedback"
+				document.getElementById("checkicon").className = "glyphicon glyphicon-remove form-control-feedback"
+			});
+			return
+		}
 		
 		$.ajax({
 			url : '${root}member/idcheck/' + mem_id,
@@ -42,6 +52,8 @@
 					    text  : "사용 가능한 아이디 입니다.",
 					}).then(function(){
 						$("#idExist").val('true')
+						document.getElementById("idGroup").className = "form-group has-success has-feedback"
+						document.getElementById("checkicon").className = "glyphicon glyphicon-ok form-control-feedback"
 					});
 				}else{
 					Swal.fire({
@@ -49,6 +61,8 @@
 					    text  : "사용할 수 없는 아이디 입니다.",
 					}).then(function(){
 						$("#idExist").val('false')
+						document.getElementById("idGroup").className = "form-group has-error has-feedback"
+						document.getElementById("checkicon").className = "glyphicon glyphicon-remove form-control-feedback"
 						$("#inputid").val("");
 					});
 				}
@@ -83,11 +97,12 @@
 			<form:form class="form-horizontal" action="join_proc" modelAttribute="memberBean">
 				<form:hidden path="idExist"/>
 					<!-- 아이디 -->
-					<div class="form-group" style="display:flex;">
+					<div id="idGroup" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_id" for="inputid" class="col-sm-2 control-label">아이디*</form:label>
 						<div class="col-sm-10" style="display:flex;">
 							<form:input style="width:235px;" path="mem_id" class="form-control" id="inputid" onkeypress="resetUserIdExist()" placeholder="아이디" />
 							<input type="button" style="margin-left:10px;" id="idcheck" onclick="idchecking()" value="중복확인"/>
+							<span id="checkicon" style="position:absolute; margin-right: 80px;" class="" aria-hidden="true"></span>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">

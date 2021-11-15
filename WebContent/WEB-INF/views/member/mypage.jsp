@@ -28,7 +28,7 @@
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
-				<c:import url="/WEB-INF/views/include/footer.jsp"/>
+				<c:import url="/WEB-INF/views/include/header.jsp"/>
 			</div>
 		</div>
 	</header>

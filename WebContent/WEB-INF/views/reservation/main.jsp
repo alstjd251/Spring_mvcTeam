@@ -44,6 +44,7 @@
 						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 						<c:forEach var="obj" items="${getCourseIdx }">
 							<form:option value="${obj.course_num }">${obj.course_names }</form:option>
+							<form:hidden path="${obj.course_price }" id="course_price"/>
 						</c:forEach>
 					</form:select>
 					<input type="date" id="res_date">
@@ -54,7 +55,7 @@
 							<p id="res_personnel">1</p>
 							<p id="plus" onclick="plus()">+</p>
 							<img src="${root }img/reservation/icon/won.png" id="res_priceimg" />
-							<input type="text" path="c_price" id="res_price"> <input
+							<input type="text" name="c_price" id="res_price"> <input
 								type="button" id="res_ch" value="선택">
 						</div>
 					</div>

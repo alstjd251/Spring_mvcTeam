@@ -14,7 +14,7 @@
       <div class="menu_bar">
         <li><a href="#기관소개">기관소개</a></li>
         <li><a href="#양조장">양조장</a></li>
-        <li><a href="#예약">예약</a></li>
+        <li><a href="${root }reservation/main">예약</a></li>
         <li><a href="${root }board/NoticeList">공지사항 및 문의</a></li>
       </div>
       <div class="login">

@@ -17,6 +17,35 @@
 <script src="${root }js/zip.js"></script>
 <link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
+var price = 0;
+function selected(){
+	var num = $("#res_subcategory").val();
+	switch(num){
+	case "-1":
+		price = 0;
+		break;
+	case "1":
+		price=${getCourseIdx.get(0).course_price};
+		break;
+	case "2":
+	 	price=${getCourseIdx.get(1).course_price};
+	 	break;
+	case "3":
+	 	price=${getCourseIdx.get(2).course_price};
+	 	break;
+	case "4":
+	 	price=${getCourseIdx.get(3).course_price};
+	 	break;
+	case "5":
+	 	price=${getCourseIdx.get(4).course_price};
+	 	break;
+	case "6":
+	 	price=${getCourseIdx.get(5).course_price};
+	 	break;
+	}
+	document.getElementById("res_price").innerHTML=price;
+}
+
 function resSelect() {
 	var course_sel = $("#res_subcategory").val();
 	
@@ -28,8 +57,34 @@ function resSelect() {
 			$("#res_subcategory").focus();
 		});n
 	}
-	var cname  = $("#res_subcategory").val();
-	$("#course_name").val(cname)
+	var cnum = $("#res_subcategory").val();
+	$("#course_num").val(cnum);
+	switch(cnum){
+	case "1":
+		$("#c_name").html("${getCourseIdx.get(0).course_names}");
+		break;
+	case "2":
+		$("#c_name").html("${getCourseIdx.get(1).course_names}");
+		break;
+	case "3":
+		$("#c_name").html("${getCourseIdx.get(2).course_names}");
+		break;
+	case "4":
+		$("#c_name").html("${getCourseIdx.get(3).course_names}");
+		break;
+	case "5":
+		$("#c_name").html("${getCourseIdx.get(4).course_names}");
+		break;
+	case "6":
+		$("#c_name").html("${getCourseIdx.get(5).course_names}");
+		break;
+		
+	}
+	var d = document.getElementById("res_date").value;
+	var p = document.getElementById("res_personnel").innerHTML;
+	document.getElementById("res_personnel2").value = p;
+	document.getElementById("p_price").value = p * price;
+	document.getElementById("startDate").value = d;
 	
 	
 	
@@ -85,12 +140,12 @@ function resSelect() {
 							<tr>
 								<!-- 예약코스(선택한 코스), 예약일자(선택한 일자), 예약자 정보(이름,연락처,이메일) 불러와야함! -->
 								<th>예약코스</th>
-								<td><input type="text" id="course_name" readonly="readonly"></td>
-								<form:hidden path="res_coursenum"/>
+								<td><span id="c_name"></span></td>
+								<form:hidden path="res_coursenum" id="course_num"/>
 							</tr>
 							<tr>
 								<th>예약일자</th>
-								<td><form:input type="date" path="res_startdate" id="startDate" readonly="readonly"/></td>
+								<td><form:input type="date" path="res_startdate" id="startDate" readonly="true"/></td>
 							</tr>
 						</table>
 						<h4>예약자 정보</h4>
@@ -118,12 +173,12 @@ function resSelect() {
 							<table class="table" id="table3">
 								<tr>
 									<th>인원</th>
-									<td><form:input path="res_personnel" id="res_personnel" readonly="readonly"/></td>
+									<td><form:input path="res_personnel" id="res_personnel2" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td colspan="2"><img
-										src="${root }img/reservation/icon/won.png" id="res_priceimg" /><input
-										type="text" id="res_price"></td>
+										src="${root }img/reservation/icon/won.png" id="res_priceimg" />
+										<input type="text" id="p_price" readonly="readonly"></td>
 								</tr>
 							</table>
 							<form:button id="res_button">예약</form:button>

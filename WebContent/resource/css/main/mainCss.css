@@ -112,6 +112,13 @@ header .login #logout_button:hover {
   height: 100%;
   opacity: 0.85;
 }
+.section #fade1 .fadeImg{
+    top: 100px;
+    z-index: 10;
+    height: 80%;
+    position: absolute;
+    right: 140px;
+}
 /*----------기관소개-------------*/
 
 .introduce_total {

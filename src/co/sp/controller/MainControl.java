@@ -1,9 +1,9 @@
 package co.sp.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -16,8 +16,8 @@ public class MainControl {
 	private Member_s loginBean;
 	
 	@GetMapping("/main")
-	public String main(@ModelAttribute("memberBean") Member_s tempLoginMemberBean, Model m) {
-		m.addAttribute("loginBean", loginBean);
+	public String main(@ModelAttribute("memberBean") Member_s tempLoginMemberBean, HttpSession session) {
+		session.setAttribute("loginBean", loginBean);
 		return "main";
 	}
 }

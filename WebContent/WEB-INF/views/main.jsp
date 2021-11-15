@@ -10,46 +10,22 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="${root }css/mainCss.css" />
+    <link rel="stylesheet" href="${root }css/main/mainCss.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="${root }js/zip.js"></script>
 <title>Sul Sure</title>
 </head>
 <body>
-<c:import url="/WEB-INF/views/include/modal.jsp"/>
     <!-- 헤더 -->
     <header>
-      <div class="logo">
-        <a href="${root }main"><img src="${root }img/menu_bar/logoimg.jpg" /></a>
-      </div>
-      <div class="menu_bar">
-        <li><a href="#기관소개">기관소개</a></li>
-        <li><a href="#양조장">양조장</a></li>
-        <li><a href="#예약">예약</a></li>
-        <li><a href="#공지사항 및 문의">공지사항 및 문의</a></li>
-      </div>
-      <div class="login">
-      <c:choose>
-	    <c:when test="${loginBean.memLogin == false }">
-	      	<a style="position:absolute; right:5em;" href="#" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
-	      	<%-- <a href="#" id="mypage_open_btn" style="display:none;"><img src="${root }img/menu_bar/mypage.jpg"/></a> --%>
-      	</c:when>
-		<c:otherwise>
-			<%-- <a href="#" id="popup_open_btn" style="display:none;"><img src="${root }img/menu_bar/loginimg.png"/></a> --%>
-			<a href="${root }member/mypage">
-			<span><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/>
-			<span id="my_name">${loginBean.mem_name }님</span></span>
-			</a>
-			<a href="member/logout_proc" id="logout_button">로그아웃</a>
-		</c:otherwise>
-      </c:choose>
-      </div>
+    <c:import url="/WEB-INF/views/include/header.jsp"/>
     </header>
     <!-- 섹션 -->
     <div class="section" dir="ltr">
       <!-- 메인페이지 페이드인아웃 -->
       <div id="fade1" class="sect">
+      	<div id="fade2">
         <li>
           <img src="${root }img/mainpage/img1.jpg" class="img1" />
         </li>
@@ -65,9 +41,45 @@
         <li>
           <img src="${root }img/mainpage/img5.jpg" class="img5" />
         </li>
+       </div>
       </div>
-      <div id="introduce" class="sect" style="background-color: aqua">
-        기관소개란입니다
+      <div id="introduce" class="sect">
+        <div class="introduce_total">
+            <div class="in_item">
+                <img id="intro" src="${root }img/mainIntroduce/introduce.png">
+                <img id="drink" src="${root }img/mainIntroduce/drink.png" width="100" height="60">
+            </div>
+            <div class="in_item2">
+                <div class="i_t1">
+                  <div class="i_t1_front">
+                    <div class="i_t1_front1">
+                      <div class="i_t1_flex">
+                        <span>Welcome</span>
+                        <span>To our</span>
+                        <span>Home Page</span>
+                      </div>
+                    </div>  
+                  </div>
+                  <div class="t1_property" style="background-image: url(${root}img/mainIntroduce/I_t2_wall.png);">
+                      <div>
+                        <img src="${root }img/mainIntroduce/bus.png" width="200px" height="150px">
+                        <p>편하게</p>
+                        <p>직접 운전할</p>
+                        <p>필요 <strong>Ⅹ</strong></p>
+                      </div>
+                      <div>
+                        <img src="${root }img/mainIntroduce/house.png" width="150px" height="134px">
+                      </div>
+                      <div>
+                        <img src="${root }img/mainIntroduce/map.png" width="140px" height="150px">
+                        <p>전국적 네트워크</p>
+                        <p>지방에서도 OK</p>
+                      </div>
+                  </div>
+                </div>
+                <div class="i_t2"></div>
+            </div>
+        </div>
       </div>
       <!--양조장 코스 01 ( 서울, 경기, 충청)-->
       <div id="yang01" class="sect" style="background-color: pink">
@@ -155,42 +167,21 @@
       
 <div id="footgg" class="sect">
         <div id="gg">
+        <div id="ggone"><a href="http://ursa.co.kr/" target="_blank"><img src="${root }img/ad/우루샷.jpg" class="pimg"></a></div>
+          <div id="ggtwo">
           <li><a href="#"><img src="${root }img/ad/1330.jpg" class="pimg1"/></a></li>
           <li><a href="#"><img src="${root }img/ad/야놀자.png" class="pimg2"/></a></li>
           <li><a href="#"><img src="${root }img/ad/하미앙.png" class="pimg3"/></a></li>
           <li><a href="#"><img src="${root }img/ad/여긴어때.png" class="pimg4"/></a></li>
           <li><a href="#"><img src="${root }img/ad/숙박대전.jpg" class="pimg5"/></a></li></div>
+          </div>`
         <footer>
-          <div class="FOOTER_TOTAL">
-                <div class="F_i F_i1">
-                  <img src="${root }img/footer/M_LOGE.jpg"/>
-                  <p><strong>대표자</strong>박치언</p>
-                  <p><strong>사업자등록번호</strong> 052-34-56789</p>
-                  <p>통신판매업신고 제2015-울산울주-0164호</p>
-                </div>
-                <div class="F_i F_i2">
-                  <img src="${root }img/footer/location.png" width="180px">
-                  <p><strong>울산광역시 울주군 상북면 향산동길 48</strong></p>
-                </div>
-                <div class="F_i F_i3">
-                  <img src="${root }img/footer/call.png" width="180px"/>
-                  <p>전화 052-879-1234</p>
-                  <p>팩스&nbsp;&nbsp;1577-6746</p>
-                  <p>soldesk@gmail.com</p>
-                </div>
-                <div class="F_i F_i4">
-                  <img src="${root }img/footer/open.png" width="180px"/>
-                  <p><strong>매주</strong></p>
-                  <p id="line"><strong>오전</strong> 9:00 ~ <strong>오후</strong> 18:00</p>
-                  <p><strong>매주 월요일 휴무</strong></p>
-                </div>
-            </div>
+        <c:import url="/WEB-INF/views/include/footer.jsp"/>
           </div>
         </footer>
       </div>
     </div>
-    <script type="text/javascript" src="${root }js/sooldesk2.js"></script>
-    <script type="text/javascript" src="${root }js/modal.js"></script>
+    <script type="text/javascript" src="${root }js/sooldesk.js"></script>
     <script src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

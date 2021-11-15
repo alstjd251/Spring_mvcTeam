@@ -1,6 +1,7 @@
 package co.sp.controller;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
 import co.sp.service.MemService;
@@ -24,36 +26,29 @@ public class MemControl {
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
-
-//	@GetMapping("/main")
-//	public String main(@ModelAttribute("memberBean") Member_s tempLoginMemberBean,  @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
-//		m.addAttribute("fail", fail);
-//		return "member/main";
-//	}
 	
 	@PostMapping("/join_proc")
-	public String join(@Valid @ModelAttribute("memberBean") Member_s memberBean, BindingResult result) {
+	public String join(@ModelAttribute("memberBean") @Valid Member_s memberBean, BindingResult result) {
 		if(result.hasErrors()) {
-			return "main";
+			return "member/join";
 		}
 		ms.addMember(memberBean);
 		return "member/join_success";
 	}
 	
-//	@GetMapping("/login")
-//	public String login(@ModelAttribute("tempLoginMemberBean") Member_s tempLoginMemberBean, @RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
-//		
-//		m.addAttribute("fail", fail);
-//		
-//		return "/login";
-//	}
+	@GetMapping("/login")
+	public String login(@ModelAttribute("memberBean") Member_s memberBean,@RequestParam(value = "fail", defaultValue = "false") boolean fail, Model m) {
+		m.addAttribute("memberBean", memberBean);
+		m.addAttribute("fail", fail);
+		return "member/login";
+	}
 	
 	@PostMapping("/login_proc")
-	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean) {
+	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean, HttpSession session, Model m) {
 		
 		ms.getLoginMemberInfo(memberBean);
 		
-		if(loginBean.isMemLogin() == true) {
+		if(loginBean.isMemLogin() == true) {	
 			return "member/login_success";
 		} else {
 			return "member/login_fail";
@@ -62,10 +57,9 @@ public class MemControl {
 	}
 	
 	@GetMapping("/logout_proc")
-	public String logout_proc() {
+	public String logout_proc(HttpSession session) {
 		loginBean.setMemLogin(false);
-		loginBean.setMem_num(-1);
-		loginBean.setMem_name(null);
+		session.setAttribute("loginBean", loginBean);
 		return "member/logout_success";
 	}
 	
@@ -75,17 +69,17 @@ public class MemControl {
 		return "member/mypage";
 	}
 	
-	@GetMapping("/home")
-	public String home(Model m) {
-		m.addAttribute("loginBean", loginBean);
-		return "home";
-	}
-	
 	@PostMapping("/idFinder")
 	public String idFinder(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
 		memberBean = ms.getFindId(memberBean);
 		m.addAttribute("memberBean", memberBean);
 		
 		return  "member/idFinder";
+	}
+	
+	@GetMapping("/join")
+	public String join(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
+		return "member/join";
 	}
 }

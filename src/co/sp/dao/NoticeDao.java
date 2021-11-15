@@ -1,5 +1,7 @@
 package co.sp.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,11 +21,19 @@ public class NoticeDao {
 		noticemapper.deleteNotice(noticeBean);
 	}
 	
-	public void getNotice(Notice_s noticeBean) {
-		noticemapper.getNotice(noticeBean);
+	public List<Notice_s> getNotice(Notice_s noticeBean) {
+		return noticemapper.getNotice(noticeBean);
 	}
 	
 	public void updateNotice(Notice_s noticeBean) {
 		noticemapper.updateNotice(noticeBean);
+	}
+	
+	public int getNoticeTotal() {
+		return noticemapper.getNoticeTotal();
+	}
+	
+	public void increaseNoticeCnt(Notice_s noticeBean) {
+		noticemapper.increaseNoticeCnt(noticeBean);
 	}
 }

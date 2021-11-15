@@ -39,4 +39,15 @@ public class MemService {
 	public Member_s getFindId(Member_s memberBean) {
 		return memDao.getFindId(memberBean);
 	}
+	
+	public boolean idCheck(String mem_id) {
+		
+		String checkId = memDao.idCheck(mem_id);
+		
+		if(checkId == null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }

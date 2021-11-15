@@ -34,7 +34,7 @@ public class Member_s {
 	private String mem_pw;
 	
 	@Size(min = 2, max = 10)
-	@Pattern(regexp = "[ê°€-íž£]*")
+	@Pattern(regexp = "[°¡-ÆR]*")
 	@NotBlank
 	private String mem_name;
 	

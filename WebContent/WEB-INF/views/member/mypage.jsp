@@ -15,11 +15,10 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script type="text/javascript" src="/resource/js/bootstrap.js"></script>
 <link rel="stylesheet" href="${root }css/mypageCss.css" />
 <script src="${root }js/zip.js"></script>
 <script src="${root }js/mypage.js"></script>
-<link href="${root }css/include/header_footer.css" rel="stylesheet"
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet"
 	type="text/css" />
 </head>
 <body>
@@ -28,36 +27,7 @@
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
-				<div class="logo">
-					<a href="${root }main"><img
-						src="${root }img/menu_bar/logoimg.jpg" /></a>
-				</div>
-				<div class="menu_bar">
-					<li><a href="#기관소개">기관소개</a></li>
-					<li><a href="#양조장">양조장</a></li>
-					<li><a href="${root }reservation/main">예약</a></li>
-					<li><a href="${root }board/NoticeList">공지사항 및 문의</a></li>
-				</div>
-				<div class="login">
-					<c:choose>
-						<c:when test="${loginBean.memLogin == false }">
-							<a style="position: absolute; right: 5em;" href="member/login"
-								id="popup_open_btn"><img
-								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="#" id="mypage_open_btn" style="display: none;"><img
-								src="${root }img/menu_bar/mypage.jpg" /></a>
-						</c:when>
-						<c:otherwise>
-							<a href="member/login" id="popup_open_btn" style="display: none;"><img
-								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="${root }member/mypage"> <span><img
-									id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg" />
-									<span id="my_name">${loginBean.mem_name }님</span></span>
-							</a>
-							<a href="member/logout_proc" id="logout_button">로그아웃</a>
-						</c:otherwise>
-					</c:choose>
-				</div>
+				<c:import url="/WEB-INF/views/include/header.jsp" />
 			</div>
 		</div>
 	</header>
@@ -65,7 +35,7 @@
 		<div id="mypage">
 			<div id="mypage_con1">
 				<div id="name_text">
-					<h4>${loginBean.mem_name }님의MyPage</h4>
+					<h4>${loginBean.mem_name }님의 MyPage</h4>
 				</div>
 				<ul class="tabs">
 					<li class="tab_link current" data-tab="modify">회원정보 수정</li>
@@ -84,13 +54,15 @@
 								<th>아이디</th>
 								<td><input type="text" path="mem_id" id="mem_id"></td>
 							</tr>
-							<tr>
+							 <tr>
 								<th>비밀번호</th>
-								<td><input type="text" id="mem_pw"></td>
+								<td><input type="text" id="mem_pw"> <input
+									type="button" class="btn btn-danger" id="pw_bt"
+									value="비밀번호 변경하기" onclick="setDisable()"></td>
 							</tr>
 							<tr>
 								<th>비밀번호 확인</th>
-								<td><input type="text" id="mem_pw"></td>
+								<td><input type="text" id="mem_pw2" disabled></td>
 							</tr>
 							<tr>
 								<th>이름</th>
@@ -141,6 +113,10 @@
 								<th>예약일자</th>
 								<td><input type="text" path="res_startdate"
 									id="res_startdate"></td>
+							</tr>
+							<tr>
+								<th>결제일자</th>
+								<td><input type="text" path="res_paydate" id="res_paydate"></td>
 							</tr>
 							<tr>
 								<th>금액</th>

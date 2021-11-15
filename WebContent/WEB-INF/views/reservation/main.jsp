@@ -12,7 +12,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script type="text/javascript" src="/resource/js/bootstrap.js"></script>
 <link rel="stylesheet" href="${root }css/reservationCss.css" />
 <script src="${root }js/zip.js"></script>
 <link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
@@ -30,7 +29,7 @@
 		</div>
 	</header>
 	<section>
-		<div id="reservation" class="sect">
+		<div id="reservation">
 			<form:form action="reserve" modelAttribute="reservationBean">
 				<!--유효성검사 해야함-->
 				<h1>예약</h1>
@@ -39,10 +38,7 @@
 					위한 완벽한 코스
 				</h3>
 				<div id="res_con1">
-					<select path="loc_name" id="res_maincategory"
-						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
-						<option>지역을 선택하세요.</option>
-					</select>
+					
 					<form:select path="res_coursenum" id="res_subcategory"
 						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 						<c:forEach var="obj" items="${getCourseIdx }">
@@ -95,7 +91,13 @@
 						</table>
 					</div>
 					<div id="res_right">
-						<div id="res_gg">광고배너</div>
+						<div id="res_gg">
+						<div id="res_gggg">
+			<li><a href="#"><img src="${root }img/ad/gg2.png" class="pimg1"></a></li>
+            <li><a href="#"><img src="${root }img/ad/gg3.jpg" class="pimg2"></a></li>
+            <li><a href="#"><img src="${root }img/ad/gg4.jpg" class="pimg3"></a></li>
+            <li><a href="#"><img src="${root }img/ad/gg5.png" class="pimg4"></a></li>
+		</div></div>
 						<div id="res_perinfo">
 							<h4>인원정보</h4>
 							<table class="table" id="table3">
@@ -121,7 +123,6 @@
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</footer>
-	<script type="text/javascript" src="${root }js/page.js"></script>
 	<script type="text/javascript" src="${root }js/reservation.js"></script>
 </body>
 </html>

@@ -20,3 +20,24 @@ function plus(){
   }
   n.innerText = tmp;
 }
+/* 예약페이지 광고 배너 */
+setInterval(function () {
+  $("#res_gggg>li>a").delay(4000); //4초 정지
+  $("#res_gggg>li>a").animate({ marginLeft: "-100%"});
+  $("#res_gggg>li>a").delay(4000);
+  $("#res_gggg>li>a").animate({ marginLeft: "-200%"});
+  $("#res_gggg>li>a").delay(4000);
+  $("#res_gggg>li>a").animate({ marginLeft: "-300%"});
+  $("#res_gggg>li>a").delay(4000);
+  $("#res_gggg>li>a").animate({ marginLeft: "0"}, "fast");
+});
+$(window).on("load", function () {
+  $(".pimg1 , .pimg2 , .pimg3 , .pimg4").css({
+    width: $("section").width() * 0.25 + "px",
+  });
+});
+$(window).on("resize", function () {
+  $(".pimg1 , .pimg2 , .pimg3 , .pimg4").css({
+    width: $("section").width() * 0.25 + "px",
+  });
+});

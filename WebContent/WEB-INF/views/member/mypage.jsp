@@ -28,36 +28,7 @@
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
-				<div class="logo">
-					<a href="${root }main"><img
-						src="${root }img/menu_bar/logoimg.jpg" /></a>
-				</div>
-				<div class="menu_bar">
-					<li><a href="#기관소개">기관소개</a></li>
-					<li><a href="#양조장">양조장</a></li>
-					<li><a href="${root }reservation/main">예약</a></li>
-					<li><a href="${root }board/NoticeList">공지사항 및 문의</a></li>
-				</div>
-				<div class="login">
-					<c:choose>
-						<c:when test="${loginBean.memLogin == false }">
-							<a style="position: absolute; right: 5em;" href="member/login"
-								id="popup_open_btn"><img
-								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="#" id="mypage_open_btn" style="display: none;"><img
-								src="${root }img/menu_bar/mypage.jpg" /></a>
-						</c:when>
-						<c:otherwise>
-							<a href="member/login" id="popup_open_btn" style="display: none;"><img
-								src="${root }img/menu_bar/loginimg.png" /></a>
-							<a href="${root }member/mypage"> <span><img
-									id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg" />
-									<span id="my_name">${loginBean.mem_name }님</span></span>
-							</a>
-							<a href="member/logout_proc" id="logout_button">로그아웃</a>
-						</c:otherwise>
-					</c:choose>
-				</div>
+				<c:import url="/WEB-INF/views/include/footer.jsp"/>
 			</div>
 		</div>
 	</header>

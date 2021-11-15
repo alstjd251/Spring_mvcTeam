@@ -102,7 +102,7 @@
 						<div class="col-sm-10" style="display:flex;">
 							<form:input style="width:235px;" path="mem_id" class="form-control" id="inputid" onkeypress="resetUserIdExist()" placeholder="아이디" />
 							<input type="button" style="margin-left:10px;" id="idcheck" onclick="idchecking()" value="중복확인"/>
-							<span id="checkicon" style="position:absolute; margin-right: 90px;" class="" aria-hidden="true"></span>
+							<span id="checkicon" style="position:absolute; left:220px;" class="" aria-hidden="true"></span>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">

@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="${root }css/reservationCss.css" />
 <script src="${root }js/zip.js"></script>
 <link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<!-- 헤더 -->
@@ -39,10 +40,6 @@
 					위한 완벽한 코스
 				</h3>
 				<div id="res_con1">
-					<select path="loc_name" id="res_maincategory"
-						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
-						<option>지역을 선택하세요.</option>
-					</select>
 					<form:select path="res_coursenum" id="res_subcategory"
 						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 						<c:forEach var="obj" items="${getCourseIdx }">

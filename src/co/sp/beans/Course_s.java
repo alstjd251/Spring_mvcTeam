@@ -114,4 +114,5 @@ public class Course_s {
 		this.c_lcode = c_lcode;
 	}
 
+
 }

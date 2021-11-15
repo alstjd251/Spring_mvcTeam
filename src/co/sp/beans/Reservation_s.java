@@ -22,6 +22,7 @@ public class Reservation_s {
 	private int course_num;
 	private String course_names;
 	private int course_price;
+	
 	public int getCourse_num() {
 		return course_num;
 	}

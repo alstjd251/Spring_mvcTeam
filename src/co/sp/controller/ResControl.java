@@ -31,9 +31,8 @@ public class ResControl {
 
 	@GetMapping("/main")
 	public String resmain(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
-		List<Reservation_s> getCourseIdx = resService.getCourseIdx();
+		List<Reservation_s> getCourseIdx = resService.getCourseIdx(); 
 		m.addAttribute("getCourseIdx", getCourseIdx);
-		
 		return "reservation/main";
 	}
 

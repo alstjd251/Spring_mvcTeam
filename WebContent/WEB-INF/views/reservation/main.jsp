@@ -12,11 +12,29 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-<script type="text/javascript" src="/resource/js/bootstrap.js"></script>
 <link rel="stylesheet" href="${root }css/reservationCss.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>
 <link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
-
+<script type="text/javascript">
+function resSelect() {
+	var course_sel = $("#res_subcategory").val();
+	
+	if(course_sel == -1){
+		Swal.fire({
+			title : "선택 오류",
+		    text  : "코스를 선택해주세요.",
+		}).then(function(){
+			$("#res_subcategory").focus();
+		});n
+	}
+	var cname  = $("#res_subcategory").val();
+	$("#course_name").val(cname)
+	
+	
+	
+}
+</script>
 </head>
 <body>
 	<!-- 헤더 -->
@@ -26,13 +44,13 @@
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
-				<c:import url="/WEB-INF/views/include/header.jsp" />
+					<c:import url="/WEB-INF/views/include/header.jsp" />
 			</div>
 		</div>
 	</header>
 	<section>
 		<div id="reservation" class="sect">
-			<form:form action="reserve" modelAttribute="reservationBean">
+			
 				<!--유효성검사 해야함-->
 				<h1>예약</h1>
 				<h3>
@@ -40,13 +58,12 @@
 					위한 완벽한 코스
 				</h3>
 				<div id="res_con1">
-					<form:select path="res_coursenum" id="res_subcategory"
-						style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
+					<select id="res_subcategory" onchange="selected()" style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
+						<option value="-1">코스를 선택하세요.</option>
 						<c:forEach var="obj" items="${getCourseIdx }">
-							<form:option value="${obj.course_num }">${obj.course_names }</form:option>
-							<form:hidden path="${obj.course_price }" id="course_price"/>
+						<option value="${obj.course_num }">${obj.course_names }</option>
 						</c:forEach>
-					</form:select>
+					</select>
 					<input type="date" id="res_date">
 					<div id="res_perdiv1">
 						<div id="res_perdiv2">
@@ -55,37 +72,39 @@
 							<p id="res_personnel">1</p>
 							<p id="plus" onclick="plus()">+</p>
 							<img src="${root }img/reservation/icon/won.png" id="res_priceimg" />
-							<input type="text" name="c_price" id="res_price"> <input
-								type="button" id="res_ch" value="선택">
+							<span style="font-size:20px" id="res_price"></span> 
+							<input type="button" id="res_ch" onclick="resSelect()" value="선택">
 						</div>
 					</div>
 				</div>
 				<div id="res_course">코스 간략한 소개</div>
+				<form:form action="${root }reservation/reserve" modelAttribute="reservationBean">
 				<div id="res_con2">
 					<div id="res_info">
 						<table class="table" id="table1">
 							<tr>
 								<!-- 예약코스(선택한 코스), 예약일자(선택한 일자), 예약자 정보(이름,연락처,이메일) 불러와야함! -->
 								<th>예약코스</th>
-								<td><input type="text" path="c_coursename"></td>
+								<td><input type="text" id="course_name" readonly="readonly"></td>
+								<form:hidden path="res_coursenum"/>
 							</tr>
 							<tr>
 								<th>예약일자</th>
-								<td><input type="date" path="res_startdate"></td>
+								<td><form:input type="date" path="res_startdate" id="startDate" readonly="readonly"/></td>
 							</tr>
 						</table>
 						<h4>예약자 정보</h4>
+						<form:hidden path="res_mnum" value="${loginBean.mem_num }"/>
 						<table class="table" id="table2">
 							<tr>
 								<th>이름</th>
-								<td><input type="text" path="mem_name" id="mem_name"></td>
+								<td><input type="text" id="mem_name" readonly="readonly" value="${loginBean.mem_name }"></td>
 								<th>연락처</th>
-								<td><input type="tel" path="mem_phone" id="mem_phone"></td>
+								<td><input type="tel" id="mem_phone" readonly="readonly" value="${loginBean.mem_phone }"></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td colspan="3"><input type="email" path="mem_mail"
-									id="mem_mail"></td>
+								<td colspan="3"><input type="email" id="mem_mail" readonly="readonly" value="${loginBean.mem_mail }"></td>
 							</tr>
 							<tr>
 								<td colspan="4"><b>요청사항은 02-123-4567로 연락주세요.</b></td>
@@ -99,18 +118,17 @@
 							<table class="table" id="table3">
 								<tr>
 									<th>인원</th>
-									<td><form:input type="number" path="res_personnel"
-											id="res_personnel" /></td>
+									<td><form:input path="res_personnel" id="res_personnel" readonly="readonly"/></td>
 								</tr>
 								<tr>
 									<td colspan="2"><img
 										src="${root }img/reservation/icon/won.png" id="res_priceimg" /><input
-										type="text" path="c_price" id="res_price"></td>
+										type="text" id="res_price"></td>
 								</tr>
 							</table>
 							<form:button id="res_button">예약</form:button>
 						</div>
-					</div>
+					</div>					
 				</div>
 			</form:form>
 		</div>

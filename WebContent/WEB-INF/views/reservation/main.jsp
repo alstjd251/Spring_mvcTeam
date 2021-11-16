@@ -16,6 +16,14 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>
 <link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.table > tbody > tr > td {
+	vertical-align: middle;	
+}
+#res_button{
+	margin-top: -10px;
+}
+</style>
 <script type="text/javascript">
 var price = 0;
 function selected(){
@@ -176,9 +184,8 @@ function resSelect() {
 									<td><form:input path="res_personnel" id="res_personnel2" readonly="readonly"/></td>
 								</tr>
 								<tr>
-									<td colspan="2"><img
-										src="${root }img/reservation/icon/won.png" id="res_priceimg" />
-										<input type="text" id="p_price" readonly="readonly"></td>
+									<td><img src="${root }img/reservation/icon/won.png" id="res_priceimg" /></td>
+									<td><input type="text" id="p_price" readonly="readonly"></td>
 								</tr>
 							</table>
 							<form:button id="res_button">예약</form:button>

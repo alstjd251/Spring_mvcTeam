@@ -1,6 +1,6 @@
 /* 메뉴 상단 고정 js */
 function menuscroll() {
-  if (pageYOffset >= 100) {
+  if (pageYOffset >= 50) {
     document.querySelector(".menu").style.position = "fixed";
     document.querySelector(".menu").style.top = 0;
     document.querySelector(".menu").style.backgroundColor = "white";

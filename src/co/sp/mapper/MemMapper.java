@@ -12,11 +12,14 @@ public interface MemMapper {
 	void addMember(Member_s memberBean); 
 	
 	// 로그인 확인
-	@Select("select mem_num, mem_name from member_s where mem_id=#{mem_id} and mem_pw=#{mem_pw}")
+	@Select("select * from member_s where mem_id=#{mem_id} and mem_pw=#{mem_pw}")
 	Member_s getLoginMemberInfo(Member_s tempLoginMemberBean);
 	
 	// 아이디 찾기
 	@Select("select mem_id from MEMBER_S where mem_joomin = #{mem_joomin} and mem_name = #{mem_name}")
 	Member_s getFindId(Member_s memberBean);
 	
+	// 아이디 중복확인
+	@Select("select mem_id from member_s where mem_id=#{mem_id}")
+	String idCheck(String mem_id);
 }

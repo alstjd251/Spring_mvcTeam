@@ -27,7 +27,9 @@
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
+
 				<c:import url="/WEB-INF/views/include/header.jsp" />
+
 			</div>
 		</div>
 	</header>
@@ -35,7 +37,7 @@
 		<div id="mypage">
 			<div id="mypage_con1">
 				<div id="name_text">
-					<h4>${loginBean.mem_name }님의 MyPage</h4>
+					<h4>${loginBean.mem_name }님의MyPage</h4>
 				</div>
 				<ul class="tabs">
 					<li class="tab_link current" data-tab="modify">회원정보 수정</li>
@@ -54,7 +56,7 @@
 								<th>아이디</th>
 								<td><input type="text" path="mem_id" id="mem_id"></td>
 							</tr>
-							 <tr>
+							<tr>
 								<th>비밀번호</th>
 								<td><input type="text" id="mem_pw"> <input
 									type="button" class="btn btn-danger" id="pw_bt"
@@ -103,40 +105,39 @@
 				<div id="res_info" class="tab_content">
 					<h3>예약정보 조회</h3>
 					<form>
-						<table class="table table-bordered">
-							<tr>
-								<th>코스</th>
-								<td><input type="text" path="c_coursename"
-									id="c_coursename"></td>
-							</tr>
-							<tr>
-								<th>예약일자</th>
-								<td><input type="text" path="res_startdate"
-									id="res_startdate"></td>
-							</tr>
-							<tr>
-								<th>결제일자</th>
-								<td><input type="text" path="res_paydate" id="res_paydate"></td>
-							</tr>
-							<tr>
-								<th>금액</th>
-								<td><input type="text" path="c_price" id="c_price"></td>
-							</tr>
-							<tr>
-								<th>예약자명</th>
-								<td><input type="text" path="mem_name" id="mem_name"></td>
-							</tr>
-							<tr>
-								<th>예약자 연락처</th>
-								<td><input type="text" path="mem_phone" id="mem_phone"></td>
-							</tr>
-							<tr>
-								<th>인원</th>
-								<td><input type="text" path="res_personnel"
-									id="res_personnel"></td>
-							</tr>
+						<table class="table table-striped table-bordered table-hover">
+							<thead>
+								<tr>
+									<th>예약번호</th>
+									<th>코스</th>
+									<th>금액</th>
+									<th>예약일자</th>
+									<th>예약자명</th>
+									<th>연락처</th>
+									<th>인원</th>
+									<th>결제일자</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><a path="res_num" id="res_num"
+										onclick="window.open('${root}views/member/mypage_reservation','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">예약번호</a></td>
+									<td><input type="text" path="c_coursename"
+										id="c_coursename"></td>
+									<td><input type="text" path="c_price" id="c_price"></td>
+									<td><input type="text" path="res_startdate"
+										id="res_startdate"></td>
+									<td><input type="text" path="mem_name" id="mem_name"></td>
+									<td><input type="text" path="mem_phone" id="mem_phone"></td>
+									<td><input type="text" path="res_personnel"
+										id="res_personnel"></td>
+									<td><input type="text" path="res_paydate" id="res_paydate"></td>
+									<td><input type="button" class="btn btn-danger"
+										value="예약취소"></td>
+								</tr>
+							</tbody>
 						</table>
-						<input class="btn btn-default" type="button" id="" value="예약취소">
 					</form>
 				</div>
 				<div id="partners" class="tab_content">

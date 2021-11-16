@@ -10,6 +10,6 @@
 </head>
 <body>
 <h2>예약 완료</h2>
-<h1><a href="${root}home">홈으로 가기</a></h1>
+<h1><a href="${root}main">홈으로 가기</a></h1>
 </body>
 </html>

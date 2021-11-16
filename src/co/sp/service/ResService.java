@@ -24,10 +24,12 @@ public class ResService {
 	}
 
 	public List<Reservation_s> getCourseIdx() {
+		
 		return resDao.getCourseIdx();
 	}
 	
 	public List<Reservation_s> getAllList(String mem_num){
 		return resDao.getAllList(mem_num);
 	}
+	
 }

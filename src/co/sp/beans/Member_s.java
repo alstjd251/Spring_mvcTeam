@@ -68,13 +68,13 @@ public class Member_s {
 
 	private String mem_grade;
 
-	private boolean idExist = false;
-	private boolean memLogin = false;
+	private boolean idExist;
+	private boolean memLogin;
 
-//	public Member_s() {
-//		this.idExist = false;
-//		this.memLogin = false;
-//	}
+	public Member_s() {
+		this.idExist = false;
+		this.memLogin = false;
+	}
 
 	public int getMem_num() {
 		return mem_num;

@@ -9,7 +9,7 @@ header {
   position: fixed;
   z-index: 100;
 }
-/* header 로고 css */
+/* header 濡쒓퀬 css */
 header .logo {
   width: 200px;
   height: 60px;
@@ -25,7 +25,7 @@ header .logo a img {
   height: 100%;
 }
 
-/* header 메뉴 css */
+/* header 硫붾돱 css */
 header .menu_bar {
   display: flex;
   height: 60px;
@@ -45,7 +45,7 @@ header .menu_bar li a {
   font-weight: 700;
 }
 
-/* header 로그인 css */
+/* header 濡쒓렇�씤 css */
 header .login {
   width: 240px;
   height: 60px;
@@ -85,7 +85,7 @@ header .login #logout_button:hover {
   color: gray;
 }
 
-/* 섹션 풀페이지 적용 css */
+/* �꽮�뀡 ���럹�씠吏� �쟻�슜 css */
 .section {
   width: 100%;
   margin: 0;
@@ -112,7 +112,14 @@ header .login #logout_button:hover {
   height: 100%;
   opacity: 0.85;
 }
-/*----------기관소개-------------*/
+.section #fade1 .fadeImg{
+    top: 100px;
+    z-index: 10;
+    height: 80%;
+    position: absolute;
+    right: 140px;
+}
+/*----------湲곌��냼媛�-------------*/
 
 .introduce_total {
   width: 100%;
@@ -125,12 +132,12 @@ header .login #logout_button:hover {
   width: 40%;
   height: 100%;
 }
-/*--introduce이미지 크기조절*/
+/*--introduce�씠誘몄� �겕湲곗“�젅*/
 .in_item img {
   width: 100%;
   height: 100%;
 }
-/*drink이미지*/
+/*drink�씠誘몄�*/
 .in_item img:nth-child(2) {
   z-index: 1;
   position: absolute;
@@ -140,18 +147,18 @@ header .login #logout_button:hover {
   height: 425px;
   opacity: 0.95;
 }
-/*--비율7인 div영역----*/
+/*--鍮꾩쑉7�씤 div�쁺�뿭----*/
 .introduce_total .in_item2 {
   width: 60%;
   height: 100%;
 }
-/*in_item2높이를 i_t1,i_t2각각 9:1로나눔*/
+/*in_item2�넂�씠瑜� i_t1,i_t2媛곴컖 9:1濡쒕굹�닎*/
 .in_item2 .i_t1 {
   width: 100%;
   height: 90%;
   background-size: contain;
 }
-/*마우스올릴때 사라지게 하는 div*/
+/*留덉슦�뒪�삱由대븣 �궗�씪吏�寃� �븯�뒗 div*/
 .i_t1 .i_t1_front {
   width: 100%;
   height: 90%;
@@ -216,8 +223,8 @@ header .login #logout_button:hover {
   height: 10%;
 }
 
-/* 양조장 코스 01 ( 서울, 경기, 충청) */
-#yang01 #yang01-course {
+/* �뼇議곗옣 肄붿뒪 01 ( �꽌�슱, 寃쎄린, 異⑹껌) */
+/*#yang01 #yang01-course {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -285,9 +292,10 @@ header .login #logout_button:hover {
   width: 300px;
   height: 100%;
 }
+*/
 
-/* <!--양조장 코스 02 (전라도 ,경상북도, 경상남도)--> */
-#yang02 #yang02-course {
+/* <!--�뼇議곗옣 肄붿뒪 02 (�쟾�씪�룄 ,寃쎌긽遺곷룄, 寃쎌긽�궓�룄)--> */
+/*#yang02 #yang02-course {
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -353,7 +361,49 @@ header .login #logout_button:hover {
   height: 100%;
 }
 
-/* 광고 css */
+*/
+
+/* 메인페이지 코스소개 */
+#mainBrewery01,
+#mainBrewery02,
+#mainBrewery03,
+#mainBrewery04,
+#mainBrewery05,
+#mainBrewery06 {
+  display: flex;
+  justify-content: space-evenly;
+}
+#mainBrewery01,
+#mainBrewery03,
+#mainBrewery05 {
+	margin-top:55px;
+}
+#mainBrewery02,
+#mainBrewery04,
+#mainBrewery06 {
+	margin-bottom:35px;
+}
+
+#yang01,
+#yang02,
+#yang03 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#mainBrewery01, #mainBrewery02, #mainBrewery03, #mainBrewery04, #mainBrewery05, #mainBrewery06 {
+	perspective : 500px;
+}
+.breweryImg01, .breweryImg03, .breweryImg05{
+	transform:rotateY(-10deg);
+}
+
+.breweryImg02, .breweryImg04, .breweryImg06{
+	transform:rotateY(10deg);
+}
+
+/* 愿묎퀬 css */
 .section #footgg {
   display: flex;
   flex-direction: column;

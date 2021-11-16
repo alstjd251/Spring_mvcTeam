@@ -44,7 +44,7 @@ public class MemControl {
 	}
 	
 	@PostMapping("/login_proc")
-	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean, HttpSession session) {
+	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean, HttpSession session, Model m) {
 		
 		ms.getLoginMemberInfo(memberBean);
 		

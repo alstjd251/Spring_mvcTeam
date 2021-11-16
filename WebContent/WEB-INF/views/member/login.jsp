@@ -41,6 +41,14 @@
 	<div class="page-header" align="center">
 	 		<h1>로그인</h1>
 	</div>
+	<div style="display: flex; flex-direction: column; align-items: center;">
+	<c:if test="${fail == true }">
+		<div style="width:420px;" class="alert alert-danger">
+			<h3>로그인 실패</h3>
+			<p>아이디 비밀번호를 확인해주세요</p>
+		</div>
+	</c:if>
+	</div>
 	<div style="display: flex; align-items: center; justify-content: center">
 		<div style="margin-bottom: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
 			<form:form class="form-horizontal" action="login_proc" modelAttribute="memberBean">

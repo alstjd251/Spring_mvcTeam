@@ -8,7 +8,7 @@ $(window).on("load", function () {
   });
   $("#ggone , .pimg").css({ width: innerWidth * 0.2 + "px" });
   $(
-    "#yang01-course , #yang02-course, .section , #fade1 , #introduce, #reservation, #board"
+    ".section , #fade1 , #introduce, #reservation, #board"
   ).css({
     height: innerHeight + "px",
   });

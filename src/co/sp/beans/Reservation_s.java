@@ -21,7 +21,8 @@ public class Reservation_s {
 
 	private int course_num;
 	private String course_names;
-
+	private int course_price;
+	
 	public int getCourse_num() {
 		return course_num;
 	}
@@ -102,4 +103,13 @@ public class Reservation_s {
 		this.loginName = loginName;
 	}
 
+	public int getCourse_price() {
+		return course_price;
+	}
+
+	public void setCourse_price(int course_price) {
+		this.course_price = course_price;
+	}
+
+	
 }

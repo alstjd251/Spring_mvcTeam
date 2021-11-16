@@ -42,6 +42,7 @@
           <img src="${root }img/mainpage/img5.jpg" class="img5" />
         </li>
        </div>
+       <img class="fadeImg" src="${root }img/mainpage/주백약지장.png"/>
       </div>
       <div id="introduce" class="sect">
         <div class="introduce_total">
@@ -81,85 +82,95 @@
             </div>
         </div>
       </div>
-      <!--양조장 코스 01 ( 서울, 경기, 충청)-->
+      <!--코스 소개-->
       <div id="yang01" class="sect" style="background-color: pink">
-        <div id="yang01-course">
-        <div class="chi-course01">
-          <div id="course01-image01"><img src="${root }img/course/서울코스_서울.png"></div>
-          <div id="course01-text01">
-            <b> 서울특별시 : '술'래잡기</b>
-            <P>서울 고궁에 기대어 술을 마주하다.<br>
-              과거와 현재가 공존하며 하루가 다르게 변하는 서울. <br>
-              아름다운 고궁들과 더불어<br>
-              술 하나하나에 담긴 이야기와 맛을 즐길 수 있는,<br>
-              서울이 선사하는 생애 가장 풍부한 순간을 느껴보세요.</P>
+       <!--서울,경기-->
+        <div id="mainBrewery01">
+          <div class="breweryText01">
+            <h2>01</h2>
+            <p>서울코스</p>
+            <p>설명설명<br>
+             설명설명설명설명<br>
+             설명설명설명설명</p>
+            <a href="">코스상세</a>
           </div>
-        </div>
-        <div class="chi-course02">
-          <div id="course01-text02">
-            <b>경기도 : </b>
-            <P>서울 고궁에 기대어 술을 마주하다.<br>
-              과거와 현재가 공존하며 하루가 다르게 변하는 서울. <br>
-              아름다운 고궁들과 더불어<br>
-              술 하나하나에 담긴 이야기와 맛을 즐길 수 있는,<br>
-              서울이 선사하는 생애 가장 풍부한 순간을 느껴보세요.</P>
-          </div>
-          <div id="course01-image02"><img src="${root }img/course/경기도코스_안산.png"></div>
-        </div>
-        <div class="chi-course03">
-          <div id="course01-image03"><img src="${root }img/course/충북코스_단양.png"></div>
-          <div id="course01-text03">
-            <b>충청도 : </b>
-            <P>서울 고궁에 기대어 술을 마주하다.<br>
-              과거와 현재가 공존하며 하루가 다르게 변하는 서울. <br>
-              아름다운 고궁들과 더불어<br>
-              술 하나하나에 담긴 이야기와 맛을 즐길 수 있는,<br>
-              서울이 선사하는 생애 가장 풍부한 순간을 느껴보세요.</P>
-          </div>
-        </div>
-        </div>
-      </div>
 
-      <!--양조장 코스 02 (전라도 ,경상북도, 경상남도)-->
-      <div id="yang02" class="sect" style="background-color: bisque">
-        <div id="yang02-course">
-        <div class="chi-course04">
-          <div id="course02-text04">
-            <b>전라도 : </b>
-            <P>서울 고궁에 기대어 술을 마주하다.<br>
-              과거와 현재가 공존하며 하루가 다르게 변하는 서울. <br>
-              아름다운 고궁들과 더불어<br>
-              술 하나하나에 담긴 이야기와 맛을 즐길 수 있는,<br>
-              서울이 선사하는 생애 가장 풍부한 순간을 느껴보세요.</P>
-          </div>
-          <div id="course02-image04"><img src="${root }img/course/전라도코스_담양.png"></div>
-        </div>
-        <div class="chi-course05">
-          <div id="course02-image05"><img src="${root }img/course/경상도코스_경북_안동.png"></div>
-          <div id="course02-text05">
-            <b>경상북도 : </b>
-            <P>서울 고궁에 기대어 술을 마주하다.<br>
-              과거와 현재가 공존하며 하루가 다르게 변하는 서울. <br>
-              아름다운 고궁들과 더불어<br>
-              술 하나하나에 담긴 이야기와 맛을 즐길 수 있는,<br>
-              서울이 선사하는 생애 가장 풍부한 순간을 느껴보세요.</P>
+          <div class="breweryImg01">
+            <img src="${root }img/course/서울코스.jpg" width="350px" height="220px">
           </div>
         </div>
-        <div class="chi-course06">
-          <div id="course02-text06">
-            <b>경상남도 : </b>
-            <P>서울 고궁에 기대어 술을 마주하다.<br>
-              과거와 현재가 공존하며 하루가 다르게 변하는 서울. <br>
-              아름다운 고궁들과 더불어<br>
-              술 하나하나에 담긴 이야기와 맛을 즐길 수 있는,<br>
-              서울이 선사하는 생애 가장 풍부한 순간을 느껴보세요.</P>
-          </div>
-          <div id="course02-image06"><img src="${root }img/course/경상도코스_경남_부산.png"></div>
+
+        <div id="mainBrewery02">
+          <div class="breweryImg02">
+            <img src="${root }img/course/경기코스.jpg" width="350px" height="220px">
         </div>
+        <div class="breweryText02">
+          <h2>02</h2>
+          <p>경기코스</p>
+          <p>설명설명<br>
+             설명설명설명설명<br>
+             설명설명설명설명</p>
+          <a href="">코스상세</a>
         </div>
       </div>
-      <div id="reservation" class="sect" style="background-color: bisque">
-        예약란입니다
+      </div>
+      <!--양조장 코스 02 (충청, 전라)-->
+      <div id="yang02" class="sect" style="background-color: bisque">
+      <div id="mainBrewery03">
+          <div class="breweryText03">
+              <h2>03</h2>
+              <p>충청코스</p>
+              <p>설명설명<br>
+                 설명설명설명설명<br>
+                 설명설명설명설명</p>
+              <a href="">코스상세</a>
+          </div>
+          <div class="breweryImg03">
+              <img src="${root }img/course/충북코스_단양.jpg" width="350px" height="220px">
+          </div>
+        </div> 
+        <div id="mainBrewery04">
+          <div class="breweryImg04">
+              <img src="${root }img/course/전라도코스_담양.jpg" width="350px" height="220px">
+          </div>
+          <div class="breweryText04">
+              <h2>04</h2>
+              <p>전라도코스</p>
+              <p>설명설명<br>
+                 설명설명설명설명<br>
+                 설명설명설명설명</p>
+              <a href="">코스상세</a>
+          </div>
+        </div>
+      </div>
+      <div id="yang03" class="sect" style="background-color: bisque">
+       <!-- 경북, 경남 -->
+       <div id="mainBrewery05">
+          <div class="breweryText05">
+            <h2>05</h2>
+            <p>경북코스</p>
+            <p>설명설명<br>
+             설명설명설명설명<br>
+             설명설명설명설명</p>
+            <a href="">코스상세</a>
+          </div>
+          <div class="breweryImg05">
+            <img src="${root }img/course/경상도코스_경북_안동.jpg" width="350px" height="220px">
+          </div>
+        </div>
+        <div id="mainBrewery06">
+          <div class="breweryImg06">
+            <img src="${root }img/course/경남코스.jpg" width="350px" height="220px">
+          </div>
+          <div class="breweryText06">
+            <h2>06</h2>
+            <p>경남코스</p>
+            <p>설명설명<br>
+             설명설명설명설명<br>
+             설명설명설명설명</p>
+            <a href="">코스상세</a>
+          </div>
+        </div>
       </div>
       <div id="board" class="sect" style="background-color: saddlebrown">
         공지사항 및 문의 게시판입니다

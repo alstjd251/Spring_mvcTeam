@@ -23,4 +23,8 @@ public class MemberDao {
 	public Member_s getFindId(Member_s memberBean) {
 		return memMapper.getFindId(memberBean);
 	}
+	
+	public String idCheck(String mem_id) {
+		return memMapper.idCheck(mem_id);
+	}
 }

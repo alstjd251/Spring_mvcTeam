@@ -90,7 +90,6 @@ public class BoardPage {
 	public void getCntPage(int cntPage) {
 		this.cntPage = cntPage;
 	}
-	
 	@Override
 	public String toString() {
 		return "BoardPage [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total

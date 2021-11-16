@@ -46,7 +46,6 @@ public class NoticeControl {
 	public String list(BoardPage bp, @ModelAttribute("noticeBean") Notice_s noticeBean, Model m
 			, @RequestParam(value="nowPage", required=false)String nowPage
 			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
-		List<Notice_s> nl = ns.getNotice(noticeBean);
 		int noticeTotal = ns.getNoticeTotal();
 		
 		if (nowPage == null && cntPerPage == null) {
@@ -57,8 +56,9 @@ public class NoticeControl {
 		} else if (cntPerPage == null) { 
 			cntPerPage = "5";
 		}
-		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		
+		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	    
 		m.addAttribute("noticeList", ns.getNotice_desc(bp));
 		m.addAttribute("noticePaging", bp);
 		m.addAttribute("noticeTotal", noticeTotal);

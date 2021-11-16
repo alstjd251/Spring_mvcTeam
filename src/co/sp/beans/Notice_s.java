@@ -18,6 +18,8 @@ public class Notice_s {
 	
 	private String mem_name;
 	private String mem_grade;
+	
+	private int RN;
 
 	public int getN_noticenum() {
 		return n_noticenum;
@@ -81,5 +83,13 @@ public class Notice_s {
 
 	public void setMem_grade(String mem_grade) {
 		this.mem_grade = mem_grade;
+	}
+
+	public int getRN() {
+		return RN;
+	}
+
+	public void setRN(int RN) {
+		this.RN = RN;
 	}
 }

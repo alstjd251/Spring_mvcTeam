@@ -93,7 +93,6 @@ header .login #logout_button:hover {
 }
 .section .sect {
   position: relative;
-  text-align: center;
   width: 100%;
 }
 .section #fade1 {
@@ -176,6 +175,7 @@ header .login #logout_button:hover {
   justify-content: space-evenly;
   height: 100%;
   width: 60%;
+   text-align: center;
 }
 
 @keyframes front {
@@ -223,146 +223,6 @@ header .login #logout_button:hover {
   height: 10%;
 }
 
-/* �뼇議곗옣 肄붿뒪 01 ( �꽌�슱, 寃쎄린, 異⑹껌) */
-/*#yang01 #yang01-course {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: auto;
-}
-.chi-course01 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-  margin-top: 40px;
-}
-.chi-course01 #course01-text01 {
-  margin-left: auto;
-  vertical-align: middle;
-  height: 100%;
-}
-.chi-course01 #course01-image01 {
-  height: 100%;
-}
-.chi-course01 #course01-image01 img {
-  width: 280px;
-  height: 100%;
-}
-.chi-course02 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-}
-.chi-course02 #course01-text02 {
-  margin-right: auto;
-  vertical-align: middle;
-  height: 100%;
-}
-.chi-course02 #course01-image02 {
-  height: 100%;
-}
-.chi-course02 #course01-image02 img {
-  width: 300px;
-  height: 100%;
-}
-.chi-course03 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-}
-.chi-course03 #course01-image03 {
-  margin-right: 5%;
-  height: 100%;
-}
-.chi-course03 #course01-text03 {
-  margin-left: auto;
-  vertical-align: middle;
-  height: 100%;
-}
-.chi-course03 #course01-image03 img {
-  width: 300px;
-  height: 100%;
-}
-*/
-
-/* <!--�뼇議곗옣 肄붿뒪 02 (�쟾�씪�룄 ,寃쎌긽遺곷룄, 寃쎌긽�궓�룄)--> */
-/*#yang02 #yang02-course {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: auto;
-}
-.chi-course04 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-  margin-top: 40px;
-}
-.chi-course04 #course02-text04 {
-  margin-right: auto;
-  vertical-align: middle;
-  height: 100%;
-}
-.chi-course04 #course02-image04 {
-  height: 100%;
-}
-.chi-course04 #course02-image04 img {
-  width: 350px;
-  height: 100%;
-}
-.chi-course05 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-}
-.chi-course05 #course02-text05 {
-  margin-left: auto;
-  vertical-align: middle;
-}
-.chi-course05 #course02-image05 {
-  height: 100%;
-}
-.chi-course05 #course02-image05 img {
-  width: 400px;
-  height: 100%;
-}
-.chi-course06 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-}
-.chi-course06 #course02-text06 {
-  margin-right: auto;
-  vertical-align: middle;
-}
-.chi-course06 #course02-image06 {
-  height: 100%;
-}
-.chi-course06 #course02-image06 img {
-  width: 400px;
-  height: 100%;
-}
-
-*/
-
 /* 메인페이지 코스소개 */
 #mainBrewery01,
 #mainBrewery02,
@@ -371,7 +231,7 @@ header .login #logout_button:hover {
 #mainBrewery05,
 #mainBrewery06 {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 #mainBrewery01,
 #mainBrewery03,
@@ -390,6 +250,7 @@ header .login #logout_button:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  background-size: cover;
 }
 
 #mainBrewery01, #mainBrewery02, #mainBrewery03, #mainBrewery04, #mainBrewery05, #mainBrewery06 {
@@ -397,10 +258,47 @@ header .login #logout_button:hover {
 }
 .breweryImg01, .breweryImg03, .breweryImg05{
 	transform:rotateY(-10deg);
+	margin-right: 18%;
+	box-shadow: -5px 5px 5px gray;
 }
 
 .breweryImg02, .breweryImg04, .breweryImg06{
 	transform:rotateY(10deg);
+	margin-left: 18%;
+	box-shadow: 5px 5px 5px gray;
+	
+}
+.breweryText01, .breweryText03, .breweryText05 {
+	margin-left: 20%;
+}
+
+.breweryText02, .breweryText04, .breweryText06 {
+	margin-right: 20%;
+	text-align: right;
+}
+
+#course_intro{
+	color:gray;
+	font-weight:bold;
+	line-height: 25px;
+	font-size:12px;
+}
+
+#course_bt{
+  border: 2px solid black;
+  font-size: 12px;
+  color:white;
+  background-color:black;
+  padding: 5px 25px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 5px;
+
+}
+
+#course_bt:hover{
+	background-color: white;
+	color:black;
 }
 
 /* 愿묎퀬 css */

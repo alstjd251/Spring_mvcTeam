@@ -7,6 +7,7 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Notice_s;
 
 public interface NoticeMapper {
@@ -27,4 +28,7 @@ public interface NoticeMapper {
 	
 	@Update("update notice_s set n_noticecnt = n_noticecnt + 1 where n_noticenum = #{n_noticenum}")
 	void increaseNoticeCnt(Notice_s noticeBean);
+	
+	@Select("select * from (select ROWNUM RN, A.* from (select * from notice_s n, member_s m where n_mnum = mem_num order by n_noticenum desc) A) where RN between #{start} and #{end}")
+	List<Notice_s> getNotice_desc(BoardPage bp);
 }

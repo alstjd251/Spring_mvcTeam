@@ -38,9 +38,9 @@
     float: right;
     display: flex;
 }
-
 .postMiddle-board02 img {
     padding: 10px;
+    vertical-align: center;
 }
 
 #postBottom {

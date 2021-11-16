@@ -21,7 +21,7 @@
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>
-<link href="${root }css/include/header_footer.css" rel="stylesheet"
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet"
 	type="text/css" />
 <script type="text/javascript">
 	var price = 0;
@@ -124,8 +124,6 @@
 <body>
 	<!-- 헤더 -->
 	<header>
-		<!-- 헤더 배너광고 -->
-		<c:import url="/WEB-INF/views/include/ad.jsp" />
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
@@ -158,6 +156,7 @@
 						<img src="${root }img/reservation/icon/won.png" id="res_priceimg" />
 						<span style="font-size: 20px" id="res_price"></span> <input
 							type="button" id="res_ch" onclick="resSelect()" value="선택">
+
 					</div>
 				</div>
 			</div>
@@ -222,9 +221,10 @@
 											readonly="readonly" /></td>
 								</tr>
 								<tr>
-									<td colspan="2"><img
-										src="${root }img/reservation/icon/won.png" id="res_priceimg" />
-										<input type="text" id="p_price" readonly="readonly"></td>
+									<td><img src="${root }img/reservation/icon/won.png"
+										id="res_priceimg" /></td>
+									<td><input type="text" id="p_price" readonly="readonly"></td>
+
 								</tr>
 							</table>
 							<input type="button" id="res_button" value="예약">
@@ -234,11 +234,11 @@
 			</form:form>
 		</div>
 	</section>
-	<!-- 푸터 -->
-	<footer>
-		<c:import url="/WEB-INF/views/include/footer.jsp" />
-	</footer>
-	<script type="text/javascript" src="${root }js/reservation.js"></script>
-
+	 <!-- 푸터 -->
+   <footer>
+      <c:import url="/WEB-INF/views/include/footer.jsp" />
+   </footer>
+   <script type="text/javascript" src="${root }js/page.js"></script>
+   <script type="text/javascript" src="${root }js/reservation.js"></script>
 </body>
 </html>

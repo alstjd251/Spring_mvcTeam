@@ -74,7 +74,7 @@
 						<div class="postBottom-board">
 							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" readonly="true" />
+								<form:textarea path="n_noticecontent" readonly="true"/>
 							</div>
 						</div>
 					</div>

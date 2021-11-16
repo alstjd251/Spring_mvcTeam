@@ -58,10 +58,12 @@
 									<form:label path="n_noticetitle">글제목 : ${noticeBean.n_noticetitle}</form:label>
 								</div>
 								<div class="postMiddle-board02">
-									<img src="${root }img/boardIcon/eye_new.png"><span></span>
-									<!--조회수DB-->
-									<img src="${root }img/boardIcon/sub_date_new.png"><span></span>
-									<!-- 등록일DB -->
+									<div>
+										<img src="${root }img/boardIcon/eye_new.png">${noticeBean.n_noticecnt }
+										<!--조회수DB-->
+										<img src="${root }img/boardIcon/sub_date_new.png">${noticeBean.n_noticedate }
+										<!-- 등록일DB -->
+									</div>
 								</div>
 							</div>
 							<!--제목DB-->

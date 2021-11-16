@@ -42,6 +42,7 @@
           <img src="${root }img/mainpage/img5.jpg" class="img5" />
         </li>
        </div>
+       <img class="fadeImg" src="${root }img/mainpage/주백약지장.png"/>
       </div>
       <div id="introduce" class="sect">
         <div class="introduce_total">

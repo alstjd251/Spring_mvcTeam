@@ -32,11 +32,24 @@ public class MemService {
 		if (tempLoginMemberBean2 != null) {
 			loginBean.setMem_num(tempLoginMemberBean2.getMem_num());
 			loginBean.setMem_name(tempLoginMemberBean2.getMem_name());
+			loginBean.setMem_phone(tempLoginMemberBean2.getMem_phone());
+			loginBean.setMem_mail(tempLoginMemberBean2.getMem_mail());
 			loginBean.setMemLogin(true);
 		}
 	}
 	
 	public Member_s getFindId(Member_s memberBean) {
 		return memDao.getFindId(memberBean);
+	}
+	
+	public boolean idCheck(String mem_id) {
+		
+		String checkId = memDao.idCheck(mem_id);
+		
+		if(checkId == null) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }

@@ -10,9 +10,9 @@
 <div class="FOOTER_TOTAL">
                 <div class="F_i F_i1">
                   <img src="${root }img/footer/M_LOGE.jpg"/>
-                  <p><strong>대표자</strong>박치언</p>
+                  <p><strong>대표자</strong> 박치언</p>
                   <p><strong>사업자등록번호</strong> 052-34-56789</p>
-                  <p>통신판매업신고 제2015-울산울주-0164호</p>
+                  <p><strong>통신판매업신고</strong> 제2015-울산울주-0164호</p>
                 </div>
                 <div class="F_i F_i2">
                   <img src="${root }img/footer/location.png" width="180px">
@@ -20,8 +20,8 @@
                 </div>
                 <div class="F_i F_i3">
                   <img src="${root }img/footer/call.png" width="180px"/>
-                  <p>전화 052-879-1234</p>
-                  <p>팩스&nbsp;&nbsp;1577-6746</p>
+                  <p><strong>전화</strong> 052-879-1234</p>
+                  <p><strong>팩스</strong> 1577-6746</p>
                   <p>soldesk@gmail.com</p>
                 </div>
                 <div class="F_i F_i4">

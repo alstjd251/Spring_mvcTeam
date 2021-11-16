@@ -30,7 +30,7 @@ public class MemControl {
 	@PostMapping("/join_proc")
 	public String join(@ModelAttribute("memberBean") @Valid Member_s memberBean, BindingResult result) {
 		if(result.hasErrors()) {
-			return "main";
+			return "member/join";
 		}
 		ms.addMember(memberBean);
 		return "member/join_success";
@@ -44,7 +44,7 @@ public class MemControl {
 	}
 	
 	@PostMapping("/login_proc")
-	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean, HttpSession session) {
+	public String login_proc(@ModelAttribute("memberBean") Member_s memberBean, HttpSession session, Model m) {
 		
 		ms.getLoginMemberInfo(memberBean);
 		
@@ -69,17 +69,17 @@ public class MemControl {
 		return "member/mypage";
 	}
 	
-	@GetMapping("/home")
-	public String home(Model m) {
-		m.addAttribute("loginBean", loginBean);
-		return "home";
-	}
-	
 	@PostMapping("/idFinder")
 	public String idFinder(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
 		memberBean = ms.getFindId(memberBean);
 		m.addAttribute("memberBean", memberBean);
 		
 		return  "member/idFinder";
+	}
+	
+	@GetMapping("/join")
+	public String join(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
+		return "member/join";
 	}
 }

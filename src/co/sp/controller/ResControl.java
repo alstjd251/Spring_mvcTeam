@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,9 +31,8 @@ public class ResControl {
 
 	@GetMapping("/main")
 	public String resmain(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
-		List<Reservation_s> getCourseIdx = resService.getCourseIdx();
+		List<Reservation_s> getCourseIdx = resService.getCourseIdx(); 
 		m.addAttribute("getCourseIdx", getCourseIdx);
-
 		return "reservation/main";
 	}
 

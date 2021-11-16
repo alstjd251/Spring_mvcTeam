@@ -48,7 +48,7 @@
 						</div>
 						<div>
 							<a href="${root }board/NoticeList">목록</a>
-							<a href="${root }board/NoticeModify">수정</a>
+							<a href="${root }board/NoticeModify?n_noticetitle=${noticeBean.n_noticetitle }&n_noticecontent=${noticeBean.n_noticecontent}&n_noticenum=${noticeBean.n_noticenum}&n_noticecnt=${noticeBean.n_noticecnt}&n_noticedate=${noticeBean.n_noticedate}">수정</a>
 						</div>
 					</div>
 					<div id="postMiddle">
@@ -72,9 +72,9 @@
 					</div>
 					<div id="postBottom">
 						<div class="postBottom-board">
-							<div class="poatBottom">
+							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" />
+								<form:textarea path="n_noticecontent" readonly="true" />
 							</div>
 						</div>
 					</div>

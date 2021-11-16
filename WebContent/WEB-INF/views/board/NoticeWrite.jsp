@@ -88,7 +88,6 @@
 	<!-- 푸터 -->
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp"/>
-		</div>
 	</footer>
 	<script type="text/javascript" src="${root }js/page.js"></script>
 </body>

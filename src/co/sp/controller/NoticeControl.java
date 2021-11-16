@@ -28,14 +28,37 @@ public class NoticeControl {
 	private Member_s loginBean;
 
 	@GetMapping("/NoticeRead")
-	public String main(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+	public String read(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
 		ns.increaseNoticeCnt(noticeBean);
 		m.addAttribute(noticeBean);
+		
 		return "board/NoticeRead";
+	}
+	
+	@GetMapping("/NoticeModify")
+	public String modify(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		m.addAttribute("noticeBean", noticeBean);
+		
+		return "board/NoticeModify";
+	}
+	
+	@PostMapping("/NoticeModifyProc")
+	public String modifyProc(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		ns.updateNotice(noticeBean);
+		m.addAttribute("noticeBean", noticeBean);
+		
+		return "board/NoticeModifyProc";
+	}
+	
+	@GetMapping("/NoticeWrite")
+	public String write(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		m.addAttribute("noticeBean", noticeBean);
+		
+		return "board/NoticeWrite";
 	}
 
 	@PostMapping("/NoticeProc")
-	public String join(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+	public String writeProc(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
 		noticeBean.setN_mnum(loginBean.getMem_num());
 		ns.addNotice(noticeBean);
 		
@@ -51,9 +74,11 @@ public class NoticeControl {
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
 			cntPerPage = "5";
-		} else if (nowPage == null) {
+		}
+		else if (nowPage == null) {
 			nowPage = "1";
-		} else if (cntPerPage == null) { 
+		}
+		else if (cntPerPage == null) { 
 			cntPerPage = "5";
 		}
 		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
@@ -65,25 +90,11 @@ public class NoticeControl {
 		return "board/NoticeList";
 	}
 	
-	@GetMapping("/NoticeWrite")
-	public String write(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
-		m.addAttribute("noticeBean", noticeBean);
-		
-		return "board/NoticeWrite";
-	}
-	
 	@PostMapping("/NoticeDelete")
 	public String delete(@ModelAttribute("noticeBean") Notice_s noticeBean) {
 		ns.deleteNotice(noticeBean);
 		
 		return "board/NoticeDelete";
-	}
-	
-	@GetMapping("/NoticeModify")
-	public String modify(@ModelAttribute("noticeBean") Notice_s noticeBean) {
-		ns.updateNotice(noticeBean);
-		
-		return "board/NoticeModify";
 	}
 }
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
@@ -22,7 +23,7 @@
 	}
 </script>
 <body>
-<!-- 헤더 -->
+	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
 		<!-- 헤더 메뉴 -->
@@ -47,6 +48,7 @@
 	 			<h1>공지사항</h1>
 			</div>
 		</div>
+		
 		<div class="cs-board02">
 			<div id="cs-listContainer">
 				<div id="cs-listBoard">
@@ -62,8 +64,8 @@
 								<c:if test="${noticePaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 						</select>
 						<!--게시판 검색 리스트-->
-						<input type="text">
-						<button type="submit">검색</button>
+						<input value="" placeholder="검색어를 입력하세요."></input>
+						<a href="#" onclick="search();">검색</a>
 					</div>
 				</div>
 				<div id="cs-list">

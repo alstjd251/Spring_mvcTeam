@@ -1,7 +1,7 @@
 package co.sp.beans;
 
 //게시판 페이징용 빈
-public class BoardPage {
+public class BoardPage{
 	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
 	private int cntPage = 5;
 	

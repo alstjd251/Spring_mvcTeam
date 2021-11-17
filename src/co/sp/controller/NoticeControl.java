@@ -84,6 +84,7 @@ public class NoticeControl {
 		
 		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 	    
+		m.addAttribute("noticeBean", noticeBean);
 		m.addAttribute("noticeList", ns.getNotice_desc(bp));
 		m.addAttribute("noticePaging", bp);
 		m.addAttribute("noticeTotal", noticeTotal);

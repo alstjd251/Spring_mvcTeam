@@ -98,19 +98,19 @@
 				<form:hidden path="idExist"/>
 					<!-- 아이디 -->
 					<div id="idGroup" class="form-group" style="display:flex;">
-						<form:label style="width:120px; padding-left:0;" path="mem_id" for="inputid" class="col-sm-2 control-label">아이디*</form:label>
-						<div class="col-sm-10" style="display:flex;">
-							<form:input style="width:235px;" path="mem_id" class="form-control" id="inputid" onkeypress="resetUserIdExist()" placeholder="아이디" />
-							<input type="button" style="margin-left:10px;" id="idcheck" onclick="idchecking()" value="중복확인"/>
-							<span id="checkicon" style="position:absolute; margin-right: 90px;" class="" aria-hidden="true"></span>
-						</div>
-					</div>
-					<div class="form-group" style="display:flex;">
-						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
-						<div class="col-sm-10">
-							<form:errors path="mem_id" style="color:red;"/>
-						</div>
-					</div>
+                        <form:label style="width:120px; padding-left:0;" path="mem_id" for="inputid" class="col-sm-2 control-label">아이디*</form:label>
+                        <div class="col-sm-10" style="display:flex;">
+                            <form:input style="width:235px;" path="mem_id" class="form-control" id="inputid" onkeypress="resetUserIdExist()" placeholder="아이디" />
+                            <input type="button" style="margin-left:10px;" id="idcheck" onclick="idchecking()" value="중복확인"/>
+                            <span id="checkicon" style="position:absolute; left:220px;" class="" aria-hidden="true"></span>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display:flex;">
+                        <label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
+                        <div class="col-sm-10">
+                            <form:errors path="mem_id" style="color:red;"/>
+                        </div>
+                    </div>
 					<!-- 비밀번호 -->
 					<div class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label">비밀번호*</form:label>
@@ -231,5 +231,7 @@
 	</footer>
 	<script type="text/javascript" src="${root}js/n_page.js"></script>
 	<script type="text/javascript" src="${root}js/zip.js"></script>
+	<script type="text/javascript">
+	</script>
 </body>
 </html>

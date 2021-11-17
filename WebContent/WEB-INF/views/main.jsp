@@ -80,11 +80,13 @@
 			</div>
 		</div>
 		<!--코스 소개-->
-		<div id="yang01" class="sect" style="background-image:url(${root}img/mainpage/bg.jpg)">
+		<div id="yang01" class="sect"
+			style="background-image:url(${root}img/mainpage/bg.jpg)">
 			<!--서울,경기-->
 			<div id="mainBrewery01">
 				<div class="breweryText01">
 					<h2>서울</h2>
+					<img src="${root }img/mainpage/line.png" width="300px" height="25px">
 					<h4 id="c_name">
 						술, 래잡기
 						<p id="course_intro">
@@ -105,6 +107,7 @@
 				</div>
 				<div class="breweryText02">
 					<h2>경기도</h2>
+					<img src="${root }img/mainpage/line2.png" width="300px" height="25px">
 					<h4 id="c_name">평.화.산</h4>
 					<p id="course_intro">
 						해안과 육지를 넘나드는 경험이 가능한 경기도<br> 복잡한 도시에서 벗어나 자연과 함께 전통주를 맛 보며<br>
@@ -115,10 +118,12 @@
 			</div>
 		</div>
 		<!--양조장 코스 02 (충청, 전라)-->
-		<div id="yang02" class="sect" style="background-image:url(${root}img/mainpage/bg.jpg)">
+		<div id="yang02" class="sect"
+			style="background-image:url(${root}img/mainpage/bg.jpg)">
 			<div id="mainBrewery03">
 				<div class="breweryText03">
 					<h2>충청도</h2>
+					<img src="${root }img/mainpage/line.png" width="300px" height="25px">
 					<h4 id="c_name">취 했 슈?</h4>
 					<p id="course_intro">
 						술이 익어가는 오래된 항아리, 손으로 비벼 만드는 누룩,<br> 인생의 향기를 담은 아름다운 술이 익어가고
@@ -138,6 +143,7 @@
 				</div>
 				<div class="breweryText04">
 					<h2>전라도</h2>
+					<img src="${root }img/mainpage/line2.png" width="300px" height="25px">
 					<h4 id="c_name">안주가 필요없단께~</h4>
 					<p id="course_intro">
 						우리의 전통이 면면히 이어 흘러가며, 각 지역의 문화가 잘 살아있는 전라도<br> 전통주와 기개 높은 대나무
@@ -147,11 +153,13 @@
 				</div>
 			</div>
 		</div>
-		<div id="yang03" class="sect" style="background-image:url(${root}img/mainpage/bg.jpg)">
+		<div id="yang03" class="sect"
+			style="background-image:url(${root}img/mainpage/bg.jpg)">
 			<!-- 경북, 경남 -->
 			<div id="mainBrewery05">
 				<div class="breweryText05">
 					<h2>경상북도</h2>
+					<img src="${root }img/mainpage/line.png" width="300px" height="25px">
 					<h4 id="c_name">마이무!</h4>
 					<p id="course_intro">
 						의(義)와 예(禮)의 고장에서 만나는 우리 술<br> 500년의 전통을 이어온 안동 소주와 한국의 브랜디
@@ -170,6 +178,7 @@
 				</div>
 				<div class="breweryText06">
 					<h2>경상남도</h2>
+					<img src="${root }img/mainpage/line2.png" width="300px" height="25px">
 					<h4 id="c_name">자 드가자!</h4>
 					<p id="course_intro">
 						시간과 정성으로 빚은 아름다운 우리 술<br> 전통주의 새로운 가치를 만들어 가는 경상도!<br> 두

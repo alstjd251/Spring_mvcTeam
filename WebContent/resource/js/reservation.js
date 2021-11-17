@@ -100,3 +100,7 @@ $(document).ready(function(){
  });
 	
 });
+
+var resdate = document.getElementById("res_date").value;
+      resdate = new Date().toISOString().substring(0, 10);
+      document.getElementById("res_date").setAttribute("min", resdate);

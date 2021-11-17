@@ -32,46 +32,22 @@
 			price = 0;
 			break;
 		case "1":
-			price = $
-			{
-				getCourseIdx.get(0).course_price
-			}
-			;
+			price = ${getCourseIdx.get(0).course_price};
 			break;
 		case "2":
-			price = $
-			{
-				getCourseIdx.get(1).course_price
-			}
-			;
+			price = ${getCourseIdx.get(1).course_price};
 			break;
 		case "3":
-			price = $
-			{
-				getCourseIdx.get(2).course_price
-			}
-			;
+			price = ${getCourseIdx.get(2).course_price};
 			break;
 		case "4":
-			price = $
-			{
-				getCourseIdx.get(3).course_price
-			}
-			;
+			price = ${getCourseIdx.get(3).course_price};
 			break;
 		case "5":
-			price = $
-			{
-				getCourseIdx.get(4).course_price
-			}
-			;
+			price = ${getCourseIdx.get(4).course_price};
 			break;
 		case "6":
-			price = $
-			{
-				getCourseIdx.get(5).course_price
-			}
-			;
+			price = ${getCourseIdx.get(5).course_price};
 			break;
 		}
 		document.getElementById("res_price").innerHTML = price;

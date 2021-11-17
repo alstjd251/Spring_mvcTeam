@@ -277,6 +277,15 @@ header .login #logout_button:hover {
 	text-align: right;
 }
 
+.breweryText01 h2, .breweryText03 h2, .breweryText05 h2, 
+.breweryText02 h2, .breweryText04 h2, .breweryText06 h2{
+margin-bottom: -3px;
+}
+.breweryText01 h4, .breweryText03 h4, .breweryText05 h4, 
+.breweryText02 h4, .breweryText04 h4, .breweryText06 h4{
+margin-top: 0;
+}
+
 #course_intro{
 	color:gray;
 	font-weight:bold;

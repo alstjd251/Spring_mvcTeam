@@ -4,15 +4,20 @@ $(window).on("load", function () {
   $(
     ".pimg1 , .pimg2 , .pimg3 , .pimg4 , .pimg5, #ggtwo, #ggtwo>li>a, #ggtwo>li"
   ).css({
-    width: innerWidth * 0.8 + "px",
+    width: innerWidth * 0.65 + "px",
   });
   $("#ggone , .pimg").css({ width: innerWidth * 0.2 + "px" });
   $(
-    "#yang01-course , #yang02-course, .section , #fade1 , #introduce, #reservation, #board"
+    ".section , #fade1 , #introduce, #reservation, #board"
   ).css({
     height: innerHeight + "px",
   });
-  $("#gg").css({ height: innerHeight - 400 + "px" });
+  $("#gg").css({ height: innerHeight - 460 + "px" });
+  $("#ggone, #ggtwo").css({
+    height: $("#gg").height() * 0.85 + 30 + "px",
+    marginTop: $("#gg").height() * 0.075 + "px",
+    marginBottom: $("#gg").height() * 0.075 - 30 + "px",
+  });
   /* 풀페이지 설정 */
   var sectionWrap = $(".section");
   var sect = $(".sect");
@@ -60,7 +65,7 @@ $(window).on("resize", function () {
   $(
     ".pimg1 , .pimg2 , .pimg3 , .pimg4 , .pimg5, #ggtwo, #ggtwo>li>a, #ggtwo>li"
   ).css({
-    width: innerWidth * 0.8 + "px",
+    width: innerWidth * 0.65 + "px",
   });
   $("#ggone, .pimg").css({ width: innerWidth * 0.2 + "px" });
   $(
@@ -68,7 +73,12 @@ $(window).on("resize", function () {
   ).css({
     height: innerHeight + "px",
   });
-  $("#gg").css({ height: innerHeight - 400 + "px" });
+  $("#gg").css({ height: innerHeight - 460 + "px" });
+  $("#ggone, #ggtwo").css({
+    height: $("#gg").height() * 0.85 + 30 + "px",
+    marginTop: $("#gg").height() * 0.075 + "px",
+    marginBottom: $("#gg").height() * 0.075 - 30 + "px",
+  });
   /* 풀페이지 설정 */
   var sectionWrap = $(".section");
   var sect = $(".sect");
@@ -129,13 +139,13 @@ $("#gg").css({ height: innerHeight - 400 + "px" });
 setInterval(function () {
   //함수 반복
   $("#gg>#ggtwo>li>a").delay(2500); //2.5초 정지
+  $("#gg>#ggtwo>li>a").animate({ marginLeft: "-100%" });
+  $("#gg>#ggtwo>li>a").delay(2500);
   $("#gg>#ggtwo>li>a").animate({ marginLeft: "-200%" });
   $("#gg>#ggtwo>li>a").delay(2500);
+  $("#gg>#ggtwo>li>a").animate({ marginLeft: "-300%" });
+  $("#gg>#ggtwo>li>a").delay(2500);
   $("#gg>#ggtwo>li>a").animate({ marginLeft: "-400%" });
-  $("#gg>#ggtwo>li>a").delay(2500);
-  $("#gg>#ggtwo>li>a").animate({ marginLeft: "-600%" });
-  $("#gg>#ggtwo>li>a").delay(2500);
-  $("#gg>#ggtwo>li>a").animate({ marginLeft: "-800%" });
   $("#gg>#ggtwo>li>a").delay(2500);
   $("#gg>#ggtwo>li>a").animate({ marginLeft: "0" }, "fast");
 });

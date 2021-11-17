@@ -80,9 +80,9 @@
 						<tbody class="cs-tbody">
 							<!--게시글 <td> 들어가는 곳-->
 							<c:forEach var='obj' items="${noticeList }">
+							<c:set var = 'i' value = "${i + 1 }"/>
 								<tr>
-									<c:set var='i' value="${i+1 }"/>
-									<td>${noticeTotal - i + 1}</td>
+									<td>${noticeTotal - obj.RN + 1}</td>
 									<td>
 										<a href="${root }board/NoticeRead?n_noticetitle=${obj.n_noticetitle }&n_noticecontent=${obj.n_noticecontent}&n_noticenum=${obj.n_noticenum}&n_noticecnt=${obj.n_noticecnt}&n_noticedate=${obj.n_noticedate}">${obj.n_noticetitle }</a>
 									</td>

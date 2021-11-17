@@ -38,7 +38,7 @@
 	</header>
 	<!-- 로그인 폼 부분 -->
 	<section>
-	<div class="page-header" align="center">
+	<div class="page-header" align="center" style="margin:120px;">
 	 		<h1>로그인</h1>
 	</div>
 	<div style="display: flex; flex-direction: column; align-items: center;">

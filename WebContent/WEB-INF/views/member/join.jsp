@@ -113,15 +113,27 @@
 					</div>
 					<!-- 비밀번호 -->
 					<div class="form-group" style="display:flex;">
-						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label">비밀번호*</form:label>
+						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label" onkeyup="d">비밀번호*</form:label>
 						<div class="col-sm-10">
-							<form:password style="width:235px;" path="mem_pw" class="form-control" id="inputpw" placeholder="패스워드" />
+							<form:password style="width:235px;" path="mem_pw" class="form-control" id="inputpw" placeholder="비밀번호" />
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_pw" style="color:red;"/>
+						</div>
+					</div>
+					<div class="form-group" style="display:flex;">
+						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label">비밀번호확인*</form:label>
+						<div class="col-sm-10">
+							<input type="password" style="width:235px;" class="form-control" id="inputpw2" placeholder="비밀번호 확인" />
+						</div>
+					</div>
+					<div class="form-group" style="display:flex;">
+						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
+						<div class="col-sm-10">
+							
 						</div>
 					</div>
 					<!-- 이름 -->

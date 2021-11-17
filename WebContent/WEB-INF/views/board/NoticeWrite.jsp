@@ -68,7 +68,7 @@
 					</div>
 					<div id="postBottom">
 						<div class="postBottom-board">
-							<div class="poatBottom">
+							<div class="postBottom">
 								<!--게시글 내용-->
 								<form:textarea path="n_noticecontent" />
 							</div>

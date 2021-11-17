@@ -81,8 +81,9 @@ public class NoticeControl {
 		else if (cntPerPage == null) { 
 			cntPerPage = "5";
 		}
-		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 		
+		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+	    
 		m.addAttribute("noticeList", ns.getNotice_desc(bp));
 		m.addAttribute("noticePaging", bp);
 		m.addAttribute("noticeTotal", noticeTotal);

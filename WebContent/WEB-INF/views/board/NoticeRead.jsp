@@ -10,7 +10,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 <link href="${root }css/board/postCss.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -27,7 +27,6 @@
 	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
-		<c:import url="/WEB-INF/views/include/ad.jsp"/>
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">

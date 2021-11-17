@@ -97,6 +97,7 @@ section #reservation #res_button{
   font-size: medium;
   font-weight: bolder;
   text-align: center;
+  margin-top: 10px;
 }
 
 section #reservation #res_ch:hover, section #reservation #res_button:hover{
@@ -152,7 +153,6 @@ section #reservation #res_priceimg{
 width: 23px;
 height: 23px;
 margin-left: 30px;
-margin-top: 10px;
 }
 
 section #reservation #res_con1{
@@ -223,7 +223,6 @@ section #reservation table{
   background-color: white;
   width: 80%;
   margin-top: 10px;
-  margin-bottom: 30px;
   border-top: 2px solid rgb(202, 202, 202);
   border-bottom: 2px solid rgb(202, 202, 202);
   
@@ -248,5 +247,6 @@ section #reservation table th{
 section #reservation table input{
   border:none;
   width: 80%;
-  line-height: 50px;
+  line-height: 30px;
 }
+

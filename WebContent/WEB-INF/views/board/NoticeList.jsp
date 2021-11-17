@@ -11,7 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
-	<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
+	<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 </head>
 <script>
 	function selChange() {
@@ -23,7 +23,6 @@
 <!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
-		<c:import url="/WEB-INF/views/include/ad.jsp"/>
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">

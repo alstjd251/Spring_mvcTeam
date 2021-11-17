@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="${root }css/mypageCss.css" />
 <script src="${root }js/zip.js"></script>
 <script src="${root }js/mypage.js"></script>
-<link href="${root }css/include/header_footer.css" rel="stylesheet"
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet"
 	type="text/css" />
 </head>
 <body>

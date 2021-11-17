@@ -15,14 +15,14 @@ public class EmailContol {
 	private EmailSender emailSender;
 	
 	@RequestMapping("/mail")
-	public void sendEmailAction() throws Exception{
+	public void sendPassword() throws Exception{
     
 	    System.out.println("Email Controller");
 	    
 	    EmailSet email = new EmailSet();
 	    email.setReceiver("byungeun96@naver.com");
-	    email.setContent("내용이 들어갑니다");
-	    email.setSubject("제목이 들어갑니다");
+	    email.setSubject("Sul Sure 비밀번호 찾기 결과");
+	    email.setContent("고객님의 비밀번호는 입니다.");
 	    
 	    emailSender.SendEmail(email);
 	}

@@ -97,6 +97,7 @@ section #reservation #res_button{
   font-size: medium;
   font-weight: bolder;
   text-align: center;
+  margin-top: 10px;
 }
 
 section #reservation #res_ch:hover, section #reservation #res_button:hover{

@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="${root }css/reservationCss.css" />
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>
-<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 .table > tbody > tr > td {
 	vertical-align: middle;	
@@ -103,7 +103,6 @@ function resSelect() {
 	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
-		<c:import url="/WEB-INF/views/include/ad.jsp" />
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">

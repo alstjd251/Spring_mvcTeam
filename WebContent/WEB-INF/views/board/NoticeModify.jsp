@@ -50,16 +50,9 @@
 					<div id="postMiddle">
 						<div class="postMiddle-board01">
 							<div class="postTitle">
-								<div>
-									<form:label path="n_noticetitle">글제목 : <form:input path="n_noticetitle" value = "${noticeBean.n_noticetitle }"/></form:label>
-								</div>
-								<div class="postMiddle-board02">
-									<div>
-										<img src="${root }img/boardIcon/eye_new.png">${noticeBean.n_noticecnt }
-										<!--조회수DB-->
-										<img src="${root }img/boardIcon/sub_date_new.png">${noticeBean.n_noticedate }
-										<!-- 등록일DB -->
-									</div>
+								글제목 : &nbsp;
+								<div style="width:95%;">
+									<form:input path="n_noticetitle" value = "${noticeBean.n_noticetitle }" style = "width: 100%; border: none;"/>
 								</div>
 							</div>
 							<!--제목DB-->
@@ -70,7 +63,7 @@
 						<div class="postBottom-board">
 							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" />
+								<form:textarea path="n_noticecontent" cols="1000" rows="40"/>
 							</div>
 						</div>
 					</div>

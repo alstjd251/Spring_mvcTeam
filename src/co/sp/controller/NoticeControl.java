@@ -1,7 +1,5 @@
 package co.sp.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,13 +28,15 @@ public class NoticeControl {
 	@GetMapping("/NoticeRead")
 	public String read(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
 		ns.increaseNoticeCnt(noticeBean);
-		m.addAttribute(noticeBean);
+		noticeBean = ns.getNotice(noticeBean);
+		m.addAttribute("noticeBean", noticeBean);
 		
 		return "board/NoticeRead";
 	}
 	
 	@GetMapping("/NoticeModify")
 	public String modify(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		noticeBean = ns.getNotice(noticeBean);
 		m.addAttribute("noticeBean", noticeBean);
 		
 		return "board/NoticeModify";

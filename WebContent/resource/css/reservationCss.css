@@ -4,27 +4,10 @@ body {
 	display: flex;
 	flex-direction: column;
 }
-
-/* �삁�빟 section css */
-section {
+section #reservation {
 	width: 80%;
 	margin-left: 10%;
-	height: 100%;
 }
-
-section #reservation h1 {
-	text-align: center;
-	margin-bottom: 30px;
-}
-
-section #reservation h3 {
-	text-align: center;
-	margin-bottom: 50px;
-	color: rgb(29, 29, 29);
-}
-
-
-
 
 section #reservation #res_subcategory{
   padding-left: 10px;
@@ -91,16 +74,18 @@ section #reservation #res_ch {
 	text-align: center;
 }
 
-section #reservation #res_button {
-	width: 120px;
-	height: 40px;
-	border: 1px solid rgb(59, 59, 59);
-	border-radius: 10px;
-	background-color: rgb(59, 59, 59);
-	color: white;
-	font-size: medium;
-	font-weight: bolder;
-	text-align: center;
+
+section #reservation #res_button{
+  width: 120px;
+  height: 40px;
+  border: 1px solid rgb(59, 59, 59);
+  border-radius: 10px;
+  background-color:  rgb(59, 59, 59);
+  color:white;
+  font-size: medium;
+  font-weight: bolder;
+  text-align: center;
+  margin-top: 10px;
 }
 
 section #reservation #res_ch:hover, section #reservation #res_button:hover
@@ -152,17 +137,24 @@ section #reservation #minus:hover, section #reservation #plus:hover {
 	cursor: pointer;
 }
 
-section #reservation #res_priceimg {
-	width: 23px;
-	height: 23px;
-	margin-left: 30px;
-	margin-top: 10px;
+
+section #reservation #res_priceimg{
+width: 23px;
+height: 23px;
+margin-left: 30px;
+}
+
+section #reservation #res_priceimg2{
+width: 23px;
+height: 23px;
+margin-left: 30px;
+margin-top: 10px;
 }
 
 section #reservation #res_con1 {
 	width: 100%;
 	display: flex;
-	margin-top: 20px;
+	margin-top: 10%;
 	margin-bottom: 10px;
 	justify-content: space-evenly;
 }
@@ -176,7 +168,7 @@ section #reservation #res_con2 {
 
 section #reservation #res_course {
 	width: 100%;
-	height: 200px;
+	height: 250px;
 	background-color: darkgreen;
 }
 
@@ -222,8 +214,14 @@ section #reservation #res_perinfo {
 	border: 2px solid rgb(136, 136, 136);
 }
 
-section #reservation #res_perinfo table {
-	text-align: center;
+
+section #reservation table{
+  background-color: white;
+  width: 80%;
+  margin-top: 10px;
+  border-top: 2px solid rgb(202, 202, 202);
+  border-bottom: 2px solid rgb(202, 202, 202);
+
 }
 
 section #reservation #res_perinfo th {
@@ -246,24 +244,39 @@ section #reservation table {
 	border-bottom: 2px solid rgb(202, 202, 202);
 }
 
-section #reservation #table1 {
-	height: 150px;
+
+section #reservation table input{
+  border:none;
+  width: 80%;
+  line-height: 30px;
+
 }
 
-section #reservation #table2 {
-	height: 180px;
+.mainNotice-container01 {
+	display:flex;
+	flex-direction : column;
+	align-items : center;
+  padding: 10%;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    )
+      center/cover no-repeat;
+  background-size: cover;
+  color: snow;
+  text-align: center;
 }
 
-section #reservation table th {
-	width: 20%;
-	text-align: center;
-	line-height: 50px;
-	background-color: rgba(238, 238, 238, 0.795);
-	border-right: 1px solid rgb(189, 185, 185);
+.mainNotice-container01 .brewery-banner{
+    font-size: 40px;
+    padding: 10px;
+    text-shadow: 2px 2px 2px #636363;
 }
 
-section #reservation table input {
-	border: none;
-	width: 80%;
-	line-height: 50px;
+.mainNotice-container01 p{	
+	width:600px;
+	font-size: 20px;
+	margin-top: 10px;
+	background-color: rgba(0, 0, 0, 0.9);
 }

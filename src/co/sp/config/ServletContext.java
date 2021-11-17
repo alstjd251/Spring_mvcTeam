@@ -1,5 +1,7 @@
 package co.sp.config;
 
+import java.util.Properties;
+
 import javax.annotation.Resource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -13,6 +15,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -34,6 +38,7 @@ import co.sp.mapper.ResMapper;
 
 @PropertySource("/WEB-INF/properties/dbconnection.properties")
 @PropertySource("/WEB-INF/properties/error_message.properties")
+@PropertySource("/WEB-INF/properties/MailProperties.properties")
 public class ServletContext implements WebMvcConfigurer {
 
 	@Value("${dbconnection.classname}")
@@ -47,6 +52,12 @@ public class ServletContext implements WebMvcConfigurer {
 
 	@Value("${dbconnection.password}")
 	private String db_password;
+	
+	@Value("${mail.username}")
+	private String username;
+	
+	@Value("${mail.password}")
+	private String password;
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
@@ -65,7 +76,6 @@ public class ServletContext implements WebMvcConfigurer {
 		registry.addResourceHandler("/img/**").addResourceLocations("/resource/img/");
 		registry.addResourceHandler("/js/**").addResourceLocations("/resource/js/");
 		registry.addResourceHandler("/css/**").addResourceLocations("/resource/css/");
-		registry.addResourceHandler("/modal/**").addResourceLocations("/resource/modal/");
 	}
 
 	// DB 접속 정보 관리
@@ -129,6 +139,27 @@ public class ServletContext implements WebMvcConfigurer {
 		res.setBasenames("/WEB-INF/properties/error_message");
 		return res;
 	}
+	
+	@Bean
+	public JavaMailSenderImpl mailSender() {
+		
+		JavaMailSenderImpl mailsender = new JavaMailSenderImpl();
+		
+		mailsender.setHost("smtp.gmail.com");
+		mailsender.setPort(25);
+		mailsender.setUsername(username);
+		mailsender.setPassword(password);
+		Properties props = new Properties();
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.auth", "true");
+		mailsender.setJavaMailProperties(props);
+		
+		return mailsender;
+	}
+	
+	
+	
+	
 	
 	// Interceptors
 	@Override

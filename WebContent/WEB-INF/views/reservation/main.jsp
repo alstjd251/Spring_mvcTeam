@@ -21,8 +21,17 @@
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>
-<link href="${root }css/include/n_header_footer.css" rel="stylesheet"
-	type="text/css" />
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.table > tbody > tr > td {
+	vertical-align: middle;	
+}
+#res_button{
+	margin-top: -10px;
+}
+</style>
+
 <script type="text/javascript">
 	var price = 0;
 	function selected() {
@@ -107,15 +116,16 @@
 			</div>
 		</div>
 	</header>
-	<section>
-		<div id="reservation" class="sect">
+    <section style="margin-bottom: 40px;">
+          <!-- 고정이미지 -->
+        <div class="mainNotice-container01" style="background-image: url(${root}img/reservation/backimg/breweryMain.png)">
+            <div class="brewery-banner">예약</div>
+            <p>여행 내내 운전하느라 술을 즐기지 못한 <span style="color: rgb(248, 15, 15);">애주가</span>를
+				위한 완벽한 코스</p>
+        </div>
+		<div id="reservation">
 			<!--유효성검사 해야함-->
-			<h1>예약</h1>
-			<h3>
-				여행 내내 운전하느라 술을 즐기지 못한 <span style="color: rgb(248, 15, 15);">애주가</span>를
-				위한 완벽한 코스
-			</h3>
-			<div id="res_con1">
+			 <div id="res_con1">
 				<select id="res_subcategory" onchange="selected()"
 					style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 					<option value="-1">코스를 선택하세요.</option>
@@ -129,14 +139,16 @@
 						<p id="minus" onclick="minus()">-</p>
 						<p id="res_personnel">1</p>
 						<p id="plus" onclick="plus()">+</p>
-						<img src="${root }img/reservation/icon/won.png" id="res_priceimg" />
-						<span style="font-size: 20px" id="res_price"></span> <input
+						<img src="${root }img/reservation/icon/won.png" id="res_priceimg2" />
+						<!-- res_priceimg로 두개다 주니까 위치가 안예뻐서 이름 변경해서 css 따로 줌 -->
+						 <span style="font-size: 20px" id="res_price"></span> <input
 							type="button" id="res_ch" onclick="resSelect()" value="선택">
 
 					</div>
 				</div>
 			</div>
-			<div id="res_course">코스 간략한 소개</div>
+			<div id="res_course" style="background-color: red;"><img src="${root }img/reservation/backimg/courseimg1.png" width="100%" height="100%" /> </div>
+			
 			<form:form action="${root }reservation/reserve"
 				modelAttribute="reservationBean">
 				<div id="res_con2">
@@ -197,10 +209,8 @@
 											readonly="readonly" /></td>
 								</tr>
 								<tr>
-									<td><img src="${root }img/reservation/icon/won.png"
-										id="res_priceimg" /></td>
+									<td><img src="${root }img/reservation/icon/won.png" id="res_priceimg" /></td>
 									<td><input type="text" id="p_price" readonly="readonly"></td>
-
 								</tr>
 							</table>
 							<input type="button" id="res_button" value="예약">

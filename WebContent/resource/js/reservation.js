@@ -32,12 +32,12 @@ setInterval(function () {
 });
 $(window).on("load", function() {
 
-$(".pimg1,.pimg2,.pimg3,.pimg4").css({width: $("section").width() * 0.25 + "px",})
+$(".pimg1,.pimg2,.pimg3,.pimg4").css({width: $("#reservation").width() * 0.25 + "px",})
 });
 
 $(window).on("resize", function() {
 
-$(".pimg1,.pimg2,.pimg3,.pimg4").css({width: $("section").width() * 0.25 + "px",})
+$(".pimg1,.pimg2,.pimg3,.pimg4").css({width: $("#reservation").width() * 0.25 + "px",})
 });
 
 

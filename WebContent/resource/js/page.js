@@ -12,15 +12,7 @@ function menuscroll() {
 window.addEventListener("scroll", menuscroll);
 
 /* 상세페이지 광고 배너 */
-/* $("#gggg>li>a").hide();
-$("#gggg>li>a:first-child").show(); */
 setInterval(function () {
-  //함수 반복
-  /*  $("#gggg>li>a:first-child")
-    .animate({ marginLeft: "-100%" })
-    .next()
-    .end(1000)
-    .appendTo("#gggg"); */
   $("#gggg>li>a").delay(4000); //4초 정지
   $("#gggg>li>a").animate({ marginLeft: "-100%" });
   $("#gggg>li>a").delay(4000);

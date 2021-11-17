@@ -1,7 +1,7 @@
 /* header 시작 */
 header {
   width: 100%;
-  height: 130px;
+  height: 60px;
   display: flex;
   flex-direction: column;
   z-index: 100;
@@ -93,12 +93,12 @@ header .login #logout_button:hover {
   border-color: gray;
   color: gray;
 }
-
 /* footer css */
 footer {
   background-color: rgb(201, 154, 67, 0.4);
   width: 100%;
-  height: 300px;
+  height: 250px;
+  position: absolute;
 }
 .FOOTER_TOTAL {
   width: 80%;

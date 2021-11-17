@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Notice_s;
 import co.sp.mapper.NoticeMapper;
 
@@ -35,5 +36,8 @@ public class NoticeDao {
 	
 	public void increaseNoticeCnt(Notice_s noticeBean) {
 		noticemapper.increaseNoticeCnt(noticeBean);
+	}
+	public List<Notice_s> getNotice_desc(BoardPage bp){
+		return noticemapper.getNotice_desc(bp);
 	}
 }

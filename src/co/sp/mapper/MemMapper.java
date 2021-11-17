@@ -12,7 +12,7 @@ public interface MemMapper {
 	void addMember(Member_s memberBean); 
 	
 	// 로그인 확인
-	@Select("select mem_num, mem_name from member_s where mem_id=#{mem_id} and mem_pw=#{mem_pw}")
+	@Select("select * from member_s where mem_id=#{mem_id} and mem_pw=#{mem_pw}")
 	Member_s getLoginMemberInfo(Member_s tempLoginMemberBean);
 	
 	// 아이디 찾기

@@ -10,7 +10,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 <link href="${root }css/board/postCss.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -27,7 +27,6 @@
 	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
-		<c:import url="/WEB-INF/views/include/ad.jsp"/>
 		<!-- 헤더 메뉴 -->
 		<div class="menu" onscroll="menuscroll()">
 			<div class="menu1">
@@ -58,10 +57,12 @@
 									<form:label path="n_noticetitle">글제목 : ${noticeBean.n_noticetitle}</form:label>
 								</div>
 								<div class="postMiddle-board02">
-									<img src="${root }img/boardIcon/eye_new.png"><span></span>
-									<!--조회수DB-->
-									<img src="${root }img/boardIcon/sub_date_new.png"><span></span>
-									<!-- 등록일DB -->
+									<div>
+										<img src="${root }img/boardIcon/eye_new.png">${noticeBean.n_noticecnt }
+										<!--조회수DB-->
+										<img src="${root }img/boardIcon/sub_date_new.png">${noticeBean.n_noticedate }
+										<!-- 등록일DB -->
+									</div>
 								</div>
 							</div>
 							<!--제목DB-->
@@ -70,9 +71,9 @@
 					</div>
 					<div id="postBottom">
 						<div class="postBottom-board">
-							<div class="poatBottom">
+							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" />
+								<form:textarea path="n_noticecontent" readonly="true"/>
 							</div>
 						</div>
 					</div>

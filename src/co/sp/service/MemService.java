@@ -32,6 +32,8 @@ public class MemService {
 		if (tempLoginMemberBean2 != null) {
 			loginBean.setMem_num(tempLoginMemberBean2.getMem_num());
 			loginBean.setMem_name(tempLoginMemberBean2.getMem_name());
+			loginBean.setMem_phone(tempLoginMemberBean2.getMem_phone());
+			loginBean.setMem_mail(tempLoginMemberBean2.getMem_mail());
 			loginBean.setMemLogin(true);
 		}
 	}

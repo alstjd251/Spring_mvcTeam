@@ -6,12 +6,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.sp.service.MemService;
+import co.sp.service.ResService;
 
 @RestController
-public class idCheckControl {
+public class RestControl {
 
 	@Autowired
 	private MemService ms;
+	
 	
 	@GetMapping("/member/idcheck/{mem_id}")
 	public String checkId(@PathVariable String mem_id) {
@@ -20,4 +22,5 @@ public class idCheckControl {
 		
 		return check + "";
 	}
+	
 }

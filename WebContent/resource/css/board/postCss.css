@@ -64,3 +64,6 @@ textarea {
     border: none;
     resize: none;
 }
+textarea:focus  {
+	outline: 0;
+}

@@ -22,7 +22,7 @@ public class NoticeDao {
 		noticemapper.deleteNotice(noticeBean);
 	}
 	
-	public List<Notice_s> getNotice(Notice_s noticeBean) {
+	public Notice_s getNotice(Notice_s noticeBean) {
 		return noticemapper.getNotice(noticeBean);
 	}
 	

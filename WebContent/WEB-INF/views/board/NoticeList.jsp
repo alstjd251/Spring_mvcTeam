@@ -8,6 +8,8 @@
 <meta charset="UTF-8">
 <title>Sul Sure</title>
 <head>
+	<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
@@ -40,29 +42,27 @@
 			</div>
 			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
 		</div>
-		<div>
-			<select id="cntPerPage" name="sel" onchange="selChange()">
-				<option value="5"
-					<c:if test="${noticePaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
-				<option value="10"
-					<c:if test="${noticePaging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
-				<option value="15"
-					<c:if test="${noticePaging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
-				<option value="20"
-					<c:if test="${noticePaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
-			</select>
-		</div> <!-- 옵션선택 끝 -->
+		<div id="cs-titleBox">
+			<div class="page-header" align="center">
+	 			<h1>공지사항</h1>
+			</div>
+		</div>
 		<div class="cs-board02">
-			<div id="cs-titleBox">공지사항</div>
 			<div id="cs-listContainer">
 				<div id="cs-listBoard">
 					<div id="cs-search">
+						<select id="cntPerPage" name="sel" onchange="selChange()">
+							<option value="5"
+								<c:if test="${noticePaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+							<option value="10"
+								<c:if test="${noticePaging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+							<option value="15"
+								<c:if test="${noticePaging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
+							<option value="20"
+								<c:if test="${noticePaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
+						</select>
 						<!--게시판 검색 리스트-->
-						<select>
-							<option>제목</option>
-							<option>작성일</option>
-							<option>조회수</option>
-						</select> <input type="text">
+						<input type="text">
 						<button type="submit">검색</button>
 					</div>
 				</div>
@@ -84,7 +84,7 @@
 								<tr>
 									<td>${noticeTotal - obj.RN + 1}</td>
 									<td>
-										<a href="${root }board/NoticeRead?n_noticetitle=${obj.n_noticetitle }&n_noticecontent=${obj.n_noticecontent}&n_noticenum=${obj.n_noticenum}&n_noticecnt=${obj.n_noticecnt}&n_noticedate=${obj.n_noticedate}">${obj.n_noticetitle }</a>
+										<a href="${root }board/NoticeRead?n_noticenum=${obj.n_noticenum}">${obj.n_noticetitle }</a>
 									</td>
 									<td>${obj.n_noticedate }</td>
 									<td>${obj.mem_name }</td>

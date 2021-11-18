@@ -7,6 +7,7 @@ function minus(){
       tmp = 1;
   }
   n.innerText = tmp;
+  
 }
 
 function plus(){

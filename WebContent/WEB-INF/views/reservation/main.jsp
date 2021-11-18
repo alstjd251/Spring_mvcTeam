@@ -74,45 +74,54 @@
 
 	function resSelect() {
 		var course_sel = $("#res_subcategory").val();
+		var date = $("#res_date").val();
 
-		if (course_sel == -1) {
+		if (course_sel == -1 && date == "") {
 			Swal.fire({
+				icon : "warning",
 				title : "선택 오류",
-				text : "코스를 선택해주세요.",
+				text : "코스와 날짜를 선택해주세요.",
 			}).then(function() {
 				$("#res_subcategory").focus();
 			});
-			n
+		}else if (course_sel == -1 || date == "") {
+			Swal.fire({
+				icon : "warning",
+				title : "선택 오류",
+				text : "코스 또는 날짜를 선택해주세요.",
+			}).then(function() {
+				$("#res_subcategory").focus();
+			});
+		}else {
+			var cnum = $("#res_subcategory").val();
+			$("#course_num").val(cnum);
+			switch (cnum) {
+			case "1":
+				$("#c_name").html("${getCourseIdx.get(0).course_names}");
+				break;
+			case "2":
+				$("#c_name").html("${getCourseIdx.get(1).course_names}");
+				break;
+			case "3":
+				$("#c_name").html("${getCourseIdx.get(2).course_names}");
+				break;
+			case "4":
+				$("#c_name").html("${getCourseIdx.get(3).course_names}");
+				break;
+			case "5":
+				$("#c_name").html("${getCourseIdx.get(4).course_names}");
+				break;
+			case "6":
+				$("#c_name").html("${getCourseIdx.get(5).course_names}");
+				break;
+	
+			}
+			var d = document.getElementById("res_date").value;
+			var p = document.getElementById("res_personnel").innerHTML;
+			document.getElementById("res_personnel2").value = p;
+			document.getElementById("p_price").value = p * price;
+			document.getElementById("startDate").value = d;
 		}
-		var cnum = $("#res_subcategory").val();
-		$("#course_num").val(cnum);
-		switch (cnum) {
-		case "1":
-			$("#c_name").html("${getCourseIdx.get(0).course_names}");
-			break;
-		case "2":
-			$("#c_name").html("${getCourseIdx.get(1).course_names}");
-			break;
-		case "3":
-			$("#c_name").html("${getCourseIdx.get(2).course_names}");
-			break;
-		case "4":
-			$("#c_name").html("${getCourseIdx.get(3).course_names}");
-			break;
-		case "5":
-			$("#c_name").html("${getCourseIdx.get(4).course_names}");
-			break;
-		case "6":
-			$("#c_name").html("${getCourseIdx.get(5).course_names}");
-			break;
-
-		}
-		var d = document.getElementById("res_date").value;
-		var p = document.getElementById("res_personnel").innerHTML;
-		document.getElementById("res_personnel2").value = p;
-		document.getElementById("p_price").value = p * price;
-		document.getElementById("startDate").value = d;
-
 	}
 </script>
 </head>
@@ -287,12 +296,12 @@
 		                }
 		            });
 		            //성공시 이동할 페이지
-		            location.href='<%=request.getContextPath()%>/reservation/reserve';
+		            location.href='${root}reservation/reserve';
 		        } else {
 		            msg = '결제에 실패하였습니다.';
 		            msg += '에러내용 : ' + rsp.error_msg;
 		            //실패시 이동할 페이지
-		            location.href='<%=request.getContextPath()%>/reservation/main';
+		            location.href='${root}reservation/main';
 		alert(msg);
 		}
 	 });

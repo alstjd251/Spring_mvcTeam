@@ -53,4 +53,12 @@ public class MemService {
 			return false;
 		}
 	}
+	
+	public Member_s getMemberInfo(int mem_num) {
+		return memDao.getMemberInfo(mem_num);
+	}
+	
+	public void memberUpdate(Member_s memberBean) {
+		memDao.memberUpdate(memberBean);
+	}
 }

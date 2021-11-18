@@ -31,4 +31,12 @@ public class MemberDao {
 	public String getFindPw(Member_s memberBean) {
 		return memMapper.getFindPw(memberBean);
 	}
+	
+	public Member_s getMemberInfo(int mem_num) {
+		return memMapper.getMemberInfo(mem_num);
+	}
+	
+	public void memberUpdate(Member_s memberBean) {
+		memMapper.memberUpdate(memberBean);
+	}
 }

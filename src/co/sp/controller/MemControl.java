@@ -71,8 +71,12 @@ public class MemControl {
 	}
 	
 	@GetMapping("/mypage")
-	public String mypg(Model m) {
-		m.addAttribute("loginBean", loginBean);
+	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
+		int mem_num = loginBean.getMem_num();
+		
+		m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
+		
 		return "member/mypage";
 	}
 	
@@ -101,5 +105,12 @@ public class MemControl {
 		
 		return "member/not_login";
 	}
+	
+	@GetMapping("/mypage_reservation")
+	public String my_reservation(@ModelAttribute Member_s memberBean, Model m) {
+		
+		return "member/mypage_reservation";
+	}
+	
 	
 }

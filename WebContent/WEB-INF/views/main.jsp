@@ -45,38 +45,48 @@
 			<div class="introduce_total">
 				<div class="in_item">
 					<img id="intro" src="${root }img/mainIntroduce/introduce.png">
-					<img id="drink" src="${root }img/mainIntroduce/drink.png"
-						width="100" height="60">
+					<img id="drink" src="${root }img/mainIntroduce/drink.png">
 				</div>
 				<div class="in_item2">
 					<div class="i_t1">
 						<div class="i_t1_front">
 							<div class="i_t1_front1">
-								<div class="i_t1_flex">
-									<span>Welcome</span> <span>To our</span> <span>Home Page</span>
+								<div class="i_t1_flex" >
+									<div id="pattern"><img src="${root}img/mainIntroduce/intro_pattern.png" width="300" height="300"></div>
+									<div style="font-weight: bolder; font-size: 15px;">술을 탐내는 마음은 본질적으로 바른 마음이다. - 임어당(林語堂)</div>
 								</div>
 							</div>
 						</div>
-						<div class="t1_property"
-							style="background-image: url(${root}img/mainIntroduce/I_t2_wall.png);">
-							<div>
-								<img src="${root }img/mainIntroduce/bus.png" width="200px"
-									height="150px">
-								<p>편하게</p>
-								<p>직접 운전할</p>
-								<p>
-									필요 <strong>Ⅹ</strong>
+						<div class="t1_property">
+							<div id="img1">
+								<img src="${root }img/mainIntroduce/bus.png" id="bus" width="100px"
+									height="80px">
+								<p>전문 가이드, 차량포함으로<br>
+								<b>안전</b>하고 <b>편안</b>하게<br>
+								즐기는 여행!
 								</p>
+								<p><b style="color:red;">전통주</b>와 여행지의 특색을<br>
+								동시에 즐길 수 있습니다.</p>
 							</div>
-							<div>
-								<img src="${root }img/mainIntroduce/house.png" width="150px"
-									height="134px">
+							<div id="img2">
+								<img src="${root }img/mainIntroduce/house.png" id="house" width="120px"
+									height="100px">
+									<p>
+								우리의 <b>전통</b>과 <b>문화</b>를<br>
+								 느낄 수 있습니다. 
+								</p>
+								<p>전통주를 맛 보고 <br>
+								체험할 수 있는<br>
+								아주 <b style="color:red;">특별한</b> 경험.</p>
 							</div>
-							<div>
-								<img src="${root }img/mainIntroduce/map.png" width="140px"
-									height="150px">
-								<p>전국적 네트워크</p>
-								<p>지방에서도 OK</p>
+							<div id="img3">
+								<img src="${root }img/mainIntroduce/map.png" id="map" width="100px"
+									height="100px">
+								<p>전국 어디든<br>
+								내가 떠나고 싶은 곳으로!
+								</p>
+								<p>각 <b>지역</b>의 숨겨진<br>
+								<b style="color:red;">매력 포인트</b>를 찾아보세요.</p>
 							</div>
 						</div>
 					</div>
@@ -218,6 +228,7 @@
 		</footer>
 	</div>
 	</div>
+	
 	<script type="text/javascript" src="${root }js/sooldesk.js"></script>
 	<script
 		src="http://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

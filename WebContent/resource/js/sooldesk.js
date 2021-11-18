@@ -18,6 +18,7 @@ $(window).on("load", function () {
     marginTop: $("#gg").height() * 0.075 + "px",
     marginBottom: $("#gg").height() * 0.075 - 30 + "px",
   });
+  $(".menu_bar").css({width : innerWidth - 440 + "px"});
   /* 풀페이지 설정 */
   var sectionWrap = $(".section");
   var sect = $(".sect");
@@ -79,6 +80,7 @@ $(window).on("resize", function () {
     marginTop: $("#gg").height() * 0.075 + "px",
     marginBottom: $("#gg").height() * 0.075 - 30 + "px",
   });
+  $(".menu_bar").css({width : innerWidth - 440 + "px"});
   /* 풀페이지 설정 */
   var sectionWrap = $(".section");
   var sect = $(".sect");

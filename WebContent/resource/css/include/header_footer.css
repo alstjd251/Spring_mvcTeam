@@ -95,7 +95,7 @@ header .login a span #my_name {
   bottom:15px;
 }
 header .login #logout_button {
-  margin-left: 6em;
+  margin-left: 5em;
   padding: 2px ;
   font-weight: bold;
   text-decoration: none;

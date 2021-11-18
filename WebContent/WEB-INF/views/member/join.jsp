@@ -82,7 +82,7 @@
 	<header>
 		<!-- 헤더 배너광고 -->
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp" />
 			</div>

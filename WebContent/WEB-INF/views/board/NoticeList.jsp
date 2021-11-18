@@ -12,6 +12,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
 	<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
+	<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
 </head>
 <script>
 	function selChange() {
@@ -24,7 +28,7 @@
 	<header>
 		<!-- 헤더 배너광고 -->
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp"/>
 			</div>

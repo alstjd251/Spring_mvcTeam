@@ -7,6 +7,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import co.sp.beans.Member_s;
 
+
 public class LoginCheckInterceptor implements HandlerInterceptor {
 
 	private Member_s loginBean;
@@ -25,5 +26,5 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
 		}
 		return true;
 	}
-	
+
 }

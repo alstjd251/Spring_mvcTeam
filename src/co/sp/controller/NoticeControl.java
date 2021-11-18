@@ -69,15 +69,9 @@ public class NoticeControl {
 	public String list(BoardPage bp, @ModelAttribute("noticeBean") Notice_s noticeBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
-			, @RequestParam(value="keyword", defaultValue = "%")String keyword) {
-		//if(bp.getKeyword().equals(null)) {
-			//bp.setKeyword("%");
-		//}
-		System.out.println(keyword);
+			, @RequestParam(value="keyword", required=false)String keyword) {
 		bp.setKeyword(keyword);
-		
 		int noticeTotal = ns.getNoticeTotal(bp);
-		System.out.println(noticeTotal);
 		
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -91,7 +85,7 @@ public class NoticeControl {
 		}
 		
 		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
-	    System.out.println(bp.getKeyword());
+
 		m.addAttribute("noticeList", ns.getNotice_desc(bp));
 		m.addAttribute("noticePaging", bp);
 		m.addAttribute("noticeTotal", noticeTotal);

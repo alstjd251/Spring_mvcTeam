@@ -70,7 +70,7 @@
 						
 						<div class = "search">
 							<!--게시판 검색 리스트-->
-							<input name="keyword" placeholder="검색어를 입력하세요."/>
+							<input name="keyword" placeholder="검색어를 입력하세요." value = "${noticePaging.keyword }"/>
 							<button>검색</button>
 						</div>
 					</div>

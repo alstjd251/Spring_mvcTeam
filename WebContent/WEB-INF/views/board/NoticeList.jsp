@@ -11,7 +11,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
-	<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="${root }css/include/wave.css" />
+	<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
+	<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
 </head>
 <script>
 	function selChange() {
@@ -23,9 +28,8 @@
 <!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
-		<c:import url="/WEB-INF/views/include/ad.jsp"/>
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp"/>
 			</div>
@@ -81,9 +85,9 @@
 						<tbody class="cs-tbody">
 							<!--게시글 <td> 들어가는 곳-->
 							<c:forEach var='obj' items="${noticeList }">
+							<c:set var = 'i' value = "${i + 1 }"/>
 								<tr>
-									<c:set var='i' value="${i+1 }"/>
-									<td>${noticeTotal - i + 1}</td>
+									<td>${noticeTotal - obj.RN + 1}</td>
 									<td>
 										<a href="${root }board/NoticeRead?n_noticetitle=${obj.n_noticetitle }&n_noticecontent=${obj.n_noticecontent}&n_noticenum=${obj.n_noticenum}&n_noticecnt=${obj.n_noticecnt}&n_noticedate=${obj.n_noticedate}">${obj.n_noticetitle }</a>
 									</td>

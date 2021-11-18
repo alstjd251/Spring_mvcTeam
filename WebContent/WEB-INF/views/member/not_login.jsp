@@ -3,7 +3,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<c:set var='root' value="${pageContext.request.contextPath }/"/>    
+<c:set var='root' value="${pageContext.request.contextPath }/"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,13 +12,13 @@
 <title>Sul Sure</title>
 </head>
 <body>
-<script>
+<script type="text/javascript">
 Swal.fire({
-	icon : "success",
-	title : "삭제 완료",
-    text  : "성공적으로 삭제 되었습니다.",
+	icon : "warning",
+	title : "로그인 에러",
+    text  : "로그인이 필요한 서비스 입니다.",
 }).then(function(){
-	location.href="${root}board/NoticeList";
+	location.href="${root}member/login";
 });
 </script>
 </body>

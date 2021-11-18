@@ -19,10 +19,11 @@ public class EmailContol {
     
 	    System.out.println("Email Controller");
 	    
+	    String pass = "1234";
 	    EmailSet email = new EmailSet();
 	    email.setReceiver("byungeun96@naver.com");
 	    email.setSubject("Sul Sure 비밀번호 찾기 결과");
-	    email.setContent("고객님의 비밀번호는 입니다.");
+	    email.setContent("고객님의 비밀번호는" + pass +"입니다.");
 	    
 	    emailSender.SendEmail(email);
 	}

@@ -38,7 +38,7 @@
 	</header>
 	<!-- 로그인 폼 부분 -->
 	<section>
-	<div class="page-header" align="center">
+	<div class="page-header" align="center" style="margin:120px;">
 	 		<h1>로그인</h1>
 	</div>
 	<div style="display: flex; flex-direction: column; align-items: center;">
@@ -76,7 +76,7 @@
 					</div>
 			</form:form>
 			<ol class="breadcrumb" style="position:absolute; margin:-80px 0 0 -60px">
-			  <li><a href="#">아이디 & 비밀번호 찾기</a></li>
+			  <li><a href="${root }member/accountfinder">아이디 & 비밀번호 찾기</a></li>
 			  <li><a href="${root }member/join">회원가입</a></li>
 			</ol>
 		</div>

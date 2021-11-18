@@ -25,6 +25,7 @@
 		
 		if(mem_id.length == 0){
 			Swal.fire({
+				icon: 'warning',
 				title : "입력 오류",
 			    text  : "아이디를 입력해주세요.",
 			});
@@ -32,6 +33,7 @@
 		}
 		if(mem_id.length < 5){
 			Swal.fire({
+				icon: 'warning',
 				title : "입력 오류",
 			    text  : "아이디는 최소 5자 이상 입력해야 합니다.",
 			}).then(function(){
@@ -48,6 +50,7 @@
 			success : function(result){
 				if(result.trim() == 'true'){
 					Swal.fire({
+						icon: 'success',
 						title : "사용 가능",
 					    text  : "사용 가능한 아이디 입니다.",
 					}).then(function(){
@@ -57,6 +60,7 @@
 					});
 				}else{
 					Swal.fire({
+						icon: 'warning',
 						title : "사용 불가능",
 					    text  : "사용할 수 없는 아이디 입니다.",
 					}).then(function(){
@@ -113,15 +117,27 @@
 					</div>
 					<!-- 비밀번호 -->
 					<div class="form-group" style="display:flex;">
-						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label">비밀번호*</form:label>
+						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label" onkeyup="d">비밀번호*</form:label>
 						<div class="col-sm-10">
-							<form:password style="width:235px;" path="mem_pw" class="form-control" id="inputpw" placeholder="패스워드" />
+							<form:password style="width:235px;" path="mem_pw" class="form-control" id="inputpw" placeholder="비밀번호" />
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_pw" style="color:red;"/>
+						</div>
+					</div>
+					<div class="form-group" style="display:flex;">
+						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label">비밀번호확인*</form:label>
+						<div class="col-sm-10">
+							<input type="password" style="width:235px;" class="form-control" id="inputpw2" placeholder="비밀번호 확인" />
+						</div>
+					</div>
+					<div class="form-group" style="display:flex;">
+						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
+						<div class="col-sm-10">
+							
 						</div>
 					</div>
 					<!-- 이름 -->

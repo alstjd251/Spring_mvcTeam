@@ -96,4 +96,10 @@ public class MemControl {
 		return "member/accountfinder";
 	}
 	
+	@GetMapping("/not_login")
+	public String not_login(@ModelAttribute Member_s memberBean, Model m) {
+		
+		return "member/not_login";
+	}
+	
 }

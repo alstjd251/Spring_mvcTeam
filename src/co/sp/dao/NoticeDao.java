@@ -30,8 +30,8 @@ public class NoticeDao {
 		noticemapper.updateNotice(noticeBean);
 	}
 	
-	public int getNoticeTotal() {
-		return noticemapper.getNoticeTotal();
+	public int getNoticeTotal(BoardPage bp) {
+		return noticemapper.getNoticeTotal(bp);
 	}
 	
 	public void increaseNoticeCnt(Notice_s noticeBean) {

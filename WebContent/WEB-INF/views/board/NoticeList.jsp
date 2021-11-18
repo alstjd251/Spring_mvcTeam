@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
@@ -18,11 +19,11 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="${root}board/NoticeList?nowPage=${noticePaging.nowPage}&cntPerPage="+sel;
+		location.href="${root}board/NoticeList?nowPage=${noticePaging.nowPage}&cntPerPage="+sel+"&keyword=${noticePaging.keyword}";
 	}
 </script>
 <body>
-<!-- 헤더 -->
+	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
 		<!-- 헤더 메뉴 -->
@@ -61,9 +62,12 @@
 							<option value="20"
 								<c:if test="${noticePaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 						</select>
-						<!--게시판 검색 리스트-->
-						<input type="text">
-						<button type="submit">검색</button>
+						
+						<div class = "search">
+							<!--게시판 검색 리스트-->
+							<input name="keyword" placeholder="검색어를 입력하세요."/>
+							<button>검색</button>
+						</div>
 					</div>
 				</div>
 				<div id="cs-list">
@@ -99,7 +103,7 @@
 						<a href="${root }board/NoticeWrite">글쓰기</a>
 					</div>
 					<c:if test="${noticePaging.startPage != 1 }">
-						<a href="${root }board/NoticeList?nowPage=${noticePaging.startPage - 1 }&cntPerPage=${noticePaging.cntPerPage}">&lt;</a>
+						<a href="${root }board/NoticeList?nowPage=${noticePaging.startPage - 1 }&cntPerPage=${noticePaging.cntPerPage}&keyword=${noticePaging.keyword}">&lt;</a>
 					</c:if>
 					<c:forEach begin="${noticePaging.startPage }" end="${noticePaging.endPage }" var="p">
 						<c:choose>
@@ -107,12 +111,12 @@
 								<b>${p }</b>
 							</c:when>
 							<c:when test="${p != noticePaging.nowPage }">
-								<a href="${root }board/NoticeList?nowPage=${p }&cntPerPage=${noticePaging.cntPerPage}">${p }</a>
+								<a href="${root }board/NoticeList?nowPage=${p }&cntPerPage=${noticePaging.cntPerPage}&keyword=${noticePaging.keyword}">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${noticePaging.endPage != noticePaging.lastPage}">
-						<a href="${root }board/NoticeList?nowPage=${noticePaging.endPage+1 }&cntPerPage=${noticePaging.cntPerPage}">&gt;</a>
+						<a href="${root }board/NoticeList?nowPage=${noticePaging.endPage+1 }&cntPerPage=${noticePaging.cntPerPage}&keyword=${noticePaging.keyword}">&gt;</a>
 					</c:if>
 				</div>
 			</div>
@@ -123,5 +127,33 @@
 		<c:import url="/WEB-INF/views/include/footer.jsp"/>
 	</footer>
 	<script type="text/javascript" src="${root }js/page.js"></script>
+	
+	<form id="moveForm" method="get">
+		<input type="hidden" name="keyword" value="${noticePaging.keyword }">
+		<input type="hidden" name="nowPage" value="">
+		<input type="hidden" name="cntPerPage" value="">
+	</form>
+
+	<script>
+		let moveForm = $("#moveForm");
+
+		$(".search button").on("click", function(e) {
+			e.preventDefault();
+
+			let keyword = $(".search input[name='keyword']").val();
+			let nowPage = ${noticePaging.nowPage};
+			let cntPerPage = ${noticePaging.cntPerPage};
+
+			if (!keyword) {
+				alert("키워드를 입력하세요.");
+				return false;
+			}
+
+			moveForm.find("input[name='keyword']").val(keyword);
+			moveForm.find("input[name='nowPage']").val(nowPage);
+			moveForm.find("input[name='cntPerPage']").val(cntPerPage);
+			moveForm.submit();
+		});
+	</script>
 </body>
 </html>

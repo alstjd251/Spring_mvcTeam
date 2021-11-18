@@ -30,8 +30,8 @@ public class NoticeService {
 		noticedao.updateNotice(noticeBean);
 	}
 	
-	public int getNoticeTotal() {
-		return noticedao.getNoticeTotal();
+	public int getNoticeTotal(BoardPage bp) {
+		return noticedao.getNoticeTotal(bp);
 	}
 	
 	public void increaseNoticeCnt(Notice_s noticeBean) {

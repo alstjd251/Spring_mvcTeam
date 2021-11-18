@@ -40,7 +40,6 @@ $(window).on("resize", function() {
 $(".pimg1,.pimg2,.pimg3,.pimg4").css({width: $("#reservation").width() * 0.25 + "px",})
 });
 
-
 var resdate = document.getElementById("res_date").value;
       resdate = new Date().toISOString().substring(0, 10);
       document.getElementById("res_date").setAttribute("min", resdate);

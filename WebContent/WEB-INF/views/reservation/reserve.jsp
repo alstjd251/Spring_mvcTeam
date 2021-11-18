@@ -27,11 +27,13 @@
 			</tr>
 			<tr>
 				<th>예약자명</th>
-				<td><input type="text" id="mem_name"></td>
+				<td><input type="text" id="mem_name" readonly="readonly"
+					value="${loginBean.mem_name }"></td>
 			</tr>
 			<tr>
 				<th>예약자 연락처</th>
-				<td><input type="text" id="mem_phone"></td>
+				<td><input type="tel" id="mem_phone" readonly="readonly"
+					value="${loginBean.mem_phone }"></td>
 			</tr>
 			<tr>
 				<th>인원</th>
@@ -39,13 +41,12 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input class="btn btn-default" type="button"
-					id="" value="예약취소"></td>
+					id="" value="예약취소">
+					<h1>
+						<a href="${root}main">홈으로 가기</a>
+					</h1></td>
 			</tr>
 		</table>
 	</form>
-
-	<h1>
-		<a href="${root}main">홈으로 가기</a>
-	</h1>
 </body>
 </html>

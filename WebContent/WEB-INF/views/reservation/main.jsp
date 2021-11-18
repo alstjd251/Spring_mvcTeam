@@ -21,13 +21,15 @@
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>
-<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet"
+	type="text/css" />
 
 <style type="text/css">
-.table > tbody > tr > td {
-	vertical-align: middle;	
+.table>tbody>tr>td {
+	vertical-align: middle;
 }
-#res_button{
+
+#res_button {
 	margin-top: -10px;
 }
 </style>
@@ -116,16 +118,19 @@
 			</div>
 		</div>
 	</header>
-    <section style="margin-bottom: 40px;">
-          <!-- 고정이미지 -->
-        <div class="mainNotice-container01" style="background-image: url(${root}img/reservation/backimg/breweryMain.png)">
-            <div class="brewery-banner">예약</div>
-            <p>여행 내내 운전하느라 술을 즐기지 못한 <span style="color: rgb(248, 15, 15);">애주가</span>를
-				위한 완벽한 코스</p>
-        </div>
+	<section style="margin-bottom: 40px;">
+		<!-- 고정이미지 -->
+		<div class="mainNotice-container01"
+			style="background-image: url(${root}img/reservation/backimg/breweryMain.png)">
+			<div class="brewery-banner">예약</div>
+			<p>
+				여행 내내 운전하느라 술을 즐기지 못한 <span style="color: rgb(248, 15, 15);">애주가</span>를
+				위한 완벽한 코스
+			</p>
+		</div>
 		<div id="reservation">
 			<!--유효성검사 해야함-->
-			 <div id="res_con1">
+			<div id="res_con1">
 				<select id="res_subcategory" onchange="selected()"
 					style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 					<option value="-1">코스를 선택하세요.</option>
@@ -141,14 +146,18 @@
 						<p id="plus" onclick="plus()">+</p>
 						<img src="${root }img/reservation/icon/won.png" id="res_priceimg2" />
 						<!-- res_priceimg로 두개다 주니까 위치가 안예뻐서 이름 변경해서 css 따로 줌 -->
-						 <span style="font-size: 20px" id="res_price"></span> <input
+						<span style="font-size: 20px" id="res_price"></span> <input
 							type="button" id="res_ch" onclick="resSelect()" value="선택">
 
 					</div>
 				</div>
 			</div>
-			<div id="res_course"><img id="res_course_img" src="${root }img/reservation/backimg/courseimg.png" width="100%" height="100%" /> </div>
-			
+			<div id="res_course">
+				<img id="res_course_img"
+					src="${root }img/reservation/backimg/courseimg.png" width="100%"
+					height="100%" />
+			</div>
+
 			<form:form action="${root }reservation/reserve"
 				modelAttribute="reservationBean">
 				<div id="res_con2">
@@ -209,7 +218,8 @@
 											readonly="readonly" /></td>
 								</tr>
 								<tr>
-									<td><img src="${root }img/reservation/icon/won.png" id="res_priceimg" /></td>
+									<td><img src="${root }img/reservation/icon/won.png"
+										id="res_priceimg" /></td>
 									<td><input type="text" id="p_price" readonly="readonly"></td>
 								</tr>
 							</table>
@@ -220,14 +230,14 @@
 			</form:form>
 		</div>
 	</section>
-	 <!-- 푸터 -->
-   <footer>
-      <c:import url="/WEB-INF/views/include/footer.jsp" />
-   </footer>
-   <script type="text/javascript" src="${root }js/page.js"></script>
-   <script type="text/javascript" src="${root }js/reservation.js"></script>
-   
-   <script type="text/javascript">
+	<!-- 푸터 -->
+	<footer>
+		<c:import url="/WEB-INF/views/include/footer.jsp" />
+	</footer>
+	<script type="text/javascript" src="${root }js/page.js"></script>
+	<script type="text/javascript" src="${root }js/reservation.js"></script>
+
+	<script type="text/javascript">
 		/*결제*/
 		$(document).ready(function(){
 			$("#res_button").click(function(e){
@@ -241,9 +251,9 @@
 		        merchant_uid : 'merchant_' + new Date().getTime(),
 		        name : document.getElementById('c_name').innerHTML, //코스명
 		        amount : '100',//document.getElementById('p_price').value, //가격
-		        buyer_email : 'a', //구매자이메일
-		        buyer_name : 'b', //구매자이름
-		        buyer_tel : '01012345678', //구매자연락처
+		        buyer_email : '${loginBean.mem_mail }', //구매자이메일
+		        buyer_name : '${loginBean.mem_name }', //구매자이름
+		        buyer_tel : '${loginBean.mem_phone }', //구매자연락처
 		        buyer_addr : '서울시강남구', //구매자주소?
 		        buyer_postcode : '123-456',
 		        //m_redirect_url : 'http://www.naver.com'
@@ -280,13 +290,11 @@
 		            msg += '에러내용 : ' + rsp.error_msg;
 		            //실패시 이동할 페이지
 		            location.href='<%=request.getContextPath()%>/reservation/main';
-		            alert(msg);
-		        }
-		    });
-		    
-		 });
-			
-		});
-		</script>
+		alert(msg);
+		}
+	 });
+  });
+});
+	</script>
 </body>
 </html>

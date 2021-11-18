@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
-<link href="${root }css/board/postCss.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/board/postReadCss.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script
@@ -47,14 +47,14 @@
 						</div>
 						<div>
 							<a href="${root }board/NoticeList">목록</a>
-							<a href="${root }board/NoticeModify">수정</a>
+							<a href="${root }board/NoticeModify?n_noticenum=${noticeBean.getN_noticenum()}">수정</a>
 						</div>
 					</div>
 					<div id="postMiddle">
 						<div class="postMiddle-board01">
 							<div class="postTitle">
 								<div>
-									<form:label path="n_noticetitle">글제목 : ${noticeBean.n_noticetitle}</form:label>
+									글제목 : ${noticeBean.getN_noticetitle()}
 								</div>
 								<div class="postMiddle-board02">
 									<div>
@@ -73,7 +73,7 @@
 						<div class="postBottom-board">
 							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" readonly="true"/>
+								<form:textarea path="n_noticecontent" cols="1000" rows="40" readonly="true"/>
 							</div>
 						</div>
 					</div>

@@ -22,7 +22,7 @@ public class NoticeService {
 		noticedao.deleteNotice(noticeBean);
 	}
 	
-	public List<Notice_s> getNotice(Notice_s noticeBean) {
+	public Notice_s getNotice(Notice_s noticeBean) {
 		return noticedao.getNotice(noticeBean);
 	}
 	
@@ -30,8 +30,8 @@ public class NoticeService {
 		noticedao.updateNotice(noticeBean);
 	}
 	
-	public int getNoticeTotal() {
-		return noticedao.getNoticeTotal();
+	public int getNoticeTotal(BoardPage bp) {
+		return noticedao.getNoticeTotal(bp);
 	}
 	
 	public void increaseNoticeCnt(Notice_s noticeBean) {

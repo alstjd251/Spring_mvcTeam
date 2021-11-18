@@ -11,6 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="${root }css/include/wave.css" />
 	<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 	<link
       rel="stylesheet"

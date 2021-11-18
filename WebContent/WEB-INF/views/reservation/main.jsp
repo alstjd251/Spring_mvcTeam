@@ -18,6 +18,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }css/reservationCss.css" />
+<link rel="stylesheet" href="${root }css/include/wave.css" />
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>

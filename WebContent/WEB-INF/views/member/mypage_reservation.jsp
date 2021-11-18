@@ -16,6 +16,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }css/mypageCss.css" />
+<link rel="stylesheet" href="${root }css/include/wave.css" />
 </head>
 <body>
 

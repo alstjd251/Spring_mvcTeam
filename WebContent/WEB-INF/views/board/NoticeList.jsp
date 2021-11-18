@@ -19,7 +19,7 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="${root}board/NoticeList?nowPage=${noticePaging.nowPage}&cntPerPage="+sel;
+		location.href="${root}board/NoticeList?nowPage=${noticePaging.nowPage}&cntPerPage="+sel+"&keyword=${noticePaging.keyword}";
 	}
 </script>
 <body>
@@ -103,7 +103,7 @@
 						<a href="${root }board/NoticeWrite">글쓰기</a>
 					</div>
 					<c:if test="${noticePaging.startPage != 1 }">
-						<a href="${root }board/NoticeList?nowPage=${noticePaging.startPage - 1 }&cntPerPage=${noticePaging.cntPerPage}&keword=${noticePaging.keyword}">&lt;</a>
+						<a href="${root }board/NoticeList?nowPage=${noticePaging.startPage - 1 }&cntPerPage=${noticePaging.cntPerPage}&keyword=${noticePaging.keyword}">&lt;</a>
 					</c:if>
 					<c:forEach begin="${noticePaging.startPage }" end="${noticePaging.endPage }" var="p">
 						<c:choose>
@@ -111,12 +111,12 @@
 								<b>${p }</b>
 							</c:when>
 							<c:when test="${p != noticePaging.nowPage }">
-								<a href="${root }board/NoticeList?nowPage=${p }&cntPerPage=${noticePaging.cntPerPage}&keword=${noticePaging.keyword}">${p }</a>
+								<a href="${root }board/NoticeList?nowPage=${p }&cntPerPage=${noticePaging.cntPerPage}&keyword=${noticePaging.keyword}">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${noticePaging.endPage != noticePaging.lastPage}">
-						<a href="${root }board/NoticeList?nowPage=${noticePaging.endPage+1 }&cntPerPage=${noticePaging.cntPerPage}&keword=${noticePaging.keyword}">&gt;</a>
+						<a href="${root }board/NoticeList?nowPage=${noticePaging.endPage+1 }&cntPerPage=${noticePaging.cntPerPage}&keyword=${noticePaging.keyword}">&gt;</a>
 					</c:if>
 				</div>
 			</div>

@@ -76,7 +76,7 @@
 					</div>
 			</form:form>
 			<ol class="breadcrumb" style="position:absolute; margin:-80px 0 0 -60px">
-			  <li><a href="#">아이디 & 비밀번호 찾기</a></li>
+			  <li><a href="${root }member/accountfinder">아이디 & 비밀번호 찾기</a></li>
 			  <li><a href="${root }member/join">회원가입</a></li>
 			</ol>
 		</div>

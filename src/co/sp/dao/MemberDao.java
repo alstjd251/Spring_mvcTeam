@@ -20,7 +20,7 @@ public class MemberDao {
 		return memMapper.getLoginMemberInfo(tempLoginMemberBean);
 	}
 	
-	public Member_s getFindId(Member_s memberBean) {
+	public String getFindId(Member_s memberBean) {
 		return memMapper.getFindId(memberBean);
 	}
 	

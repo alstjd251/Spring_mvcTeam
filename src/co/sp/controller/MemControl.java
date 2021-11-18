@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -69,17 +70,24 @@ public class MemControl {
 		return "member/mypage";
 	}
 	
-	@PostMapping("/idFinder")
-	public String idFinder(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
-		memberBean = ms.getFindId(memberBean);
-		m.addAttribute("memberBean", memberBean);
-		
-		return  "member/idFinder";
-	}
+//	@PostMapping("/idFinder")
+//	public String idFinder(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+//		String id = ms.getFindId(memberBean);
+//		m.addAttribute("idSearch", id);
+//		
+//		return  "member/idFinder";
+//	}
 	
 	@GetMapping("/join")
 	public String join(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
 		
 		return "member/join";
 	}
+	
+	@GetMapping("/accountfinder")
+	public String accountfinder(@ModelAttribute Member_s memberBean, Model m) {
+		
+		return "member/accountfinder";
+	}
+	
 }

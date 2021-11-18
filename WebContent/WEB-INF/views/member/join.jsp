@@ -25,6 +25,7 @@
 		
 		if(mem_id.length == 0){
 			Swal.fire({
+				icon: 'warning',
 				title : "입력 오류",
 			    text  : "아이디를 입력해주세요.",
 			});
@@ -32,6 +33,7 @@
 		}
 		if(mem_id.length < 5){
 			Swal.fire({
+				icon: 'warning',
 				title : "입력 오류",
 			    text  : "아이디는 최소 5자 이상 입력해야 합니다.",
 			}).then(function(){
@@ -48,6 +50,7 @@
 			success : function(result){
 				if(result.trim() == 'true'){
 					Swal.fire({
+						icon: 'success',
 						title : "사용 가능",
 					    text  : "사용 가능한 아이디 입니다.",
 					}).then(function(){
@@ -57,6 +60,7 @@
 					});
 				}else{
 					Swal.fire({
+						icon: 'warning',
 						title : "사용 불가능",
 					    text  : "사용할 수 없는 아이디 입니다.",
 					}).then(function(){

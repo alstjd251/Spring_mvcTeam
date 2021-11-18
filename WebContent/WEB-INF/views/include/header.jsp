@@ -12,7 +12,7 @@
         <a href="${root }main"><img src="${root }img/menu_bar/logoimg.jpg" /></a>
       </div>
       <div class="menu_bar">
-        <li><a href="#">기관소개</a></li>
+        <li><a href="mail">기관소개</a></li>
         <li><a href="${root }course/CourseTab">양조장</a></li>
         <li><a href="${root }reservation/main">예약</a></li>
         <li><a href="${root }board/NoticeList">고객지원</a></li>

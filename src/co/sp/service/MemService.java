@@ -38,7 +38,7 @@ public class MemService {
 		}
 	}
 	
-	public Member_s getFindId(Member_s memberBean) {
+	public String getFindId(Member_s memberBean) {
 		return memDao.getFindId(memberBean);
 	}
 	

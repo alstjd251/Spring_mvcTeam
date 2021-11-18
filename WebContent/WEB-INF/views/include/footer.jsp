@@ -7,7 +7,10 @@
 <!DOCTYPE html>
 <html>
 <body>
-<div class="FOOTER_TOTAL">
+	<div class="ocean">
+      <div class="wave" style="background: url(${root}img/footer/wave.svg) repeat-x;"></div>
+    </div>
+    <div class="FOOTER_TOTAL">
                 <div class="F_i F_i1">
                   <img src="${root }img/footer/M_LOGE.jpg"/>
                   <p><strong>대표자</strong> 박치언</p>

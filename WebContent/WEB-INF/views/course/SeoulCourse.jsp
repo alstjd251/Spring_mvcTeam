@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" href="${root }css/course/SeoulCourse.css" />
+</head>
 <body>
 <div id="breweryBox">
    <div class="brewery-container01">
@@ -23,8 +30,8 @@
            <div class="brewery-title">Seoul course</div>
            <div class="brewery-cir">
                <!-- 누끼 -->
-               <img src="C:/Users/user/Desktop/기업프로젝트/코스/제품이미지/서울/누끼/삼해소주-누끼.png" class="breweryBody01_img01">
-               <img src="C:/Users/user/Desktop/기업프로젝트/코스/제품이미지/서울/누끼/서울의밤-누끼.png" class="breweryBody01_img02">
+               <img src="${root }img/courseIntroduce/삼해소주-누끼.png" class="breweryBody01_img01">
+               <img src="${root }img/courseIntroduce/서울의밤-누끼.png" class="breweryBody01_img02">
            </div>
            <table>
                <thead>
@@ -96,9 +103,6 @@
                    </div>
                    <div><!--지도 api넣어줘 지성아^^--></div>
                </div>
-               <!-- <div>
-               <img src="C:/Users/user/Desktop/기업프로젝트/양조장 이미지/서울-더한주류.jpg" class="breweryBody01_img04"></td>
-               </div> -->
           	</div> 
        	</div>
    	</div>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -9,21 +9,22 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e3b77ddbf353b2397ed468cf5eb770f0"></script>
-<link rel="stylesheet" href="${root }css/course/course3.css" />
+<script type="text/javascript"
+	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e3b77ddbf353b2397ed468cf5eb770f0"></script>
+<link rel="stylesheet" href="${root }css/course/GyunggiCourse.css" />
 <title>Insert title here</title>
 </head>
 <body>
 	<div id="breweryBox">
 		<div class="brewery-container01">
-			<div class="brewery-card01" style="position: absolute;">
+			<div class="gg_brewery-card01" style="position: absolute;">
 				<h3>~ in Gyunggi ~</h3>
 				<p style="font-size: 40px; font-weight: bold;">
-					도시에서 즐기는 술 한잔<br> 빌딩 숲 사이에서 느낄 수 있는 여유
+					서해안 바닷바람을 안주 삼아<br> 가까운 듯 머나먼 곳으로 가고 싶으신가요?
 				</p>
 				<p>
-					남산과 한강이 보이는 드라이브를 즐기며 증류주의 맛을 체험하는 도심형 코스!<br> 조선시대 사대부가 즐겨마셨던
-					삼해주, 매실로 빚어낸 서울식 GIN을 맛보는 여행.
+					서해에 인접한 경기남부 대표 도시들을 돌아보세요.<br> 선물용으로도 탁월한 패키지의
+					막걸리들을 시작으로 달콤쌉쌀한 와인까지!
 				</P>
 				<div class="breweryButton">
 					<a href="">예약하기</a>
@@ -33,14 +34,22 @@
 		<div class="brewery-container02">
 			<div style="margin-top: 340px;">
 				<div class="brewery-title">Gyunggi course</div>
-				<div class="brewery-cir">
+				<div class="gg_brewery-cir">
 					<!-- 누끼 -->
-					<img src="${root }img/courseIntroduce/경기_배혜정도가_호랑이막걸리.png"
-						class="breweryBody01_img01"> 
-						<img src="${root }img/courseIntroduce/경기_호랑이배꼽.png"
-						class="breweryBody01_img02"> 
-						<img src="${root }img/courseIntroduce/경기_그랑꼬또.png"
-						class="breweryBody01_img03">
+					<div class="gg_cir_div">
+						<div class="gg_cir_div2">
+							<img src="${root }img/courseIntroduce/경기_배혜정도가_호랑이막걸리.png"
+								class="gg_breweryBody01_img01" width="150px" height="280px">
+						</div>
+						<div class="gg_cir_div2">
+							<img src="${root }img/courseIntroduce/경기_호랑이배꼽.png"
+								class="gg_breweryBody01_img02" width="150px" height="280px">
+						</div>
+						<div class="gg_cir_div2">
+							<img src="${root }img/courseIntroduce/경기_그랑꼬또.png"
+								class="gg_breweryBody01_img03" width="300px" height="280px">
+						</div>
+					</div>
 				</div>
 				<table>
 					<thead>
@@ -82,14 +91,14 @@
 				<div class="brewery-card03">
 					<div class="card03-box">
 						<div>
-							<img src="${root }img/courseIntroduce/경기도_배혜정도가.png" class="breweryBody01_img04" />
+							<img src="${root }img/courseIntroduce/경기도_배혜정도가.png"
+								class="breweryBody01_img04" />
 						</div>
 						<div class="course_p">
 							<p>
-								■주소 : 서울시 종로구 창덕궁길 142 <br> ( 서울시 종로구 원서동 4-9 )
+								■주소 : 서울특별시 강남구 논현로 6 <br>
 							</p>
-							<p>■전화번호 : 010 - 5216 - 8093</p>
-							<p>■Instagram: cooleagan</p>
+							<p>■전화번호 : 02 - 3462 - 7328</p>
 						</div>
 						<div class="cose_map" id="gyung_cose1"></div>
 					</div>
@@ -102,9 +111,8 @@
 							<img src="./gyunggiIMG/경기도-호랑이배꼽.png" class="breweryBody01_img05" />
 						</div>
 						<div class="course_p">
-							<p>■주소: 서울시 은평구 증산로7길 28-13</p>
-							<p>■전화번호 : 02-2280-8080</p>
-							<p>■Instagram: thehan.kr</p>
+							<p>■주소: 경기 평택시 포승읍 충열길 37</p>
+							<p>■전화번호 : 031 - 683 - 0981</p>
 						</div>
 						<div class="cose_map" id="gyung_cose2"></div>
 					</div>
@@ -116,9 +124,9 @@
 							<img src="./gyunggiIMG/경기도-그랑꼬또.png" class="breweryBody01_img05" />
 						</div>
 						<div class="course_p">
-							<p>■주소: 서울시 은평구 증산로7길 28-13</p>
-							<p>■전화번호 : 02-2280-8080</p>
-							<p>■Instagram: thehan.kr</p>
+							<p>■주소: 경기 안산시 단원구 뻐꾹산길 107</p>
+							<p>■전화번호 : 0507 - 1342 - 9873</p>
+							<p>■Instagram: </p>
 						</div>
 						<div class="cose_map" id="gyung_cose3"></div>
 					</div>

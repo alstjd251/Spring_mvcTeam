@@ -23,7 +23,7 @@
 	      	<a style="position:absolute; right:5em;" href="${root }member/login" id="popup_open_btn" ><img src="${root }img/menu_bar/loginimg.png"/></a>
       	</c:when>
 		<c:otherwise>
-			<a href="${root }member/mypage">
+			<a href="${root }member/mypage" id="loginimg">
 			<span><img id="mypage_open_btn" src="${root }img/menu_bar/mypage.jpg"/>
 			<span id="my_name">${loginBean.mem_name }님</span></span>
 			</a>

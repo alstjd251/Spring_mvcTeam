@@ -1,5 +1,8 @@
 package co.sp.interceptor;
 
-public class LoginCheckInterceptor {
+import org.springframework.web.servlet.HandlerInterceptor;
 
+public class LoginCheckInterceptor implements HandlerInterceptor {
+
+	
 }

@@ -21,9 +21,6 @@ public class MemService {
 		memDao.addMember(memberBean);
 	}
 
-//	public Member_s getLoginMemberInfo(Member_s tempLoginMemberBean) {
-//		return memDao.getLoginMemberInfo(tempLoginMemberBean);
-//	}
 
 	public void getLoginMemberInfo(Member_s tempLoginMemberBean) {
 
@@ -40,6 +37,10 @@ public class MemService {
 	
 	public String getFindId(Member_s memberBean) {
 		return memDao.getFindId(memberBean);
+	}
+	
+	public String getFindPw(Member_s memberBean) {
+		return memDao.getFindPw(memberBean);
 	}
 	
 	public boolean idCheck(String mem_id) {

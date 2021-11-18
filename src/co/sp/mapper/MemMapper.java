@@ -22,4 +22,8 @@ public interface MemMapper {
 	// 아이디 중복확인
 	@Select("select mem_id from member_s where mem_id=#{mem_id}")
 	String idCheck(String mem_id);
+	
+	// 비밀번호 찾기
+	@Select("select mem_pw from member_s where mem_id = #{mem_id} and mem_name = #{mem_name} and mem_mail = #{mem_mail}")
+	String getFindPw(Member_s memberBean);
 }

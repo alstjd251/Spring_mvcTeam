@@ -60,7 +60,13 @@ public class MemControl {
 	@GetMapping("/logout_proc")
 	public String logout_proc(HttpSession session) {
 		loginBean.setMemLogin(false);
+		loginBean.setMem_num(-1);
+		loginBean.setMem_name("");
+		loginBean.setMem_phone("");
+		loginBean.setMem_mail("");
+		
 		session.setAttribute("loginBean", loginBean);
+		
 		return "member/logout_success";
 	}
 	

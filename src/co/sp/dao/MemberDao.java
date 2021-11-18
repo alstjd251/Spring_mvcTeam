@@ -27,4 +27,8 @@ public class MemberDao {
 	public String idCheck(String mem_id) {
 		return memMapper.idCheck(mem_id);
 	}
+	
+	public String getFindPw(Member_s memberBean) {
+		return memMapper.getFindPw(memberBean);
+	}
 }

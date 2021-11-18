@@ -58,6 +58,39 @@ function idSearch(){
 	
 }
 
+function pwSearch(){
+	var mem_name = $("#name2").val();
+	var mem_id = $("#id2").val();
+	var mem_mail = $("#mail2").val();
+	
+	var param2 = {'mem_name': mem_name, 'mem_id': mem_id, 'mem_mail': mem_mail}
+	$.ajax({
+		url : '${root}member/pwsearch.do',
+		type : 'POST',
+		data : param2,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		dataType : 'text',
+		success : function(result){
+			var id = result;
+			if(id == "error"){
+				Swal.fire({
+					icon : "warning",
+					title : "오류",
+				    text  : "일치하는 회원정보가 없습니다.",
+				});
+			}else{
+				if(result == "success"){
+					Swal.fire({
+						icon : "success",
+						title : "메일 전송 완료",
+					    text  : "고객님의 메일로 비밀번호를 전송하였습니다.",
+					});
+				}
+			}
+		}
+	})	
+}
+
 </script>
 
 </head>
@@ -140,7 +173,7 @@ function idSearch(){
 				</div>
 				<div class="form-group" style="margin-top:-240px;">
 					<div class="col-sm-offset-1 col-sm-10">
-						<button type="button" style="height: 80px;" class="btn btn-default btn-lg">비밀번호 찾기</button>
+						<button type="button" style="height: 80px;" class="btn btn-default btn-lg" onclick="pwSearch()">비밀번호 찾기</button>
 					</div>
 				</div>
 			</div>

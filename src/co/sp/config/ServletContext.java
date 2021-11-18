@@ -172,7 +172,7 @@ public class ServletContext implements WebMvcConfigurer {
 //		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
 //		reg1.addPathPatterns("/**");
 //		
-//		LoginInterceptor loginInterceptor = new LoginInterceptor(loginBean);
+//		LoginCheckInterceptor loginInterceptor = new LoginInterceptor(loginBean);
 //		InterceptorRegistration reg2 = registry.addInterceptor(loginInterceptor);
 //		reg2.addPathPatterns("/user/modify", "/user/logout", "/board/*");
 //		reg2.excludePathPatterns("/board/main");

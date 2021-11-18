@@ -52,7 +52,7 @@ $(window).on("load", function () {
   }
   $("#drink").css({
     left: $("#intro").width() - $("#drink").width() / 2 + "px",
-    top: innerHeight * 0.9 - $("#drink").height() + 25 + "px",
+    top: innerHeight - ($(".i_t2").height() + $("#drink").height()) + "px",
   });
 });
 $(window).on("resize", function () {
@@ -108,7 +108,7 @@ $(window).on("resize", function () {
   }
   $("#drink").css({
     left: $("#intro").width() - $("#drink").width() / 2 + "px",
-    top: innerHeight * 0.9 - $("#drink").height() + 25 + "px",
+    top: innerHeight - ($(".i_t2").height() + $("#drink").height()) + "px",
   });
 });
 /* 메인페이지 페이드인아웃 설정 */

@@ -41,7 +41,17 @@
       <!-- 섹션 -->
       <section style="margin-bottom: 40px;">
           <!-- 고정이미지 -->
-        <div class="mainNotice-container01">
+        <div class="mainNotice-container01" style="padding: 10%; background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url(${root}img/courseIntroduce/breweryBanner.jpg)
+      center/cover no-repeat;
+  background-size: cover;
+  color: snow;
+  text-align: center;
+  text-shadow: 2px 2px 2px gray;">
             <div class="brewery-banner" style="  border-bottom: solid 2px silver;
             font-size: 35pt;
             padding: 10px;">Drink your Korea!</div>

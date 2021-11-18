@@ -40,7 +40,7 @@ section #reservation #res_subcategory{
 }
 section #reservation #res_perdiv1 {
 	display: flex;
-	width: 45%;
+	width: 40%;
 }
 
 section #reservation #res_perdiv2 {
@@ -78,7 +78,7 @@ section #reservation #res_personnel {
 section #reservation #res_ch {
 	width: 120px;
 	height: 40px;
-	margin-left: 20px;
+	margin-left: 60px;
 	border: 1px solid rgb(59, 59, 59);
 	border-radius: 10px;
 	background-color: rgb(59, 59, 59);
@@ -109,10 +109,8 @@ section #reservation #res_ch:hover, section #reservation #res_button:hover
 }
 
 section #reservation #res_date {
-	width: 150px;
+	width: 180px;
 	height: 40px;
-	margin-left: 10px;
-	margin-right: 30px;
 	border: 1px solid rgb(105, 105, 105);
 }
 
@@ -154,21 +152,15 @@ section #reservation #minus:hover, section #reservation #plus:hover {
 section #reservation #res_priceimg{
 width: 23px;
 height: 23px;
-margin-left: 30px;
-}
-
-section #reservation #res_priceimg2{
-width: 23px;
-height: 23px;
-margin-left: 30px;
 margin-top: 10px;
 }
 
 section #reservation #res_con1 {
-	width: 100%;
+	width: 80%;
 	display: flex;
 	margin-top: 10%;
 	margin-bottom: 10px;
+	margin-left : 23%;
 	justify-content: space-evenly;
 }
 
@@ -305,14 +297,15 @@ section #reservation #table1 input, section #reservation #table2 input{
 }
 
 .mainNotice-container01 .brewery-banner{
-    font-size: 40px;
+    font-size: 50px;
     padding: 10px;
     text-shadow: 2px 2px 2px #636363;
 }
 
 .mainNotice-container01 p{	
-	width:600px;
-	font-size: 20px;
+	width:800px;
+	font-size: 25px;
+	padding : 10px;
 	margin-top: 10px;
 	background-color: rgba(0, 0, 0, 0.9);
 }

@@ -189,6 +189,7 @@ header .login #logout_button:hover {
 
 .i_t1 .i_t1_front .i_t1_front1 .i_t1_flex #pattern{
 	margin-top: 80px;
+	margin-bottom: 30px;
 }
 
 @keyframes front {
@@ -223,16 +224,19 @@ header .login #logout_button:hover {
 .i_t1 .t1_property #img1, .i_t1 .t1_property #img2, .i_t1 .t1_property #img3{
 	display : flex;
 	flex-direction : column;
+	margin-top : 22%;
 	align-items : center;
 	width : 25%;
-	height : 310px;
+	height : 350px;
 	border: 3px dotted #eedc3e;
 	border-radius: 15px;
+	font-size: 20px;
 	
 }
 
 #bus, #house, #map{
 	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .i_t1 .t1_property p{
@@ -250,7 +254,7 @@ header .login #logout_button:hover {
 }
 
 .in_item2 .i_t2 {
-  background-color: #ffff68;
+  background-color: #f2d541;
   width: 100%;
   height: 10%;
   background-size: cover;
@@ -310,28 +314,29 @@ header .login #logout_button:hover {
 	text-align: right;
 }
 
-.breweryText01 h2, .breweryText03 h2, .breweryText05 h2, 
-.breweryText02 h2, .breweryText04 h2, .breweryText06 h2{
-margin-bottom: -3px;
+.breweryText01 h1, .breweryText03 h1, .breweryText05 h1, 
+.breweryText02 h1, .breweryText04 h1, .breweryText06 h1{
+font-weight: 900;
 }
 .breweryText01 h4, .breweryText03 h4, .breweryText05 h4, 
 .breweryText02 h4, .breweryText04 h4, .breweryText06 h4{
-margin-top: 0;
+margin-top: 5px;
+margin-bottom: 5px;
 }
 
 #course_intro{
 	color:gray;
 	font-weight:bold;
-	line-height: 25px;
-	font-size:12px;
+	line-height: 35px;
+	font-size:15px;
 }
 
 #course_bt{
   border: 2px solid black;
-  font-size: 12px;
+  font-size: 14px;
   color:white;
   background-color:black;
-  padding: 5px 25px;
+  padding: 8px 25px;
   cursor: pointer;
   display: inline-block;
   border-radius: 5px;
@@ -376,7 +381,7 @@ margin-top: 0;
 
 /* footer css */
 footer {
-  background-color: #e3e3e3;
+  background-color: #E9D7B4;
   width: 100%;
   height: 250px;
   position: absolute;

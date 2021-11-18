@@ -8,6 +8,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="${root }css/course/SeoulCourse.css" />
+
 </head>
 <body>
 <div id="breweryBox">

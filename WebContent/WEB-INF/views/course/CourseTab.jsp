@@ -26,6 +26,22 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
     />
+    <style>
+    .mainNotice-container01 {
+  padding: 10%;
+  background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.4)
+    ),
+    url("C:/Users/user/Downloads/jana-sabeth-9x4KTfr0DKA-unsplash.jpg")
+      center/cover no-repeat;
+  background-size: cover;
+  color: snow;
+  text-align: center;
+  text-shadow: 2px 2px 2px gray;
+}
+    </style>
     <title>Sul sure</title>
   </head>
   <body>

@@ -26,7 +26,7 @@
        </div>
    </div>
    <div class="brewery-container02">
-       <div style="margin-top: 340px;">
+       <div class="brewery-ct2" style="margin-top: 340px;">
            <div class="brewery-title">Seoul course</div>
            <div class="brewery-cir">
                <!-- 누끼 -->

@@ -35,11 +35,11 @@
 				<div class="brewery-title">Gyunggi course</div>
 				<div class="brewery-cir">
 					<!-- 누끼 -->
-					<img src="C:/Users/user/Desktop/기업프로젝트/코스/제품이미지/서울/누끼/삼해소주-누끼.png"
-						class="breweryBody01_img01"> <img
-						src="C:/Users/user/Desktop/기업프로젝트/코스/제품이미지/서울/누끼/서울의밤-누끼.png"
-						class="breweryBody01_img02"> <img
-						src="C:/Users/user/Desktop/기업프로젝트/코스/제품이미지/서울/누끼/서울의밤-누끼.png"
+					<img src="${root }img/courseIntroduce/경기_배혜정도가_호랑이막걸리.png"
+						class="breweryBody01_img01"> 
+						<img src="${root }img/courseIntroduce/경기_호랑이배꼽.png"
+						class="breweryBody01_img02"> 
+						<img src="${root }img/courseIntroduce/경기_그랑꼬또.png"
 						class="breweryBody01_img03">
 				</div>
 				<table>

@@ -1,5 +1,5 @@
 
-#s_breweryBox {
+#jl_breweryBox {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,23 +8,23 @@
   margin: 0;
   width: 100%;
 }
-.s_brewery-container01 {
+.jl_brewery-container01 {
   width: 100%;
 }
-.s_brewery-container02 {
+.jl_brewery-container02 {
 	width:80%;
 	margin-left:10%;
 	margin-right:10%;
 }
-.s_brewery-card01 {
+.jl_brewery-card01 {
   width: 100%;
   padding-top: 50px;
-  background-color: rgba(233, 236, 239);
+  background-color: #D78FDC;
 }
-.s_breweryButton {
+.jl_breweryButton {
   margin: 50px;
 }
-.s_brewery-title {
+.jl_brewery-title {
   border-left: solid 5px gray;
   text-align: left;
   padding: 10px;
@@ -40,32 +40,32 @@ table {
 table tr td {
   width: 150px;
 }
-.s_dotted {
+.jl_dotted {
   border-bottom: dotted 2px grey;
 }
-.s_breweryBody01_img03 {
+.jl_breweryBody01_img03 {
   width: 300px;
   height: 300px;
   margin-right: 100px;
 }
-.s_breweryBody01_img04 {
+.jl_breweryBody01_img04 {
   width: 150px;
   height: 150px;
   /* padding: 80px; */
   margin-right: 240px;
 }
-.s_brewery-cir {
+.jl_brewery-cir {
   margin-top: 70px;
   margin-bottom: 100px;
 }
-.s_cir_div {
+.jl_cir_div {
 	display:flex;
 	justify-content: center;
 }
-.s_cir_div2 {
+.jl_cir_div2 {
   width:300px;
   height:300px;
-  background-color: rgba(233, 236, 239);
+  background-color:#D78FDC;
   border-radius: 200px;
   box-shadow: 1px 1px 6px 1px gray;
   display:flex;
@@ -73,11 +73,11 @@ table tr td {
   align-items: center;
   margin-right:20px;
 }
-.s_cir_div2 img {
+.jl_cir_div2 img {
 	width:300px;
 	height:300px;
 }
-.s_brewery-memo {
+.jl_brewery-memo {
   width: 100%;
   height: 200px;
   display: flex;
@@ -87,10 +87,10 @@ table tr td {
   text-align: right;
   flex-direction: column;
 }
-.s_brewery-memo div {
+.jl_brewery-memo div {
   margin-top: 50px;
 }
-.s_brewery-title02 {
+.jl_brewery-title02 {
   border-left: solid 5px gray;
   text-align: left;
   padding: 10px;
@@ -98,11 +98,11 @@ table tr td {
   font-weight: bold;
   margin-top: 30px;
 }
-.s_brewery-card03 {
+.jl_brewery-card03 {
   display: flex;
   text-align: left;
 }
-.s_card03-box {
+.jl_card03-box {
   display: flex;
   vertical-align: middle;
 }

@@ -4,7 +4,6 @@ header {
   height: 60px;
   display: flex;
   flex-direction: column;
-  z-index: 100;
 }
 
 /* header 로고 메뉴 로그인 통합 css */
@@ -13,6 +12,7 @@ header .menu {
   height: 60px;
   position: fixed;
   background-color: white;
+  z-index: 300;
 }
 header .menu .menu1 {
   width: 100%;

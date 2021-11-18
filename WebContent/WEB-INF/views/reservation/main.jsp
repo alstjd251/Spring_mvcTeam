@@ -69,6 +69,7 @@
 			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg6.png");
 			break;
 		}
+		
 		document.getElementById("res_price").innerHTML = price;
 	}
 
@@ -144,16 +145,18 @@
 					<c:forEach var="obj" items="${getCourseIdx }">
 						<option value="${obj.course_num }">${obj.course_names }</option>
 					</c:forEach>
-				</select> <input type="date" id="res_date">
+				</select>
+				<b style="font-size: 18px; margin-top: 10px;">인당</b>
+				<img src="${root }img/reservation/icon/won.png" id="res_priceimg" />
+						<span style="font-size: 20px" id="res_price"></span>
+				 <input type="date" id="res_date">
 				<div id="res_perdiv1">
 					<div id="res_perdiv2">
 						<b style="font-size: 18px; margin-top: 10px;">인원</b>
 						<p id="minus" onclick="minus()">-</p>
 						<p id="res_personnel">1</p>
 						<p id="plus" onclick="plus()">+</p>
-						<img src="${root }img/reservation/icon/won.png" id="res_priceimg2" />
-						<!-- res_priceimg로 두개다 주니까 위치가 안예뻐서 이름 변경해서 css 따로 줌 -->
-						<span style="font-size: 20px" id="res_price"></span> <input
+						<input
 							type="button" id="res_ch" onclick="resSelect()" value="선택">
 
 					</div>

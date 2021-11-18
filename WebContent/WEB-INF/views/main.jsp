@@ -11,17 +11,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="${root }css/main/mainCss.css" />
+<link rel="stylesheet" href="${root }css/include/wave.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script src="${root }js/zip.js"></script>
+<link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
+    />
 <title>Sul Sure</title>
 </head>
 <body>
 	<!-- 헤더 -->
 	<header>
-		<c:import url="/WEB-INF/views/include/header.jsp" />
+		<c:import url="/WEB-INF/views/include/header.jsp"/>
 	</header>
 	<!-- 섹션 -->
 	<div class="section" dir="ltr">

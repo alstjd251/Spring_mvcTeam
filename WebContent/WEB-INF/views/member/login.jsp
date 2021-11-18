@@ -11,6 +11,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="${root }css/board/page.css" />
 <link rel="stylesheet" href="${root }css/include/n_header_footer.css" />
+<link rel="stylesheet" href="${root }css/include/wave.css" />
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
@@ -30,7 +31,7 @@
 	<header>
 		<!-- 헤더 배너광고 -->
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp" />
 			</div>
@@ -38,7 +39,7 @@
 	</header>
 	<!-- 로그인 폼 부분 -->
 	<section>
-	<div class="page-header" align="center">
+	<div class="page-header" align="center" style="margin-top:120px">
 	 		<h1>로그인</h1>
 	</div>
 	<div style="display: flex; flex-direction: column; align-items: center;">

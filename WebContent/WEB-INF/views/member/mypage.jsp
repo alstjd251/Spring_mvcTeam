@@ -16,6 +16,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }css/mypageCss.css" />
+<link rel="stylesheet" href="${root }css/include/wave.css" />
 <script src="${root }js/zip.js"></script>
 <script src="${root }js/mypage.js"></script>
 <link href="${root }css/include/n_header_footer.css" rel="stylesheet"
@@ -25,7 +26,7 @@
 	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 
 				<c:import url="/WEB-INF/views/include/header.jsp" />

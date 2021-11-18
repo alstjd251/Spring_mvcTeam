@@ -18,6 +18,7 @@
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }css/reservationCss.css" />
+<link rel="stylesheet" href="${root }css/include/wave.css" />
 <script type="text/javascript"
 	src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>
@@ -41,24 +42,31 @@
 		switch (num) {
 		case "-1":
 			price = 0;
+			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg.png");
 			break;
 		case "1":
 			price = ${getCourseIdx.get(0).course_price};
+			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg1.png");
 			break;
 		case "2":
 			price = ${getCourseIdx.get(1).course_price};
+			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg2.png");
 			break;
 		case "3":
 			price = ${getCourseIdx.get(2).course_price};
+			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg3.png");
 			break;
 		case "4":
 			price = ${getCourseIdx.get(3).course_price};
+			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg4.png");
 			break;
 		case "5":
 			price = ${getCourseIdx.get(4).course_price};
+			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg5.png");
 			break;
 		case "6":
 			price = ${getCourseIdx.get(5).course_price};
+			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg6.png");
 			break;
 		}
 		document.getElementById("res_price").innerHTML = price;
@@ -112,7 +120,7 @@
 	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp" />
 			</div>
@@ -152,12 +160,7 @@
 					</div>
 				</div>
 			</div>
-			<div id="res_course">
-				<img id="res_course_img"
-					src="${root }img/reservation/backimg/courseimg.png" width="100%"
-					height="100%" />
-			</div>
-
+			<div id="res_course"><img id="res_course_img" src="${root }img/reservation/backimg/courseimg.png" width="100%" height="100%"/> </div>
 			<form:form action="${root }reservation/reserve"
 				modelAttribute="reservationBean">
 				<div id="res_con2">
@@ -218,8 +221,9 @@
 											readonly="readonly" /></td>
 								</tr>
 								<tr>
-									<td><img src="${root }img/reservation/icon/won.png"
-										id="res_priceimg" /></td>
+
+									<th>￦</th>
+
 									<td><input type="text" id="p_price" readonly="readonly"></td>
 								</tr>
 							</table>
@@ -234,8 +238,7 @@
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</footer>
-	<script type="text/javascript" src="${root }js/page.js"></script>
-	<script type="text/javascript" src="${root }js/reservation.js"></script>
+
 
 	<script type="text/javascript">
 		/*결제*/
@@ -296,5 +299,8 @@
   });
 });
 	</script>
+
+	<script type="text/javascript" src="${root }js/n_page.js"></script>
+	<script type="text/javascript" src="${root }js/reservation.js"></script>
 </body>
 </html>

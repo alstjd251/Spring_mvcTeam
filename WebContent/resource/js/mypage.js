@@ -1,16 +1,3 @@
-function menuscroll() {
-	if (pageYOffset >= 20) {
-		document.querySelector(".menu").style.position = "fixed";
-		document.querySelector(".menu").style.top = 0;
-		document.querySelector(".menu").style.backgroundColor = "white";
-		document.querySelector(".menu").style.marginTop = 0;
-	} else {
-		document.querySelector(".menu").style.position = "static";
-		document.querySelector(".menu").style.marginTop = 0 + "px";
-	}
-}
-window.addEventListener("scroll", menuscroll);
-
 
 /*리스트 클릭할때마다 각각에 맞는 content*/
 $(document).ready(function() {

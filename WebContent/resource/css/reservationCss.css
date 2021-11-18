@@ -4,11 +4,27 @@ body {
 	display: flex;
 	flex-direction: column;
 }
-section #reservation {
-	width: 80%;
-	margin-left: 10%;
+
+/* 예약 section css */
+section {
+  width: 100%;
+  height: 100%;
 }
 
+section #reservation {
+	width:80%;
+}
+section #reservation h1{
+  
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+section #reservation h3{
+  text-align: center;
+  margin-bottom: 50px;
+  color: rgb(29, 29, 29);
+}
 section #reservation #res_subcategory{
   padding-left: 10px;
   margin-right: 10px;
@@ -22,8 +38,6 @@ section #reservation #res_subcategory{
   cursor: pointer;
   
 }
-
-
 section #reservation #res_perdiv1 {
 	display: flex;
 	width: 45%;
@@ -137,7 +151,6 @@ section #reservation #minus:hover, section #reservation #plus:hover {
 	cursor: pointer;
 }
 
-
 section #reservation #res_priceimg{
 width: 23px;
 height: 23px;
@@ -165,7 +178,10 @@ section #reservation #res_con2 {
 	margin-top: 20px;
 	justify-content: space-evenly;
 }
-
+section #reservation #res_right{
+  width: 20%;
+  height: 430px;
+}
 section #reservation #res_course {
 	width: 100%;
 	height: 250px;
@@ -178,13 +194,21 @@ section #reservation #res_info {
 	height: 500px;
 }
 
-section #reservation #res_right {
-	width: 25%;
-	height: 430px;
-	display: flex;
-	flex-direction: column;
+section #reservation #res_perinfo{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 250px;
+  margin-top:10px;
+  align-items: center;
+  border: 2px solid rgb(136, 136, 136);
 }
 
+section #reservation #res_perinfo #table3 {
+	width: 80%;
+	margin-top:10px;
+	margin-bottom:30px;
+}
 section #reservation #res_right #res_gg {
 	display: flex;
 	height: 150px;
@@ -192,10 +216,24 @@ section #reservation #res_right #res_gg {
 	overflow:hidden;
 }
 
+section #reservation #res_perinfo #table3 th{
+  width: 30%;
+  text-align: center;
+  line-height: 30px;
+  background-color: rgba(238, 238, 238, 0.795);
+  border-right: 1px solid rgb(189, 185, 185);
+}
 section #reservation #res_right #res_gg #res_gggg{
 	display: flex;
 }
-
+section #reservation #res_perinfo #table3 input {
+	border:none;
+	width:90%;
+}
+section #reservation #res_info #table1 h4, section #reservation #res_info #table2 h4{
+  font-weight: bolder;
+  margin-left: 20px;
+}
 section #reservation #res_right #res_gg #res_gggg li{
 	list-style: none;
 	position:relative;
@@ -209,12 +247,11 @@ section #reservation #res_perinfo {
 	flex-direction: column;
 	width: 100%;
 	height: 250px;
+	margin-top:10px;
 	align-items: center;
 	border: 2px solid rgb(136, 136, 136);
 }
-
-
-section #reservation table{
+section #reservation #table1 ,section #reservation #table2 {
   background-color: white;
   width: 80%;
   margin-top: 10px;
@@ -234,17 +271,16 @@ section #reservation #res_info h4 {
 	margin-left: 20px;
 }
 
-section #reservation table {
-	background-color: white;
-	width: 80%;
-	margin-top: 10px;
-	margin-bottom: 30px;
-	border-top: 2px solid rgb(202, 202, 202);
-	border-bottom: 2px solid rgb(202, 202, 202);
+section #reservation #table1 th, section #reservation #table2 th{
+  width: 20%;
+  text-align: center;
+  line-height: 50px;
+  background-color: rgba(238, 238, 238, 0.795);
+  border-right: 1px solid rgb(189, 185, 185);
+
 }
 
-
-section #reservation table input{
+section #reservation #table1 input, section #reservation #table2 input{
   border:none;
   width: 80%;
   line-height: 30px;
@@ -265,6 +301,7 @@ section #reservation table input{
   background-size: cover;
   color: snow;
   text-align: center;
+  width:100%;
 }
 
 .mainNotice-container01 .brewery-banner{

@@ -30,5 +30,7 @@ public interface ResMapper {
 	// 예약 확인
 	@Select("select a.*, b.c_price as 인당가격, b.c_price * a.res_personnel as 총금액 from reservation_s a, course_s b where a.res_num = 00002021110429 and b.c_coursenum = a.res_coursenum")
 	List<Reservation_s> getReservationInfo();
+	
+	
 
 }

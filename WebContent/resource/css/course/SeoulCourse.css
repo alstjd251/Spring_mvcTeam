@@ -1,24 +1,3 @@
-/* 상세 페이지 section css */
-/* section {
-  width: 80%;
-  margin-left: 10%;
-  height: 100%;
-} */
-.mainNotice-container01 {
-  padding: 10%;
-  background: linear-gradient(
-      0deg,
-      rgba(255, 255, 255, 0.4),
-      rgba(255, 255, 255, 0.4)
-    ),
-    url("C:/Users/user/Downloads/jana-sabeth-9x4KTfr0DKA-unsplash.jpg")
-      center/cover no-repeat;
-  background-size: cover;
-  color: snow;
-  text-align: center;
-  text-shadow: 2px 2px 2px gray;
-}
-
 #breweryBox {
   display: flex;
   flex-direction: column;
@@ -30,6 +9,11 @@
 }
 .brewery-container01 {
   width: 100%;
+}
+.brewery-container02 {
+	width:80%;
+	margin-left:10%;
+	margin-right:10%;
 }
 .brewery-card01 {
   width: 100%;

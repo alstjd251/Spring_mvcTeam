@@ -15,8 +15,8 @@
 <script>
 Swal.fire({
 	icon : "success",
-	title : "삭제 완료",
-    text  : "성공적으로 삭제 되었습니다.",
+	title : "수정 완료",
+    text  : "성공적으로 수정 되었습니다.",
 }).then(function(){
 	location.href="${root}board/NoticeList";
 });

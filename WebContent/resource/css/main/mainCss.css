@@ -135,18 +135,22 @@ header .login #logout_button:hover {
   width: 40%;
   height: 100%;
 }
-/*--introduce�씠誘몄� �겕湲곗“�젅*/
-.in_item img {
+/*--introduce*/
+.in_item #intro {
   width: 100%;
   height: 100%;
 }
-/*drink�씠誘몄�*/
+.in_item #drink {
+	width: 150px;
+	height: 320px;
+}
+
 .in_item img:nth-child(2) {
   z-index: 1;
   position: absolute;
   top: 188px;
   left: 40%;
-  width: 150px;
+  width: 200px;
   height: 425px;
   opacity: 0.95;
 }
@@ -166,7 +170,7 @@ header .login #logout_button:hover {
   width: 100%;
   height: 90%;
   position: absolute;
-  background-color: rgb(163, 114, 49);
+  background-color: #e2e2e2;
 }
 .i_t1 .i_t1_front .i_t1_front1 {
   width: 100%;
@@ -176,10 +180,15 @@ header .login #logout_button:hover {
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  line-height : 80px;
   height: 100%;
   width: 60%;
-   text-align: center;
+  text-align: center;
+}
+
+.i_t1 .i_t1_front .i_t1_front1 .i_t1_flex #pattern{
+	margin-top: 80px;
 }
 
 @keyframes front {
@@ -208,23 +217,43 @@ header .login #logout_button:hover {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content:space-around;
+}
+
+.i_t1 .t1_property #img1, .i_t1 .t1_property #img2, .i_t1 .t1_property #img3{
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	width : 25%;
+	height : 310px;
+	border: 3px dotted #eedc3e;
+	border-radius: 15px;
+	
+}
+
+#bus, #house, #map{
+	margin-top: 30px;
+}
+
+.i_t1 .t1_property p{
+	text-align: center;
 }
 
 .t1_property div:nth-child(1) {
-  margin-top: 40px;
+  margin-top: 100px;
 }
 .t1_property div:nth-child(2) {
-  margin-top: 120px;
+  margin-top: 140px;
 }
 .t1_property div:nth-child(3) {
-  margin-top: 200px;
+  margin-top: 180px;
 }
 
 .in_item2 .i_t2 {
-  background-color: lightblue;
+  background-color: #ffff68;
   width: 100%;
   height: 10%;
+  background-size: cover;
 }
 
 /* 메인페이지 코스소개 */

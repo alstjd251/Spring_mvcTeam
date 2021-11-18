@@ -1,7 +1,5 @@
 package co.sp.controller;
 
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,42 +26,28 @@ public class NoticeControl {
 	private Member_s loginBean;
 
 	@GetMapping("/NoticeRead")
-	public String main(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+	public String read(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
 		ns.increaseNoticeCnt(noticeBean);
-		m.addAttribute(noticeBean);
+		noticeBean = ns.getNotice(noticeBean);
+		m.addAttribute("noticeBean", noticeBean);
+		
 		return "board/NoticeRead";
 	}
-
-	@PostMapping("/NoticeProc")
-	public String join(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
-		noticeBean.setN_mnum(loginBean.getMem_num());
-		ns.addNotice(noticeBean);
+	
+	@GetMapping("/NoticeModify")
+	public String modify(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		noticeBean = ns.getNotice(noticeBean);
+		m.addAttribute("noticeBean", noticeBean);
 		
-		return "board/NoticeProc";
+		return "board/NoticeModify";
 	}
 	
-	@GetMapping("/NoticeList")
-	public String list(BoardPage bp, @ModelAttribute("noticeBean") Notice_s noticeBean, Model m
-			, @RequestParam(value="nowPage", required=false)String nowPage
-			, @RequestParam(value="cntPerPage", required=false)String cntPerPage) {
-		int noticeTotal = ns.getNoticeTotal();
+	@PostMapping("/NoticeModifyProc")
+	public String modifyProc(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		ns.updateNotice(noticeBean);
+		m.addAttribute("noticeBean", noticeBean);
 		
-		if (nowPage == null && cntPerPage == null) {
-			nowPage = "1";
-			cntPerPage = "5";
-		} else if (nowPage == null) {
-			nowPage = "1";
-		} else if (cntPerPage == null) { 
-			cntPerPage = "5";
-		}
-		
-		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
-	    
-		m.addAttribute("noticeList", ns.getNotice_desc(bp));
-		m.addAttribute("noticePaging", bp);
-		m.addAttribute("noticeTotal", noticeTotal);
-		
-		return "board/NoticeList";
+		return "board/NoticeModifyProc";
 	}
 	
 	@GetMapping("/NoticeWrite")
@@ -72,19 +56,48 @@ public class NoticeControl {
 		
 		return "board/NoticeWrite";
 	}
+
+	@PostMapping("/NoticeProc")
+	public String writeProc(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
+		noticeBean.setN_mnum(loginBean.getMem_num());
+		ns.addNotice(noticeBean);
+		
+		return "board/NoticeProc";
+	}
+	
+	@GetMapping("/NoticeList")
+	public String list(BoardPage bp, @ModelAttribute("noticeBean") Notice_s noticeBean, Model m
+			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
+			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
+			, @RequestParam(value="keyword", required=false)String keyword) {
+		bp.setKeyword(keyword);
+		int noticeTotal = ns.getNoticeTotal(bp);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		}
+		else if (nowPage == null) {
+			nowPage = "1";
+		}
+		else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		
+		bp = new BoardPage(noticeTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
+
+		m.addAttribute("noticeList", ns.getNotice_desc(bp));
+		m.addAttribute("noticePaging", bp);
+		m.addAttribute("noticeTotal", noticeTotal);
+		
+		return "board/NoticeList";
+	}
 	
 	@PostMapping("/NoticeDelete")
 	public String delete(@ModelAttribute("noticeBean") Notice_s noticeBean) {
 		ns.deleteNotice(noticeBean);
 		
 		return "board/NoticeDelete";
-	}
-	
-	@GetMapping("/NoticeModify")
-	public String modify(@ModelAttribute("noticeBean") Notice_s noticeBean) {
-		ns.updateNotice(noticeBean);
-		
-		return "board/NoticeModify";
 	}
 }
 

@@ -10,9 +10,9 @@ section {
   width: 100%;
   height: 100%;
 }
+
 section #reservation {
 	width:80%;
-	margin-left: 10%;
 }
 section #reservation h1{
   
@@ -301,6 +301,7 @@ section #reservation #table1 input, section #reservation #table2 input{
   background-size: cover;
   color: snow;
   text-align: center;
+  width:100%;
 }
 
 .mainNotice-container01 .brewery-banner{

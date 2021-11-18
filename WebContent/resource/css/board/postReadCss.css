@@ -1,3 +1,7 @@
+#post{
+	margin: 60px 0;
+}
+
 #postContainer01 {
     margin-left: 200px;
     margin-right: 200px;
@@ -22,6 +26,7 @@
 .postTitle{
 	display: flex;
 	width: 100%;
+	justify-content: space-between;
 }
 .postMiddle-board01 {
     vertical-align: bottom;
@@ -37,9 +42,9 @@
     float: right;
     display: flex;
 }
-
 .postMiddle-board02 img {
     padding: 10px;
+    vertical-align: center;
 }
 
 #postBottom {
@@ -60,5 +65,9 @@
 
 textarea {
     width: 100%;
+    border: none;
     resize: none;
+}
+textarea:focus  {
+	outline: 0;
 }

@@ -22,7 +22,7 @@ public class NoticeDao {
 		noticemapper.deleteNotice(noticeBean);
 	}
 	
-	public List<Notice_s> getNotice(Notice_s noticeBean) {
+	public Notice_s getNotice(Notice_s noticeBean) {
 		return noticemapper.getNotice(noticeBean);
 	}
 	
@@ -30,8 +30,8 @@ public class NoticeDao {
 		noticemapper.updateNotice(noticeBean);
 	}
 	
-	public int getNoticeTotal() {
-		return noticemapper.getNoticeTotal();
+	public int getNoticeTotal(BoardPage bp) {
+		return noticemapper.getNoticeTotal(bp);
 	}
 	
 	public void increaseNoticeCnt(Notice_s noticeBean) {

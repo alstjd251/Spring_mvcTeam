@@ -20,11 +20,15 @@ public class MemberDao {
 		return memMapper.getLoginMemberInfo(tempLoginMemberBean);
 	}
 	
-	public Member_s getFindId(Member_s memberBean) {
+	public String getFindId(Member_s memberBean) {
 		return memMapper.getFindId(memberBean);
 	}
 	
 	public String idCheck(String mem_id) {
 		return memMapper.idCheck(mem_id);
+	}
+	
+	public String getFindPw(Member_s memberBean) {
+		return memMapper.getFindPw(memberBean);
 	}
 }

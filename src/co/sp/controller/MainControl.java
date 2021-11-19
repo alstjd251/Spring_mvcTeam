@@ -20,4 +20,15 @@ public class MainControl {
 		session.setAttribute("loginBean", loginBean);
 		return "main";
 	}
+	
+	@GetMapping("compIntroduce/Introduce")
+	public String introduce() {
+		return "compIntroduce/Introduce";
+	}
+	
+	@GetMapping("/admin_limit")
+	public String admin_limit() {
+		
+		return "admin_limit";
+	}
 }

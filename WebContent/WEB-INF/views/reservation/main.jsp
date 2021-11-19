@@ -74,44 +74,58 @@
 
 	function resSelect() {
 		var course_sel = $("#res_subcategory").val();
+		var date = $("#res_date").val();
 
-		if (course_sel == -1) {
+		if (course_sel == -1 && date == "") {
 			Swal.fire({
+				icon : "warning",
 				title : "선택 오류",
-				text : "코스를 선택해주세요.",
+				text : "코스와 날짜를 선택해주세요.",
 			}).then(function() {
 				$("#res_subcategory").focus();
 			});
-			n
+		}else if (course_sel == -1 || date == "") {
+			Swal.fire({
+				icon : "warning",
+				title : "선택 오류",
+				text : "코스 또는 날짜를 선택해주세요.",
+			}).then(function() {
+				$("#res_subcategory").focus();
+			});
+		}else {
+			var cnum = $("#res_subcategory").val();
+			$("#course_num").val(cnum);
+			switch (cnum) {
+			case "1":
+				$("#c_name").html("${getCourseIdx.get(0).course_names}");
+				break;
+			case "2":
+				$("#c_name").html("${getCourseIdx.get(1).course_names}");
+				break;
+			case "3":
+				$("#c_name").html("${getCourseIdx.get(2).course_names}");
+				break;
+			case "4":
+				$("#c_name").html("${getCourseIdx.get(3).course_names}");
+				break;
+			case "5":
+				$("#c_name").html("${getCourseIdx.get(4).course_names}");
+				break;
+			case "6":
+				$("#c_name").html("${getCourseIdx.get(5).course_names}");
+				break;
+	
+			}
+			var d = document.getElementById("res_date").value;
+			var p = document.getElementById("res_personnel").innerHTML;
+			document.getElementById("res_personnel2").value = p;
+			document.getElementById("p_price").value = p * price;
+			document.getElementById("startDate").value = d;
+			document.getElementById("mem_name").value = "${loginBean.mem_name }";
+			document.getElementById("mem_phone").value = "${loginBean.mem_phone }";
+			document.getElementById("mem_mail").value = "${loginBean.mem_mail }";
+			
 		}
-		var cnum = $("#res_subcategory").val();
-		$("#course_num").val(cnum);
-		switch (cnum) {
-		case "1":
-			$("#c_name").html("${getCourseIdx.get(0).course_names}");
-			break;
-		case "2":
-			$("#c_name").html("${getCourseIdx.get(1).course_names}");
-			break;
-		case "3":
-			$("#c_name").html("${getCourseIdx.get(2).course_names}");
-			break;
-		case "4":
-			$("#c_name").html("${getCourseIdx.get(3).course_names}");
-			break;
-		case "5":
-			$("#c_name").html("${getCourseIdx.get(4).course_names}");
-			break;
-		case "6":
-			$("#c_name").html("${getCourseIdx.get(5).course_names}");
-			break;
-
-		}
-		var d = document.getElementById("res_date").value;
-		var p = document.getElementById("res_personnel").innerHTML;
-		document.getElementById("res_personnel2").value = p;
-		document.getElementById("p_price").value = p * price;
-		document.getElementById("startDate").value = d;
 	}
 </script>
 </head>
@@ -178,20 +192,20 @@
 							</tr>
 						</table>
 						<h4>예약자 정보</h4>
-						<form:hidden path="res_mnum" value="${loginBean.mem_num }" />
+						<form:hidden path="res_mnum" value="" />
 						<table class="table" id="table2">
 							<tr>
 								<th>이름</th>
 								<td><input type="text" id="mem_name" readonly="readonly"
-									value="${loginBean.mem_name }"></td>
+									value=""></td>
 								<th>연락처</th>
 								<td><input type="tel" id="mem_phone" readonly="readonly"
-									value="${loginBean.mem_phone }"></td>
+									value=""></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
 								<td colspan="3"><input type="email" id="mem_mail"
-									readonly="readonly" value="${loginBean.mem_mail }"></td>
+									readonly="readonly" value=""></td>
 							</tr>
 							<tr>
 								<td colspan="4"><b>요청사항은 02-123-4567로 연락주세요.</b></td>

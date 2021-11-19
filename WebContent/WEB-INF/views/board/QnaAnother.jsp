@@ -49,11 +49,11 @@
         </tr>
         <tr>
           <th>제목</th>
-          <td colspan="3"><input type="text" id="qnasub" size="80" /></td>
+          <td colspan="3"><input type="text" id="qnasub" size="80" maxlength="30" /></td>
         </tr>
         <tr>
           <th>내용</th>
-          <td colspan="3"><div style="width:400px"><textarea cols="100%" rows="20"></textarea></div></td>
+          <td colspan="3"><div style="width:100%"><textarea cols="100%" rows="20" id="qnastory" style="width:100%"></textarea></div></td>
         </tr>
       </table>
       <div class="but">
@@ -68,16 +68,31 @@
 	<script type="text/javascript" src="${root }js/n_page.js"></script>
 	<script type="text/javascript">
 	function subut() {
-		Swal.fire({
-			text: "문의하시겠습니까?",
-			showCancelButton: true,
-			confirmButtonText: "네",
-			CancelButtonText: "아니오",
-		}).then((result) => {
-			if(result.isConfirmed) {
-				location.href="${root}board/QnaAnotherSucess";
-			}
-		});
+		var qnasub = $("#qnasub").val();
+		var qnastory = $("#qnastory").val();
+		if(qnasub != "" && qnastory != ""){
+			Swal.fire({
+				text: "문의하시겠습니까?",
+				showCancelButton: true,
+				confirmButtonText: "네",
+				CancelButtonText: "아니오",
+			}).then((result) => {
+				if(result.isConfirmed) {
+					location.href="${root}board/QnaAnotherSucess";
+					}
+				});
+		}
+		else if(qnasub == "") {
+			Swal.fire({
+				icon: "error",
+				text: "제목을 입력하세요.",
+			});
+		}else if(qnastory == "") {
+			Swal.fire({
+				icon: "error",
+				text: "내용을 입력하세요.",
+			});
+		}
 	}
 	function canbut() {
 		location.href="${root}board/Qna";

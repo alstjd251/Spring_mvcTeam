@@ -77,5 +77,4 @@ public class ResControl {
 	public String checkRes() {
 		return "reservation/checkRes";
 	}
-	
 }

@@ -56,6 +56,7 @@
                     // 커스텀 오버레이에 표시할 컨텐츠 입니다
             // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
             // 별도의 이벤트 메소드를 제공하지 않습니다 
+            var root = document.getElementById("root_context").value;
             var content = 
             '<div class="wrap">' + 
                     '    <div class="info">' + 
@@ -65,7 +66,7 @@
                     '        </div>' + 
                     '        <div class="body">' + 
                     '            <div class="img">' +
-                    '                <img src="..resource/img/courseIntroduce/경기도-배혜정도가.png" width="73" height="70">' +
+                    '                <img src=root + "/resource/img/courseIntroduce/경기도-배혜정도가.png" width="73" height="70">' +
                     '           </div>' + 
                     '            <div class="desc">' + 
                     '                <div class="ellipsis">서울시 종로구 창덕궁길 142</div>' + 
@@ -83,7 +84,7 @@
                         '        </div>' + 
                         '        <div class="body">' + 
                         '            <div class="img">' +
-                        '                <img src="..resource/img/courseIntroduce/경기도-호랑이배꼽.png" width="73" height="70">' +
+                        '                <img src=root + "/resource/img/courseIntroduce/경기도-호랑이배꼽.png" width="73" height="70">' +
                         '           </div>' + 
                         '            <div class="desc">' + 
                         '                <div class="ellipsis">서울시 은평구 증산로7길 28-13</div>' + 
@@ -101,7 +102,7 @@
                         '        </div>' + 
                         '        <div class="body">' + 
                         '            <div class="img">' +
-                        '                <img src="..resource/img/courseIntroduce/경기도-그랑꼬또.png" width="73" height="70">' +
+                        '                <img src= root + "/resource/img/courseIntroduce/경기도-그랑꼬또.png" width="73" height="70">' +
                         '           </div>' + 
                         '            <div class="desc">' + 
                         '                <div class="ellipsis">서울시 은평구 증산로7길 28-13</div>' + 

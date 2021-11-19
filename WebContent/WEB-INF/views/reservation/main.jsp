@@ -113,7 +113,6 @@
 		document.getElementById("res_personnel2").value = p;
 		document.getElementById("p_price").value = p * price;
 		document.getElementById("startDate").value = d;
-
 	}
 </script>
 </head>
@@ -290,12 +289,12 @@
 		                }
 		            });
 		            //성공시 이동할 페이지
-		            location.href='<%=request.getContextPath()%>/reservation/reserve';
+		            location.href='${root}reservation/reserve';
 		        } else {
 		            msg = '결제에 실패하였습니다.';
 		            msg += '에러내용 : ' + rsp.error_msg;
 		            //실패시 이동할 페이지
-		            location.href='<%=request.getContextPath()%>/reservation/main';
+		            location.href='${root}reservation/main';
 		alert(msg);
 		}
 	 });

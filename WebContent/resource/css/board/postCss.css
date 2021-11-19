@@ -26,7 +26,6 @@
 .postTitle{
 	display: flex;
 	width: 100%;
-	justify-content: space-between;
 }
 .postMiddle-board01 {
     vertical-align: bottom;
@@ -48,6 +47,7 @@
 }
 
 #postBottom {
+	height: fit-content;
     display: flex;
     border-bottom: solid 1px lightgray;
     padding: 5%;
@@ -60,4 +60,13 @@
 .postButton {
     text-align: center;
     padding: 10px;
+}
+
+textarea {
+    width: 100%;
+    border: none;
+    resize: none;
+}
+textarea:focus  {
+	outline: 0;
 }

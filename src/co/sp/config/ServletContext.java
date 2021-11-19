@@ -18,12 +18,14 @@ import org.springframework.context.support.ReloadableResourceBundleMessageSource
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import co.sp.beans.Member_s;
+import co.sp.interceptor.LoginCheckInterceptor;
 import co.sp.mapper.MemMapper;
 import co.sp.mapper.NoticeMapper;
 import co.sp.mapper.ResMapper;
@@ -172,10 +174,10 @@ public class ServletContext implements WebMvcConfigurer {
 //		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
 //		reg1.addPathPatterns("/**");
 //		
-//		LoginInterceptor loginInterceptor = new LoginInterceptor(loginBean);
-//		InterceptorRegistration reg2 = registry.addInterceptor(loginInterceptor);
-//		reg2.addPathPatterns("/user/modify", "/user/logout", "/board/*");
-//		reg2.excludePathPatterns("/board/main");
+		LoginCheckInterceptor loginInterceptor = new LoginCheckInterceptor(loginBean);
+		InterceptorRegistration reg2 = registry.addInterceptor(loginInterceptor);
+		reg2.addPathPatterns("/reservation/**");
+		reg2.excludePathPatterns("/main");
 //		
 //		WriterInterceptor writerInterceptor = new WriterInterceptor(loginBean, boardService);
 //		InterceptorRegistration reg3 = registry.addInterceptor(writerInterceptor);

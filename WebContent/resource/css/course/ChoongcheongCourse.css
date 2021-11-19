@@ -1,4 +1,4 @@
-#breweryBox {
+#cc_breweryBox {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -8,7 +8,7 @@
 	width: 100%;
 }
 
-.brewery-container01 {
+.cc_brewery-container01 {
 	width: 100%;
 }
 
@@ -18,11 +18,11 @@
 	background-color: #fcae1e;
 }
 
-.breweryButton {
+.cc_breweryButton {
 	margin: 50px;
 }
 
-.brewery-title {
+.cc_brewery-title {
 	border-left: solid 5px gray;
 	text-align: left;
 	padding: 10px;
@@ -41,7 +41,7 @@ table tr td {
 	width: 150px;
 }
 
-.dotted {
+.cc_dotted {
 	border-bottom: dotted 2px grey;
 }
 
@@ -65,25 +65,25 @@ table tr td {
 	margin-top: 40px;
 }
 
-.breweryBody01_img04 {
+.cc_breweryBody01_img04 {
 	width: 300px;
 	height: 300px;
 	margin-right: 100px;
 }
 
-.breweryBody01_img05 {
+.cc_breweryBody01_img05 {
 	width: 300px;
 	height: 300px;
 	/* padding: 80px; */
 	margin-right: 100px;
 }
 
-.brewery-cir {
+.cc_brewery-cir {
 	margin-top: 70px;
 	margin-bottom: 100px;
 }
 
-.brewery-memo {
+.cc_brewery-memo {
 	width: 100%;
 	height: 200px;
 	display: flex;
@@ -94,11 +94,11 @@ table tr td {
 	flex-direction: column;
 }
 
-.brewery-memo div {
+.cc_brewery-memo div {
 	margin-top: 50px;
 }
 
-.brewery-title02 {
+.cc_brewery-title02 {
 	border-left: solid 5px gray;
 	text-align: left;
 	padding: 10px;
@@ -107,17 +107,17 @@ table tr td {
 	margin-top: 30px;
 }
 
-.brewery-card03 {
+.cc_brewery-card03 {
 	display: flex;
 	text-align: left;
 }
 
-.card03-box {
+.cc_card03-box {
 	display: flex;
 	vertical-align: middle;
 }
 
-.cose_map {
+.cc_cose_map {
 	border: 1px solid;
 	width: 490px;
 	height: 300px;
@@ -125,7 +125,7 @@ table tr td {
 	background-color: black;
 }
 
-.course_p {
+.cc_course_p {
 	width: 250px;
 }
 /*------------------------닫기가 가능한 커스텀오버레이---------------------------*/

@@ -20,7 +20,7 @@ public class AdminInterceptor implements HandlerInterceptor {
 		String contextPath = request.getContextPath();
 		
 		if(!loginBean.getMem_grade().equals("0")) {
-			response.sendRedirect(contextPath + "/admin/admin_limit");
+			response.sendRedirect(contextPath + "/admin_limit");
 			return false;
 		}
 		return true;

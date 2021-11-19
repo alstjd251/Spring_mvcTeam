@@ -18,10 +18,12 @@ public class Reservation_s {
 
 	private int loginNum;
 	private String loginName;
-
+	private String loginPhone;
+	
 	private int course_num;
 	private String course_names;
 	private int course_price;
+	
 	
 	public int getCourse_num() {
 		return course_num;
@@ -111,5 +113,14 @@ public class Reservation_s {
 		this.course_price = course_price;
 	}
 
+	public String getLoginPhone() {
+		return loginPhone;
+	}
+
+	public void setLoginPhone(String loginPhone) {
+		this.loginPhone = loginPhone;
+	}
+
+	
 	
 }

@@ -1,5 +1,7 @@
 package co.sp.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -11,12 +13,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
+import co.sp.beans.Reservation_s;
 import co.sp.service.MemService;
+import co.sp.service.ResService;
 
 @Controller
 @RequestMapping("/member")
@@ -24,6 +27,9 @@ public class MemControl {
 
 	@Autowired
 	private MemService ms;
+	
+	@Autowired
+	private ResService rs;
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
@@ -71,16 +77,23 @@ public class MemControl {
 	}
 	
 	@GetMapping("/mypage")
-	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, @ModelAttribute("reservationBean") Reservation_s reservationBean , Model m) {
 		int mem_num = loginBean.getMem_num();
 		String mem_grade = loginBean.getMem_grade();
+		System.out.println(mem_num);
+		List<Reservation_s>resBean = rs.getMemReservation(mem_num);
 		
-		if(!mem_grade.equals("0")) {
+		System.out.println(resBean);
+		
+		if(mem_grade.equals("1")) {
 			m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
+			m.addAttribute("reservationBean", resBean);
+			return "member/mypage";
+		}else if(mem_grade.equals("2")) {
+			
 			return "member/mypage";
 		}
 		else {
-			m.addAttribute("memberBean", ms.getMemberInfo(mem_num));
 			return "admin/admin_mem";
 		}
 		

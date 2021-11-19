@@ -23,13 +23,13 @@ public interface ResMapper {
 	@Select("select c_price as course_price, c_coursename as course_names, c_coursenum as course_num from course_s")
 	List<Reservation_s> getCourseIdx();
 	
-	// 예약 리스트 전체 확인
-	@Select("select a.res_paydate, a.res_num, c.mem_name, a.res_startdate, a.res_personnel, b.c_coursename from reservation_s a, course_s b, member_s c where res_mnum = #{mem_num} and b.c_coursenum = a.res_coursenum and a.res_mnum = c.mem_num order by res_paydate desc")
-	List<Reservation_s> getAllList(String mem_num);
+	// 예약 리스트 확인
+	@Select("select A.*,B.c_coursename as course_names, B.c_price as course_price, C.mem_name as loginName, C.mem_phone as loginPhone from reservation_s A, course_s B, member_s C where res_mnum = #{mem_num} and B.c_coursenum = A.res_coursenum and A.res_mnum = C.mem_num order by res_paydate")
+	List<Reservation_s> getMemReservation(int mem_num);
 	
 	// 예약 확인
-	@Select("select a.*, b.c_price as 인당가격, b.c_price * a.res_personnel as 총금액 from reservation_s a, course_s b where a.res_num = 00002021110429 and b.c_coursenum = a.res_coursenum")
-	List<Reservation_s> getReservationInfo();
+	@Select("select A.*,B.c_coursename, B.c_price, C.mem_name, C.mem_phone from reservation_s A, course_s B, member_s C where B.c_coursenum = A.res_coursenum and A.res_mnum = C.mem_num")
+	List<Reservation_s> getallReservation();
 	
 	
 

@@ -28,8 +28,9 @@ public class ResService {
 		return resDao.getCourseIdx();
 	}
 	
-	public List<Reservation_s> getAllList(String mem_num){
-		return resDao.getAllList(mem_num);
+	public List<Reservation_s> getMemReservation(int mem_num){
+		System.out.println(mem_num);
+		return resDao.getMemReservation(4);
 	}
 	
 }

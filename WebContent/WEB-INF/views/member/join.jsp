@@ -122,6 +122,52 @@
 			$("#joominGroup").attr("class","form-group has-success has-feedback");
 		}
 	}
+		
+	function mailcheck(){
+		var mail = $("#inputmail").val();
+		if(mail == ""){
+			$("#mail_input").text("이메일을 입력해주세요.").css("color","red");
+			$("#mailGroup").attr("class","form-group has-error has-feedback");
+		}else{
+			$("#mail_input").text("")
+			$("#mailGroup").attr("class","form-group has-success has-feedback");
+		}
+	}
+			
+	function phonecheck(){
+		var phone = $("#inputphone").val();
+		if(phone == ""){
+			$("#phone_input").text("연락처를 입력해주세요.").css("color","red");
+			$("#phoneGroup").attr("class","form-group has-error has-feedback");
+		}else{
+			$("#phone_input").text("")
+			$("#phoneGroup").attr("class","form-group has-success has-feedback");
+		}
+	}
+	
+	function addr1check(){
+		var addr1 = $("#sample6_address").val();
+		if(addr1 == ""){
+			$("#addr1_input").text("주소를 입력해주세요.").css("color","red");
+			$("#addr1Group").attr("class","form-group has-error has-feedback");
+		}else{
+			$("#addr1_input").text("")
+			$("#addr1Group").attr("class","form-group has-success has-feedback");
+		}
+	}
+	
+	function addr2check(){
+		var addr2 = $("#sample6_detailAddress").val();
+		if(addr2 == ""){
+			$("#addr2_input").text("상세주소를 입력해주세요.").css("color","red");
+			$("#addr2Group").attr("class","form-group has-error has-feedback");
+		}else{
+			$("#addr2_input").text("")
+			$("#addr2Group").attr("class","form-group has-success has-feedback");
+		}
+	}
+	
+
 </script>
 
 
@@ -216,30 +262,31 @@
 						</div>
 					</div>
 					<!-- 이메일 -->
-					<div id="emailGroup" class="form-group" style="display:flex;">
+					<div id="mailGroup" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_mail" for="inputmail" class="col-sm-2 control-label">이메일*</form:label>
 						<div class="col-sm-10">
-							<form:input style="width:235px;" path="mem_mail" class="form-control" id="inputmail" placeholder="이메일 입력" onblur="emailcheck()"/>
+							<form:input style="width:235px;" path="mem_mail" class="form-control" id="inputmail" placeholder="이메일 입력" onblur="mailcheck()"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_mail" style="color:red;"/>
-							<p id="email_input"></p>
+							<p id="mail_input"></p>
 						</div>
 					</div>
 					<!-- 연락처 -->
-					<div class="form-group" style="display:flex;">
+					<div id="phoneGroup" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_phone" for="inputphone" class="col-sm-2 control-label">연락처*</form:label>
 						<div class="col-sm-10">
-							<form:input style="width:235px;" path="mem_phone" class="form-control" id="inputphone" maxlength="11" placeholder="- 제외한 숫자만 입력" />
+							<form:input style="width:235px;" path="mem_phone" class="form-control" id="inputphone" maxlength="11" placeholder="- 제외한 숫자만 입력" onblur="phonecheck()"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_phone" style="color:red;"/>
+							<p id="phone_input"></p>
 						</div>
 					</div>
 					<!-- 주소 -->
@@ -256,28 +303,30 @@
 							<form:errors path="mem_post" style="color:red;"/>
 						</div>
 					</div>
-					<div class="form-group" style="display:flex;">
+					<div id="addr1Group" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_addr1" for="sample6_address" class="col-sm-2 control-label">주소*</form:label>
 						<div class="col-sm-10">
-							<form:input style="width:235px;" path="mem_addr1" class="form-control" id="sample6_address" placeholder="주소"/>
+							<form:input style="width:235px;" path="mem_addr1" class="form-control" id="sample6_address" placeholder="주소" onblur="addr1check()"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_addr1" style="color:red;"/>
+							<p id="addr1_input"></p>
 						</div>
 					</div>
-					<div class="form-group" style="display:flex;">
+					<div id="addr2Group" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_addr2" for="sample6_detailAddress" class="col-sm-2 control-label">상세주소*</form:label>
 						<div class="col-sm-10">
-							<form:input style="width:235px;" path="mem_addr2" class="form-control" id="sample6_detailAddress" placeholder="상세주소"/>
+							<form:input style="width:235px;" path="mem_addr2" class="form-control" id="sample6_detailAddress" placeholder="상세주소" onblur="addr2check()"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_addr2" style="color:red;"/>
+							<p id="addr2_input"></p>
 						</div>
 					</div>
 					<div class="form-group">

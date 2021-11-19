@@ -72,12 +72,18 @@ public class MemControl {
 	
 	@GetMapping("/mypage")
 	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
-		
 		int mem_num = loginBean.getMem_num();
+		String mem_grade = loginBean.getMem_grade();
 		
-		m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
+		if(!mem_grade.equals("0")) {
+			m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
+			return "member/mypage";
+		}
+		else {
+			m.addAttribute("memberBean", ms.getMemberInfo(mem_num));
+			return "admin/admin_mem";
+		}
 		
-		return "member/mypage";
 	}
 	
 //	@PostMapping("/idFinder")

@@ -63,7 +63,6 @@
 							<th>이메일</th>
 							<th>가입일</th>
 							<th>주소</th>
-							<th></th>
 						</tr>
 					</thead>
 					<tbody>

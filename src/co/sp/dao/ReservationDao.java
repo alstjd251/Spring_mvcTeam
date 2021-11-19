@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Reservation_s;
 import co.sp.mapper.ResMapper;
 
@@ -27,8 +28,16 @@ public class ReservationDao {
 		return resMapper.getCourseIdx();
 	}
 	
-	public List<Reservation_s> getAllList(String mem_num) {
-		return resMapper.getAllList(mem_num);
+	public List<Reservation_s> getMemReservation(int mem_num) {
+		System.out.println(mem_num);
+		return resMapper.getMemReservation(mem_num);
 	}
 
+	public List<Reservation_s> allReservation(BoardPage bp){
+		return resMapper.allReservation(bp);
+	}
+	
+	public int resCount(BoardPage bp) {
+		return resMapper.resCount(bp);
+	}
 }

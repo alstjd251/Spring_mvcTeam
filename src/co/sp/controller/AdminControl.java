@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.BoardPage;
 import co.sp.beans.Member_s;
+import co.sp.beans.Reservation_s;
 import co.sp.service.MemService;
 import co.sp.service.NoticeService;
 import co.sp.service.ResService;
@@ -31,9 +32,9 @@ public class AdminControl {
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
 	
-	@GetMapping("hello_admin")
+	@GetMapping("hello_Admin")
 	public String hello_admin() {
-		return "admin/hello_admin";
+		return "admin/hello_Admin";
 	}
 	@GetMapping("admin_mem")
 	public String mem_modify(BoardPage bp, @ModelAttribute("memberBean") Member_s memberBean, Model m
@@ -72,7 +73,33 @@ public class AdminControl {
 	}
 	
 	@GetMapping("admin_res")
-	public String admin_res() {
+	public String admin_res(BoardPage bp, @ModelAttribute("resBean") Reservation_s resBean, Model m
+			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
+			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
+			, @RequestParam(value="keyword", required=false)String keyword) {
+		bp.setKeyword(keyword);
+		int resTotal = rs.resCount(bp);
+		
+		System.out.println(resTotal);
+		System.out.println(rs.allReservation(bp));
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		}
+		else if (nowPage == null) {
+			nowPage = "1";
+		}
+		else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		
+		bp = new BoardPage(resTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
+
+		m.addAttribute("resList", ms.allMember(bp));
+		m.addAttribute("resPaging", bp);
+		m.addAttribute("resTotal", resTotal);
+		
 		return "admin/admin_res";
 	}
 	

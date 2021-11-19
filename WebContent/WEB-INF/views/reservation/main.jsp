@@ -214,7 +214,7 @@
 			</div>
 			<div id="res_course"><img id="res_course_img" src="${root }img/reservation/backimg/courseimg.png" width="100%" height="100%"/> </div>
 			<form:form action="${root }reservation/reserve"
-				modelAttribute="reservationBean">
+				modelAttribute="reservationBean" id="reserveForm">
 				<div id="res_con2">
 					<div id="res_info">
 						<table class="table" id="table1">
@@ -279,7 +279,7 @@
 									<td><input type="text" id="p_price" readonly="readonly"></td>
 								</tr>
 							</table>
-							<form:button id="res_button">예약</form:button>
+							<input type="button" id="res_button" value="예약">
 						</div>
 					</div>
 				</div>
@@ -294,10 +294,9 @@
 
 	<script type="text/javascript">
 		/*결제*/
-		$(document).ready(function(){
 			$("#res_button").click(function (e){
 		    var IMP = window.IMP; // 생략가능
-		    IMP.init('imp61967006'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+		    IMP.init('imp29172367'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 		    var msg;
 		    
 		    IMP.request_pay({
@@ -340,7 +339,9 @@
 		                
 		            });
 		            //성공시 이동할 페이지
-		            location.href='${root}reservation/reserve';
+		            //location.href='${root}reservation/reserve';
+		            let reserveForm = $("#reserveForm");
+		            reserveForm.submit();
 		        } else {
 		            msg = '결제에 실패하였습니다.';
 		            msg += '에러내용 : ' + rsp.error_msg;
@@ -350,7 +351,6 @@
 		}
 	 });
 	});  
-});
 	</script>
 
 	<script type="text/javascript" src="${root }js/n_page.js"></script>

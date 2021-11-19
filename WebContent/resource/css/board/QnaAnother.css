@@ -1,6 +1,8 @@
 .qnaAno {
   width: 60%;
   margin-left: 20%;
+  font-size: 15px;
+  font-weight: bold;
 }
 .qnaAno .qnaAnotherTable {
   border-collapse: collapse;
@@ -8,7 +10,7 @@
   width: 100%;
 }
 .qnaAno .qnaAnotherTable th {
-  background-color: aquamarine;
+  background-color: #fbe9e2;
   border: 1px solid black;
   width: 80px;
   text-align: center;
@@ -24,26 +26,55 @@
   width: 300px;
   height: 40px;
 }
-.qnaAno .qnaAnotherTable textarea:focus {
+
+#qnasub{
+	border:none;
+}
+
+#qnasub:focus{
+	outline: none;
+}
+
+.text{
+	border:none;
+	resize : none;
+}
+
+.text:focus{
 	outline: none;
 }
 .but {
   width: 80%;
   display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: 40px;
   margin-left: 10%;
 }
 .subut {
-  background-color: blue;
-  color: white;
-  border: 1px solid white;
-  width: 80px;
-  height: 40px;
+ width:80px;
+	background-color : #7a5849;
+	border: none;
+	padding: 5px;
+	text-align : center;
+	color:#ffece5;
+	margin-left: 10px;
 }
 .canbut {
-  background-color: white;
-  border: 1px solid black;
-  width: 80px;
-  height: 40px;
+ width:80px;
+	background-color : #7a5849;
+	border: none;
+	padding: 5px;
+	text-align : center;
+	color:#ffece5;
+	margin-left: 10px;
 }
+
+.subut:hover{
+	background-color: #694b3f;
+}
+
+.canbut:hover{
+	background-color: #694b3f;
+}
+
+

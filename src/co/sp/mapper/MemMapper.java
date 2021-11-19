@@ -2,6 +2,7 @@ package co.sp.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import co.sp.beans.Member_s;
 
@@ -26,4 +27,11 @@ public interface MemMapper {
 	// 비밀번호 찾기
 	@Select("select mem_pw from member_s where mem_id = #{mem_id} and mem_name = #{mem_name} and mem_mail = #{mem_mail}")
 	String getFindPw(Member_s memberBean);
+	
+	// 회원 정보 가져오기
+	@Select("select * from member_s where mem_num = #{mem_num}")
+	Member_s getMemberInfo(int mem_num);
+	
+	@Update("update member_s set mem_pw = #{mem_pw}, mem_mail = #{mem_mail}, mem_phone = #{mem_phone}, mem_post = #{mem_post}, mem_addr1 = #{mem_addr1}, mem_addr2 = #{mem_addr2} where mem_num = #{mem_num}")
+	void memberUpdate(Member_s memberBean);
 }

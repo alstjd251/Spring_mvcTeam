@@ -31,6 +31,7 @@ public class MemService {
 			loginBean.setMem_name(tempLoginMemberBean2.getMem_name());
 			loginBean.setMem_phone(tempLoginMemberBean2.getMem_phone());
 			loginBean.setMem_mail(tempLoginMemberBean2.getMem_mail());
+			loginBean.setMem_grade(tempLoginMemberBean2.getMem_grade());
 			loginBean.setMemLogin(true);
 		}
 	}
@@ -52,5 +53,13 @@ public class MemService {
 		} else {
 			return false;
 		}
+	}
+	
+	public Member_s getMemberInfo(int mem_num) {
+		return memDao.getMemberInfo(mem_num);
+	}
+	
+	public void memberUpdate(Member_s memberBean) {
+		memDao.memberUpdate(memberBean);
 	}
 }

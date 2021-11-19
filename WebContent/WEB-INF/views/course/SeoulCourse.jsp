@@ -22,7 +22,7 @@
            조선시대 사대부가 즐겨마셨던 삼해주,
            매실로 빚어낸 서울식 GIN을 맛보는 여행.</P>
            <div class="s_breweryButton">
-               <a href="" id="s_button">예약하기</a>
+               <a href="${root }reservation/main?course_number=1" id="s_button">예약하기</a>
            </div>
        </div>
    </div>

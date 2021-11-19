@@ -20,7 +20,7 @@
            <p>-4대에 걸친 비법과 22대 명인이 빚은 추성주<br>
            전통양조과학기술연구소의 발효과학, 수제 전통 누룩으로 빚은 전통주 코스!</p>
            <div class="jl_breweryButton">
-               <a href="" id="jl_button">예약하기</a>
+               <a href="${root }reservation/main?course_number=4" id="jl_button">예약하기</a>
            </div>
        </div>
    </div>

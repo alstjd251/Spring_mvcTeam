@@ -20,7 +20,7 @@
            <p>머루로 빚은 특별한 와인과 국산 쌀로 빚어낸 막걸리!<br>
            드넓은 논, 고지의 자리한 평원에 위치한 양조장을 느껴보세요.</p>
            <div class="gn_breweryButton">
-               <a href="${root }reservation/main?course_number=6">예약하기</a>
+               <a href="${root }reservation/main?course_number=6" id="gn_button">예약하기</a>
            </div>
        </div>
    </div>

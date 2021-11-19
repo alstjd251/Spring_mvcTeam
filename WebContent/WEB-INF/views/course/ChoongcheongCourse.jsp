@@ -25,7 +25,7 @@
 					산자락에서 음미해보세요.
 				</P>
 				<div class="cc_breweryButton">
-					<a href="${root }reservation/main?course_number=3">예약하기</a>
+					<a href="${root }reservation/main?course_number=3" id="cc_button">예약하기</a>
 				</div>
 			</div>
 		</div>

@@ -37,6 +37,44 @@
 
 <script type="text/javascript">
 	var price = 0;
+	$(window).on("load", function() {
+			var course_number = $("#course_number").val();
+			var res_subcategory = $("#res_subcategory");
+			switch(course_number) {
+			case "1":
+				res_subcategory.val("1").attr("selected", "selected");
+				price = ${getCourseIdx.get(0).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg1.png");
+				break;
+			case "2":
+				res_subcategory.val("2").attr("selected", "selected");
+				price = ${getCourseIdx.get(1).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg2.png");
+				break;
+			case "3":
+				res_subcategory.val("3").attr("selected", "selected");
+				price = ${getCourseIdx.get(2).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg3.png");
+				break;
+			case "4":
+				res_subcategory.val("4").attr("selected", "selected");
+				price = ${getCourseIdx.get(3).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg4.png");
+				break;
+			case "5":
+				res_subcategory.val("5").attr("selected", "selected");
+				price = ${getCourseIdx.get(4).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg5.png");
+				break;
+			case "6":
+				res_subcategory.val("6").attr("selected", "selected");
+				price = ${getCourseIdx.get(5).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg6.png");
+				break;
+			}
+			document.getElementById("res_price").innerHTML = price;
+	});
+	
 	function selected() {
 		var num = $("#res_subcategory").val();
 		switch (num) {
@@ -72,7 +110,7 @@
 		
 		document.getElementById("res_price").innerHTML = price;
 	}
-
+	
 	function resSelect() {
 		var course_sel = $("#res_subcategory").val();
 
@@ -114,6 +152,7 @@
 		document.getElementById("p_price").value = p * price;
 		document.getElementById("startDate").value = d;
 	}
+	
 </script>
 </head>
 <body>
@@ -139,6 +178,7 @@
 		<div id="reservation">
 			<!--유효성검사 해야함-->
 			<div id="res_con1">
+			<input type="hidden" value="${course_number }" id="course_number">
 				<select id="res_subcategory" onchange="selected()"
 					style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 					<option value="-1">코스를 선택하세요.</option>

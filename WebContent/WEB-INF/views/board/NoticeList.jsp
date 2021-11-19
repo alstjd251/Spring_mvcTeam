@@ -39,7 +39,7 @@
 		</div>
 	</header>
 	<div class="cs-container">
-		<h2>고객센터</h2>
+		<h2>고객지원</h2>
 		<div class="cs-board01">
 			<div id="cs-menu">
 				<li>공지사항</li>

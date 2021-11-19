@@ -13,6 +13,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="${root }css/include/wave.css" />
 	<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
@@ -36,9 +37,9 @@
 		<h2>고객지원</h2>
 		<div class="cs-board01">
 			<div id="cs-menu">
-				<li>공지사항</li>
-				<li>Q&A</li>
-				<li>Contact Us</li>
+				<li><a href="${root }board/NoticeList">공지사항</a></li>
+				<li><a href="${root }board/Qna">QnA</a></li>
+				<li><a href="${root }board/ContactUs">Contact Us</a></li>
 			</div>
 			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
 		</div>
@@ -48,7 +49,7 @@
 			</div>
 		</div>
 		<div class="panel-group" id="accordion" role="tablist"
-			aria-multiselectable="true">
+			aria-multiselectable="true" style="width:60%; margin-left:20%;">
 			<div class="panel panel-default">
 				<div class="panel-heading" role="tab" id="headingOne">
 					<h4 class="panel-title">
@@ -172,7 +173,7 @@
 			</div>
 		</div>
 		<div>
-			기타 문의 사항은 기타 문의하기 버튼을 눌러 양식에 맞춰서 적어주시기 바랍니다.<a href="#">기타 문의하기</a>
+			기타 문의 사항은 기타 문의하기 버튼을 눌러 양식에 맞춰서 적어주시기 바랍니다.<a href="${root }board/QnaAnother">기타 문의하기</a>
 		</div>
 	</div>
 	<footer>

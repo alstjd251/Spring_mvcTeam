@@ -43,8 +43,8 @@
 		<div class="cs-board01">
 			<div id="cs-menu">
 				<li><a href="${root }board/NoticeList">공지사항</a></li>
-				<li><a href="${root }board/NoticeList">QnA</a></li>
-				<li><a href="${root }board/NoticeList">Contact Us</a></li>
+				<li><a href="${root }board/Qna">QnA</a></li>
+				<li><a href="${root }board/ContactUs">Contact Us</a></li>
 			</div>
 			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
 		</div>
@@ -133,7 +133,7 @@
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp"/>
 	</footer>
-	<script type="text/javascript" src="${root }js/page.js"></script>
+	<script type="text/javascript" src="${root }js/n_page.js"></script>
 	
 	<form id="moveForm" method="get">
 		<input type="hidden" name="keyword" value="${noticePaging.keyword }">

@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 	<link href="${root }css/board/postListCss.css" rel="stylesheet" type="text/css" />
 	<link rel="stylesheet" href="${root }css/include/wave.css" />
+	<link rel="stylesheet" href="${root }css/board/QnaAnother.css" />
 	<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 	<link
       rel="stylesheet"
@@ -32,28 +33,33 @@
 			</div>
 		</div>
 	</header>
-	<div class="cs-container">
-		<h2>고객지원</h2>
-		<div class="cs-board01">
-			<div id="cs-menu">
-				<li>공지사항</li>
-				<li>Q&A</li>
-				<li>Contact Us</li>
-			</div>
-			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
-		</div>
-		<div id="cs-titleBox">
-			<div class="page-header" align="center">
-	 			<h1>Contact Us</h1>
-			</div>
-		</div>
-		<!-- 여기에 컨텍트 어스 -->
-	</div>
+	<div class="qnaAno">
+      <table class="qnaAnotherTable">
+        <tr>
+          <th>ID</th>
+          <td class="td2"><span></span></td>
+          <th>고객명</th>
+          <td class="td2"><span></span></td>
+        </tr>
+        <tr>
+          <th height="40">제목</th>
+          <td colspan="3"><input type="text" id="qnasub" size="100%" /></td>
+        </tr>
+        <tr>
+          <th width="80">내용</th>
+          <td colspan="3"><textarea cols="100%" rows="20"></textarea></td>
+        </tr>
+      </table>
+      <div class="but">
+        <button class="subut">문의하기</button>
+        <button class="canbut">닫기</button>
+      </div>
+    </div>
 	<!-- 푸터 -->
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp"/>
 	</footer>
-	<script type="text/javascript" src="${root }js/page.js"></script>
+	<script type="text/javascript" src="${root }js/n_page.js"></script>
 	
 	
 </body>

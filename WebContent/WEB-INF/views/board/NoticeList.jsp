@@ -39,18 +39,12 @@
 		</div>
 	</header>
 	<div class="cs-container">
-		<h2>고객지원</h2>
+		<h2>공지사항</h2>
 		<div class="cs-board01">
 			<div id="cs-menu">
 				<li><a href="${root }board/NoticeList">공지사항</a></li>
 				<li><a href="${root }board/Qna">QnA</a></li>
 				<li><a href="${root }board/ContactUs">Contact Us</a></li>
-			</div>
-			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
-		</div>
-		<div id="cs-titleBox">
-			<div class="page-header" align="center">
-	 			<h1>공지사항</h1>
 			</div>
 		</div>
 		<div class="cs-board02">

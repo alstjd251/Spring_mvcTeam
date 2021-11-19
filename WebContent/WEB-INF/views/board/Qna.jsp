@@ -33,23 +33,17 @@
 			</div>
 		</div>
 	</header>
-	<div class="cs-container">
-		<h2>고객지원</h2>
+	<div class="cs-container" style="margin-bottom:50px;">
+		<h2>Q & A</h2>
 		<div class="cs-board01">
 			<div id="cs-menu">
 				<li><a href="${root }board/NoticeList">공지사항</a></li>
 				<li><a href="${root }board/Qna">QnA</a></li>
 				<li><a href="${root }board/ContactUs">Contact Us</a></li>
 			</div>
-			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
-		</div>
-		<div id="cs-titleBox">
-			<div class="page-header" align="center">
-	 			<h1>Q & A</h1>
-			</div>
 		</div>
 		<div class="panel-group" id="accordion" role="tablist"
-			aria-multiselectable="true" style="width:60%; margin-left:20%;">
+			aria-multiselectable="true" style="width:60%; margin-left:20%;margin-bottom:100px">
 			<div class="panel panel-default">
 				<div class="panel-heading" role="tab" id="headingOne">
 					<h4 class="panel-title">
@@ -172,7 +166,7 @@
 				</div>
 			</div>
 		</div>
-		<div>
+		<div style="margin-bottom: 200px">
 			기타 문의 사항은 기타 문의하기 버튼을 눌러 양식에 맞춰서 적어주시기 바랍니다.<a href="${root }board/QnaAnother">기타 문의하기</a>
 		</div>
 	</div>

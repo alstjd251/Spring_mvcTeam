@@ -116,5 +116,9 @@ public class NoticeControl {
 	public String qnaanother() {
 		return "board/QnaAnother";
 	}
+	@GetMapping("/QnaAnotherSucess")
+	public String qnaanothersucess() {
+		return "board/QnaAnotherSucess";
+	}
 }
 

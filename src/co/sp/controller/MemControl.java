@@ -80,7 +80,6 @@ public class MemControl {
 	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, @ModelAttribute("reservationBean") Reservation_s reservationBean , Model m) {
 		int mem_num = loginBean.getMem_num();
 		String mem_grade = loginBean.getMem_grade();
-		System.out.println(mem_num);
 		List<Reservation_s>resBean = rs.getMemReservation(mem_num);
 		
 		
@@ -98,14 +97,6 @@ public class MemControl {
 		}
 		
 	}
-	
-//	@PostMapping("/idFinder")
-//	public String idFinder(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
-//		String id = ms.getFindId(memberBean);
-//		m.addAttribute("idSearch", id);
-//		
-//		return  "member/idFinder";
-//	}
 	
 	@GetMapping("/join")
 	public String join(@ModelAttribute("memberBean") Member_s memberBean, Model m) {

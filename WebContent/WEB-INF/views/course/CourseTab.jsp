@@ -74,19 +74,19 @@
                     <c:import url="/WEB-INF/views/course/SeoulCourse.jsp"/>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="Gyunggi">
-                <c:import url="/WEB-INF/views/course/GyunggiCourse.jsp"/>
+                	<c:import url="/WEB-INF/views/course/GyunggiCourse.jsp"/>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="Choongcheong">
-                <c:import url="/WEB-INF/views/course/ChoongcheongCourse.jsp"/>
+                	<c:import url="/WEB-INF/views/course/ChoongcheongCourse.jsp"/>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="Jeonla">
-                <c:import url="/WEB-INF/views/course/JeonlaCourse.jsp"/>
+                	<c:import url="/WEB-INF/views/course/JeonlaCourse.jsp"/>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="Gyungbook">
-                <c:import url="/WEB-INF/views/course/GyungbookCourse.jsp"/>
+                	<c:import url="/WEB-INF/views/course/GyungbookCourse.jsp"/>
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="Gyungnam">
-                <c:import url="/WEB-INF/views/course/GyungnamCourse.jsp"/>
+                	<c:import url="/WEB-INF/views/course/GyungnamCourse.jsp"/>
                 </div>
             </div>
     </section>

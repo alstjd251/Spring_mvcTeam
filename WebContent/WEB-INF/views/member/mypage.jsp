@@ -52,7 +52,7 @@
 				<div id="modify" class="tab_content current">
 					<!--유효성검사 해야함-->
 					<h3>회원정보 수정</h3>
-					<form:form method="post" modelAttribute="memberBean">
+					<form:form action="memberModify" method="post" modelAttribute="memberBean">
 						<table class="table table-bordered">
 							<tr>
 								<th>아이디</th>
@@ -89,13 +89,13 @@
 							</tr>
 							<tr>
 								<td>주소</td>
-								<td><form:input id="sample6_postcode" placeholder="우편번호" path="mem_post"/> 
+								<td><form:input id="sample6_postcode" placeholder="우편번호" path="mem_post" readonly="true"/> 
 								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br /> 
 								<form:input id="sample6_address" placeholder="주소" path="mem_addr1"/><br />
 								<form:input id="sample6_detailAddress" placeholder="상세주소" path="mem_addr2"/></td>
 							</tr>
 						</table>
-						<input class="btn btn-default" type="button" value="수정">
+						<form:button class="btn btn-default">수정</form:button>
 					</form:form>
 				</div>
 				<div id="res_info" class="tab_content">
@@ -116,14 +116,6 @@
 							<tbody>
 								<c:forEach var="obj" items="${reservationBean }">
 								<tr style="text-align:center;">
-									<%-- <td><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.reservationBean.res_num }','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.reservationBean.res_num }</a></td>
-									<td><input path="c_coursename" id="c_coursename" readonly="readonly" value="${obj.reservationBean.c_coursename }"/></td>
-									<td><input path="c_price" id="c_price" readonly="readonly" value="${obj.reservationBean.course_price }"/></td>
-									<td><input path="res_startdate" id="res_startdate" readonly="readonly" value="${obj.reservationBean.res_startdate }"/></td>
-									<td><input path="mem_name" id="mem_name" readonly="readonly" value="${obj.reservationBean.loginName }"/></td>
-									<td><input path="mem_phone" id="mem_phone" readonly="readonly" value="${obj.reservationBean.loginPhone }"/></td>
-									<td><input path="res_personnel" id="res_personnel" readonly="readonly" value="${obj.reservationBean.res_personnel }"/></td>
-									<td><input path="res_paydate" id="res_paydate" readonly="readonly" value="${obj.reservationBean.res_paydate }"/></td> --%>
 									<td><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.res_num }','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.res_num }</a></td>
 									<td>${obj.course_names }</td>
 									<td>${obj.course_price }</td>

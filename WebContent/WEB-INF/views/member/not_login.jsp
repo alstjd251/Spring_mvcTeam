@@ -15,7 +15,7 @@
 <script type="text/javascript">
 Swal.fire({
 	icon : "warning",
-	title : "로그인 에러",
+	title : "접근 오류",
     text  : "로그인이 필요한 서비스 입니다.",
 }).then(function(){
 	location.href="${root}member/login";

@@ -16,6 +16,7 @@ public class AdminControl {
 	
 	@GetMapping("/admin_mem")
 	public String admin_mem() {
-		return "/admin_mem";
+		return "admin/admin_mem";
 	}
+	
 }

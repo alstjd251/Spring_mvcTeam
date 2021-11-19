@@ -21,6 +21,8 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <title>Sul Sure</title>
 <script type="text/javascript">
+	var pwCheck = "fail";
+	var idCheck = "fail";
 	function idchecking() {
 		var mem_id = $("#inputid").val()
 		
@@ -29,6 +31,8 @@
 				icon: 'warning',
 				title : "입력 오류",
 			    text  : "아이디를 입력해주세요.",
+			}).then(function(){
+				idCheck = "fail";
 			});
 			return
 		}
@@ -38,8 +42,8 @@
 				title : "입력 오류",
 			    text  : "아이디는 최소 5자 이상 입력해야 합니다.",
 			}).then(function(){
+				idCheck = "fail";
 				document.getElementById("idGroup").className = "form-group has-error has-feedback"
-				document.getElementById("checkicon").className = "glyphicon glyphicon-remove form-control-feedback"
 			});
 			return
 		}
@@ -56,8 +60,8 @@
 					    text  : "사용 가능한 아이디 입니다.",
 					}).then(function(){
 						$("#idExist").val('true')
+						idCheck = "success";
 						document.getElementById("idGroup").className = "form-group has-success has-feedback"
-						document.getElementById("checkicon").className = "glyphicon glyphicon-ok form-control-feedback"
 					});
 				}else{
 					Swal.fire({
@@ -67,7 +71,6 @@
 					}).then(function(){
 						$("#idExist").val('false')
 						document.getElementById("idGroup").className = "form-group has-error has-feedback"
-						document.getElementById("checkicon").className = "glyphicon glyphicon-remove form-control-feedback"
 						$("#inputid").val("");
 					});
 				}
@@ -77,6 +80,47 @@
 	
 	function resetUserIdExist(){
 		$("#idExist").val('false')
+	}
+	
+	function pwcheck(){
+		var pw1 = $("#inputpw").val();
+		var pw2 = $("#inputpw2").val();
+		if(pw1 != pw2){
+			$("#pw_not_same").text("비밀번호가 일치하지 않습니다.").css("color","red");
+			$("#pwGroup1, #pwGroup2").attr("class","form-group has-error has-feedback");
+			pwCheck = "fail";
+		}else if(pw1 == ""){
+			$("#pw_not_same").text("비밀번호를 입력 해주세요.").css("color","red");
+			$("#pwGroup1, #pwGroup2").attr("class","form-group has-error has-feedback");
+			pwCheck = "fail";
+		}
+		else{
+			$("#pw_not_same").text("비밀번호가 일치합니다.").css("color","green");
+			$("#pwGroup1, #pwGroup2").attr("class","form-group has-success has-feedback");
+			pwCheck = "success";
+		}
+	}
+	
+	function namecheck(){
+		var name = $("#inputname").val();
+		if(name == ""){
+			$("#name_input").text("이름을 입력 해주세요.").css("color","red");
+			$("#nameGroup").attr("class","form-group has-error has-feedback");
+		}else{
+			$("#name_input").text("")
+			$("#nameGroup").attr("class","form-group has-success has-feedback");
+		}
+	}
+	
+	function joomincheck(){
+		var joomin = $("#inputjoomin").val();
+		if(joomin == ""){
+			$("#joomin_input").text("생년월일을 입력 해주세요.").css("color","red");
+			$("#joominGroup").attr("class","form-group has-error has-feedback");
+		}else{
+			$("#joomin_input").text("")
+			$("#joominGroup").attr("class","form-group has-success has-feedback");
+		}
 	}
 </script>
 
@@ -107,7 +151,6 @@
 						<div class="col-sm-10" style="display:flex;">
 							<form:input style="width:235px;" path="mem_id" class="form-control" id="inputid" onkeypress="resetUserIdExist()" placeholder="아이디" />
 							<input type="button" style="margin-left:10px;" id="idcheck" onclick="idchecking()" value="중복확인"/>
-							<span id="checkicon" style="position:absolute; left:220px;" class="" aria-hidden="true"></span>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
@@ -117,10 +160,10 @@
 						</div>
 					</div>
 					<!-- 비밀번호 -->
-					<div class="form-group" style="display:flex;">
+					<div id="pwGroup1" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label" onkeyup="d">비밀번호*</form:label>
 						<div class="col-sm-10">
-							<form:password style="width:235px;" path="mem_pw" class="form-control" id="inputpw" placeholder="비밀번호" />
+							<form:password style="width:235px;" path="mem_pw" class="form-control" id="inputpw" placeholder="비밀번호" onblur="pwcheck()"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
@@ -129,38 +172,39 @@
 							<form:errors path="mem_pw" style="color:red;"/>
 						</div>
 					</div>
-					<div class="form-group" style="display:flex;">
+					<div id="pwGroup2" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label">비밀번호확인*</form:label>
 						<div class="col-sm-10">
-							<input type="password" style="width:235px;" class="form-control" id="inputpw2" placeholder="비밀번호 확인" />
+							<input type="password" style="width:235px;" class="form-control" id="inputpw2" placeholder="비밀번호 확인" onkeyup="pwcheck()"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
-							
+							<p id="pw_not_same"></p>
 						</div>
 					</div>
 					<!-- 이름 -->
-					<div class="form-group" style="display:flex;">
+					<div id="nameGroup" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_name" for="inputname" class="col-sm-2 control-label">이름*</form:label>
 						<div class="col-sm-10">
-							<form:input style="width:235px;" path="mem_name" class="form-control" id="inputname" placeholder="이름" />
+							<form:input style="width:235px;" path="mem_name" class="form-control" id="inputname" placeholder="이름" onblur="namecheck()"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_name" style="color:red;"/>
+							<p id="name_input"></p>
 						</div>
 					</div>
 					<!-- 주민번호 -->
-					<div class="form-group" style="display:flex;">
+					<div id="joominGroup" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_joomin" for="inputjoomin" class="col-sm-2 control-label">주민등록번호*</form:label>
 						<div class="col-sm-10" style="display:flex; align-items: center;">
-							<form:input style="width:125px;" path="mem_joomin" class="form-control" id="inputjoomin" maxlength="6" placeholder="생년월일 6자리" />
+							<form:input style="width:125px; padding-right:12px;" path="mem_joomin" class="form-control" id="inputjoomin" maxlength="6" placeholder="생년월일 6자리" onblur="joomincheck()"/>
 							<label style="margin:0 10px"> - </label>
-							<form:input style="width:35px;" path="mem_gender" class="form-control" id="inputgender" maxlength="1"/>
+							<form:input style="width:35px; padding-right:12px;" path="mem_gender" class="form-control" id="inputgender" maxlength="1"/>
 							<label style="margin-left: 5px;">*****</label>
 						</div>
 					</div>
@@ -168,19 +212,21 @@
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_joomin" style="color:red;"/>
+							<p id="joomin_input"></p>
 						</div>
 					</div>
 					<!-- 이메일 -->
-					<div class="form-group" style="display:flex;">
+					<div id="emailGroup" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_mail" for="inputmail" class="col-sm-2 control-label">이메일*</form:label>
 						<div class="col-sm-10">
-							<form:input style="width:235px;" path="mem_mail" class="form-control" id="inputmail" placeholder="이메일 입력" />
+							<form:input style="width:235px;" path="mem_mail" class="form-control" id="inputmail" placeholder="이메일 입력" onblur="emailcheck()"/>
 						</div>
 					</div>
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
 							<form:errors path="mem_mail" style="color:red;"/>
+							<p id="email_input"></p>
 						</div>
 					</div>
 					<!-- 연락처 -->

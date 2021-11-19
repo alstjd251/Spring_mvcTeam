@@ -26,7 +26,7 @@
                천혜의 경관과 함께하는 코스
             </P>
             <div class="gb_breweryButton">
-               <a href="">예약하기</a>
+               <a href="" id="gb_button">예약하기</a>
             </div>
          </div>
       </div>

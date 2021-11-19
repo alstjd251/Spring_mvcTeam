@@ -26,7 +26,7 @@
 					막걸리들을 시작으로 달콤쌉쌀한 와인까지!
 				</P>
 				<div class="gg_breweryButton">
-					<a href="">예약하기</a>
+					<a href="" id="gg_button">예약하기</a>
 				</div>
 			</div>
 		</div>

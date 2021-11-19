@@ -20,10 +20,26 @@
 
 .gg_breweryButton {
    margin: 50px;
+    display:flex;
+  justify-content: center;
 }
 
-.gg_breweryButton a {
-	font-size: 20px;
+.gg_breweryButton #gg_button {
+	font-size: 18px;
+	 padding: 5px;
+  text-decoration: none;
+  text-align: right;
+  border: 1px solid #6b615d;
+  border-radius: 10px;
+  color: #eed7cf;
+  background-color : #6b615d;
+  right: 15px;
+  bottom: 10px;
+}
+
+.gg_breweryButton #gg_button:hover{
+	color: #6b615d;
+  background-color : #eed7cf;
 }
 
 .gg_brewery-title {

@@ -1,10 +1,13 @@
 package co.sp.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Member_s;
 import co.sp.dao.MemberDao;
 
@@ -61,5 +64,13 @@ public class MemService {
 	
 	public void memberUpdate(Member_s memberBean) {
 		memDao.memberUpdate(memberBean);
+	}
+	
+	public List<Member_s> allMember(BoardPage bp){
+		return memDao.allMember(bp);
+	}
+	
+	public int memCount(BoardPage bp) {
+		return memDao.memCount(bp);
 	}
 }

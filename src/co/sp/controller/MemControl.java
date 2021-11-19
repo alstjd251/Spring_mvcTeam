@@ -93,7 +93,8 @@ public class MemControl {
 			return "member/mypage";
 		}
 		else {
-			return "admin/admin_mem";
+			m.addAttribute("memberBean", ms.getMemberInfo(mem_num));
+			return "admin/hello_Admin";
 		}
 		
 	}

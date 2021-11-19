@@ -30,7 +30,6 @@
 <body>
 	<!-- 헤더 -->
 	<header>
-		<!-- 헤더 배너광고 -->
 		<!-- 헤더 메뉴 -->
 		<div class="menu">
 			<div class="menu1">

@@ -28,7 +28,6 @@ public class MainControl {
 	
 	@GetMapping("/admin_limit")
 	public String admin_limit() {
-		
 		return "admin_limit";
 	}
 }

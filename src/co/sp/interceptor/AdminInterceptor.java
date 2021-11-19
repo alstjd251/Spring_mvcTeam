@@ -19,7 +19,6 @@ public class AdminInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		String contextPath = request.getContextPath();
 		String grade = loginBean.getMem_grade();
-		
 		if(grade == null) {
 			grade = "1";
 		}

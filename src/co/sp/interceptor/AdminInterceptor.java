@@ -18,9 +18,13 @@ public class AdminInterceptor implements HandlerInterceptor {
 	
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		String contextPath = request.getContextPath();
+		String grade = loginBean.getMem_grade();
 		
-		if(!loginBean.getMem_grade().equals("0")) {
-			response.sendRedirect(contextPath + "/admin/admin_limit");
+		if(grade == null) {
+			grade = "1";
+		}
+		if(!grade.equals("0")) {
+			response.sendRedirect(contextPath + "/admin_limit");
 			return false;
 		}
 		return true;

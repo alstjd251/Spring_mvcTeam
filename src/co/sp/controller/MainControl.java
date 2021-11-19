@@ -25,4 +25,10 @@ public class MainControl {
 	public String introduce() {
 		return "compIntroduce/Introduce";
 	}
+	
+	@GetMapping("/admin_limit")
+	public String admin_limit() {
+		
+		return "admin_limit";
+	}
 }

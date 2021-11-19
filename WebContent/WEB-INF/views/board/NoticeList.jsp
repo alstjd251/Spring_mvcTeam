@@ -39,7 +39,7 @@
 		</div>
 	</header>
 	<div class="cs-container">
-		<h2>공지사항</h2>
+		<h1>공지사항</h1>
 		<div class="cs-board01">
 			<div id="cs-menu">
 				<li><a href="${root }board/NoticeList">공지사항</a></li>
@@ -66,7 +66,7 @@
 							<div class = "search">
 								<!--게시판 검색 리스트-->
 								<input name="keyword" placeholder="검색어를 입력하세요." value = "${noticePaging.keyword }"/>
-								<button>검색</button>
+								<button id="search_button">검색</button>
 							</div>
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 					<hr>
 					<!--글쓰기버튼은 관리자용! 일반페이지에는 없앨것-->
 					<div id="cs-button">
-						<a href="${root }board/NoticeWrite">글쓰기</a>
+						<a href="${root }board/NoticeWrite" id="write_button">글쓰기</a>
 					</div>
 					<c:if test="${noticePaging.startPage != 1 }">
 						<a href="${root }board/NoticeList?nowPage=${noticePaging.startPage - 1 }&cntPerPage=${noticePaging.cntPerPage}&keyword=${noticePaging.keyword}">&lt;</a>

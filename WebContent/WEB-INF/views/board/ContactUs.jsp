@@ -38,7 +38,7 @@
 		</div>
 	</header>
 	<div class="cs-container">
-		<h2>Contact Us</h2>
+		<h1>Contact Us</h1>
 		<div class="cs-board01">
 			<div id="cs-menu">
 				<li><a href="${root }board/NoticeList">공지사항</a></li>

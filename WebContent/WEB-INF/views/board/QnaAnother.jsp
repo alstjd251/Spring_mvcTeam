@@ -49,11 +49,11 @@
         </tr>
         <tr>
           <th>제목</th>
-          <td colspan="3"><input type="text" id="qnasub" size="80" /></td>
+          <td colspan="3" style="text-align: left;"><input type="text" id="qnasub" size="80" /></td>
         </tr>
         <tr>
           <th>내용</th>
-          <td colspan="3"><div style="width:400px"><textarea cols="100%" rows="20"></textarea></div></td>
+          <td colspan="3"><div style="width:400px;"><textarea class="text" cols="100%" rows="20%"></textarea></div></td>
         </tr>
       </table>
       <div class="but">
@@ -61,10 +61,7 @@
         <button class="canbut" onclick="canbut()">닫기</button>
       </div>
     </div>
-	<!-- 푸터 -->
-	<footer>
-		<c:import url="/WEB-INF/views/include/footer.jsp"/>
-	</footer>
+	
 	<script type="text/javascript" src="${root }js/n_page.js"></script>
 	<script type="text/javascript">
 	function subut() {

@@ -83,7 +83,6 @@ public class MemControl {
 		System.out.println(mem_num);
 		List<Reservation_s>resBean = rs.getMemReservation(mem_num);
 		
-		System.out.println(resBean);
 		
 		if(mem_grade.equals("1")) {
 			m.addAttribute("memberBean",ms.getMemberInfo(mem_num));

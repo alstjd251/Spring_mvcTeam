@@ -100,7 +100,7 @@
 				</div>
 				<div id="res_info" class="tab_content">
 					<h3>예약정보 조회</h3>
-						<table class="table table-striped table-bordered table-hover">
+						<table class="table table-bordered">
 							<thead>
 								<tr>
 									<th>예약번호</th>
@@ -115,7 +115,7 @@
 							</thead>
 							<tbody>
 								<c:forEach var="obj" items="${reservationBean }">
-								<tr>
+								<tr style="text-align:center;">
 									<%-- <td><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.reservationBean.res_num }','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.reservationBean.res_num }</a></td>
 									<td><input path="c_coursename" id="c_coursename" readonly="readonly" value="${obj.reservationBean.c_coursename }"/></td>
 									<td><input path="c_price" id="c_price" readonly="readonly" value="${obj.reservationBean.course_price }"/></td>
@@ -125,7 +125,7 @@
 									<td><input path="res_personnel" id="res_personnel" readonly="readonly" value="${obj.reservationBean.res_personnel }"/></td>
 									<td><input path="res_paydate" id="res_paydate" readonly="readonly" value="${obj.reservationBean.res_paydate }"/></td> --%>
 									<td><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.res_num }','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.res_num }</a></td>
-									<td>${obj.c_coursename }</td>
+									<td>${obj.course_names }</td>
 									<td>${obj.course_price }</td>
 									<td>${obj.res_startdate }</td>
 									<td>${obj.loginName }</td>

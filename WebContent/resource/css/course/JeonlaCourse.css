@@ -106,7 +106,17 @@ table tr td {
   display: flex;
   vertical-align: middle;
 }
+.jl_cose_map {
+   border: 1px solid;
+   width: 490px;
+   height: 300px;
+   margin-left: 50px;
+   background-color: black;
+}
 
+.jl_course_p {
+   width: 250px;
+}
 /*------------------------닫기가 가능한 커스텀오버레이---------------------------*/
 .wrap {
    position: absolute;

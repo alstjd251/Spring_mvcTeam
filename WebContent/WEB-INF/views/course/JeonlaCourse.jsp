@@ -62,7 +62,7 @@
 					</thead>
            </table>
            <div class="jl_brewery-memo">
-               <div>2개 코스 <p>45,000</p>원</div>
+               <div>2개 코스 <p>45,000원</p></div>
                <p>*도로 교통상황에 따라 도착시간이 달라질 수 있습니다.</p>
            </div>
            <div class="jl_brewery-title02">Brewery Information</div>
@@ -84,7 +84,7 @@
                    ■Instagram: cooleagan
                    </p>
                    </div>
-                   <div><!--지도 api넣어줘 지성아^^--></div>
+                   <div class="jl_cose_map" id="gyung_cose3"></div>
                </div>
            </div>
 
@@ -105,7 +105,7 @@
                    ■Instagram: thehan.kr
                    </p>
                    </div>
-                   <div><!--지도 api넣어줘 지성아^^--></div>
+                   <div class="jl_cose_map" id="gyung_cose3"></div>
                </div>
           	</div> 
        	</div>

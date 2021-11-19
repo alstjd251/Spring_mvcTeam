@@ -99,5 +99,10 @@ public class NoticeControl {
 		
 		return "board/NoticeDelete";
 	}
+	
+	@GetMapping("/limit")
+	public String limit() {
+		return "board/limit";
+	}
 }
 

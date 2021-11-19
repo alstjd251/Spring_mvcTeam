@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="${root }css/include/wave.css" />
 <script src="${root }js/zip.js"></script>
 <script src="${root }js/mypage.js"></script>
+<script src="${root }js/n_page.js"></script>
 <link href="${root }css/include/n_header_footer.css" rel="stylesheet"
 	type="text/css" />
 </head>
@@ -55,11 +56,11 @@
 						<table class="table table-bordered">
 							<tr>
 								<th>아이디</th>
-								<td><input type="text" path="mem_id" id="mem_id"></td>
+								<td><form:input path="mem_id" id="mem_id" readonly="true"/></td>
 							</tr>
 							<tr>
 								<th>비밀번호</th>
-								<td><input type="text" id="mem_pw"> <input
+								<td><form:password path="mem_pw" id="mem_pw" value=""/> <input
 									type="button" class="btn btn-danger" id="pw_bt"
 									value="비밀번호 변경하기" onclick="setDisable()"></td>
 							</tr>
@@ -69,35 +70,29 @@
 							</tr>
 							<tr>
 								<th>이름</th>
-								<td><input type="text" path="mem_name" id="mem_name"></td>
+								<td><form:input path="mem_name" id="mem_name" readonly="true"/></td>
 							</tr>
 							<tr>
 								<td>주민번호</td>
-								<td><input type="text" maxlength="6"
-									placeholder="생년월일 6자리 000000" path="mem_joomin" id="mem_joomin">
-									- <input type="text" path="mem_gender" id="mem_gender"
-									maxlength="1" size="1"> ******</td>
+								<td><form:input maxlength="6" placeholder="생년월일 6자리" path="mem_joomin" id="mem_joomin" readonly="true"/>
+									- <form:input path="mem_gender" id="mem_gender" maxlength="1" size="1" readonly="true"/> ******</td>
 							</tr>
 
 							<tr>
 								<td>이메일</td>
-								<td><input type="email" path="mem_mail" id="mem_mail">
+								<td><form:input type="email" path="mem_mail" id="mem_mail"/>
 								</td>
 							</tr>
 							<tr>
 								<td>연락처</td>
-								<td><input type="tel" placeholder="연락처 - 제외"
-									path="mem_phone" id="mem_phone"></td>
+								<td><form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone"/></td>
 							</tr>
 							<tr>
 								<td>주소</td>
-								<td><input type="text" id="sample6_postcode"
-									placeholder="우편번호" path="mem_post"> <input
-									type="button" onclick="sample6_execDaumPostcode()"
-									value="우편번호 찾기"><br /> <input type="text"
-									id="sample6_address" placeholder="주소" path="mem_addr1"><br />
-									<input type="text" id="sample6_detailAddress"
-									placeholder="상세주소" path="mem_addr2"></td>
+								<td><form:input id="sample6_postcode" placeholder="우편번호" path="mem_post"/> 
+								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br /> 
+								<form:input id="sample6_address" placeholder="주소" path="mem_addr1"/><br />
+								<form:input id="sample6_detailAddress" placeholder="상세주소" path="mem_addr2"/></td>
 							</tr>
 						</table>
 						<input class="btn btn-default" type="button" value="수정">
@@ -123,7 +118,7 @@
 							<tbody>
 								<tr>
 									<td><a path="res_num" id="res_num"
-										onclick="window.open('${root}views/member/mypage_reservation','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">예약번호</a></td>
+										onclick="window.open('${root}member/mypage_reservation','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">예약번호</a></td>
 									<td><input type="text" path="c_coursename"
 										id="c_coursename"></td>
 									<td><input type="text" path="c_price" id="c_price"></td>

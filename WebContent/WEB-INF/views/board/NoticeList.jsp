@@ -42,9 +42,9 @@
 		<h2>고객지원</h2>
 		<div class="cs-board01">
 			<div id="cs-menu">
-				<li>공지사항</li>
-				<li>Q&A</li>
-				<li>Contact Us</li>
+				<li><a href="${root }board/NoticeList">공지사항</a></li>
+				<li><a href="${root }board/NoticeList">QnA</a></li>
+				<li><a href="${root }board/NoticeList">Contact Us</a></li>
 			</div>
 			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
 		</div>
@@ -57,21 +57,23 @@
 			<div id="cs-listContainer">
 				<div id="cs-listBoard">
 					<div id="cs-search">
-						<select id="cntPerPage" name="sel" onchange="selChange()">
-							<option value="5"
-								<c:if test="${noticePaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
-							<option value="10"
-								<c:if test="${noticePaging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
-							<option value="15"
-								<c:if test="${noticePaging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
-							<option value="20"
-								<c:if test="${noticePaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
-						</select>
-						
-						<div class = "search">
-							<!--게시판 검색 리스트-->
-							<input name="keyword" placeholder="검색어를 입력하세요." value = "${noticePaging.keyword }"/>
-							<button>검색</button>
+						<div style="display: flex; justify-content: space-between;">
+							<select id="cntPerPage" name="sel" onchange="selChange()">
+								<option value="5"
+									<c:if test="${noticePaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+								<option value="10"
+									<c:if test="${noticePaging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+								<option value="15"
+									<c:if test="${noticePaging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
+								<option value="20"
+									<c:if test="${noticePaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
+							</select>
+							
+							<div class = "search">
+								<!--게시판 검색 리스트-->
+								<input name="keyword" placeholder="검색어를 입력하세요." value = "${noticePaging.keyword }"/>
+								<button>검색</button>
+							</div>
 						</div>
 					</div>
 				</div>

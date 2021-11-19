@@ -39,7 +39,7 @@
 		<div id="mypage">
 			<div id="mypage_con1">
 				<div id="name_text">
-					<h4>${loginBean.mem_name }님의MyPage</h4>
+					<h4>${loginBean.mem_name } 님의 MyPage</h4>
 				</div>
 				<ul class="tabs">
 					<li class="tab_link current" data-tab="modify">회원정보 수정</li>
@@ -195,5 +195,6 @@
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp" />
 	</footer>
+	<script type="text/javascript" src="${root }js/n_page.js"></script>
 </body>
 </html>

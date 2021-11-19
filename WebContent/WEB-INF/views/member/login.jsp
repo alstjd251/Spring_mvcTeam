@@ -51,7 +51,7 @@
 	</c:if>
 	</div>
 	<div style="display: flex; align-items: center; justify-content: center">
-		<div style="margin-bottom: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+		<div style="margin-bottom: 250px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
 			<form:form class="form-horizontal" action="login_proc" modelAttribute="memberBean">
 				<div class="idnosign" style="display: flex">
 					<div class="form-group">

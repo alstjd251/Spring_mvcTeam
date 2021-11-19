@@ -1,5 +1,5 @@
 
-            var cose1 = new kakao.maps.LatLng(37.48046381265308, 126.98317932931961);
+            var cose1 = new kakao.maps.LatLng(37.47978299845409, 126.98339770234915);
             var cose2 = new kakao.maps.LatLng(36.97125147009303, 126.87366355487707);
             var cose3 = new kakao.maps.LatLng(37.25743703925287, 126.58231542190053);
 

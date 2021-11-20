@@ -14,13 +14,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import co.sp.beans.BoardPage;
 import co.sp.beans.Member_s;
 import co.sp.beans.Notice_s;
+import co.sp.beans.Qna_s;
 import co.sp.service.NoticeService;
+import co.sp.service.QnaService;
 
 @Controller
 @RequestMapping("/board")
 public class NoticeControl {
 	@Autowired
 	private NoticeService ns;
+	
+	@Autowired
+	private QnaService qs;
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
@@ -113,11 +118,20 @@ public class NoticeControl {
 		return "board/ContactUs";
 	}
 	@GetMapping("/QnaAnother")
-	public String qnaanother() {
+	public String qnaanother(@ModelAttribute("qnaBean") Qna_s qnaBean) {
+		
 		return "board/QnaAnother";
 	}
+	
+	@PostMapping("/QnaAnother_proc")
+	public String qnaProc(@ModelAttribute("qnaBean") Qna_s qnaBean, Model m) {
+		qs.addQna(qnaBean);
+		return "board/QnaAnotherSucess";
+	}
+	
 	@GetMapping("/QnaAnotherSucess")
 	public String qnaanothersucess() {
+		
 		return "board/QnaAnotherSucess";
 	}
 }

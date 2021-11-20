@@ -23,7 +23,7 @@ public class Member_s {
 	
 	private int mem_num;
 	
-	@Size(min = 5, max = 20)
+	@Size(min = 4, max = 20)
 	@Pattern(regexp = "[a-zA-Z0-9]*")
 	@NotBlank
 	private String mem_id;

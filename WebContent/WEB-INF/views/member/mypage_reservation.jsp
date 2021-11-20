@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="${root }css/include/wave.css" />
 </head>
 <body>
-
+<form:form>
 	<table class="table table-bordered">
 		<tr>
 		<th>예약번호</th>
@@ -56,6 +56,6 @@
 	</table>
 	<input class="btn btn-default" type="button" id="" value="예약취소">
 	<input class="btn btn-default" type="button" id="" value="닫기" onclick="self.close();">
-	</form>
+</form:form>
 </body>
 </html>

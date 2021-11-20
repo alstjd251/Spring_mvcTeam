@@ -11,7 +11,7 @@ import co.sp.beans.BoardPage;
 import co.sp.beans.Qna_s;
 
 public interface QnaMapper {
-	@Insert("insert into qna_s values(q_qnanum_seq.NEXTVAL, #{q_qnatitle}, #{q_qnacontent}, sysdate, #{q_qnacnt}, #{q_mnum})")
+	@Insert("insert into qna_s values(q_qnanum_seq.NEXTVAL, #{q_qnatitle}, #{q_qnacontent}, sysdate, 0, #{q_mnum})")
 	void addQna(Qna_s qnaBean);
 	
 	@Delete("delete from qna_s where n_mnum LIKE #{n_mnum}")

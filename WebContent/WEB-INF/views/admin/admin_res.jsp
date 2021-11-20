@@ -22,7 +22,7 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="${root}board/admin_res?nowPage=${resPaging.nowPage}&cntPerPage="+sel+"&keyword=${resPaging.keyword}";
+		location.href="${root}admin/admin_res?nowPage=${resPaging.nowPage}&cntPerPage="+sel+"&keyword=${resPaging.keyword}";
 	}
 </script>
 <body>

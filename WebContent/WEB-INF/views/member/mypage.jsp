@@ -20,8 +20,93 @@
 <script src="${root }js/zip.js"></script>
 <script src="${root }js/mypage.js"></script>
 <script src="${root }js/n_page.js"></script>
-<link href="${root }css/include/n_header_footer.css" rel="stylesheet"
-	type="text/css" />
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript">
+function pwCheck(){
+	var mem_pw = $("#mem_pw2").val();
+	var mem_num = $("#mem_num").val();
+	if(mem_pw == ""){
+		Swal.fire({
+			icon: 'warning',
+			title : "입력 오류",
+		    text  : "비밀번호를 입력해주세요.",
+		}).then({
+			return;
+		});
+	}else{
+		var param1 = {'mem_num': mem_num, 'mem_pw': mem_pw}
+		$.ajax({
+			url : '${root}member/deletepwcheck.do',
+			type : 'POST',
+			data : param1,
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			dataType : 'text',
+			success : function(result){
+				if(result.trim() == 'true'){
+					Swal.fire({
+						icon: 'success',
+						title : "변경 완료",
+					    text  : "회원 정보가 변경 되었습니다.",
+					}).then(function(){
+						$("#memModifyForm").submit();
+					});
+				}else{
+					Swal.fire({
+						icon: 'warning',
+						title : "비밀번호 오류",
+					    text  : "비밀번호가 일치하지 않습니다.",
+					}).then(function(){
+						$("#mem_pw").val("");
+					});
+				}
+			}
+		})
+	}
+}
+
+function delMember(){
+	var mem_pw2 = $("#mem_pw").val();
+	var mem_num2 = $("#del_mem_num").val();
+	if(mem_pw == ""){
+		Swal.fire({
+			icon: 'warning',
+			title : "입력 오류",
+		    text  : "비밀번호를 입력해주세요.",
+		}).then({
+			return;
+		});
+	}else{
+		var param2 = {'mem_num': mem_num2, 'mem_pw': mem_pw2}
+		$.ajax({
+			url : '${root}member/modifypwcheck.do',
+			type : 'POST',
+			data : param1,
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			dataType : 'text',
+			success : function(result){
+				if(result.trim() == 'true'){
+					Swal.fire({
+						icon: 'success',
+						title : "탈퇴 완료",
+					    text  : "회원 탈퇴가 정상적으로 완료되었습니다.",
+					}).then(function(){
+						$("#memModifyForm").submit();
+					});
+				}else{
+					Swal.fire({
+						icon: 'warning',
+						title : "비밀번호 오류",
+					    text  : "비밀번호가 일치하지 않습니다.",
+					}).then(function(){
+						$("#mem_pw").val("");
+					});
+				}
+			}
+		})
+	}
+}
+</script>
 </head>
 <body>
 	<!-- 헤더 -->
@@ -52,7 +137,8 @@
 				<div id="modify" class="tab_content current">
 					<!--유효성검사 해야함-->
 					<h3>회원정보 수정</h3>
-					<form:form action="memberModify" method="post" modelAttribute="memberBean">
+					<form:form action="${root }member/memberModify" method="post" modelAttribute="memberBean" id="memModifyForm">
+					<form:hidden path="mem_num" id="mem_num"/>
 						<table class="table table-bordered">
 							<tr>
 								<th>아이디</th>
@@ -60,13 +146,16 @@
 							</tr>
 							<tr>
 								<th>비밀번호</th>
-								<td><form:password path="mem_pw" id="mem_pw" value=""/> <input
-									type="button" class="btn btn-danger" id="pw_bt"
-									value="비밀번호 변경하기" onclick="setDisable()"></td>
+								<td>
+									<form:password path="mem_pw" id="mem_pw" value=""/>
+									<input type="button" class="btn btn-danger" id="pw_bt" value="비밀번호 변경하기" onclick="setDisable()">
+								</td>
 							</tr>
 							<tr>
 								<th>비밀번호 확인</th>
-								<td><input type="text" id="mem_pw2" disabled></td>
+								<td>
+									<input type="text" id="mem_pw2" disabled>
+								</td>
 							</tr>
 							<tr>
 								<th>이름</th>
@@ -80,22 +169,32 @@
 
 							<tr>
 								<td>이메일</td>
-								<td><form:input type="email" path="mem_mail" id="mem_mail"/>
+								<td>
+									<form:input type="email" path="mem_mail" id="mem_mail"/>
+									<form:errors path="mem_mail"/>
 								</td>
 							</tr>
 							<tr>
 								<td>연락처</td>
-								<td><form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone"/></td>
+								<td>
+									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone"/>
+									<form:errors path="mem_phone"/>
+								</td>
 							</tr>
 							<tr>
 								<td>주소</td>
-								<td><form:input id="sample6_postcode" placeholder="우편번호" path="mem_post" readonly="true"/> 
-								<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br /> 
-								<form:input id="sample6_address" placeholder="주소" path="mem_addr1"/><br />
-								<form:input id="sample6_detailAddress" placeholder="상세주소" path="mem_addr2"/></td>
+								<td>
+									<form:input id="sample6_postcode" placeholder="우편번호" path="mem_post" readonly="true"/> 
+									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br />
+									<form:errors path="mem_post"/>
+									<form:input id="sample6_address" placeholder="주소" path="mem_addr1"/><br />
+									<form:errors path="mem_addr1"/>
+									<form:input id="sample6_detailAddress" placeholder="상세주소" path="mem_addr2"/>
+									<form:errors path="mem_addr2"/>
+								</td>
 							</tr>
 						</table>
-						<form:button class="btn btn-default">수정</form:button>
+						<input type="button" class="btn btn-default" value="수정" onclick="pwCheck()"/>
 					</form:form>
 				</div>
 				<div id="res_info" class="tab_content">
@@ -116,14 +215,14 @@
 							<tbody>
 								<c:forEach var="obj" items="${reservationBean }">
 								<tr style="text-align:center;">
-									<td><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.res_num }','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.res_num }</a></td>
-									<td>${obj.course_names }</td>
-									<td>${obj.course_price }</td>
-									<td>${obj.res_startdate }</td>
-									<td>${obj.loginName }</td>
-									<td>${obj.loginPhone }</td>
-									<td>${obj.res_personnel }</td>
-									<td>${obj.res_paydate }</td>
+									<td><div><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.res_num }','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.res_num }</a></div></td>
+									<td><div>${obj.course_names }</div></td>
+									<td><div>${obj.course_price }</div></td>
+									<td><div>${obj.res_startdate }</div></td>
+									<td><div>${obj.loginName }</div></td>
+									<td><div>${obj.loginPhone }</div></td>
+									<td><div>${obj.res_personnel }</div></td>
+									<td><div>${obj.res_paydate }</div></td>
 								</tr>
 								</c:forEach>
 							</tbody>
@@ -149,7 +248,7 @@
 									id="partners_name"></td>
 							</tr>
 							<tr>
-								<th>회사대표번호</th>
+								<th>대표자번호</th>
 								<td><input type="text" path="partners_tel"
 									id="partners_tel"></td>
 							</tr>
@@ -174,11 +273,11 @@
 				</div>
 				<div id="delete" class="tab_content">
 					<h2>정말 탈퇴하시겠습니까?</h2>
-					<form>
-						비밀번호 <input type="text" path="mem_pw" id="mem_pw"> <input
-							class="btn btn-default" type="button" id="delete_button"
-							value="탈퇴">
-					</form>
+					<form:form action="${root }member/deleteMember" modelAttribute="memberBean" id="deleteMember">
+						<form:hidden path="mem_num" id="del_mem_num"/>
+						비밀번호 <form:password path="mem_pw" id="mem_pw2" value=""/>
+						<input class="btn btn-default" type="button" id="delete_button" value="탈퇴" onclick="delMember()"/>
+					</form:form>
 				</div>
 			</div>
 		</div>

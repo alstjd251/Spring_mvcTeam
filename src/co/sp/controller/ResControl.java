@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -76,4 +77,13 @@ public class ResControl {
 	public String checkRes() {
 		return "reservation/checkRes";
 	}
+	
+	@PostMapping("/cancelRes")
+	public String cancelRes(@ModelAttribute("resBean") Reservation_s resBean) {
+		
+		resService.deleteReservation(resBean);
+		
+		return "reservation/resCancel_success";
+	}
+	
 }

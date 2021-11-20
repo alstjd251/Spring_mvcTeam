@@ -41,4 +41,12 @@ public class ResService {
 	public int resCount(BoardPage bp) {
 		return resDao.resCount(bp);
 	}
+	
+	public void deleteReservation(Reservation_s resBean) {
+		resDao.deleteReservation(resBean);
+	}
+	
+	public Reservation_s getOneReservation(String res_num) {
+		return resDao.getOneReservation(res_num);
+	}
 }

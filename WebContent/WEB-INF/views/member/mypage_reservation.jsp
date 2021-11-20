@@ -19,42 +19,42 @@
 <link rel="stylesheet" href="${root }css/include/wave.css" />
 </head>
 <body>
-<form:form>
+<form:form action="${root }reservation/cancelRes" modelAttribute="resBean">
 	<table class="table table-bordered">
 		<tr>
-		<th>예약번호</th>
-		<td><input type="text" path="res_num" id="res_num"></td>
+			<th>예약번호</th>
+			<td><form:input path="res_num" id="res_num" readonly="true"/></td>
 		</tr>
 		<tr>
 			<th>코스</th>
-			<td><input type="text" path="c_coursename" id="c_coursename"></td>
+			<td><form:input path="course_names" id="course_names" readonly="true"/></td>
 		</tr>
 		<tr>
 			<th>예약일자</th>
-			<td><input type="text" path="res_startdate" id="res_startdate"></td>
+			<td><form:input path="res_startdate" id="res_startdate" readonly="true"/></td>
 		</tr>
 		<tr>
 			<th>결제일자</th>
-			<td><input type="text" path="res_paydate" id="res_paydate"></td>
+			<td><form:input path="res_paydate" id="res_paydate" readonly="true"/></td>
 		</tr>
 		<tr>
 			<th>금액</th>
-			<td><input type="text" path="c_price" id="c_price"></td>
+			<td><form:input path="course_price" id="course_price" readonly="true"/></td>
 		</tr>
 		<tr>
 			<th>예약자명</th>
-			<td><input type="text" path="mem_name" id="mem_name"></td>
+			<td><form:input path="loginName" id="mem_name" readonly="true"/></td>
 		</tr>
 		<tr>
 			<th>예약자 연락처</th>
-			<td><input type="text" path="mem_phone" id="mem_phone"></td>
+			<td><form:input path="loginPhone" id="mem_phone" readonly="true"/></td>
 		</tr>
 		<tr>
 			<th>인원</th>
-			<td><input type="text" path="res_personnel" id="res_personnel"></td>
+			<td><form:input path="res_personnel" id="res_personnel" readonly="true"/></td>
 		</tr>
 	</table>
-	<input class="btn btn-default" type="button" id="" value="예약취소">
+	<form:button class="btn btn-default">예약취소</form:button>
 	<input class="btn btn-default" type="button" id="" value="닫기" onclick="self.close();">
 </form:form>
 </body>

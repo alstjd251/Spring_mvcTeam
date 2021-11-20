@@ -118,16 +118,17 @@ public class MemControl {
 	}
 	
 	@GetMapping("/mypage_reservation")
-	public String my_reservation(@ModelAttribute Member_s memberBean, Model m) {
+	public String my_reservation(@ModelAttribute("resBean") Reservation_s resBean, Model m) {
+		String resnum = resBean.getRes_num();
+		
+		m.addAttribute("resBean", rs.getOneReservation(resnum));
 		
 		return "member/mypage_reservation";
 	}
 	
 	@PostMapping("/memberModify")
-	public String memberModify(@ModelAttribute("memberBean") @Valid Member_s memberBean, Model m, BindingResult result) {
-		if(result.hasErrors()) {
-			return "member/mypage";
-		}
+	public String memberModify(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
 		ms.memberUpdate(memberBean);
 		
 		return "member/mypage";

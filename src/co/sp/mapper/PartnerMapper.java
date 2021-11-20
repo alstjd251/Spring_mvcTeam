@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Update;
 
 import co.sp.beans.BoardPage;
 import co.sp.beans.Notice_s;
+import co.sp.beans.Partners_s;
 
 public interface PartnerMapper {
 	@Insert("insert into partners_s values(#{partners_code}, #{partners_name}, #{partners_tel}, #{partners_mail})")
@@ -24,5 +25,5 @@ public interface PartnerMapper {
 	int partnerCount(BoardPage bp);
 	
 	@Select("select * from (select ROWNUM RN, A.* from (select * from partners_s where partners_name like '%'||#{keyword, jdbcType=VARCHAR}||'%' order by partners_code) A) where RN between #{start} and #{end}")
-	List<Notice_s> allPartner(BoardPage bp);
+	List<Partners_s> allPartner(BoardPage bp);
 }

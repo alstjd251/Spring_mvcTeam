@@ -48,8 +48,10 @@
 					<c:if test="${memberPaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 			</select>
 			<div>
-				<input type="text" id="keyword" value="">
-				<button class="btn btn-default" type="button">검색</button>
+				<div class = "search">
+					<input type="text" name="keyword" placeholder="회원이름으로 검색합니다." value="${memberPaging.keyword }">
+					<button class="btn btn-default" type="button">검색</button>
+				</div>
 				<table id="t_set" class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>

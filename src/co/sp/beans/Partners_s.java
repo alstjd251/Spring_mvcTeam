@@ -8,6 +8,7 @@ public class Partners_s {
 	private String partners_code;
 	private String partners_name;
 	private String partners_tel;
+	private String partners_mail;
 
 	public String getPartners_code() {
 		return partners_code;
@@ -33,4 +34,11 @@ public class Partners_s {
 		this.partners_tel = partners_tel;
 	}
 
+	public String getPartners_mail() {
+		return partners_mail;
+	}
+
+	public void setPartners_mail(String partners_mail) {
+		this.partners_mail = partners_mail;
+	}
 }

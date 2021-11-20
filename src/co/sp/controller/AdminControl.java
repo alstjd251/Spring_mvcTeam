@@ -46,7 +46,7 @@ public class AdminControl {
 	public String mem_modify(BoardPage bp, @ModelAttribute("memberBean") Member_s memberBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
-			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
+			, @RequestParam(value="keyword", required=false)String keyword) {
 		bp.setKeyword(keyword);
 		int memberTotal = ms.memCount(bp);
 		
@@ -74,7 +74,7 @@ public class AdminControl {
 	public String mem_partner(BoardPage bp, @ModelAttribute("partnerBean") Partners_s partnerBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
-			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
+			, @RequestParam(value="keyword", required=false)String keyword) {
 		bp.setKeyword(keyword);
 		int partnerTotal = ps.partnerCount(bp);
 		
@@ -102,7 +102,7 @@ public class AdminControl {
 	public String admin_res(BoardPage bp, @ModelAttribute("resBean") Reservation_s resBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
-			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
+			, @RequestParam(value="keyword", required=false)String keyword) {
 		bp.setKeyword(keyword);
 		int resTotal = rs.resCount(bp);
 		
@@ -130,7 +130,7 @@ public class AdminControl {
 	public String admin_qna(BoardPage bp, @ModelAttribute("qnaBean") Qna_s qnaBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
-			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
+			, @RequestParam(value="keyword", required=false)String keyword) {
 		bp.setKeyword(keyword);
 		int qnaTotal = qs.qnaCount(bp);
 		

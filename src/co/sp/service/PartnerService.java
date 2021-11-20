@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import co.sp.beans.BoardPage;
 import co.sp.beans.Notice_s;
+import co.sp.beans.Partners_s;
 import co.sp.dao.PartnerDao;
 
 @Service
@@ -30,7 +31,7 @@ public class PartnerService {
 		return partnerDao.partnerCount(bp);
 	}
 	
-	public List<Notice_s> allPartner(BoardPage bp){
+	public List<Partners_s> allPartner(BoardPage bp){
 		return partnerDao.allPartner(bp);
 	}
 }

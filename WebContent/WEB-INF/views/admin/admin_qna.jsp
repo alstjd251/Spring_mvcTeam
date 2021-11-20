@@ -48,8 +48,10 @@
 					<c:if test="${qnaPaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 			</select>
 			<div>
-				<input type="text" id="keyword" value="">
-				<button class="btn btn-default" type="button">검색</button>
+				<div class = "search">
+					<input type="text" name="keyword" placeholder="질문 제목으로 검색합니다." value="${qnaPaging.keyword }">
+					<button class="btn btn-default" type="button">검색</button>
+				</div>
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>

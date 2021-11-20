@@ -48,12 +48,13 @@
 					<c:if test="${partnerPaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 			</select>
 			<div>
-				<input type="text" id="keyword" value="">
-				<button class="btn btn-default" type="button">검색</button>
+				<div class = "search">
+					<input type="text" name="keyword" placeholder="업체 대표자 명으로 검색합니다." value="${partnerPaging.keyword }">
+					<button class="btn btn-default" type="button">검색</button>
+				</div>
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>회원번호</th>
 							<th>사업자번호</th>
 							<th>업체명</th>
 							<th>대표자</th>
@@ -63,10 +64,9 @@
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var='obj' items="${qnaList }">
+						<c:forEach var='obj' items="${partnerList }">
 							<tr>
-								<td><a href="#">mem_num</a></td>
-								<td>${obj.partners_code }</td>
+								<td><a onclick="window.open('${root}admin/admin_partner_modify?partners_code=${obj.partners_code }','협력업체 정보 변경','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
 								<td>brew_name</td>
 								<td>${obj.partners_name }</td>
 								<td>${obj.partners_tel }</td>

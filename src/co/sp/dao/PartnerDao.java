@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import co.sp.beans.BoardPage;
 import co.sp.beans.Notice_s;
+import co.sp.beans.Partners_s;
 import co.sp.mapper.PartnerMapper;
 
 @Repository
@@ -30,7 +31,7 @@ public class PartnerDao {
 		return partnermapper.partnerCount(bp);
 	}
 	
-	public List<Notice_s> allPartner(BoardPage bp){
+	public List<Partners_s> allPartner(BoardPage bp){
 		return partnermapper.allPartner(bp);
 	}
 }

@@ -22,7 +22,7 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="${root}board/admin_qna?nowPage=${qnaPaging.nowPage}&cntPerPage="+sel+"&keyword=${qnaPaging.keyword}";
+		location.href="${root}admin/admin_qna?nowPage=${qnaPaging.nowPage}&cntPerPage="+sel+"&keyword=${qnaPaging.keyword}";
 	}
 </script>
 <body>

@@ -3,11 +3,13 @@ package co.sp.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import co.sp.beans.BoardPage;
 import co.sp.beans.Qna_s;
 import co.sp.mapper.QnaMapper;
 
+@Repository
 public class QnaDao {
 	@Autowired
 	private QnaMapper qnamapper;

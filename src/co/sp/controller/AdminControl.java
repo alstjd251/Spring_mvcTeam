@@ -12,10 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.BoardPage;
 import co.sp.beans.Member_s;
+import co.sp.beans.Partners_s;
 import co.sp.beans.Qna_s;
 import co.sp.beans.Reservation_s;
 import co.sp.service.MemService;
-import co.sp.service.NoticeService;
+import co.sp.service.PartnerService;
 import co.sp.service.QnaService;
 import co.sp.service.ResService;
 
@@ -29,10 +30,10 @@ public class AdminControl {
 	private ResService rs;
 	
 	@Autowired
-	private NoticeService ns;
+	private QnaService qs;
 	
 	@Autowired
-	private QnaService qs;
+	private PartnerService ps;
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
@@ -48,9 +49,6 @@ public class AdminControl {
 			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
 		bp.setKeyword(keyword);
 		int memberTotal = ms.memCount(bp);
-		
-		System.out.println(memberTotal);
-		System.out.println(ms.allMember(bp));
 		
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -73,7 +71,30 @@ public class AdminControl {
 	}
 	
 	@GetMapping("admin_partner")
-	public String mem_partner() {
+	public String mem_partner(BoardPage bp, @ModelAttribute("partnerBean") Partners_s partnerBean, Model m
+			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
+			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
+			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
+		bp.setKeyword(keyword);
+		int partnerTotal = ps.partnerCount(bp);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		}
+		else if (nowPage == null) {
+			nowPage = "1";
+		}
+		else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		
+		bp = new BoardPage(partnerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
+
+		m.addAttribute("partnerList", ps.allPartner(bp));
+		m.addAttribute("partnerPaging", bp);
+		m.addAttribute("partnerTotal", partnerTotal);
+		
 		return "admin/admin_partner";
 	}
 	
@@ -84,9 +105,6 @@ public class AdminControl {
 			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
 		bp.setKeyword(keyword);
 		int resTotal = rs.resCount(bp);
-		
-		System.out.println(resTotal);
-		System.out.println(rs.allReservation(bp));
 		
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -115,9 +133,6 @@ public class AdminControl {
 			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
 		bp.setKeyword(keyword);
 		int qnaTotal = qs.qnaCount(bp);
-		
-		System.out.println(qnaTotal);
-		System.out.println(qs.allQna(bp));
 		
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";

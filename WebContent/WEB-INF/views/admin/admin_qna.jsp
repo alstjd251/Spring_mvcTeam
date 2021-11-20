@@ -19,6 +19,12 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }css/adminCss.css" />
 </head>
+<script>
+	function selChange() {
+		var sel = document.getElementById('cntPerPage').value;
+		location.href="${root}board/admin_qna?nowPage=${qnaPaging.nowPage}&cntPerPage="+sel+"&keyword=${qnaPaging.keyword}";
+	}
+</script>
 <body>
 	<div class = "admin_menu_bar">
 		<form action = "${root }main"><input type ="submit" value = "main"/></form>

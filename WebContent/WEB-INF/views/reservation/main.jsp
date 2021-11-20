@@ -37,6 +37,44 @@
 
 <script type="text/javascript">
 	var price = 0;
+	$(window).on("load", function() {
+			var course_number = $("#course_number").val();
+			var res_subcategory = $("#res_subcategory");
+			switch(course_number) {
+			case "1":
+				res_subcategory.val("1").attr("selected", "selected");
+				price = ${getCourseIdx.get(0).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg1.png");
+				break;
+			case "2":
+				res_subcategory.val("2").attr("selected", "selected");
+				price = ${getCourseIdx.get(1).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg2.png");
+				break;
+			case "3":
+				res_subcategory.val("3").attr("selected", "selected");
+				price = ${getCourseIdx.get(2).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg3.png");
+				break;
+			case "4":
+				res_subcategory.val("4").attr("selected", "selected");
+				price = ${getCourseIdx.get(3).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg4.png");
+				break;
+			case "5":
+				res_subcategory.val("5").attr("selected", "selected");
+				price = ${getCourseIdx.get(4).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg5.png");
+				break;
+			case "6":
+				res_subcategory.val("6").attr("selected", "selected");
+				price = ${getCourseIdx.get(5).course_price};
+				$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg6.png");
+				break;
+			}
+			document.getElementById("res_price").innerHTML = price;
+	});
+	
 	function selected() {
 		var num = $("#res_subcategory").val();
 		switch (num) {
@@ -69,9 +107,10 @@
 			$("#res_course_img").attr("src","${root}img/reservation/backimg/courseimg6.png");
 			break;
 		}
+		
 		document.getElementById("res_price").innerHTML = price;
 	}
-
+	
 	function resSelect() {
 		var course_sel = $("#res_subcategory").val();
 		var date = $("#res_date").val();
@@ -127,6 +166,7 @@
 			
 		}
 	}
+	
 </script>
 </head>
 <body>
@@ -152,22 +192,25 @@
 		<div id="reservation">
 			<!--유효성검사 해야함-->
 			<div id="res_con1">
+			<input type="hidden" value="${course_number }" id="course_number">
 				<select id="res_subcategory" onchange="selected()"
 					style="background: url(${root}img/reservation/icon/bg_select.png) no-repeat right 13px center;">
 					<option value="-1">코스를 선택하세요.</option>
 					<c:forEach var="obj" items="${getCourseIdx }">
 						<option value="${obj.course_num }">${obj.course_names }</option>
 					</c:forEach>
-				</select> <input type="date" id="res_date">
+				</select>
+				<b style="font-size: 18px; margin-top: 10px;">인당</b>
+				<img src="${root }img/reservation/icon/won.png" id="res_priceimg" />
+						<span style="font-size: 20px" id="res_price"></span>
+				 <input type="date" id="res_date">
 				<div id="res_perdiv1">
 					<div id="res_perdiv2">
 						<b style="font-size: 18px; margin-top: 10px;">인원</b>
 						<p id="minus" onclick="minus()">-</p>
 						<p id="res_personnel">1</p>
 						<p id="plus" onclick="plus()">+</p>
-						<img src="${root }img/reservation/icon/won.png" id="res_priceimg2" />
-						<!-- res_priceimg로 두개다 주니까 위치가 안예뻐서 이름 변경해서 css 따로 줌 -->
-						<span style="font-size: 20px" id="res_price"></span> <input
+						<input
 							type="button" id="res_ch" onclick="resSelect()" value="선택">
 
 					</div>
@@ -175,7 +218,7 @@
 			</div>
 			<div id="res_course"><img id="res_course_img" src="${root }img/reservation/backimg/courseimg.png" width="100%" height="100%"/> </div>
 			<form:form action="${root }reservation/reserve"
-				modelAttribute="reservationBean">
+				modelAttribute="reservationBean" id="reserveForm">
 				<div id="res_con2">
 					<div id="res_info">
 						<table class="table" id="table1">
@@ -255,10 +298,9 @@
 
 	<script type="text/javascript">
 		/*결제*/
-		$(document).ready(function(){
-			$("#res_button").click(function(e){
+			$("#res_button").click(function (e){
 		    var IMP = window.IMP; // 생략가능
-		    IMP.init('imp61967006'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
+		    IMP.init('imp29172367'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용
 		    var msg;
 		    
 		    IMP.request_pay({
@@ -298,19 +340,21 @@
 		                    //[3] 아직 제대로 결제가 되지 않았습니다.
 		                    //[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
 		                }
+		                
 		            });
 		            //성공시 이동할 페이지
-		            location.href='${root}reservation/reserve';
+		            //location.href='${root}reservation/reserve';
+		            let reserveForm = $("#reserveForm");
+		            reserveForm.submit();
 		        } else {
 		            msg = '결제에 실패하였습니다.';
 		            msg += '에러내용 : ' + rsp.error_msg;
 		            //실패시 이동할 페이지
-		            location.href='${root}reservation/main';
+		            location.href='${root}reservation/main'; 
 		alert(msg);
 		}
 	 });
-  });
-});
+	});  
 	</script>
 
 	<script type="text/javascript" src="${root }js/n_page.js"></script>

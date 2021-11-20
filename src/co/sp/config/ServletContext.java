@@ -176,7 +176,7 @@ public class ServletContext implements WebMvcConfigurer {
 //		
 		LoginCheckInterceptor loginInterceptor = new LoginCheckInterceptor(loginBean);
 		InterceptorRegistration reg2 = registry.addInterceptor(loginInterceptor);
-		reg2.addPathPatterns("/reservation/**");
+		reg2.addPathPatterns("/reservation/**","/board/QnaAnother");
 		reg2.excludePathPatterns("/main");
 		
 		AdminInterceptor adminInterceptor = new AdminInterceptor(loginBean);	

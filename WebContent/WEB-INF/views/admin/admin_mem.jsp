@@ -50,34 +50,34 @@
 			<div>
 				<input type="text" id="keyword" value="">
 				<button class="btn btn-default" type="button">검색</button>
-				<table class="table table-striped table-bordered table-hover">
+				<table id="t_set" class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>회원번호</th>
-							<th>회원등급</th>
-							<th>아이디</th>
-							<th>이름</th>
-							<th>주민번호</th>
-							<th>성별</th>
-							<th>연락처</th>
-							<th>이메일</th>
-							<th>가입일</th>
-							<th>주소</th>
+							<th><div>회원번호</div></th>
+							<th><div>회원등급</div></th>
+							<th><div>아이디</div></th>
+							<th><div>이름</div></th>
+							<th><div>주민번호</div></th>
+							<th><div>성별</div></th>
+							<th><div>연락처</div></th>
+							<th><div>이메일</div></th>
+							<th><div>가입일</div></th>
+							<th><div>주소</div></th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var='obj' items="${memberList }">
 							<tr>
 								<td><a href="#">${obj.mem_num}</a></td>
-								<td>${obj.mem_grade }</td>
-								<td>${obj.mem_id }</td>
-								<td>${obj.mem_name }</td>
-								<td>${obj.mem_joomin }</td>
-								<td>${obj.mem_gender }</td>
-								<td>${obj.mem_phone }</td>
-								<td>${obj.mem_mail }</td>
-								<td>${obj.mem_date }</td>
-								<td>${obj.mem_post } ${obj.mem_addr1 } ${obj.mem_addr2 }</td>
+								<td><div>${obj.mem_grade }</div></td>
+								<td><div>${obj.mem_id }</div></td>
+								<td><div>${obj.mem_name }</div></td>
+								<td><div>${obj.mem_joomin }</div></td>
+								<td><div>${obj.mem_gender }</div></td>
+								<td><div>${obj.mem_phone }</div></td>
+								<td><div>${obj.mem_mail }</div></td>
+								<td><div>${obj.mem_date }</div></td>
+								<td><div>${obj.mem_post } ${obj.mem_addr1 } ${obj.mem_addr2 }</div></td>
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -104,5 +104,21 @@ public class NoticeControl {
 	public String limit() {
 		return "board/limit";
 	}
+	@GetMapping("/Qna")
+	public String qna() {
+		return "board/Qna";
+	}
+	@GetMapping("/ContactUs")
+	public String contactus() {
+		return "board/ContactUs";
+	}
+	@GetMapping("/QnaAnother")
+	public String qnaanother() {
+		return "board/QnaAnother";
+	}
+	@GetMapping("/QnaAnotherSucess")
+	public String qnaanothersucess() {
+		return "board/QnaAnotherSucess";
+	}
 }
 

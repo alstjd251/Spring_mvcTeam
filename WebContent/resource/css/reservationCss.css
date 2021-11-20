@@ -1,8 +1,8 @@
 body {
-	margin: 0;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
+   margin: 0;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
 }
 
 /* 예약 section css */
@@ -12,7 +12,7 @@ section {
 }
 
 section #reservation {
-	width:80%;
+   width:80%;
 }
 section #reservation h1{
   
@@ -39,14 +39,14 @@ section #reservation #res_subcategory{
   
 }
 section #reservation #res_perdiv1 {
-	display: flex;
-	width: 45%;
+   display: flex;
+   width: 40%;
 }
 
 section #reservation #res_perdiv2 {
-	display: flex;
-	justify-content: center;
-	width: 100%;
+   display: flex;
+   justify-content: center;
+   width: 100%;
 }
 
 
@@ -63,29 +63,29 @@ section #reservation #res_price{
 }
 
 section #reservation #res_personnel {
-	width: 50px;
-	height: 25px;
-	font-size: 20px;
-	font-weight: bold;
-	margin-top: 5px;
-	text-align: center;
-	color: rgb(59, 59, 59);
-	border: none;
-	margin-left: 5px;
-	margin-right: 5px;
+   width: 50px;
+   height: 25px;
+   font-size: 20px;
+   font-weight: bold;
+   margin-top: 5px;
+   text-align: center;
+   color: rgb(59, 59, 59);
+   border: none;
+   margin-left: 5px;
+   margin-right: 5px;
 }
 
 section #reservation #res_ch {
-	width: 120px;
-	height: 40px;
-	margin-left: 20px;
-	border: 1px solid rgb(59, 59, 59);
-	border-radius: 10px;
-	background-color: rgb(59, 59, 59);
-	color: white;
-	font-size: medium;
-	font-weight: bolder;
-	text-align: center;
+   width: 120px;
+   height: 40px;
+   margin-left: 60px;
+   border: 1px solid rgb(59, 59, 59);
+   border-radius: 10px;
+   background-color: rgb(59, 59, 59);
+   color: white;
+   font-size: medium;
+   font-weight: bolder;
+   text-align: center;
 }
 
 
@@ -103,95 +103,88 @@ section #reservation #res_button{
 }
 
 section #reservation #res_ch:hover, section #reservation #res_button:hover
-	{
-	cursor: pointer;
-	background-color: rgb(37, 36, 36);
+   {
+   cursor: pointer;
+   background-color: rgb(37, 36, 36);
 }
 
 section #reservation #res_date {
-	width: 150px;
-	height: 40px;
-	margin-left: 10px;
-	margin-right: 30px;
-	border: 1px solid rgb(105, 105, 105);
+   width: 180px;
+   height: 40px;
+   border: 1px solid rgb(105, 105, 105);
 }
 
 section #reservation #minus {
-	width: 30px;
-	height: 30px;
-	border: none;
-	margin-left: 10px;
-	color: #444;
-	font-size: 45px;
-	font-weight: bold;
-	border-radius: 20px;
-	text-align: center;
-	line-height: 23px;
-	margin-top: 5px;
+   width: 30px;
+   height: 30px;
+   border: none;
+   margin-left: 10px;
+   color: #444;
+   font-size: 45px;
+   font-weight: bold;
+   border-radius: 20px;
+   text-align: center;
+   line-height: 23px;
+   margin-top: 5px;
 }
 
 section #reservation #plus {
-	width: 30px;
-	height: 30px;
-	border: none;
-	color: #444;
-	font-size: 30px;
-	font-weight: bold;
-	border-radius: 20px;
-	text-align: center;
-	line-height: 30px;
-	margin-top: 5px;
+   width: 30px;
+   height: 30px;
+   border: none;
+   color: #444;
+   font-size: 30px;
+   font-weight: bold;
+   border-radius: 20px;
+   text-align: center;
+   line-height: 30px;
+   margin-top: 5px;
 }
 
 section #reservation #minus:hover, section #reservation #plus:hover {
-	background-color: rgba(141, 141, 141, 0.466);
+   background-color: rgba(141, 141, 141, 0.466);
 }
 
 section #reservation #minus:hover, section #reservation #plus:hover {
-	cursor: pointer;
+   cursor: pointer;
 }
 
 section #reservation #res_priceimg{
 width: 23px;
 height: 23px;
-margin-left: 30px;
-}
-
-section #reservation #res_priceimg2{
-width: 23px;
-height: 23px;
-margin-left: 30px;
 margin-top: 10px;
 }
 
 section #reservation #res_con1 {
-	width: 100%;
-	display: flex;
-	margin-top: 10%;
-	margin-bottom: 10px;
-	justify-content: space-evenly;
+   width: 80%;
+   display: flex;
+   margin-top: 10%;
+   margin-bottom: 10px;
+   margin-left : 20%;
+   justify-content: space-evenly;
+
 }
 
 section #reservation #res_con2 {
-	width: 100%;
-	display: flex;
-	margin-top: 20px;
-	justify-content: space-evenly;
+   width: 100%;
+   display: flex;
+   margin-top: 20px;
+   justify-content: space-evenly;
 }
 section #reservation #res_right{
   width: 20%;
   height: 430px;
 }
 section #reservation #res_course {
-	width: 100%;
-	height: 250px;
+   width: 100%;
+   height: 250px;
 }
 
 section #reservation #res_info {
-	display: flex;
-	flex-direction: column;
-	width: 75%;
-	height: 500px;
+   display: flex;
+   flex-direction: column;
+   width: 75%;
+   height: 500px;
 }
 
 section #reservation #res_perinfo{
@@ -205,15 +198,15 @@ section #reservation #res_perinfo{
 }
 
 section #reservation #res_perinfo #table3 {
-	width: 80%;
-	margin-top:10px;
-	margin-bottom:30px;
+   width: 80%;
+   margin-top:10px;
+   margin-bottom:30px;
 }
 section #reservation #res_right #res_gg {
-	display: flex;
-	height: 150px;
-	margin-bottom: 20px;
-	overflow:hidden;
+   display: flex;
+   height: 150px;
+   margin-bottom: 20px;
+   overflow:hidden;
 }
 
 section #reservation #res_perinfo #table3 th{
@@ -224,32 +217,32 @@ section #reservation #res_perinfo #table3 th{
   border-right: 1px solid rgb(189, 185, 185);
 }
 section #reservation #res_right #res_gg #res_gggg{
-	display: flex;
+   display: flex;
 }
 section #reservation #res_perinfo #table3 input {
-	border:none;
-	width:90%;
+   border:none;
+   width:90%;
 }
 section #reservation #res_info #table1 h4, section #reservation #res_info #table2 h4{
   font-weight: bolder;
   margin-left: 20px;
 }
 section #reservation #res_right #res_gg #res_gggg li{
-	list-style: none;
-	position:relative;
+   list-style: none;
+   position:relative;
 }
 
 .pimg1,.pimg2,.pimg3, .pimg4{
-	height:100%;
+   height:100%;
 }
 section #reservation #res_perinfo {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-	height: 250px;
-	margin-top:10px;
-	align-items: center;
-	border: 2px solid rgb(136, 136, 136);
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 250px;
+   margin-top:10px;
+   align-items: center;
+   border: 2px solid rgb(136, 136, 136);
 }
 section #reservation #table1 ,section #reservation #table2 {
   background-color: white;
@@ -261,14 +254,14 @@ section #reservation #table1 ,section #reservation #table2 {
 }
 
 section #reservation #res_perinfo th {
-	width: 60px;
-	text-align: center;
-	line-height: 30px;
+   width: 60px;
+   text-align: center;
+   line-height: 30px;
 }
 
 section #reservation #res_info h4 {
-	font-weight: bolder;
-	margin-left: 20px;
+   font-weight: bolder;
+   margin-left: 20px;
 }
 
 section #reservation #table1 th, section #reservation #table2 th{
@@ -288,9 +281,9 @@ section #reservation #table1 input, section #reservation #table2 input{
 }
 
 .mainNotice-container01 {
-	display:flex;
-	flex-direction : column;
-	align-items : center;
+   display:flex;
+   flex-direction : column;
+   align-items : center;
   padding: 10%;
   background: linear-gradient(
       0deg,
@@ -305,14 +298,15 @@ section #reservation #table1 input, section #reservation #table2 input{
 }
 
 .mainNotice-container01 .brewery-banner{
-    font-size: 40px;
+    font-size: 50px;
     padding: 10px;
     text-shadow: 2px 2px 2px #636363;
 }
 
-.mainNotice-container01 p{	
-	width:600px;
-	font-size: 20px;
-	margin-top: 10px;
-	background-color: rgba(0, 0, 0, 0.9);
+.mainNotice-container01 p{   
+   width:800px;
+   font-size: 25px;
+   padding : 10px;
+   margin-top: 10px;
+   background-color: rgba(0, 0, 0, 0.9);
 }

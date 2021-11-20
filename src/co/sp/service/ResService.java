@@ -30,7 +30,7 @@ public class ResService {
 	}
 	
 	public List<Reservation_s> getMemReservation(int mem_num){
-		System.out.println(mem_num);
+
 		return resDao.getMemReservation(mem_num);
 	}
 

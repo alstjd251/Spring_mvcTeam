@@ -44,13 +44,22 @@ section #con table{
 }
 
 section #con table thead th{
-    text-align: center; 
+	text-align: -webkit-center;
     background-color: rgb(255, 132, 132);
-    }
+}
 
-    
+section #con table thead th div{
+	text-align: -webkit-center;
+   	width: max-content;
+}
+
+section #con table tbody td div{
+    display: inline-block;
+    text-align: center;
+    width: max-content;
+}    
+     
 section #con table tbody td a{
     display: inline-block;
-    width: 100px;
     text-align: center;
 }

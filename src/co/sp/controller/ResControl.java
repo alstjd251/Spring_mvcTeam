@@ -5,15 +5,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
 import co.sp.beans.Reservation_s;
@@ -30,13 +30,14 @@ public class ResControl {
 	private Member_s loginBean;
 
 	@GetMapping("/main")
-	public String resmain(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
+	public String resmain(@ModelAttribute("reservationBean") Reservation_s reservationBean,@RequestParam(value = "course_number", required = false)String course_number, Model m) {
 		List<Reservation_s> getCourseIdx = resService.getCourseIdx(); 
 		m.addAttribute("getCourseIdx", getCourseIdx);
+		m.addAttribute("course_number", course_number);
 		return "reservation/main";
 	}
 
-	@PostMapping("/reserve")
+	@RequestMapping(value="/reserve", method= {RequestMethod.GET, RequestMethod.POST})
 	public String reserved(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
 
 		String res_num = resService.getRes_seqval();
@@ -75,5 +76,4 @@ public class ResControl {
 	public String checkRes() {
 		return "reservation/checkRes";
 	}
-	
 }

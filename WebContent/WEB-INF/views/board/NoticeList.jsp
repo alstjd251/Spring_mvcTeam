@@ -38,18 +38,12 @@
 		</div>
 	</header>
 	<div class="cs-container">
-		<h2>고객센터</h2>
+		<h1>공지사항</h1>
 		<div class="cs-board01">
 			<div id="cs-menu">
 				<li><a href="${root }board/NoticeList">공지사항</a></li>
-				<li><a href="${root }board/NoticeList">QnA</a></li>
-				<li><a href="${root }board/NoticeList">Contact Us</a></li>
-			</div>
-			<div id="cs-backimg" style="background: url('${root}/img/boardIcon/notice.jpg') center/cover no-repeat;"></div>
-		</div>
-		<div id="cs-titleBox">
-			<div class="page-header" align="center">
-	 			<h1>공지사항</h1>
+				<li><a href="${root }board/Qna">QnA</a></li>
+				<li><a href="${root }board/ContactUs">Contact Us</a></li>
 			</div>
 		</div>
 		<div class="cs-board02">
@@ -71,13 +65,13 @@
 							<div class = "search">
 								<!--게시판 검색 리스트-->
 								<input name="keyword" placeholder="검색어를 입력하세요." value = "${noticePaging.keyword }"/>
-								<button>검색</button>
+								<button id="search_button">검색</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div id="cs-list">
-					<table class="cs-table">
+					<table class="cs-table" height="500px">
 						<thead>
 							<tr>
 								<th>번호</th>
@@ -106,7 +100,7 @@
 					<hr>
 					<!--글쓰기버튼은 관리자용! 일반페이지에는 없앨것-->
 					<div id="cs-button">
-						<a href="${root }board/NoticeWrite">글쓰기</a>
+						<a href="${root }board/NoticeWrite" id="write_button">글쓰기</a>
 					</div>
 					<c:if test="${noticePaging.startPage != 1 }">
 						<a href="${root }board/NoticeList?nowPage=${noticePaging.startPage - 1 }&cntPerPage=${noticePaging.cntPerPage}&keyword=${noticePaging.keyword}">&lt;</a>
@@ -132,7 +126,7 @@
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp"/>
 	</footer>
-	<script type="text/javascript" src="${root }js/page.js"></script>
+	<script type="text/javascript" src="${root }js/n_page.js"></script>
 	
 	<form id="moveForm" method="get">
 		<input type="hidden" name="keyword" value="${noticePaging.keyword }">

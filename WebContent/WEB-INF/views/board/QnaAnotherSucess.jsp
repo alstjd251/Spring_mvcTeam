@@ -16,7 +16,7 @@
 	Swal.fire({
 		icon : "success",
 		title: "성공적으로 완료되었습니다.",
-		text: "빠른 시일 내에 문의해주신 사항에 대한 답변을 드리도록 하겠습니다.",
+		text: "빠른 시일 내에 고객님의 메일로 문의해주신 사항에 대한 답변을 드리도록 하겠습니다.",
 	}).then(function() {
 		location.href="${root}board/Qna";
 	})

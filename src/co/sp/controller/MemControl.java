@@ -84,6 +84,7 @@ public class MemControl {
 		
 		
 		if(mem_grade.equals("1")) {
+			m.addAttribute("loginBean", loginBean);
 			m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
 			m.addAttribute("reservationBean", resBean);
 			return "member/mypage";
@@ -122,5 +123,15 @@ public class MemControl {
 		return "member/mypage_reservation";
 	}
 	
+	@PostMapping("/memberModify")
+	public String memberModify(@ModelAttribute("memberBean") @Valid Member_s memberBean, Model m, BindingResult result) {
+		if(result.hasErrors()) {
+			return "member/mypage";
+		}
+		ms.memberUpdate(memberBean);
+		
+		return "member/mypage";
+		
+	}
 	
 }

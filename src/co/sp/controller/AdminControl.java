@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.BoardPage;
 import co.sp.beans.Member_s;
+import co.sp.beans.Qna_s;
 import co.sp.beans.Reservation_s;
 import co.sp.service.MemService;
 import co.sp.service.NoticeService;
+import co.sp.service.QnaService;
 import co.sp.service.ResService;
 
 @Controller
@@ -29,6 +31,9 @@ public class AdminControl {
 	@Autowired
 	private NoticeService ns;
 	
+	@Autowired
+	private QnaService qs;
+	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
 	
@@ -40,7 +45,7 @@ public class AdminControl {
 	public String mem_modify(BoardPage bp, @ModelAttribute("memberBean") Member_s memberBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
-			, @RequestParam(value="keyword", required=false)String keyword) {
+			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
 		bp.setKeyword(keyword);
 		int memberTotal = ms.memCount(bp);
 		
@@ -76,7 +81,7 @@ public class AdminControl {
 	public String admin_res(BoardPage bp, @ModelAttribute("resBean") Reservation_s resBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
-			, @RequestParam(value="keyword", required=false)String keyword) {
+			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
 		bp.setKeyword(keyword);
 		int resTotal = rs.resCount(bp);
 		
@@ -96,7 +101,7 @@ public class AdminControl {
 		
 		bp = new BoardPage(resTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
 
-		m.addAttribute("resList", ms.allMember(bp));
+		m.addAttribute("resList", rs.allReservation(bp));
 		m.addAttribute("resPaging", bp);
 		m.addAttribute("resTotal", resTotal);
 		
@@ -104,7 +109,33 @@ public class AdminControl {
 	}
 	
 	@GetMapping("admin_qna")
-	public String admin_qna() {
+	public String admin_qna(BoardPage bp, @ModelAttribute("qnaBean") Qna_s qnaBean, Model m
+			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
+			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
+			, @RequestParam(value="keyword", required=false, defaultValue = "%")String keyword) {
+		bp.setKeyword(keyword);
+		int qnaTotal = qs.qnaCount(bp);
+		
+		System.out.println(qnaTotal);
+		System.out.println(qs.allQna(bp));
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		}
+		else if (nowPage == null) {
+			nowPage = "1";
+		}
+		else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		
+		bp = new BoardPage(qnaTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
+
+		m.addAttribute("qnaList", qs.allQna(bp));
+		m.addAttribute("qnaPaging", bp);
+		m.addAttribute("qnaTotal", qnaTotal);
+		
 		return "admin/admin_qna";
 	}
 }

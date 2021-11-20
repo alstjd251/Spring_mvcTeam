@@ -67,15 +67,15 @@
 					<tbody>
 						<c:forEach var='obj' items="${resList }">
 							<tr>
-								<td><a href="#">${obj.res_num}</a></td>
+								<td><a href="#">${obj.res_num }</a></td>
 								<td>${obj.res_startdate }</td>
 								<td>${obj.res_coursenum }</td>
 								<td>${obj.res_paydate }</td>
 								<td>${obj.res_mnum }</td>
-								<td></td>
-								<td></td>
+								<td>mem_name</td>
+								<td>mem_phone</td>
 								<td>${obj.res_personnel }</td>
-								<td></td>
+								<td>c_price</td>
 							</tr>
 						</c:forEach>
 					</tbody>

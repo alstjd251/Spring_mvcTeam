@@ -27,56 +27,95 @@
 		<form action = "${root }admin/admin_res"><input type ="submit" value = "예약정보 조회"/></form>
 		<form action = "${root }admin/admin_qna"><input type ="submit" value = "회원문의 관리"/></form>
 	</div>
-
+	
 	<section>
 		<div id="con">
-			<h3>회원문의 관리</h3>
-			<form>
-				<div>
-					<input type="text" id="keyword" value="">
-					<button class="btn btn-default" type="button">검색</button>
-					<table class="table table-striped table-bordered table-hover">
-						<thead>
+			<h3>예약정보 관리</h3>
+			<select id="cntPerPage" name="sel" onchange="selChange()">
+				<option value="5"
+					<c:if test="${qnaPaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+				<option value="10"
+					<c:if test="${qnaPaging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+				<option value="15"
+					<c:if test="${qnaPaging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
+				<option value="20"
+					<c:if test="${qnaPaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
+			</select>
+			<div>
+				<input type="text" id="keyword" value="">
+				<button class="btn btn-default" type="button">검색</button>
+				<table class="table table-striped table-bordered table-hover">
+					<thead>
+						<tr>
+							<th>문의번호</th>
+							<th>회원번호</th>
+							<th>제목</th>
+							<th>내용</th>
+							<th>이름</th>
+							<th>메일</th>
+							<th>작성일자</th>
+						</tr>
+					</thead>
+					<tbody>
+						<c:forEach var='obj' items="${qnaList }">
 							<tr>
-								<th>문의번호</th>
-								<th>회원번호</th>
-								<th>제목</th>
-								<th>내용</th>
-								<th>이름</th>
-								<th>메일</th>
-								<th>작성일자</th>
-								<th></th>
+								<td><a href="#">${obj.q_qnanum }</a></td>
+								<td>${obj.q_mnum }</td>
+								<td>${obj.q_qnatitle }</td>
+								<td>${obj.q_qnacontent }</td>
+								<td>mem_name</td>
+								<td>mem_mail</td>
+								<td>${obj.q_qnadate }</td>
 							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><a href="#" id="q_qnanum">문의번호</a></td>
-								<td><input type="text" id="q_mnum"></td>
-								<td><input type="text" id="q_qnatitle"></td>
-								<td><input type="text" id="q_qnacontent"></td>
-								<td><input type="text" id="mem_name"></td>
-								<td><input type="text" id="mem_mail"></td>
-								<td><input type="text" id="q_qnadate"></td>
-								<td><input type="button" class="btn btn-danger"
-									value="답장하기"></td>
-							</tr>
-						</tbody>
-					</table>
-					<div class="text-center">
-						<ul class="pagination">
-							<!--하단에 숫자버튼 (다음페이지, 이전페이지)-->
-							<li><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-						</ul>
-					</div>
+						</c:forEach>
+					</tbody>
+				</table>
+				<div class="text-center">
+					<c:if test="${qnaPaging.startPage != 1 }">
+						<a href="${root }board/admin_qna?nowPage=${qnaPaging.startPage - 1 }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">&lt;</a>
+					</c:if>
+					<c:forEach begin="${qnaPaging.startPage }" end="${qnaPaging.endPage }" var="p">
+						<c:choose>
+							<c:when test="${p == qnaPaging.nowPage }">
+								<b>${p }</b>
+							</c:when>
+							<c:when test="${p != qnaPaging.nowPage }">
+								<a href="${root }board/admin_qna?nowPage=${p }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">${p }</a>
+							</c:when>
+						</c:choose>
+					</c:forEach>
+					<c:if test="${qnaPaging.endPage != qnaPaging.lastPage}">
+						<a href="${root }board/admin_qna?nowPage=${qnaPaging.endPage+1 }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">&gt;</a>
+					</c:if>
 				</div>
-			</form>
-		</div>
+			</div>
 		</div>
 	</section>
+	<form id="moveForm" method="get">
+		<input type="hidden" name="keyword" value="${qnaPaging.keyword }">
+		<input type="hidden" name="nowPage" value="">
+		<input type="hidden" name="cntPerPage" value="">
+	</form>
+	<script>
+		let moveForm = $("#moveForm");
 
+		$(".search button").on("click", function(e) {
+			e.preventDefault();
+
+			let keyword = $(".search input[name='keyword']").val();
+			let nowPage = ${qnaPaging.nowPage};
+			let cntPerPage = ${qnaPaging.cntPerPage};
+
+			if (!keyword) {
+				alert("키워드를 입력하세요.");
+				return false;
+			}
+
+			moveForm.find("input[name='keyword']").val(keyword);
+			moveForm.find("input[name='nowPage']").val(nowPage);
+			moveForm.find("input[name='cntPerPage']").val(cntPerPage);
+			moveForm.submit();
+		});
+	</script>
 </body>
 </html>

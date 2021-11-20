@@ -1,10 +1,13 @@
 package co.sp.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Qna_s;
 
 public interface QnaMapper {
@@ -19,4 +22,10 @@ public interface QnaMapper {
 	
 	@Update("update qna_s set q_qnatitle = #{q_qnatitle}, q_qnacontent = #{q_qnacontent} where q_mnum LIKE #{q_mnum}")
 	void updateQna(Qna_s qnaBean);
+	
+	@Select("select * from (select ROWNUM RN, A.* from (select * from qna_s where q_qnatitle like '%'||#{keyword, jdbcType=VARCHAR}||'%' order by q_qnanum) A) where RN between #{start} and #{end}")
+	List<Qna_s> allQna(BoardPage bp);
+	
+	@Select("select count(*) from qna_s where q_qnatitle like '%'||#{keyword, jdbcType=VARCHAR}||'%'")
+	int qnaCount(BoardPage bp);
 }

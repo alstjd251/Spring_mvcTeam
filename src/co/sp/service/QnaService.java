@@ -1,38 +1,40 @@
-package co.sp.dao;
+package co.sp.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.sp.beans.BoardPage;
 import co.sp.beans.Qna_s;
-import co.sp.mapper.QnaMapper;
+import co.sp.dao.QnaDao;
 
-public class QnaDao {
+@Service
+public class QnaService {
 	@Autowired
-	private QnaMapper qnamapper;
+	private QnaDao qnaDao;
 	
 	public void addQna(Qna_s qnaBean) {
-		qnamapper.addQna(qnaBean);
+		qnaDao.addQna(qnaBean);
 	}
 	
 	public void deleteQna(Qna_s qnaBean) {
-		qnamapper.deleteQna(qnaBean);
+		qnaDao.deleteQna(qnaBean);
 	}
 	
 	public void getQna(Qna_s qnaBean) {
-		qnamapper.getQna(qnaBean);
+		qnaDao.getQna(qnaBean);
 	}
 	
 	public void updateQna(Qna_s qnaBean) {
-		qnamapper.updateQna(qnaBean);
+		qnaDao.updateQna(qnaBean);
 	}
 	
 	public List<Qna_s> allQna(BoardPage bp){
-		return qnamapper.allQna(bp);
+		return qnaDao.allQna(bp);
 	}
 	
 	public int qnaCount(BoardPage bp) {
-		return qnamapper.qnaCount(bp);
+		return qnaDao.qnaCount(bp);
 	}
 }

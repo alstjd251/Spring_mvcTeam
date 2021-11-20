@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import co.sp.beans.BoardPage;
-import co.sp.beans.Notice_s;
 import co.sp.beans.Partners_s;
 import co.sp.dao.PartnerDao;
 
@@ -15,16 +14,16 @@ public class PartnerService {
 	@Autowired
 	private PartnerDao partnerDao;
 	
-	public void addPartner(Notice_s noticeBean) {
-		partnerDao.addPartner(noticeBean);
+	public void addPartner(Partners_s partnerBean) {
+		partnerDao.addPartner(partnerBean);
 	}
 	
-	public void deletePartner(Notice_s noticeBean) {
-		partnerDao.deletePartner(noticeBean);
+	public void deletePartner(Partners_s partnerBean) {
+		partnerDao.deletePartner(partnerBean);
 	}
 	
-	public void updatePartner(Notice_s noticeBean) {
-		partnerDao.updatePartner(noticeBean);
+	public void updatePartner(Partners_s partnerBean) {
+		partnerDao.updatePartner(partnerBean);
 	}
 	
 	public int partnerCount(BoardPage bp) {
@@ -33,5 +32,9 @@ public class PartnerService {
 	
 	public List<Partners_s> allPartner(BoardPage bp){
 		return partnerDao.allPartner(bp);
+	}
+	
+	public Partners_s getPartner(String code) {
+		return partnerDao.getPartner(code);
 	}
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -152,5 +153,20 @@ public class AdminControl {
 		m.addAttribute("qnaTotal", qnaTotal);
 		
 		return "admin/admin_qna";
+	}
+	
+	@GetMapping("admin_partner_delete")
+	public String admin_partner_delete(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
+		m.addAttribute("partnerBean", ps.getPartner(partnerBean.getPartners_code()));
+		
+		return "admin/admin_partner_delete";
+	}
+	
+	@PostMapping("admin_partner_delete_proc")
+	public String admin_partner_delete_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
+		ps.deletePartner(partnerBean);
+		m.addAttribute("partnerBean", partnerBean);
+		
+		return "admin/admin_partner_delete_proc";
 	}
 }

@@ -22,7 +22,7 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="${root}board/admin_qna?nowPage=${qnaPaging.nowPage}&cntPerPage="+sel+"&keyword=${qnaPaging.keyword}";
+		location.href="${root}admin/admin_qna?nowPage=${qnaPaging.nowPage}&cntPerPage="+sel+"&keyword=${qnaPaging.keyword}";
 	}
 </script>
 <body>
@@ -36,7 +36,7 @@
 	
 	<section>
 		<div id="con">
-			<h3>예약정보 관리</h3>
+			<h3>회원문의 관리</h3>
 			<select id="cntPerPage" name="sel" onchange="selChange()">
 				<option value="5"
 					<c:if test="${qnaPaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>

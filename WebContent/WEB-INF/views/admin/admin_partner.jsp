@@ -22,7 +22,7 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="${root}board/admin_partner?nowPage=${partnerPaging.nowPage}&cntPerPage="+sel+"&keyword=${partnerPaging.keyword}";
+		location.href="${root}admin/admin_partner?nowPage=${partnerPaging.nowPage}&cntPerPage="+sel+"&keyword=${partnerPaging.keyword}";
 	}
 </script>
 <body>
@@ -49,7 +49,7 @@
 			</select>
 			<div>
 				<div class = "search">
-					<input type="text" name="keyword" placeholder="업체 대표자 명으로 검색합니다." value="${partnerPaging.keyword }">
+					<input type="text" name="keyword" placeholder="업체명으로 검색합니다." value="${partnerPaging.keyword }">
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
 				<table class="table table-striped table-bordered table-hover">
@@ -60,18 +60,20 @@
 							<th>대표자</th>
 							<th>연락처</th>
 							<th>메일</th>
+							<th>사업장 명</th>
 							<th>사업장 주소</th>
 						</tr>
 					</thead>
 					<tbody>
 						<c:forEach var='obj' items="${partnerList }">
 							<tr>
-								<td><a onclick="window.open('${root}admin/admin_partner_modify?partners_code=${obj.partners_code }','협력업체 정보 변경','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
-								<td>brew_name</td>
+								<td><a onclick="window.open('${root}admin/admin_partner_delete?partners_code=${obj.partners_code }','협력업체 정보 변경','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
+								<td>${obj.partners_brewery_name }</td>
 								<td>${obj.partners_name }</td>
 								<td>${obj.partners_tel }</td>
 								<td>${obj.partners_mail }</td>
-								<td>brew_pcode</td>
+								<td>${obj.partners_brewery_name }</td>
+								<td>${obj.partners_brewery_post } ${obj.partners_brewery_addr1 } ${obj.partners_brewery_addr2 }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

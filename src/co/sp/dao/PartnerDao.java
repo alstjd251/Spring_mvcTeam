@@ -15,16 +15,16 @@ public class PartnerDao {
 	@Autowired
 	private PartnerMapper partnermapper;
 	
-	public void addPartner(Notice_s noticeBean) {
-		partnermapper.addPartner(noticeBean);
+	public void addPartner(Partners_s partnerBean) {
+		partnermapper.addPartner(partnerBean);
 	}
 	
-	public void deletePartner(Notice_s noticeBean) {
-		partnermapper.deletePartner(noticeBean);
+	public void deletePartner(Partners_s partnerBean) {
+		partnermapper.deletePartner(partnerBean);
 	}
 	
-	public void updatePartner(Notice_s noticeBean) {
-		partnermapper.updatePartner(noticeBean);
+	public void updatePartner(Partners_s partnerBean) {
+		partnermapper.updatePartner(partnerBean);
 	}
 	
 	public int partnerCount(BoardPage bp) {
@@ -33,5 +33,9 @@ public class PartnerDao {
 	
 	public List<Partners_s> allPartner(BoardPage bp){
 		return partnermapper.allPartner(bp);
+	}
+	
+	public Partners_s getPartner(String code) {
+		return partnermapper.getPartner(code);
 	}
 }

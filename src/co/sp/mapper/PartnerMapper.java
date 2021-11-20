@@ -12,18 +12,21 @@ import co.sp.beans.Notice_s;
 import co.sp.beans.Partners_s;
 
 public interface PartnerMapper {
-	@Insert("insert into partners_s values(#{partners_code}, #{partners_name}, #{partners_tel}, #{partners_mail})")
-	void addPartner(Notice_s noticeBean);
+	@Insert("insert into partners_s values(#{partners_code}, #{partners_name}, #{partners_tel}, #{partners_mail}, #{partners_brewery_name}, #{partners_brewery_post}, #{partners_brewery_addr1}, #{partners_brewery_addr2})")
+	void addPartner(Partners_s partnerBean);
 	
 	@Delete("delete from partners_s where partners_code = #{partners_code}")
-	void deletePartner(Notice_s noticeBean);
+	void deletePartner(Partners_s partnerBean);
 	
-	@Update("update partners_s set partners_tel = #{partners_tel}, partners_mail = #{partners_mail} where partners_code = #{partners_code}")
-	void updatePartner(Notice_s noticeBean);
+	@Update("update partners_s set partners_tel = #{partners_tel}, partners_mail = #{partners_mail}, partners_name = #{partners_name}, partners_brewery_name = #{partners_brewery_name} partners_brewery_post = #{partners_brewery_post}, partners_brewery_addr1 = #{partners_brewery_addr1}, partners_brewery_addr2 = #{partners_brewery_addr2} where partners_code = #{partners_code}")
+	void updatePartner(Partners_s partnerBean);
 	
 	@Select("select count(*) from partners_s where partners_name like '%'||#{keyword, jdbcType=VARCHAR}||'%'")
 	int partnerCount(BoardPage bp);
 	
-	@Select("select * from (select ROWNUM RN, A.* from (select * from partners_s where partners_name like '%'||#{keyword, jdbcType=VARCHAR}||'%' order by partners_code) A) where RN between #{start} and #{end}")
+	@Select("select * from (select ROWNUM RN, A.* from (select * from partners_s where partners_brewery_name like '%'||#{keyword, jdbcType=VARCHAR}||'%' order by partners_code) A) where RN between #{start} and #{end}")
 	List<Partners_s> allPartner(BoardPage bp);
+	
+	@Select("select * from partners_s where partners_code = #{partners_code}")
+	Partners_s getPartner(String code);
 }

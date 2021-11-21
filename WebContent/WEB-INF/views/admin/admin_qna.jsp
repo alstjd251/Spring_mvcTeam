@@ -80,7 +80,7 @@
 				</table>
 				<div class="text-center">
 					<c:if test="${qnaPaging.startPage != 1 }">
-						<a href="${root }board/admin_qna?nowPage=${qnaPaging.startPage - 1 }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">&lt;</a>
+						<a href="${root }admin/admin_qna?nowPage=${qnaPaging.startPage - 1 }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">&lt;</a>
 					</c:if>
 					<c:forEach begin="${qnaPaging.startPage }" end="${qnaPaging.endPage }" var="p">
 						<c:choose>
@@ -88,12 +88,12 @@
 								<b>${p }</b>
 							</c:when>
 							<c:when test="${p != qnaPaging.nowPage }">
-								<a href="${root }board/admin_qna?nowPage=${p }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">${p }</a>
+								<a href="${root }admin/admin_qna?nowPage=${p }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${qnaPaging.endPage != qnaPaging.lastPage}">
-						<a href="${root }board/admin_qna?nowPage=${qnaPaging.endPage+1 }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">&gt;</a>
+						<a href="${root }admin/admin_qna?nowPage=${qnaPaging.endPage+1 }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">&gt;</a>
 					</c:if>
 				</div>
 			</div>

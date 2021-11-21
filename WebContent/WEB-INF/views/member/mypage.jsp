@@ -32,12 +32,12 @@ function pwCheck(){
 			title : "입력 오류",
 		    text  : "비밀번호를 입력해주세요.",
 		}).then({
-			return;
+			return
 		});
 	}else{
 		var param1 = {'mem_num': mem_num, 'mem_pw': mem_pw}
 		$.ajax({
-			url : '${root}member/deletepwcheck.do',
+			url : '${root}member/pwcheck.do',
 			type : 'POST',
 			data : param1,
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
@@ -79,7 +79,7 @@ function delMember(){
 	}else{
 		var param2 = {'mem_num': mem_num2, 'mem_pw': mem_pw2}
 		$.ajax({
-			url : '${root}member/modifypwcheck.do',
+			url : '${root}member/pwcheck.do',
 			type : 'POST',
 			data : param1,
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
@@ -202,14 +202,14 @@ function delMember(){
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th>예약번호</th>
-									<th>코스</th>
-									<th>금액</th>
-									<th>예약일자</th>
-									<th>예약자명</th>
-									<th>연락처</th>
-									<th>인원</th>
-									<th>결제일자</th>
+									<th><div>예약번호</div></th>
+									<th><div>코스</div></th>
+									<th><div>금액</div></th>
+									<th><div>예약일자</div></th>
+									<th><div>예약자명</div></th>
+									<th><div>연락처</div></th>
+									<th><div>인원</div></th>
+									<th><div>결제일자</div></th>
 								</tr>
 							</thead>
 							<tbody>

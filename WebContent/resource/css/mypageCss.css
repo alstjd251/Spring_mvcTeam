@@ -55,12 +55,15 @@ section #mypage #mypage_con2 #res_info table thead th {
 	background-color: rgb(255, 132, 132);
 }
 
-section #mypage #mypage_con2 #res_info table thead th div {
+section #mypage #mypage_con2 #res_info table thead th div{
 	text-align: center;
 	width:max-content;
 }
 
-
+section #mypage #mypage_con2 #res_info table tbody td div {
+	text-align: center;
+	width:max-content;
+}
 
 section #mypage #mypage_con2 #res_info table tbody td a {
 	display: inline-block;

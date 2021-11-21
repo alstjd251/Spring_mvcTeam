@@ -42,7 +42,7 @@ public class ResControl {
 	public String reserved(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
 
 		String res_num = resService.getRes_seqval();
-
+		
 		switch (res_num.length()) {
 		case 1:
 			res_num = "00000" + res_num;
@@ -70,6 +70,8 @@ public class ResControl {
 
 		resService.addReservation(reservationBean);
 
+		m.addAttribute("reservationBean", resService.getOneReservation(res_num));
+		
 		return "reservation/reserve";
 	}
 	
@@ -84,6 +86,15 @@ public class ResControl {
 		resService.deleteReservation(resBean);
 		
 		return "reservation/resCancel_success";
+	}
+	
+	@GetMapping("/resCancelCheck")
+	public String my_reservation(@ModelAttribute("resBean") Reservation_s resBean, Model m) {
+		String resnum = resBean.getRes_num();
+		
+		m.addAttribute("resBean", resService.getOneReservation(resnum));
+		
+		return "reservation/resCancelCheck";
 	}
 	
 }

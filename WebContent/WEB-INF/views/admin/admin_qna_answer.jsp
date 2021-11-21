@@ -10,9 +10,34 @@
 <title>Sul Sure</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script>
+function sendMail(){
+	var answer_mail = $("#answer").val();
+	var mem_mail = $("#mail").val();
+	
+	var param = {'answer': answer_mail, 'mem_mail': mem_mail, 'q_num' : q_qnanum}
+	$.ajax({
+		url : '${root}admin/sendmail.do',
+		type : 'POST',
+		data : param,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		dataType : 'text',
+		success : function(result){
+			var id = result;
+			if(id == "success"){
+				Swal.fire({
+					icon : "success",
+					title : "메일 전송 완료",
+				    text  : "고객님의 메일로 비밀번호를 전송하였습니다.",
+				});
+			}
+		}
+	})
+}
+</script>
 </head>
 <body>
-	<form:form method="post" action="admin_qna_answer_proc" modelAttribute="qnaBean">
+	<form:form method="post" action="#" modelAttribute="qnaBean">
 		<table class="table table-bordered">
 			<tr>
 				<th>문의번호</th>
@@ -44,7 +69,7 @@
 			</tr>
 			<tr>
 				<th>답변내용</th>
-				<td></td>
+				<td><textarea id = "answer_mail" rows = "10" cols = "50" style = "resize: none;"></textarea></td>
 			</tr>
 		</table>
 		<form:button>답변 완료</form:button>

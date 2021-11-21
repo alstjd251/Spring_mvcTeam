@@ -67,7 +67,7 @@
 					<tbody>
 						<c:forEach var='obj' items="${partnerList }">
 							<tr>
-								<td><a onclick="window.open('${root}admin/admin_partner_delete?partners_code=${obj.partners_code }','협력업체 정보 변경','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
+								<td><a onclick="window.open('${root}admin/admin_partner_delete?partners_code=${obj.partners_code }','협력업체 정보 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
 								<td>${obj.partners_brewery_name }</td>
 								<td>${obj.partners_name }</td>
 								<td>${obj.partners_tel }</td>

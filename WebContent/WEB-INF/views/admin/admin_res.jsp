@@ -69,7 +69,7 @@
 					<tbody>
 						<c:forEach var='obj' items="${resList }">
 							<tr>
-								<td><a href="#">${obj.res_num }</a></td>
+								<td><a onclick="window.open('${root}admin/admin_reservation_delete?res_num=${obj.res_num }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.res_num }</a></td>
 								<td>${obj.res_startdate }</td>
 								<td>${obj.res_coursenum }</td>
 								<td>${obj.res_paydate }</td>

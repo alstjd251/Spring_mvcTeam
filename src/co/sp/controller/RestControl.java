@@ -133,12 +133,16 @@ public class RestControl {
 		int q_num = Integer.parseInt(map.get("q_num"));
 		
 		qnaBean = qs.getQna(q_num);
+		String qna = qnaBean.getQ_qnacontent();
+		
+		qna = qna.replaceAll("\n", "<br>");
+		answer = answer.replaceAll("\n", "<br>");
 		
 		EmailSet email = new EmailSet();
 	    email.setReceiver("byungeun96@naver.com");
 	    email.setSubject("문의에 대한 답변 메일입니다.");
-	    email.setContent(qnaBean.getQ_qnacontent() + "에 대한 답변 : " + answer);
-	    
+	    email.setContent(qna + "<br>"+ answer);
+
 	    emailSender.SendEmail(email);
 		
 	    return "success";

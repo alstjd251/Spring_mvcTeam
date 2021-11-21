@@ -46,7 +46,6 @@ body {
 
 .cs-board02 #cs-listContainer #cs-listBoard #cs-search #cntPerPage {
 	width: 120px;
-	padding-left: 3px;
 }
 
 #cs-titleBox {
@@ -102,6 +101,7 @@ tbody.cs-tbody td{
 
 #cs-button {
 	text-align: right;
+	height:200px;
 }
 
 #search_button{

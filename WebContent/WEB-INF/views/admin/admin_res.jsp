@@ -84,7 +84,7 @@
 				</table>
 				<div class="text-center">
 					<c:if test="${resPaging.startPage != 1 }">
-						<a href="${root }board/admin_res?nowPage=${resPaging.startPage - 1 }&cntPerPage=${resPaging.cntPerPage}&keyword=${resPaging.keyword}">&lt;</a>
+						<a href="${root }admin/admin_res?nowPage=${resPaging.startPage - 1 }&cntPerPage=${resPaging.cntPerPage}&keyword=${resPaging.keyword}">&lt;</a>
 					</c:if>
 					<c:forEach begin="${resPaging.startPage }" end="${resPaging.endPage }" var="p">
 						<c:choose>
@@ -92,12 +92,12 @@
 								<b>${p }</b>
 							</c:when>
 							<c:when test="${p != resPaging.nowPage }">
-								<a href="${root }board/admin_res?nowPage=${p }&cntPerPage=${resPaging.cntPerPage}&keyword=${resPaging.keyword}">${p }</a>
+								<a href="${root }admin/admin_res?nowPage=${p }&cntPerPage=${resPaging.cntPerPage}&keyword=${resPaging.keyword}">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${resPaging.endPage != resPaging.lastPage}">
-						<a href="${root }board/admin_res?nowPage=${resPaging.endPage+1 }&cntPerPage=${resPaging.cntPerPage}&keyword=${resPaging.keyword}">&gt;</a>
+						<a href="${root }admin/admin_res?nowPage=${resPaging.endPage+1 }&cntPerPage=${resPaging.cntPerPage}&keyword=${resPaging.keyword}">&gt;</a>
 					</c:if>
 				</div>
 			</div>

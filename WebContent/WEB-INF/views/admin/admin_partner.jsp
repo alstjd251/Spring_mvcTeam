@@ -80,7 +80,7 @@
 				</table>
 				<div class="text-center">
 					<c:if test="${partnerPaging.startPage != 1 }">
-						<a href="${root }board/admin_partner?nowPage=${partnerPaging.startPage - 1 }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">&lt;</a>
+						<a href="${root }admin/admin_partner?nowPage=${partnerPaging.startPage - 1 }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">&lt;</a>
 					</c:if>
 					<c:forEach begin="${partnerPaging.startPage }" end="${partnerPaging.endPage }" var="p">
 						<c:choose>
@@ -88,12 +88,12 @@
 								<b>${p }</b>
 							</c:when>
 							<c:when test="${p != partnerPaging.nowPage }">
-								<a href="${root }board/admin_partner?nowPage=${p }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">${p }</a>
+								<a href="${root }admin/admin_partner?nowPage=${p }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${partnerPaging.endPage != partnerPaging.lastPage}">
-						<a href="${root }board/admin_partner?nowPage=${partnerPaging.endPage+1 }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">&gt;</a>
+						<a href="${root }admin/admin_partner?nowPage=${partnerPaging.endPage+1 }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">&gt;</a>
 					</c:if>
 				</div>
 			</div>

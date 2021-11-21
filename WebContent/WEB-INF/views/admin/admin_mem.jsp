@@ -86,7 +86,7 @@
 				</table>
 				<div class="text-center">
 					<c:if test="${memberPaging.startPage != 1 }">
-						<a href="${root }board/admin_mem?nowPage=${memberPaging.startPage - 1 }&cntPerPage=${memberPaging.cntPerPage}&keyword=${memberPaging.keyword}">&lt;</a>
+						<a href="${root }admin/admin_mem?nowPage=${memberPaging.startPage - 1 }&cntPerPage=${memberPaging.cntPerPage}&keyword=${memberPaging.keyword}">&lt;</a>
 					</c:if>
 					<c:forEach begin="${memberPaging.startPage }" end="${memberPaging.endPage }" var="p">
 						<c:choose>
@@ -94,12 +94,12 @@
 								<b>${p }</b>
 							</c:when>
 							<c:when test="${p != memberPaging.nowPage }">
-								<a href="${root }board/admin_mem?nowPage=${p }&cntPerPage=${memberPaging.cntPerPage}&keyword=${memberPaging.keyword}">${p }</a>
+								<a href="${root }admin/admin_mem?nowPage=${p }&cntPerPage=${memberPaging.cntPerPage}&keyword=${memberPaging.keyword}">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
 					<c:if test="${memberPaging.endPage != memberPaging.lastPage}">
-						<a href="${root }board/admin_mem?nowPage=${memberPaging.endPage+1 }&cntPerPage=${memberPaging.cntPerPage}&keyword=${memberPaging.keyword}">&gt;</a>
+						<a href="${root }admin/admin_mem?nowPage=${memberPaging.endPage+1 }&cntPerPage=${memberPaging.cntPerPage}&keyword=${memberPaging.keyword}">&gt;</a>
 					</c:if>
 				</div>
 			</div>

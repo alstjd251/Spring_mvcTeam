@@ -141,7 +141,7 @@ public class MemControl {
 		
 	}
 	
-	@PostMapping("partnerRequest_proc")
+	@PostMapping("/partnerRequest_proc")
 	public String partnerRequest_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		ps.addPartner(partnerBean);
 		//partnerBean.setPartners_state(0);
@@ -149,5 +149,19 @@ public class MemControl {
 		m.addAttribute(partnerBean);
 		
 		return "member/partnerRequest_proc";
+	}
+	
+	@GetMapping("/pwChange")
+	public String pwChange(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
+		return "member/pwChange";
+	}
+	
+	@PostMapping("/pwModify")
+	public String pwModify(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
+		ms.memPwChange(memberBean);
+		
+		return "member/pwModify";
 	}
 }

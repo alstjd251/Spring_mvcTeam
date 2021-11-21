@@ -6,22 +6,19 @@
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html>
+<head>
 <meta charset="UTF-8">
 <title>Sul Sure</title>
-<head>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="${root }css/mypageCss.css" />
 <link rel="stylesheet" href="${root }css/include/wave.css" />
 <script src="${root }js/zip.js"></script>
 <script src="${root }js/mypage.js"></script>
 <script src="${root }js/n_page.js"></script>
 <link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
 function pwCheck(){
 	var mem_pw = $("#mem_pw2").val();
@@ -148,15 +145,15 @@ function delMember(){
 								<th>비밀번호</th>
 								<td>
 									<form:password path="mem_pw" id="mem_pw" value=""/>
-									<input type="button" class="btn btn-primary" id="pw_bt" value="비밀번호 변경하기" onclick="setDisable()">
+									<input type="button" class="btn btn-danger" id="pw_bt" value="비밀번호 변경하기" onclick="window.open('${root}member/pwChange?mem_num=${loginBean.mem_num }','비밀번호변경','scrollbars=yes width=700 height=500 left=100 top=50')">
 								</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<th>비밀번호 확인</th>
 								<td>
 									<input type="text" id="mem_pw2" disabled>
 								</td>
-							</tr>
+							</tr> -->
 							<tr>
 								<th>이름</th>
 								<td><form:input path="mem_name" id="mem_name" readonly="true"/></td>

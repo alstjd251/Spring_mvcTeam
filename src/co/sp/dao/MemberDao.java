@@ -50,4 +50,8 @@ public class MemberDao {
 	public int memCount(BoardPage bp) {
 		return memMapper.memCount(bp);
 	}
+	
+	public void memPwChange(Member_s memberBean) {
+		memMapper.memPwChange(memberBean);
+	}
 }

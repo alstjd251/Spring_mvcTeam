@@ -22,8 +22,8 @@ public class QnaDao {
 		qnamapper.deleteQna(qnaBean);
 	}
 	
-	public void getQna(Qna_s qnaBean) {
-		qnamapper.getQna(qnaBean);
+	public Qna_s getQna(int q_mnum) {
+		return qnamapper.getQna(q_mnum);
 	}
 	
 	public void updateQna(Qna_s qnaBean) {

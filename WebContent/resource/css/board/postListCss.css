@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	height: 900px;
 }
 .cs-container {
 	text-align: center;
@@ -97,7 +98,17 @@ tbody.cs-tbody {
 
 tbody.cs-tbody td{
 	padding: 5px 0;
-} 
+}
+
+
+#qna_text{
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	margin-top: -100px;
+	margin-bottom : 20%;
+}
+
 
 #cs-button {
 	text-align: right;
@@ -139,7 +150,7 @@ tbody.cs-tbody td{
 #qna_button{
 	text-decoration: none;
 	font-size : 14px;
-	width:120px;
+	width:150px;
 	background-color : lightslategrey;
 	padding: 7px;
 	padding-left : 20px;

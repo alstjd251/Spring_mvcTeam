@@ -54,8 +54,10 @@
 			<td><form:input path="res_personnel" id="res_personnel" readonly="true"/></td>
 		</tr>
 	</table>
+	<div id="button">
 	<form:button class="btn btn-default" id="cancel_button">예약취소</form:button>
 	<input class="btn btn-default" type="button" id="close_button" value="닫기" onclick="self.close();">
+	</div>
 </form:form>
 </body>
 </html>

@@ -39,11 +39,11 @@ public class AdminControl {
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
 	
-	@GetMapping("hello_Admin")
+	@GetMapping("/hello_Admin")
 	public String hello_admin() {
 		return "admin/hello_Admin";
 	}
-	@GetMapping("admin_mem")
+	@GetMapping("/admin_mem")
 	public String mem_modify(BoardPage bp, @ModelAttribute("memberBean") Member_s memberBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
@@ -71,7 +71,7 @@ public class AdminControl {
 		return "admin/admin_mem";
 	}
 	
-	@GetMapping("admin_partner")
+	@GetMapping("/admin_partner")
 	public String mem_partner(BoardPage bp, @ModelAttribute("partnerBean") Partners_s partnerBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
@@ -99,7 +99,7 @@ public class AdminControl {
 		return "admin/admin_partner";
 	}
 	
-	@GetMapping("admin_res")
+	@GetMapping("/admin_res")
 	public String admin_res(BoardPage bp, @ModelAttribute("resBean") Reservation_s resBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
@@ -127,7 +127,7 @@ public class AdminControl {
 		return "admin/admin_res";
 	}
 	
-	@GetMapping("admin_qna")
+	@GetMapping("/admin_qna")
 	public String admin_qna(BoardPage bp, @ModelAttribute("qnaBean") Qna_s qnaBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
@@ -155,14 +155,14 @@ public class AdminControl {
 		return "admin/admin_qna";
 	}
 	
-	@GetMapping("admin_partner_delete")
+	@GetMapping("/admin_partner_delete")
 	public String admin_partner_delete(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		m.addAttribute("partnerBean", ps.getPartner(partnerBean.getPartners_code()));
 		
 		return "admin/admin_partner_delete";
 	}
 	
-	@PostMapping("admin_partner_delete_proc")
+	@PostMapping("/admin_partner_delete_proc")
 	public String admin_partner_delete_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		ps.deletePartner(partnerBean);
 		m.addAttribute("partnerBean", partnerBean);
@@ -170,14 +170,14 @@ public class AdminControl {
 		return "admin/admin_partner_delete_proc";
 	}
 	
-	@GetMapping("admin_reservation_delete")
+	@GetMapping("/admin_reservation_delete")
 	public String admin_reservation_delete(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
 		m.addAttribute("partnerBean", rs.getOneReservation(reservationBean.getRes_num()));
 		
 		return "admin/admin_reservation_delete";
 	}
 	
-	@PostMapping("admin_reservation_delete_proc")
+	@PostMapping("/admin_reservation_delete_proc")
 	public String admin_reservation_delete_proc(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
 		rs.deleteReservation(reservationBean);
 		m.addAttribute("reservationBean", reservationBean);
@@ -185,7 +185,7 @@ public class AdminControl {
 		return "admin/admin_reservation_delete_proc";
 	}
 	
-	@GetMapping("admin_partnerRequest")
+	@GetMapping("/admin_partnerRequest")
 	public String admin_partnerRequest(BoardPage bp, @ModelAttribute("partnerBean") Partners_s partnerBean, Model m
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
@@ -213,14 +213,14 @@ public class AdminControl {
 		return "admin/admin_partnerRequest";
 	}
 	
-	@GetMapping("admin_partnerRequest_accept")
+	@GetMapping("/admin_partnerRequest_accept")
 	public String admin_partnerRequest_accept(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		m.addAttribute("partnerBean", ps.getPartner(partnerBean.getPartners_code()));
 		
 		return "admin/admin_partnerRequest_accept";
 	}
 	
-	@PostMapping("admin_partnerRequest_accept_proc")
+	@PostMapping("/admin_partnerRequest_accept_proc")
 	public String admin_partnerRequest_accept_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		ps.acceptPartner(partnerBean);
 		m.addAttribute("partnerBean", partnerBean);

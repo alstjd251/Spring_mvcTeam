@@ -123,7 +123,6 @@ header .login #logout_button:hover {
     right: 140px;
 }
 .section #fade1 .fadeImg2 {
-	top:210px;
 	z-index:10;
 	height: 50%;
 	position: absolute;

@@ -60,9 +60,11 @@ $(window).on("load", function () {
     left: $("#intro").width() - $("#drink").width() / 2 + "px",
     top: innerHeight - ($(".i_t2").height() + $("#drink").height()) + "px",
   });
+  $(".fadeImg2").css({top : $(".fadeImg").height() / 2 + 70 + "px"});
 });
 $(window).on("resize", function () {
   /* 반응형 가로 세로 길이 */
+  $(".fadeImg2").css({top : $(".fadeImg").height() / 2 + 70 + "px"});
   $(
     ".pimg1 , .pimg2 , .pimg3 , .pimg4 , .pimg5, #ggtwo, #ggtwo>li>a, #ggtwo>li"
   ).css({

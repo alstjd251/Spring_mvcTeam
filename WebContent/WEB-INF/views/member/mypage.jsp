@@ -231,45 +231,40 @@ function delMember(){
 				<div id="partners" class="tab_content">
 					<!--유효성검사 해야함-->
 					<h3>기업회원 신청</h3>
-					<form>
+					<form:form method="post" action="partnerRequest_proc" modelAttribute="partnerBean">
 						<table class="table table-bordered">
 							<tr>
 								<th>업체명</th>
-								<td><input type="text" path="brew_name" id="brew_name"></td>
+								<td><form:input path="partners_brewery_name" id="partners_brewery_name"/></td>
 							</tr>
 							<tr>
 								<th>사업자등록번호</th>
-								<td><input type="text" path="partners_code"
-									id="partners_code"></td>
+								<td><form:input type="text" path="partners_code" id="partners_code"/></td>
 							</tr>
 							<tr>
 								<th>대표자성명</th>
-								<td><input type="text" path="partners_name"
-									id="partners_name"></td>
+								<td><form:input type="text" path="partners_name" id="partners_name"/></td>
 							</tr>
 							<tr>
 								<th>대표자번호</th>
-								<td><input type="text" path="partners_tel"
-									id="partners_tel"></td>
+								<td><form:input type="text" path="partners_tel" id="partners_tel"/></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td><input type="text" path="partners_mail"
-									id="partners_mail"></td>
+								<td><form:input type="text" path="partners_mail" id="partners_mail"/></td>
 							</tr>
 							<tr>
 								<th>사업장주소</th>
-								<td><input type="text" id="sample6_postcode"
-									placeholder="우편번호" path="mem_post"> <input
-									type="button" onclick="sample6_execDaumPostcode()"
-									value="우편번호 찾기"><br /> <input type="text"
-									id="sample6_address" placeholder="주소" path="mem_addr1"><br />
-									<input type="text" id="sample6_detailAddress"
-									placeholder="상세주소" path="mem_addr2"></td>
+								<td>
+									<form:input type="text" id="sample6_postcode" placeholder="우편번호" path="partners_brewery_post"/>
+									<form:button onclick="sample6_execDaumPostcode()">우편번호 찾기</form:button><br />
+									<form:input type="text" id="sample6_address" placeholder="주소" path="partners_brewery_addr1"/><br />
+									<form:input type="text" id="sample6_detailAddress" placeholder="상세주소" path="partners_brewery_addr2"/>
+								</td>
 							</tr>
 						</table>
-						<input class="btn btn-default" type="button" id="" value="신청">
-					</form>
+						<form:button class="btn btn-default" id="">신청</form:button>
+					</form:form>
 				</div>
 				<div id="delete" class="tab_content">
 					<h2>정말 탈퇴하시겠습니까?</h2>

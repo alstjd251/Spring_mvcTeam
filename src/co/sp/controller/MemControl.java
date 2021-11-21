@@ -161,7 +161,7 @@ public class MemControl {
 	public String pwModify(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
 		
 		ms.memPwChange(memberBean);
-		System.out.println("pw Changed !!");
+		
 		return "member/pwModify";
 	}
 }

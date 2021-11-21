@@ -136,7 +136,7 @@
 			$("#pw3error").text("비밀번호를 입력 해주세요.").css("color","red");
 			fail = "true";
 		}else if(pw3.length < 8){
-			$("#pw2error").text("비밀번호는 최소 8자리로 입력해야 합니다.").css("color","red");
+			$("#pw3error").text("비밀번호는 최소 8자리로 입력해야 합니다.").css("color","red");
 			fail = "true";
 		}
 	}

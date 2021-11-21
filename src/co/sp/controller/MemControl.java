@@ -87,18 +87,13 @@ public class MemControl {
 		String mem_grade = loginBean.getMem_grade();
 		List<Reservation_s>resBean = rs.getMemReservation(mem_num);
 		
-		
 		if(mem_grade.equals("1")) {
 			m.addAttribute("loginBean", loginBean);
 			m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
 			m.addAttribute("reservationBean", resBean);
 			m.addAttribute("partnerBean", partnerBean);
 			return "member/mypage";
-		}else if(mem_grade.equals("2")) {
-			
-			return "member/mypage";
-		}
-		else {
+		}else {
 			m.addAttribute("memberBean", ms.getMemberInfo(mem_num));
 			return "admin/hello_Admin";
 		}
@@ -163,5 +158,10 @@ public class MemControl {
 		ms.memPwChange(memberBean);
 		
 		return "member/pwModify";
+	}
+	
+	@GetMapping("/partners")
+	public String partners() {
+		return "partners";
 	}
 }

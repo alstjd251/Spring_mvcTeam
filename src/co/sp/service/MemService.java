@@ -73,4 +73,8 @@ public class MemService {
 	public int memCount(BoardPage bp) {
 		return memDao.memCount(bp);
 	}
+	
+	public void memPwChange(Member_s memberBean) {
+		memDao.memPwChange(memberBean);
+	}
 }

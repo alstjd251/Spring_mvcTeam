@@ -75,10 +75,10 @@
 								<td>${obj.res_coursenum }</td>
 								<td>${obj.res_paydate }</td>
 								<td>${obj.res_mnum }</td>
-								<td>mem_name</td>
-								<td>mem_phone</td>
+								<td>${obj.mem_name }</td>
+								<td>${obj.mem_phone }</td>
 								<td>${obj.res_personnel }</td>
-								<td>c_price</td>
+								<td>${obj.course_price }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

@@ -6,22 +6,19 @@
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html>
+<head>
 <meta charset="UTF-8">
 <title>Sul Sure</title>
-<head>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet" href="${root }css/mypageCss.css" />
 <link rel="stylesheet" href="${root }css/include/wave.css" />
 <script src="${root }js/zip.js"></script>
 <script src="${root }js/mypage.js"></script>
 <script src="${root }js/n_page.js"></script>
 <link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript">
 function pwCheck(){
 	var mem_pw = $("#mem_pw2").val();
@@ -31,8 +28,6 @@ function pwCheck(){
 			icon: 'warning',
 			title : "입력 오류",
 		    text  : "비밀번호를 입력해주세요.",
-		}).then({
-			return
 		});
 	}else{
 		var param1 = {'mem_num': mem_num, 'mem_pw': mem_pw}
@@ -136,7 +131,7 @@ function delMember(){
 			<div id="mypage_con2">
 				<div id="modify" class="tab_content current">
 					<!--유효성검사 해야함-->
-					<h3>회원정보 수정</h3>
+					<h3><b>회원정보 수정</b></h3>
 					<form:form action="${root }member/memberModify" method="post" modelAttribute="memberBean" id="memModifyForm">
 					<form:hidden path="mem_num" id="mem_num"/>
 						<table class="table table-bordered">
@@ -148,44 +143,44 @@ function delMember(){
 								<th>비밀번호</th>
 								<td>
 									<form:password path="mem_pw" id="mem_pw" value=""/>
-									<input type="button" class="btn btn-danger" id="pw_bt" value="비밀번호 변경하기" onclick="setDisable()">
+									<input type="button" class="btn btn-danger" id="pw_bt" value="비밀번호 변경하기" onclick="window.open('${root}member/pwChange?mem_num=${loginBean.mem_num }','비밀번호변경','scrollbars=yes width=700 height=500 left=100 top=50')">
 								</td>
 							</tr>
-							<tr>
+							<!-- <tr>
 								<th>비밀번호 확인</th>
 								<td>
 									<input type="text" id="mem_pw2" disabled>
 								</td>
-							</tr>
+							</tr> -->
 							<tr>
 								<th>이름</th>
 								<td><form:input path="mem_name" id="mem_name" readonly="true"/></td>
 							</tr>
 							<tr>
-								<td>주민번호</td>
+								<th>주민번호</th>
 								<td><form:input maxlength="6" placeholder="생년월일 6자리" path="mem_joomin" id="mem_joomin" readonly="true"/>
 									- <form:input path="mem_gender" id="mem_gender" maxlength="1" size="1" readonly="true"/> ******</td>
 							</tr>
 
 							<tr>
-								<td>이메일</td>
+								<th>이메일</th>
 								<td>
 									<form:input type="email" path="mem_mail" id="mem_mail"/>
 									<form:errors path="mem_mail"/>
 								</td>
 							</tr>
 							<tr>
-								<td>연락처</td>
+								<th>연락처</th>
 								<td>
 									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone"/>
 									<form:errors path="mem_phone"/>
 								</td>
 							</tr>
 							<tr>
-								<td>주소</td>
+								<th>주소</th>
 								<td>
 									<form:input id="sample6_postcode" placeholder="우편번호" path="mem_post" readonly="true"/> 
-									<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br />
+									<input type="button" class="btn btn-primary" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br />
 									<form:errors path="mem_post"/>
 									<form:input id="sample6_address" placeholder="주소" path="mem_addr1"/><br />
 									<form:errors path="mem_addr1"/>
@@ -194,11 +189,11 @@ function delMember(){
 								</td>
 							</tr>
 						</table>
-						<input type="button" class="btn btn-default" value="수정" onclick="pwCheck()"/>
+						<input type="button" class="btn btn-default" id="modify_button" value="수정" onclick="pwCheck()"/>
 					</form:form>
 				</div>
 				<div id="res_info" class="tab_content">
-					<h3>예약정보 조회</h3>
+					<h3><b>예약정보 조회</b></h3>
 						<table class="table table-bordered">
 							<thead>
 								<tr>
@@ -215,7 +210,7 @@ function delMember(){
 							<tbody>
 								<c:forEach var="obj" items="${reservationBean }">
 								<tr style="text-align:center;">
-									<td><div><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.res_num }','예약조회','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.res_num }</a></div></td>
+									<td><div><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.res_num }','예약조회','scrollbars=yes width=500 height=400 left=100 top=50')">${obj.res_num }</a></div></td>
 									<td><div>${obj.course_names }</div></td>
 									<td><div>${obj.course_price }</div></td>
 									<td><div>${obj.res_startdate }</div></td>
@@ -267,10 +262,10 @@ function delMember(){
 					</form:form>
 				</div>
 				<div id="delete" class="tab_content">
-					<h2>정말 탈퇴하시겠습니까?</h2>
+					<h3><b>정말 탈퇴하시겠습니까?</b></h3>
 					<form:form action="${root }member/deleteMember" modelAttribute="memberBean" id="deleteMember">
 						<form:hidden path="mem_num" id="del_mem_num"/>
-						비밀번호 <form:password path="mem_pw" id="mem_pw2" value=""/>
+						<div>비밀번호</div> <form:password path="mem_pw" id="mem_pw2" value=""/>
 						<input class="btn btn-default" type="button" id="delete_button" value="탈퇴" onclick="delMember()"/>
 					</form:form>
 				</div>

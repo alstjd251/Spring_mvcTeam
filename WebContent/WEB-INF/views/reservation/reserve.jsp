@@ -7,23 +7,35 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Sul Sure</title>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
-	<h2>예약 완료</h2>
+<script type="text/javascript">
+Swal.fire({
+	icon : "success",
+	title : "예약 완료",
+	text : "예약 현황은 마이페이지에서 확인 가능합니다.",
+}).then(function() {
+	location.href="${root}main";
+});
+</script>
+	<%-- <h2>예약 완료</h2>
 
-	<form:form modelAttribute="resBean">
+	<form:form modelAttribute="reservationBean">
 		<table class="table table-bordered">
 			<tr>
 				<th>코스</th>
-				<td><input type="text" id="res_coursenum"></td>
+				<td><form:input path="course_names" id="course_names" readonly="true"/></td>
 			</tr>
 			<tr>
 				<th>예약일자</th>
-				<td><input type="text" id="res_startdate"></td>
+				<td><form:input path="res_startdate" id="res_startdate" readonly="true"/></td>
 			</tr>
 			<tr>
 				<th>금액</th>
-				<td><input type="text" id="c_price"></td>
+				<td><form:input path="course_price" id="course_price" readonly="true"/></td>
 			</tr>
 			<tr>
 				<th>예약자명</th>
@@ -35,15 +47,15 @@
 			</tr>
 			<tr>
 				<th>인원</th>
-				<td><input type="text" id="res_personnel"></td>
+				<td><form:input path="res_personnel" id="res_personnel" readonly="true"/></td>
 			</tr>
 			<tr>
 				<td colspan="2">
-					<input class="btn btn-default" type="button" id="" value="예약취소">
+					<p>예약 취소는 마이페이지에서 할 수 있습니다.</p>
 					<h1><a href="${root}main">홈으로 가기</a></h1>
 				</td>
 			</tr>
 		</table>
-	</form:form>
+	</form:form> --%>
 </body>
 </html>

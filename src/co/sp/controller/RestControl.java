@@ -80,26 +80,8 @@ public class RestControl {
 		}
 	}
 	
-	@PostMapping("/member/modifypwcheck.do")
+	@PostMapping("/member/pwcheck.do")
 	public String pwCheck(@RequestParam Map<String, String> map, Member_s memberBean) {
-		int mem_num = Integer.parseInt(map.get("mem_num"));
-		String mem_pw = map.get("mem_pw");
-		
-		memberBean = ms.getMemberInfo(mem_num);
-		
-		String pw = memberBean.getMem_pw();
-		
-		if(mem_pw.equals(pw)) {
-			return "true";
-		}
-		else {
-			return "false";
-		}
-		
-	}
-	
-	@PostMapping("/member/deletepwcheck.do")
-	public String delPwcheck(@RequestParam Map<String, String> map, Member_s memberBean) {
 		int mem_num = Integer.parseInt(map.get("mem_num"));
 		String mem_pw = map.get("mem_pw");
 		

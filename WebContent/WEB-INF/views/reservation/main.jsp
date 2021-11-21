@@ -9,21 +9,15 @@
 <meta charset="UTF-8">
 <title>Sul Sure</title>
 <head>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script
-	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
-<script type="text/javascript"
-	src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet" href="${root }css/reservationCss.css" />
 <link rel="stylesheet" href="${root }css/include/wave.css" />
-<script type="text/javascript"
-	src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="${root }js/zip.js"></script>
-<link href="${root }css/include/n_header_footer.css" rel="stylesheet"
-	type="text/css" />
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
 .table>tbody>tr>td {
@@ -163,7 +157,6 @@
 			document.getElementById("mem_name").value = "${loginBean.mem_name }";
 			document.getElementById("mem_phone").value = "${loginBean.mem_phone }";
 			document.getElementById("mem_mail").value = "${loginBean.mem_mail }";
-			
 		}
 	}
 	
@@ -210,9 +203,7 @@
 						<p id="minus" onclick="minus()">-</p>
 						<p id="res_personnel">1</p>
 						<p id="plus" onclick="plus()">+</p>
-						<input
-							type="button" id="res_ch" onclick="resSelect()" value="선택">
-
+						<a href="#res_course" onclick="return resSelect()"><input type="button" id="res_ch" value="선택"></a>
 					</div>
 				</div>
 			</div>

@@ -169,4 +169,19 @@ public class AdminControl {
 		
 		return "admin/admin_partner_delete_proc";
 	}
+	
+//	@GetMapping("admin_mem_delete")
+//	public String admin_mem_delete(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+//		m.addAttribute("memberBean", ms.getMember(memberBean.getMem_num()));
+//		
+//		return "admin/admin_mem_delete";
+//	}
+//	
+//	@PostMapping("admin_mem_delete_proc")
+//	public String admin_mem_delete_proc(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+//		ms.deleteMember(memberBean);
+//		m.addAttribute("memberBean", memberBean);
+//		
+//		return "admin/admin_mem_delete_proc";
+//	}
 }

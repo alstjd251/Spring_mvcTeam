@@ -29,6 +29,8 @@ import co.sp.interceptor.LoginCheckInterceptor;
 import co.sp.interceptor.NoticeInterceptor;
 import co.sp.mapper.MemMapper;
 import co.sp.mapper.NoticeMapper;
+import co.sp.mapper.PartnerMapper;
+import co.sp.mapper.QnaMapper;
 import co.sp.mapper.ResMapper;
 
 // MVC 프로젝트 설정
@@ -129,6 +131,22 @@ public class ServletContext implements WebMvcConfigurer {
 		return f;
 	}
 	
+	@Bean
+	public MapperFactoryBean<QnaMapper> QnaMapper(SqlSessionFactory fac) throws Exception {
+
+		MapperFactoryBean<QnaMapper> f = new MapperFactoryBean<QnaMapper>(QnaMapper.class);
+		f.setSqlSessionFactory(fac);
+		return f;
+	}
+	
+	@Bean
+	public MapperFactoryBean<PartnerMapper> PartnerMapper(SqlSessionFactory fac) throws Exception {
+
+		MapperFactoryBean<PartnerMapper> f = new MapperFactoryBean<PartnerMapper>(PartnerMapper.class);
+		f.setSqlSessionFactory(fac);
+		return f;
+	}
+	
 
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer PropertySourcesPlaceholderConfigurer() {
@@ -176,7 +194,7 @@ public class ServletContext implements WebMvcConfigurer {
 //		
 		LoginCheckInterceptor loginInterceptor = new LoginCheckInterceptor(loginBean);
 		InterceptorRegistration reg2 = registry.addInterceptor(loginInterceptor);
-		reg2.addPathPatterns("/reservation/**");
+		reg2.addPathPatterns("/reservation/**","/board/QnaAnother");
 		reg2.excludePathPatterns("/main");
 		
 		AdminInterceptor adminInterceptor = new AdminInterceptor(loginBean);	

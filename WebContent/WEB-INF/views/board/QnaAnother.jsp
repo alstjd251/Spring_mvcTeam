@@ -40,6 +40,8 @@
 			</div>
 		</div>
 	<div class="qnaAno">
+	<form:form action="${root }board/QnaAnother_proc" modelAttribute="qnaBean" id="qnaForm">
+	<form:hidden path="q_mnum" value="${loginBean.mem_num }" />
       <table class="qnaAnotherTable" align="center">
         <tr>
           <th>고객명</th>
@@ -49,13 +51,14 @@
         </tr>
         <tr>
           <th>제목</th>
-          <td colspan="3" style="text-align: left;"><input type="text" id="qnasub" size="80" /></td>
+          <td colspan="3" style="text-align: left;"><form:input path="q_qnatitle" id="qnasub" size="80" /></td>
         </tr>
         <tr>
           <th>내용</th>
-          <td colspan="3"><div style="width:100%"><textarea class="text" rows="20" id="qnastory" style="width:100%"></textarea></div></td>
+          <td colspan="3"><div style="width:100%"><form:textarea path="q_qnacontent" class="text" rows="20" id="qnastory" style="width:100%"></form:textarea></div></td>
         </tr>
       </table>
+      </form:form>
       <div class="but">
         <button class="subut" onclick="subut()">문의하기</button>
         <button class="canbut" onclick="canbut()">닫기</button>
@@ -75,7 +78,7 @@
 				CancelButtonText: "아니오",
 			}).then((result) => {
 				if(result.isConfirmed) {
-					location.href="${root}board/QnaAnotherSucess";
+					$("#qnaForm").submit();
 					}
 				});
 		}

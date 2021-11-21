@@ -51,6 +51,9 @@ function idSearch(){
 				icon : "success",
 				title : "아이디 찾기 결과",
 			    text  : "회원님의 아이디는 "+ id +"입니다.",
+			}).then(function(){
+				$("#name").val("");
+				$("#mail").val("");
 			});
 			}
 		}
@@ -84,6 +87,10 @@ function pwSearch(){
 						icon : "success",
 						title : "메일 전송 완료",
 					    text  : "고객님의 메일로 비밀번호를 전송하였습니다.",
+					}).then(function(){
+						$("#name2").val("");
+						$("#id2").val("");
+						$("#mail2").val("");
 					});
 				}
 			}

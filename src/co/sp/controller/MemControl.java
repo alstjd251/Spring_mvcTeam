@@ -1,5 +1,7 @@
 package co.sp.controller;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -11,12 +13,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
+import co.sp.beans.Reservation_s;
 import co.sp.service.MemService;
+import co.sp.service.ResService;
 
 @Controller
 @RequestMapping("/member")
@@ -24,6 +27,9 @@ public class MemControl {
 
 	@Autowired
 	private MemService ms;
+	
+	@Autowired
+	private ResService rs;
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
@@ -71,28 +77,27 @@ public class MemControl {
 	}
 	
 	@GetMapping("/mypage")
-	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, @ModelAttribute("reservationBean") Reservation_s reservationBean , Model m) {
 		int mem_num = loginBean.getMem_num();
 		String mem_grade = loginBean.getMem_grade();
+		List<Reservation_s>resBean = rs.getMemReservation(mem_num);
 		
-		if(!mem_grade.equals("0")) {
+		
+		if(mem_grade.equals("1")) {
+			m.addAttribute("loginBean", loginBean);
 			m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
+			m.addAttribute("reservationBean", resBean);
+			return "member/mypage";
+		}else if(mem_grade.equals("2")) {
+			
 			return "member/mypage";
 		}
 		else {
 			m.addAttribute("memberBean", ms.getMemberInfo(mem_num));
-			return "admin/admin_mem";
+			return "admin/hello_Admin";
 		}
 		
 	}
-	
-//	@PostMapping("/idFinder")
-//	public String idFinder(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
-//		String id = ms.getFindId(memberBean);
-//		m.addAttribute("idSearch", id);
-//		
-//		return  "member/idFinder";
-//	}
 	
 	@GetMapping("/join")
 	public String join(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
@@ -113,10 +118,21 @@ public class MemControl {
 	}
 	
 	@GetMapping("/mypage_reservation")
-	public String my_reservation(@ModelAttribute Member_s memberBean, Model m) {
+	public String my_reservation(@ModelAttribute("resBean") Reservation_s resBean, Model m) {
+		String resnum = resBean.getRes_num();
+		
+		m.addAttribute("resBean", rs.getOneReservation(resnum));
 		
 		return "member/mypage_reservation";
 	}
 	
+	@PostMapping("/memberModify")
+	public String memberModify(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
+		ms.memberUpdate(memberBean);
+		
+		return "member/mypage";
+		
+	}
 	
 }

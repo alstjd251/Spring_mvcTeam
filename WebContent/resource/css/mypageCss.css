@@ -5,7 +5,7 @@ body {
 	flex-direction: column;
 }
 
-/* »ó¼¼ ÆäÀÌÁö section css */
+/* ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ section css */
 section {
 	width: 80%;
 	margin-left: 10%;
@@ -53,6 +53,16 @@ section #mypage #mypage_con2 #res_info table {
 section #mypage #mypage_con2 #res_info table thead th {
 	text-align: center;
 	background-color: rgb(255, 132, 132);
+}
+
+section #mypage #mypage_con2 #res_info table thead th div{
+	text-align: center;
+	width:max-content;
+}
+
+section #mypage #mypage_con2 #res_info table tbody td div {
+	text-align: center;
+	width:max-content;
 }
 
 section #mypage #mypage_con2 #res_info table tbody td a {

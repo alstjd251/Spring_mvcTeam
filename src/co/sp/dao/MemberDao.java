@@ -1,8 +1,11 @@
 package co.sp.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Member_s;
 import co.sp.mapper.MemMapper;
 
@@ -38,5 +41,13 @@ public class MemberDao {
 	
 	public void memberUpdate(Member_s memberBean) {
 		memMapper.memberUpdate(memberBean);
+	}
+	
+	public List<Member_s> allMember(BoardPage bp){
+		return memMapper.allMember(bp);
+	}
+	
+	public int memCount(BoardPage bp) {
+		return memMapper.memCount(bp);
 	}
 }

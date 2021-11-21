@@ -38,4 +38,8 @@ public class PartnerDao {
 	public Partners_s getPartner(String code) {
 		return partnermapper.getPartner(code);
 	}
+	
+	public void acceptPartner(Partners_s partnerBean) {
+		partnermapper.acceptPartner(partnerBean);
+	}
 }

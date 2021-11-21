@@ -189,7 +189,7 @@
 	 		<h1>회원가입</h1>
 		</div>
 		<div style="margin-bottom: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-			<form:form class="form-horizontal" action="join_proc" modelAttribute="memberBean">
+			<form:form class="form-horizontal" action="${root }member/join_proc" modelAttribute="memberBean">
 				<form:hidden path="idExist"/>
 					<!-- 아이디 -->
 					<div id="idGroup" class="form-group" style="display:flex;">

@@ -185,18 +185,46 @@ public class AdminControl {
 		return "admin/admin_reservation_delete_proc";
 	}
 	
-//	@GetMapping("admin_mem_delete")
-//	public String admin_mem_delete(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
-//		m.addAttribute("memberBean", ms.getMember(memberBean.getMem_num()));
-//		
-//		return "admin/admin_mem_delete";
-//	}
-//	
-//	@PostMapping("admin_mem_delete_proc")
-//	public String admin_mem_delete_proc(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
-//		ms.deleteMember(memberBean);
-//		m.addAttribute("memberBean", memberBean);
-//		
-//		return "admin/admin_mem_delete_proc";
-//	}
+	@GetMapping("admin_partnerRequest")
+	public String admin_partnerRequest(BoardPage bp, @ModelAttribute("partnerBean") Partners_s partnerBean, Model m
+			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
+			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
+			, @RequestParam(value="keyword", required=false)String keyword) {
+		bp.setKeyword(keyword);
+		int partnerCount = ps.partnerCount(bp);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
+		}
+		else if (nowPage == null) {
+			nowPage = "1";
+		}
+		else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		
+		bp = new BoardPage(partnerCount, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
+
+		m.addAttribute("partnerList", ps.allPartner(bp));
+		m.addAttribute("partnerPaging", bp);
+		m.addAttribute("partnerCount", partnerCount);
+		
+		return "admin/admin_partnerRequest";
+	}
+	
+	@GetMapping("admin_partnerRequest_accept")
+	public String admin_partnerRequest_accept(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
+		m.addAttribute("partnerBean", ps.getPartner(partnerBean.getPartners_code()));
+		
+		return "admin/admin_partnerRequest_accept";
+	}
+	
+	@PostMapping("admin_partnerRequest_accept_proc")
+	public String admin_partnerRequest_accept_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
+		ps.acceptPartner(partnerBean);
+		m.addAttribute("partnerBean", partnerBean);
+		
+		return "admin/admin_partnerRequest_accept_proc";
+	}
 }

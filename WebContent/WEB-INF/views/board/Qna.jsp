@@ -166,7 +166,7 @@
 				</div>
 			</div>
 		</div>
-		<div style="margin-bottom: 200px">
+		<div style="margin-bottom: 400px">
 			기타 문의 사항은 기타 문의하기 버튼을 눌러 양식에 맞춰서 적어주시기 바랍니다.<br><br>
 			<a href="${root }board/QnaAnother" id="qna_button">기타 문의하기</a>
 		</div>

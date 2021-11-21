@@ -9,7 +9,9 @@ body {
 section {
 	width: 80%;
 	margin-left: 10%;
+	margin-top : 5%;
 	height: 100%;
+	margin-bottom: 10%;
 }
 
 section #mypage {
@@ -17,8 +19,7 @@ section #mypage {
 	justify-content: space-between;
 	width: 100%;
 	height: 100%;
-	margin-bottom: 40px;
-	margin-top: 20px;
+	margin-bottom: 50px;
 }
 
 section #mypage #mypage_con1 {
@@ -35,6 +36,7 @@ section #mypage_con1 #name_text {
 section #mypage #mypage_con2 {
 	width: 65%;
 	height: 100%;
+	margin-top: -30px;
 }
 
 section #mypage #mypage_con2 #res_info {
@@ -46,29 +48,27 @@ section #mypage #mypage_con2 #res_info {
 	overflow-x: scroll;
 }
 
-section #mypage #mypage_con2 #res_info table {
-	margin-top: 30px;
+section #mypage #mypage_con2 table {
+	margin-top: 20px;
+	justify-content: center;
 }
 
 section #mypage #mypage_con2 #res_info table thead th {
-	text-align: center;
-	background-color: rgb(255, 132, 132);
-}
-
-section #mypage #mypage_con2 #res_info table thead th div{
-	text-align: center;
-	width:max-content;
+	background-color: #f1a99c;
 }
 
 section #mypage #mypage_con2 #res_info table tbody td div {
-	text-align: center;
 	width:max-content;
 }
 
-section #mypage #mypage_con2 #res_info table tbody td a {
+section #mypage #mypage_con2 #res_info table tbody td div a {
 	display: inline-block;
 	width: 100px;
 	text-align: center;
+}
+
+section #mypage #mypage_con2 #res_info table tbody td div a:hover{
+	cursor: pointer;
 }
 
 .tabs {
@@ -86,16 +86,113 @@ section #mypage #mypage_con2 #res_info table tbody td a {
 }
 
 .tabs li.current {
-	background-color: #bbd366cc;
+	background-color: #abc477;
 }
 
 .tab_content {
 	display: none;
-	border-top: 2px solid gray;
-	background-color: #8688a6;
 	padding: 15px;
 }
 
 .tab_content.current {
 	display: inherit;
+}
+
+table{
+	vertical-align: center;
+}
+
+
+table tr th{
+	text-align: center;
+	background-color: #f1a99c;
+	font-size: 15px;
+}
+
+table tr td input{
+	margin-left: 10px;
+	font-size: 15px;
+	
+}
+
+#sample6_detailAddress{
+	margin-top: 5px;
+}
+
+#modify_button{
+	float: right;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 15px;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+#partner_button{
+	float: right;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 15px;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+#button{
+	display: flex;
+	justify-content: center;
+}
+
+#cancel_button{
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 15px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+#close_button {
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 15px;
+	margin-top: 5px;
+}
+
+#res_num, #course_names, #res_startdate, #res_paydate, #course_price, #mem_name, #mem_phone, #res_personnel {
+	border:0;
+}
+
+#res_num:focus, #course_names:focus, #res_startdate:focus, 
+#res_paydate:focus, #course_price:focus, #mem_name:focus, 
+#mem_phone:focus, #res_personnel:focus {
+	outline: none;
+}
+
+
+#delete h3{
+	margin-top : 5%;
+}
+
+#delete #deleteMember{
+	display : flex;
+	justify-content : center;
+	margin-left : -35px;
+	width : 50%;
+	margin-top: 30px;
+}
+
+#deleteMember div{
+	font-size: 17px;
+	margin-top: 5px;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+#deleteMember #mem_pw2{
+	margin-right: 20px;
+}
+
+#delete_button{
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 15px;
 }

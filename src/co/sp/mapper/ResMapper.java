@@ -2,6 +2,7 @@ package co.sp.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.SelectKey;
@@ -32,9 +33,19 @@ public interface ResMapper {
 	@Select("select A.*,B.c_coursename, B.c_price, C.mem_name, C.mem_phone from reservation_s A, course_s B, member_s C where B.c_coursenum = A.res_coursenum and A.res_mnum = C.mem_num")
 	List<Reservation_s> getallReservation();
 	
+	// 예약 리스트 페이징
 	@Select("select * from (select ROWNUM RN, A.* from (select * from reservation_s where res_num like '%'||#{keyword, jdbcType=VARCHAR}||'%' order by res_num) A) where RN between #{start} and #{end}")
 	List<Reservation_s> allReservation(BoardPage bp);
 	
+	// 예약 총 수
 	@Select("select count(*) from reservation_s where res_num like '%'||#{keyword, jdbcType=VARCHAR}||'%'")
 	int resCount(BoardPage bp);
+	
+	// 예약 번호로 예약 정보 가져오기
+	@Select("select A.*,B.c_coursename as course_names, (B.c_price * A.res_personnel) as course_price, C.mem_name as loginName, C.mem_phone as loginPhone from reservation_s A, course_s B, member_s C where res_num = #{res_num} and B.c_coursenum = A.res_coursenum and A.res_mnum = C.mem_num order by res_paydate")
+	Reservation_s getOneReservation(String res_num);
+	
+	// 예약취소
+	@Delete("delete from reservation_s where res_num = #{res_num}")
+	void deleteReservation(Reservation_s resBean);
 }

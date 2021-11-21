@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:set var='root' value="${pageContext.request.contextPath }/" />
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
 <body>
 	<h2>예약 완료</h2>
 
-	<form>
+	<form:form modelAttribute="resBean">
 		<table class="table table-bordered">
 			<tr>
 				<th>코스</th>
@@ -26,26 +27,23 @@
 			</tr>
 			<tr>
 				<th>예약자명</th>
-				<td><input type="text" id="mem_name" readonly="readonly"
-					value="${loginBean.mem_name }"></td>
+				<td><input type="text" id="mem_name" readonly="readonly" value="${loginBean.mem_name }"></td>
 			</tr>
 			<tr>
 				<th>예약자 연락처</th>
-				<td><input type="tel" id="mem_phone" readonly="readonly"
-					value="${loginBean.mem_phone }"></td>
+				<td><input type="tel" id="mem_phone" readonly="readonly" value="${loginBean.mem_phone }"></td>
 			</tr>
 			<tr>
 				<th>인원</th>
 				<td><input type="text" id="res_personnel"></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input class="btn btn-default" type="button"
-					id="" value="예약취소">
-					<h1>
-						<a href="${root}main">홈으로 가기</a>
-					</h1></td>
+				<td colspan="2">
+					<input class="btn btn-default" type="button" id="" value="예약취소">
+					<h1><a href="${root}main">홈으로 가기</a></h1>
+				</td>
 			</tr>
 		</table>
-	</form>
+	</form:form>
 </body>
 </html>

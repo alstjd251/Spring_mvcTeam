@@ -39,4 +39,12 @@ public class ReservationDao {
 	public int resCount(BoardPage bp) {
 		return resMapper.resCount(bp);
 	}
+	
+	public void deleteReservation(Reservation_s resBean) {
+		resMapper.deleteReservation(resBean);
+	}
+	
+	public Reservation_s getOneReservation(String res_num) {
+		return resMapper.getOneReservation(res_num);
+	}
 }

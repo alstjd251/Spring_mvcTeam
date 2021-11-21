@@ -20,7 +20,7 @@
 </head>
 <body>
 <form:form action="${root }reservation/cancelRes" modelAttribute="resBean">
-	<table class="table table-bordered">
+	<table class="table table-bordered" id="res_table">
 		<tr>
 			<th>예약번호</th>
 			<td><form:input path="res_num" id="res_num" readonly="true"/></td>
@@ -54,8 +54,8 @@
 			<td><form:input path="res_personnel" id="res_personnel" readonly="true"/></td>
 		</tr>
 	</table>
-	<form:button class="btn btn-default">예약취소</form:button>
-	<input class="btn btn-default" type="button" id="" value="닫기" onclick="self.close();">
+	<form:button class="btn btn-default" id="cancel_button">예약취소</form:button>
+	<input class="btn btn-default" type="button" id="close_button" value="닫기" onclick="self.close();">
 </form:form>
 </body>
 </html>

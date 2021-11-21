@@ -20,6 +20,7 @@ public class Partners_s {
 	private String partners_brewery_addr2;
 	
 	private int partners_mnum;
+	private int partners_state;
 
 	public String getPartners_code() {
 		return partners_code;
@@ -91,5 +92,13 @@ public class Partners_s {
 
 	public void setPartners_mnum(int partners_mnum) {
 		this.partners_mnum = partners_mnum;
+	}
+
+	public int getPartners_state() {
+		return partners_state;
+	}
+
+	public void setPartners_state(int partners_state) {
+		this.partners_state = partners_state;
 	}
 }

@@ -22,7 +22,7 @@
 <script>
 	function selChange() {
 		var sel = document.getElementById('cntPerPage').value;
-		location.href="${root}admin/admin_qna?nowPage=${qnaPaging.nowPage}&cntPerPage="+sel+"&keyword=${qnaPaging.keyword}";
+		location.href="${root}admin/admin_partnerRequest?nowPage=${partnerPaging.nowPage}&cntPerPage="+sel+"&keyword=${partnerPaging.keyword}";
 	}
 </script>
 <body>
@@ -37,69 +37,73 @@
 	
 	<section>
 		<div id="con">
-			<h3>회원문의 관리</h3>
+			<h3>기업정보 관리</h3>
 			<select id="cntPerPage" name="sel" onchange="selChange()">
 				<option value="5"
-					<c:if test="${qnaPaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
+					<c:if test="${partnerPaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
 				<option value="10"
-					<c:if test="${qnaPaging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
+					<c:if test="${partnerPaging.cntPerPage == 10}">selected</c:if>>10줄 보기</option>
 				<option value="15"
-					<c:if test="${qnaPaging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
+					<c:if test="${partnerPaging.cntPerPage == 15}">selected</c:if>>15줄 보기</option>
 				<option value="20"
-					<c:if test="${qnaPaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
+					<c:if test="${partnerPaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 			</select>
 			<div>
 				<div class = "search">
-					<input type="text" name="keyword" placeholder="질문 제목으로 검색합니다." value="${qnaPaging.keyword }">
+					<input type="text" name="keyword" placeholder="업체명으로 검색합니다." value="${partnerPaging.keyword }">
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>
-							<th>문의번호</th>
-							<th>회원번호</th>
-							<th>제목</th>
-							<th>이름</th>
+							<th>사업자번호</th>
+							<th>업체명</th>
+							<th>대표자</th>
+							<th>연락처</th>
 							<th>메일</th>
-							<th>작성일자</th>
+							<th>사업장 명</th>
+							<th>사업장 주소</th>
 						</tr>
 					</thead>
 					<tbody>
-						<c:forEach var='obj' items="${qnaList }">
-							<tr>
-								<td><a href="#">${obj.q_qnanum }</a></td>
-								<td>${obj.q_mnum }</td>
-								<td>${obj.q_qnatitle }</td>
-								<td>mem_name</td>
-								<td>mem_mail</td>
-								<td>${obj.q_qnadate }</td>
-							</tr>
+						<c:forEach var='obj' items="${partnerList }">
+							<c:if test="${obj.partners_state == 0 }">
+								<tr>
+									<td><a onclick="window.open('${root}admin/admin_partnerRequest_accept?partners_code=${obj.partners_code }','협력업체 신청 수락','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
+									<td>${obj.partners_brewery_name }</td>
+									<td>${obj.partners_name }</td>
+									<td>${obj.partners_tel }</td>
+									<td>${obj.partners_mail }</td>
+									<td>${obj.partners_brewery_name }</td>
+									<td>${obj.partners_brewery_post } ${obj.partners_brewery_addr1 } ${obj.partners_brewery_addr2 }</td>
+								</tr>
+							</c:if>
 						</c:forEach>
 					</tbody>
 				</table>
 				<div class="text-center">
-					<c:if test="${qnaPaging.startPage != 1 }">
-						<a href="${root }admin/admin_qna?nowPage=${qnaPaging.startPage - 1 }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">&lt;</a>
+					<c:if test="${partnerPaging.startPage != 1 }">
+						<a href="${root }admin/admin_partnerRequest?nowPage=${partnerPaging.startPage - 1 }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">&lt;</a>
 					</c:if>
-					<c:forEach begin="${qnaPaging.startPage }" end="${qnaPaging.endPage }" var="p">
+					<c:forEach begin="${partnerPaging.startPage }" end="${partnerPaging.endPage }" var="p">
 						<c:choose>
-							<c:when test="${p == qnaPaging.nowPage }">
+							<c:when test="${p == partnerPaging.nowPage }">
 								<b>${p }</b>
 							</c:when>
-							<c:when test="${p != qnaPaging.nowPage }">
-								<a href="${root }admin/admin_qna?nowPage=${p }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">${p }</a>
+							<c:when test="${p != partnerPaging.nowPage }">
+								<a href="${root }admin/admin_partnerRequest?nowPage=${p }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">${p }</a>
 							</c:when>
 						</c:choose>
 					</c:forEach>
-					<c:if test="${qnaPaging.endPage != qnaPaging.lastPage}">
-						<a href="${root }admin/admin_qna?nowPage=${qnaPaging.endPage+1 }&cntPerPage=${qnaPaging.cntPerPage}&keyword=${qnaPaging.keyword}">&gt;</a>
+					<c:if test="${partnerPaging.endPage != partnerPaging.lastPage}">
+						<a href="${root }admin/admin_partnerRequest?nowPage=${partnerPaging.endPage+1 }&cntPerPage=${partnerPaging.cntPerPage}&keyword=${partnerPaging.keyword}">&gt;</a>
 					</c:if>
 				</div>
 			</div>
 		</div>
 	</section>
 	<form id="moveForm" method="get">
-		<input type="hidden" name="keyword" value="${qnaPaging.keyword }">
+		<input type="hidden" name="keyword" value="${partnerPaging.keyword }">
 		<input type="hidden" name="nowPage" value="">
 		<input type="hidden" name="cntPerPage" value="">
 	</form>
@@ -110,8 +114,8 @@
 			e.preventDefault();
 
 			let keyword = $(".search input[name='keyword']").val();
-			let nowPage = ${qnaPaging.nowPage};
-			let cntPerPage = ${qnaPaging.cntPerPage};
+			let nowPage = ${partnerPaging.nowPage};
+			let cntPerPage = ${partnerPaging.cntPerPage};
 
 			if (!keyword) {
 				alert("키워드를 입력하세요.");

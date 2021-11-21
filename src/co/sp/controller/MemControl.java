@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
+import co.sp.beans.Partners_s;
 import co.sp.beans.Reservation_s;
 import co.sp.service.MemService;
+import co.sp.service.PartnerService;
 import co.sp.service.ResService;
 
 @Controller
@@ -30,6 +32,9 @@ public class MemControl {
 	
 	@Autowired
 	private ResService rs;
+	
+	@Autowired
+	private PartnerService ps;
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
@@ -77,7 +82,7 @@ public class MemControl {
 	}
 	
 	@GetMapping("/mypage")
-	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, @ModelAttribute("reservationBean") Reservation_s reservationBean , Model m) {
+	public String mypg(@ModelAttribute("memberBean") Member_s memberBean, @ModelAttribute("reservationBean") Reservation_s reservationBean, @ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		int mem_num = loginBean.getMem_num();
 		String mem_grade = loginBean.getMem_grade();
 		List<Reservation_s>resBean = rs.getMemReservation(mem_num);
@@ -87,6 +92,7 @@ public class MemControl {
 			m.addAttribute("loginBean", loginBean);
 			m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
 			m.addAttribute("reservationBean", resBean);
+			m.addAttribute("partnerBean", partnerBean);
 			return "member/mypage";
 		}else if(mem_grade.equals("2")) {
 			
@@ -135,4 +141,13 @@ public class MemControl {
 		
 	}
 	
+	@PostMapping("partnerRequest_proc")
+	public String partnerRequest_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
+		ps.addPartner(partnerBean);
+		//partnerBean.setPartners_state(0);
+		
+		m.addAttribute(partnerBean);
+		
+		return "member/partnerRequest_proc";
+	}
 }

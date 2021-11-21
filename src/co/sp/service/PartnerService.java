@@ -37,4 +37,8 @@ public class PartnerService {
 	public Partners_s getPartner(String code) {
 		return partnerDao.getPartner(code);
 	}
+	
+	public void acceptPartner(Partners_s partnerBean) {
+		partnerDao.acceptPartner(partnerBean);
+	}
 }

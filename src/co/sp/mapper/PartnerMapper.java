@@ -12,7 +12,7 @@ import co.sp.beans.Notice_s;
 import co.sp.beans.Partners_s;
 
 public interface PartnerMapper {
-	@Insert("insert into partners_s values(#{partners_code}, #{partners_name}, #{partners_tel}, #{partners_mail}, #{partners_brewery_name}, #{partners_brewery_post}, #{partners_brewery_addr1}, #{partners_brewery_addr2})")
+	@Insert("insert into partners_s values(#{partners_code}, #{partners_name}, #{partners_tel}, #{partners_mail}, #{partners_brewery_name}, #{partners_brewery_post}, #{partners_brewery_addr1}, #{partners_brewery_addr2}, #{partners_mnum}, 0)")
 	void addPartner(Partners_s partnerBean);
 	
 	@Delete("delete from partners_s where partners_code = #{partners_code}")
@@ -29,4 +29,7 @@ public interface PartnerMapper {
 	
 	@Select("select * from partners_s where partners_code = #{partners_code}")
 	Partners_s getPartner(String code);
+	
+	@Update("update partners_s set  partners_state = 1 where partners_code = #{partners_code}")
+	void acceptPartner(Partners_s partnerBean);
 }

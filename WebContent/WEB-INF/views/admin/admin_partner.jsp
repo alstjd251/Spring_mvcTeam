@@ -30,6 +30,7 @@
 		<form action = "${root }main"><input type ="submit" value = "main"/></form>
 		<form action = "${root }admin/admin_mem"><input type ="submit" value = "회원정보 관리"/></form>
 		<form action = "${root }admin/admin_partner"><input type ="submit" value = "기업정보 관리"/></form>
+		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 수락"/></form>
 		<form action = "${root }admin/admin_res"><input type ="submit" value = "예약정보 조회"/></form>
 		<form action = "${root }admin/admin_qna"><input type ="submit" value = "회원문의 관리"/></form>
 	</div>
@@ -66,15 +67,17 @@
 					</thead>
 					<tbody>
 						<c:forEach var='obj' items="${partnerList }">
-							<tr>
-								<td><a onclick="window.open('${root}admin/admin_partner_delete?partners_code=${obj.partners_code }','협력업체 정보 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
-								<td>${obj.partners_brewery_name }</td>
-								<td>${obj.partners_name }</td>
-								<td>${obj.partners_tel }</td>
-								<td>${obj.partners_mail }</td>
-								<td>${obj.partners_brewery_name }</td>
-								<td>${obj.partners_brewery_post } ${obj.partners_brewery_addr1 } ${obj.partners_brewery_addr2 }</td>
+							<c:if test="${obj.partners_state == 1 }">
+								<tr>
+									<td><a onclick="window.open('${root}admin/admin_partner_delete?partners_code=${obj.partners_code }','협력업체 정보 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
+									<td>${obj.partners_brewery_name }</td>
+									<td>${obj.partners_name }</td>
+									<td>${obj.partners_tel }</td>
+									<td>${obj.partners_mail }</td>
+									<td>${obj.partners_brewery_name }</td>
+									<td>${obj.partners_brewery_post } ${obj.partners_brewery_addr1 } ${obj.partners_brewery_addr2 }</td>
 							</tr>
+							</c:if>
 						</c:forEach>
 					</tbody>
 				</table>

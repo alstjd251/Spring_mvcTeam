@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.sp.beans.EmailSet;
 import co.sp.beans.Member_s;
+import co.sp.beans.Qna_s;
 import co.sp.beans.Reservation_s;
 import co.sp.service.EmailSender;
 import co.sp.service.MemService;
+import co.sp.service.QnaService;
 import co.sp.service.ResService;
 
 @RestController
@@ -24,6 +26,9 @@ public class RestControl {
 	
 	@Autowired
 	private ResService rs;
+	
+	@Autowired
+	private QnaService qs;
 	
 	@Autowired
 	private EmailSender emailSender;
@@ -121,4 +126,21 @@ public class RestControl {
 		
 	}
 	
+	@PostMapping("/admin/sendmail.do")
+	public String sendmail(@RequestParam Map<String, String> map, Qna_s qnaBean) throws Exception{
+		String answer = map.get("answer");
+		String mail = map.get("mem_mail");
+		int q_num = Integer.parseInt(map.get("q_num"));
+		
+		qnaBean = qs.getQna(q_num);
+		
+		EmailSet email = new EmailSet();
+	    email.setReceiver("byungeun96@naver.com");
+	    email.setSubject("문의에 대한 답변 메일입니다.");
+	    email.setContent(qnaBean.getQ_qnacontent() + "에 대한 답변 : " + answer);
+	    
+	    emailSender.SendEmail(email);
+		
+	    return "success";
+	}
 }

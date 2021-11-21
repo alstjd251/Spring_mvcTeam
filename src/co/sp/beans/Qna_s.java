@@ -12,7 +12,6 @@ public class Qna_s {
 	private String q_qnatitle;
 	private String q_qnacontent;
 	private String q_qnadate;
-	private int q_qnacnt;
 	private int q_mnum;
 	
 	private String mem_name;
@@ -48,14 +47,6 @@ public class Qna_s {
 
 	public void setQ_qnadate(String q_qnadate) {
 		this.q_qnadate = q_qnadate;
-	}
-
-	public int getQ_qnacnt() {
-		return q_qnacnt;
-	}
-
-	public void setQ_qnacnt(int q_qnacnt) {
-		this.q_qnacnt = q_qnacnt;
 	}
 
 	public int getQ_mnum() {

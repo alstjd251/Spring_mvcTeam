@@ -230,8 +230,12 @@ function delMember(){
 				</div>
 				<div id="partners" class="tab_content">
 					<!--유효성검사 해야함-->
+<<<<<<< HEAD
 
 					<h3><b>기업회원 신청</b></h3>
+=======
+					<h3>기업회원 신청</h3>
+>>>>>>> branch 'dkxmrhe1' of https://github.com/alstjd251/Spring_mvcTeam.git
 					<form:form method="post" action="partnerRequest_proc" modelAttribute="partnerBean">
 						<table class="table table-bordered">
 							<tr>
@@ -256,7 +260,10 @@ function delMember(){
 							</tr>
 							<tr>
 								<th>사업장주소</th>
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'dkxmrhe1' of https://github.com/alstjd251/Spring_mvcTeam.git
 								<td>
 									<form:input type="text" id="sample6_postcode" placeholder="우편번호" path="partners_brewery_post"/>
 									<form:button onclick="sample6_execDaumPostcode()">우편번호 찾기</form:button><br />
@@ -265,8 +272,12 @@ function delMember(){
 								</td>
 							</tr>
 						</table>
+<<<<<<< HEAD
 
 						<form:button class="btn btn-default" id="partner_button">신청</form:button>
+=======
+						<form:button class="btn btn-default" id="">신청</form:button>
+>>>>>>> branch 'dkxmrhe1' of https://github.com/alstjd251/Spring_mvcTeam.git
 					</form:form>
 				</div>
 				<div id="delete" class="tab_content">

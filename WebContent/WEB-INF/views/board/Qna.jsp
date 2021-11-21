@@ -33,7 +33,7 @@
 			</div>
 		</div>
 	</header>
-	<div class="cs-container" style="margin-bottom:50px;">
+	<div class="cs-container" style="margin-bottom:50px;" id="cs-container">
 		<h1>Q & A</h1>
 		<div class="cs-board01">
 			<div id="cs-menu">
@@ -166,7 +166,7 @@
 				</div>
 			</div>
 		</div>
-		<div style="margin-bottom: 400px">
+		<div id="qna_text">
 			기타 문의 사항은 기타 문의하기 버튼을 눌러 양식에 맞춰서 적어주시기 바랍니다.<br><br>
 			<a href="${root }board/QnaAnother" id="qna_button">기타 문의하기</a>
 		</div>

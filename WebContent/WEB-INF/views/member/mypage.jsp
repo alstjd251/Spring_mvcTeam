@@ -215,7 +215,7 @@ function delMember(){
 							<tbody>
 								<c:forEach var="obj" items="${reservationBean }">
 								<tr style="text-align:center;">
-									<td><div><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.res_num }','예약조회','scrollbars=yes width=400 height=350 left=100 top=50')">${obj.res_num }</a></div></td>
+									<td><div><a id="res_num" onclick="window.open('${root}member/mypage_reservation?res_num=${obj.res_num }','예약조회','scrollbars=yes width=500 height=400 left=100 top=50')">${obj.res_num }</a></div></td>
 									<td><div>${obj.course_names }</div></td>
 									<td><div>${obj.course_price }</div></td>
 									<td><div>${obj.res_startdate }</div></td>

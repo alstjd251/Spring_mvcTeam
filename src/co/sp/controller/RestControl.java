@@ -4,16 +4,14 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import co.sp.beans.EmailSet;
 import co.sp.beans.Member_s;
+import co.sp.beans.Reservation_s;
 import co.sp.service.EmailSender;
 import co.sp.service.MemService;
 import co.sp.service.ResService;
@@ -23,6 +21,9 @@ public class RestControl {
 
 	@Autowired
 	private MemService ms;
+	
+	@Autowired
+	private ResService rs;
 	
 	@Autowired
 	private EmailSender emailSender;
@@ -95,6 +96,28 @@ public class RestControl {
 		else {
 			return "false";
 		}
+		
+	}
+	
+	@PostMapping("/reservation/reserveMail.do")
+	public String reserveMail(@RequestParam Map<String, String> map, Reservation_s resBean) throws Exception {
+		
+		String name = map.get("mem_name");
+		String mail = map.get("mem_mail");
+		String resNum = map.get("res_num");
+		
+		resBean = rs.getOneReservation(resNum);
+	
+		System.out.println("Reservation Email Send");
+	    
+	    EmailSet email = new EmailSet();
+	    email.setReceiver("byungeun96@naver.com");
+	    email.setSubject(name + "님의 Sul Sure 예약 확인 메일입니다.");
+	    email.setContent("고객님의 예약 정보 : " + resBean.getCourse_names());
+	    
+	    emailSender.SendEmail(email);
+		
+	    return "success";
 		
 	}
 	

@@ -9,18 +9,41 @@
 <meta charset="UTF-8">
 <title>Sul Sure</title>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <script type="text/javascript">
-Swal.fire({
-	icon : "success",
-	title : "예약 완료",
-	text : "예약 현황은 마이페이지에서 확인 가능합니다.",
-}).then(function() {
-	location.href="${root}main";
+$(document).ready(function() {
+	var mem_name = $("#mem_name").val();
+	var mem_mail = $("#mem_mail").val();
+	var res_num = $("#res_num").val();
+	
+	var param = {'mem_name': mem_name, 'mem_mail': mem_mail, 'res_num': res_num}
+	$.ajax({
+		url : '${root}reservation/reserveMail.do',
+		type : 'POST',
+		data : param,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		dataType : 'text',
+		success : function(result){
+			if(result == "success"){
+				Swal.fire({
+					icon : "success",
+					title : "예약 완료",
+					text : "예약 현황은 마이페이지와 고객님의 메일에서 확인 가능합니다.",
+				}).then(function() {
+				location.href="${root}main";
+				}		
+			}
+		})
+	});
 });
 </script>
+<form:form modelAttribute="reservationBean">
+	<form:hidden path="res_num" id="res_num"/>
+	<form:hidden path="loginName" id="mem_name"/>
+	<input type="hidden" value="${loginBean.mem_mail }" id="mem_mail"/>
+</form:form>
 	<%-- <h2>예약 완료</h2>
 
 	<form:form modelAttribute="reservationBean">

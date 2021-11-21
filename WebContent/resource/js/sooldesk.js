@@ -151,3 +151,9 @@ setInterval(function () {
   $("#gg>#ggtwo>li>a").delay(2500);
   $("#gg>#ggtwo>li>a").animate({ marginLeft: "0" }, "fast");
 });
+
+/* 코스 선택 버튼 클릭시 해당하는 코스상세페이지로 이동하는 js */
+function course_bt() {
+	var courseBt = $(".course_bt").get();
+
+}

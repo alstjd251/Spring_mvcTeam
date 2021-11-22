@@ -41,4 +41,12 @@ public class PartnerService {
 	public void acceptPartner(Partners_s partnerBean) {
 		partnerDao.acceptPartner(partnerBean);
 	}
+	
+	public String getPcodeCheck(String partners_code) {
+		return partnerDao.getPcodeCheck(partners_code);
+	}
+	
+	public void partnersSetGrade(int partners_mnum) {
+		partnerDao.partnersSetGrade(partners_mnum);
+	}
 }

@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.sp.beans.EmailSet;
 import co.sp.beans.Member_s;
+import co.sp.beans.Partners_s;
 import co.sp.beans.Qna_s;
 import co.sp.beans.Reservation_s;
 import co.sp.service.EmailSender;
 import co.sp.service.MemService;
+import co.sp.service.PartnerService;
 import co.sp.service.QnaService;
 import co.sp.service.ResService;
 
@@ -30,6 +32,9 @@ public class RestControl {
 	
 	@Autowired
 	private QnaService qs;
+	
+	@Autowired
+	private PartnerService ps;
 	
 	@Autowired
 	private EmailSender emailSender;
@@ -171,5 +176,19 @@ public class RestControl {
 	    emailSender.SendEmail(email);
 		
 	    return "success";
+	}
+	
+	@PostMapping("/member/pcodeCheck.do")
+	public String pcodeCheck(@RequestParam Map<String, String> map, Partners_s partnersBean) throws Exception {
+		
+		String p_code = map.get("p_code");
+		
+		p_code = ps.getPcodeCheck(p_code);
+		
+		if(p_code == null) {
+			return "success";
+		}else {
+			return "fail";
+		}
 	}
 }

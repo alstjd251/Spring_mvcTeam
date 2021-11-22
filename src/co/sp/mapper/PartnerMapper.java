@@ -28,8 +28,14 @@ public interface PartnerMapper {
 	List<Partners_s> allPartner(BoardPage bp);
 	
 	@Select("select * from partners_s where partners_code = #{partners_code}")
-	Partners_s getPartner(String code);
+	Partners_s getPartner(String partners_code);
 	
-	@Update("update partners_s set  partners_state = 1 where partners_code = #{partners_code}")
+	@Update("update partners_s set partners_state = 1 where partners_code = #{partners_code}")
 	void acceptPartner(Partners_s partnerBean);
+	
+	@Select("select partners_code from partners_s where partners_code = #{partners_code}")
+	String getPcodeCheck(String partners_code);
+	
+	@Update("update member_s set mem_grade = 2 where mem_num = #{partners_mnum}")
+	void partnersSetGrade(int partners_mnum);
 }

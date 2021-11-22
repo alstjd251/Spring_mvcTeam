@@ -54,9 +54,14 @@
 
 #n_noticetitle{
 	width: 100%; 
-	border: none; 
+	border: 1px solid #d0d0d0; 
 	background-color: #f9f9f9; 
 	font-size:18px;
+	border-radius: 2px;
+}
+
+#n_noticetitle:focus{
+	outline: none;
 }
 .postMiddle-board01 {
     vertical-align: bottom;
@@ -112,4 +117,11 @@
 textarea {
     width: 100%;
     resize: none;
+    border-radius: 2px;
+    border: 1px solid #d0d0d0; 
+    
+}
+
+textarea:focus {
+	outline: none;
 }

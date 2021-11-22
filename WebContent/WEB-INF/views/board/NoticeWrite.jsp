@@ -54,7 +54,7 @@
 							<div class="postTitle">
 								<b>글 제목</b> &nbsp;
 								<div style="width:95%;">
-									<form:input path="n_noticetitle" id="n_noticetitle"/>
+									<form:input path="n_noticetitle" id="n_noticetitle" placeholder="글 제목을 입력하세요."/>
 								</div>
 							</div>
 							<!--제목DB-->
@@ -65,7 +65,7 @@
 						<div class="postBottom-board">
 							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" cols="1000" rows="40"/>
+								<form:textarea path="n_noticecontent" cols="1000" rows="40" placeholder="글 내용을 입력하세요."/>
 							</div>
 						</div>
 					</div>

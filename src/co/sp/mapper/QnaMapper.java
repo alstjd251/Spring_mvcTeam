@@ -17,8 +17,8 @@ public interface QnaMapper {
 	@Delete("delete from qna_s where q_qnanum LIKE #{q_qnanum}")
 	void deleteQna(Qna_s qnaBean);
 	
-	@Select("select q.*, m.mem_name, m.mem_mail from qna_s q, member_s m where m.mem_num LIKE #{q.q_mnum}")
-	Qna_s getQna(int q_mnum);
+	@Select("select q.*, m.mem_name, m.mem_mail from qna_s q, member_s m where q.q_qnanum = #{q_qnanum} and m.mem_num = #{q_mnum}")
+	Qna_s getQna(Qna_s qnaBean);
 	
 	@Update("update qna_s set q_qnatitle = #{q_qnatitle}, q_qnacontent = #{q_qnacontent} where q_mnum LIKE #{q_mnum}")
 	void updateQna(Qna_s qnaBean);

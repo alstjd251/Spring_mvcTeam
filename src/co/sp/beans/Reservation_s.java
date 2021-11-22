@@ -118,7 +118,6 @@ public class Reservation_s {
       return course_price;
    }
 
-
    public void setCourse_price(int course_price) {
       this.course_price = course_price;
    }

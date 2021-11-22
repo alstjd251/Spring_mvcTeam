@@ -28,8 +28,6 @@ function pwCheck(){
 			icon: 'warning',
 			title : "입력 오류",
 		    text  : "비밀번호를 입력해주세요.",
-		}).then({
-			return
 		});
 	}else{
 		var param1 = {'mem_num': mem_num, 'mem_pw': mem_pw}

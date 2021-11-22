@@ -67,11 +67,11 @@
 					<tbody>
 						<c:forEach var='obj' items="${qnaList }">
 							<tr>
-								<td><a href="#">${obj.q_qnanum }</a></td>
+								<td><a onclick="window.open('${root}admin/admin_qna_answer?q_qnanum=${obj.q_qnanum }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.q_qnanum }</a></td>
 								<td>${obj.q_mnum }</td>
 								<td>${obj.q_qnatitle }</td>
-								<td>mem_name</td>
-								<td>mem_mail</td>
+								<td>${obj.mem_name }</td>
+								<td>${obj.mem_mail }</td>
 								<td>${obj.q_qnadate }</td>
 							</tr>
 						</c:forEach>

@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import co.sp.beans.EmailSet;
 import co.sp.beans.Member_s;
+import co.sp.beans.Qna_s;
 import co.sp.beans.Reservation_s;
 import co.sp.service.EmailSender;
 import co.sp.service.MemService;
+import co.sp.service.QnaService;
 import co.sp.service.ResService;
 
 @RestController
@@ -24,6 +27,9 @@ public class RestControl {
 	
 	@Autowired
 	private ResService rs;
+	
+	@Autowired
+	private QnaService qs;
 	
 	@Autowired
 	private EmailSender emailSender;
@@ -73,7 +79,17 @@ public class RestControl {
 		    EmailSet email = new EmailSet();
 		    email.setReceiver("byungeun96@naver.com");
 		    email.setSubject("Sul Sure 비밀번호 찾기 결과");
-		    email.setContent("고객님의 비밀번호는 " + ms.getFindPw(memberBean) +" 입니다.");
+		    email.setContent("<div style='text-align:center; width:80%;'>"
+		    		+ "<h1>비밀번호 찾기 결과</h1>"
+		    		+ "<hr>"
+		    		+ "안녕하세요. <b style=font-size:15px;'>Sul Sure</b> 입니다.\r\n"
+		    		+ "고객님께서 요청하신 비밀번호 입니다.\r\n"
+		    		+ "\r\n"
+		    		+ name + "회원님의 비밀번호 : <span style='font-weight:bold; font-size:15px'>" + ms.getFindPw(memberBean) + "</span>\r\n"
+		    		+ "\r\n"
+		    		+ "<b style='color:red; font-size:15px;'>비밀번호는 절대 남에게 보여주지 마세요.\r\n"
+		    		+ "고객님의 부주의로 인한 피해는 보상해드리지 않습니다.</b>"
+		    		+ "</div>");
 		    
 		    emailSender.SendEmail(email);
 			
@@ -121,4 +137,39 @@ public class RestControl {
 		
 	}
 	
+	@PostMapping("/admin/sendmail.do")
+	public String sendmail(@RequestParam Map<String, String> map,@ModelAttribute Qna_s qnaBean) throws Exception{
+		String answer = map.get("answer");
+		String mail = map.get("mem_mail");
+		int q_num = Integer.parseInt(map.get("q_num"));
+		
+		qnaBean.setQ_qnanum(q_num);
+		
+		qnaBean = qs.getQna(qnaBean);
+		String qna = qnaBean.getQ_qnacontent();
+		
+		qna = qna.replaceAll("\n", "<br>");
+		answer = answer.replaceAll("\n", "<br>");
+		
+		EmailSet email = new EmailSet();
+	    email.setReceiver("byungeun96@naver.com");
+	    email.setSubject("Sul Sure 문의에 대한 답변입니다.");
+	    email.setContent("<div style='align-items: center;width: 100%;display: flex;flex-direction: column;'><div>"
+	    		+ "<h1>Sul Sure 문의 답변</h1>"
+	    		+ "<hr>"
+	    		+ "<table border='1' style='width:700px; height:500px'>"
+	    		+ "<tr>"
+	    		+ "<th>내용</th>"
+	    		+ "<td style='padding:20px;'>" + qna + "</td>"
+	    		+ "</tr>"
+	    		+ "<tr>"
+	    		+ "<th>답변 내용</th>"
+	    		+ "<td style='padding:20px;'>" + answer + "</td>"
+	    		+ "</table>"
+	    		+ "</div></div>");
+
+	    emailSender.SendEmail(email);
+		
+	    return "success";
+	}
 }

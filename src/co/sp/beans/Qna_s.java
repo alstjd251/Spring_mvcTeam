@@ -12,8 +12,10 @@ public class Qna_s {
 	private String q_qnatitle;
 	private String q_qnacontent;
 	private String q_qnadate;
-	private int q_qnacnt;
 	private int q_mnum;
+	
+	private String mem_name;
+	private String mem_mail;
 
 	public int getQ_qnanum() {
 		return q_qnanum;
@@ -47,14 +49,6 @@ public class Qna_s {
 		this.q_qnadate = q_qnadate;
 	}
 
-	public int getQ_qnacnt() {
-		return q_qnacnt;
-	}
-
-	public void setQ_qnacnt(int q_qnacnt) {
-		this.q_qnacnt = q_qnacnt;
-	}
-
 	public int getQ_mnum() {
 		return q_mnum;
 	}
@@ -63,4 +57,19 @@ public class Qna_s {
 		this.q_mnum = q_mnum;
 	}
 
+	public String getMem_name() {
+		return mem_name;
+	}
+
+	public void setMem_name(String mem_name) {
+		this.mem_name = mem_name;
+	}
+
+	public String getMem_mail() {
+		return mem_mail;
+	}
+
+	public void setMem_mail(String mem_mail) {
+		this.mem_mail = mem_mail;
+	}
 }

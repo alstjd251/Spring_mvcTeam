@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -137,12 +138,14 @@ public class RestControl {
 	}
 	
 	@PostMapping("/admin/sendmail.do")
-	public String sendmail(@RequestParam Map<String, String> map, Qna_s qnaBean) throws Exception{
+	public String sendmail(@RequestParam Map<String, String> map,@ModelAttribute Qna_s qnaBean) throws Exception{
 		String answer = map.get("answer");
 		String mail = map.get("mem_mail");
 		int q_num = Integer.parseInt(map.get("q_num"));
 		
-		qnaBean = qs.getQna(q_num);
+		qnaBean.setQ_qnanum(q_num);
+		
+		qnaBean = qs.getQna(qnaBean);
 		String qna = qnaBean.getQ_qnacontent();
 		
 		qna = qna.replaceAll("\n", "<br>");

@@ -13,14 +13,8 @@
 </head>
 <body>
 <script>
-Swal.fire({
-	icon : "success",
-	title : "답변 완료",
-    text  : "성공적으로 답변 완료 되었습니다.",
-}).then(function(){
 	opener.location.reload();
 	window.close();
-});
 </script>
 </body>
 </html>

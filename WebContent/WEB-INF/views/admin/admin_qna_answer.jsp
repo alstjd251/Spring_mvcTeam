@@ -34,8 +34,6 @@ function sendMail(){
 				    text  : "답변 메일을 성공적으로 보냈습니다.",
 				}).then(function(){
 					$("#answer_proc").submit();
-					opener.location.reload();
-					window.close();
 				})
 			}
 		}
@@ -44,7 +42,7 @@ function sendMail(){
 </script>
 </head>
 <body>
-	<form:form id="answer_proc" method="get" action="admin_qna_answer_proc" modelAttribute="qnaBean">
+	<form:form id="answer_proc" method="post" action="admin_qna_answer_proc" modelAttribute="qnaBean">
 		<table class="table table-bordered">
 			<tr>
 				<th>문의번호</th>

@@ -60,9 +60,11 @@ $(window).on("load", function () {
     left: $("#intro").width() - $("#drink").width() / 2 + "px",
     top: innerHeight - ($(".i_t2").height() + $("#drink").height()) + "px",
   });
+  $(".fadeImg2").css({top : $(".fadeImg").height() / 2 + 70 + "px"});
 });
 $(window).on("resize", function () {
   /* 반응형 가로 세로 길이 */
+  $(".fadeImg2").css({top : $(".fadeImg").height() / 2 + 70 + "px"});
   $(
     ".pimg1 , .pimg2 , .pimg3 , .pimg4 , .pimg5, #ggtwo, #ggtwo>li>a, #ggtwo>li"
   ).css({
@@ -151,3 +153,9 @@ setInterval(function () {
   $("#gg>#ggtwo>li>a").delay(2500);
   $("#gg>#ggtwo>li>a").animate({ marginLeft: "0" }, "fast");
 });
+
+/* 코스 선택 버튼 클릭시 해당하는 코스상세페이지로 이동하는 js */
+function course_bt() {
+	var courseBt = $(".course_bt").get();
+
+}

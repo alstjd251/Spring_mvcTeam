@@ -23,7 +23,8 @@ public class EmailSender {
         try{
             
             msg.setSubject(email.getSubject());
-            msg.setText(email.getContent());
+//            msg.setText(email.getContent(), "utf-8", "html");
+            msg.setContent(email.getContent().replaceAll("\r\n", "<br>"), "text/html; charset=utf-8");
             msg.setRecipients(MimeMessage.RecipientType.TO, InternetAddress.parse(email.getReceiver()));
             
         }catch(MessagingException e){

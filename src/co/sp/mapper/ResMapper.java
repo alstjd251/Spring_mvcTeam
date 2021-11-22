@@ -26,7 +26,7 @@ public interface ResMapper {
 	List<Reservation_s> getCourseIdx();
 	
 	// 예약 리스트 확인
-	@Select("select A.*,B.c_coursename as course_names, B.c_price as course_price, C.mem_name as loginName, C.mem_phone as loginPhone from reservation_s A, course_s B, member_s C where res_mnum = #{mem_num} and B.c_coursenum = A.res_coursenum and A.res_mnum = C.mem_num order by res_paydate")
+	@Select("select A.*,B.c_coursename as course_names, (B.c_price * a.res_personnel )as course_price, C.mem_name as loginName, C.mem_phone as loginPhone from reservation_s A, course_s B, member_s C where res_mnum = #{mem_num} and B.c_coursenum = A.res_coursenum and A.res_mnum = C.mem_num order by res_paydate")
 	List<Reservation_s> getMemReservation(int mem_num);
 	
 	// 예약 확인
@@ -34,7 +34,7 @@ public interface ResMapper {
 	List<Reservation_s> getallReservation();
 	
 	// 예약 리스트 페이징
-	@Select("select * from (select ROWNUM RN, A.* from (select * from reservation_s where res_num like '%'||#{keyword, jdbcType=VARCHAR}||'%' order by res_num) A) where RN between #{start} and #{end}")
+	@Select("select * from (select ROWNUM RN, A.* from (select B.*,C.c_coursename as course_names, (C.c_price * B.res_personnel) as course_price, D.mem_name as mem_name, D.mem_phone as mem_phone from reservation_s B, course_s C, member_s D  where res_num like '%'||#{keyword, jdbcType=VARCHAR}||'%' and C.c_coursenum = B.res_coursenum and B.res_mnum = D.mem_num order by res_num) A) where RN between #{start} and #{end}")
 	List<Reservation_s> allReservation(BoardPage bp);
 	
 	// 예약 총 수

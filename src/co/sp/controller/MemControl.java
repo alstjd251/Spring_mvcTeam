@@ -87,18 +87,13 @@ public class MemControl {
 		String mem_grade = loginBean.getMem_grade();
 		List<Reservation_s>resBean = rs.getMemReservation(mem_num);
 		
-		
 		if(mem_grade.equals("1")) {
 			m.addAttribute("loginBean", loginBean);
 			m.addAttribute("memberBean",ms.getMemberInfo(mem_num));
 			m.addAttribute("reservationBean", resBean);
 			m.addAttribute("partnerBean", partnerBean);
 			return "member/mypage";
-		}else if(mem_grade.equals("2")) {
-			
-			return "member/mypage";
-		}
-		else {
+		}else {
 			m.addAttribute("memberBean", ms.getMemberInfo(mem_num));
 			return "admin/hello_Admin";
 		}
@@ -141,7 +136,7 @@ public class MemControl {
 		
 	}
 	
-	@PostMapping("partnerRequest_proc")
+	@PostMapping("/partnerRequest_proc")
 	public String partnerRequest_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		ps.addPartner(partnerBean);
 		//partnerBean.setPartners_state(0);
@@ -149,5 +144,24 @@ public class MemControl {
 		m.addAttribute(partnerBean);
 		
 		return "member/partnerRequest_proc";
+	}
+	
+	@GetMapping("/pwChange")
+	public String pwChange(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
+		return "member/pwChange";
+	}
+	
+	@PostMapping("/pwModify")
+	public String pwModify(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		
+		ms.memPwChange(memberBean);
+		
+		return "member/pwModify";
+	}
+	
+	@GetMapping("/partners")
+	public String partners() {
+		return "partners";
 	}
 }

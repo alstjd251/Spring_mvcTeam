@@ -50,4 +50,8 @@ public class PartnerDao {
 	public void partnersSetGrade(int partners_mnum) {
 		partnermapper.partnersSetGrade(partners_mnum);
 	}
+	
+	public void deletePartnerMember(Partners_s partnerBean) {
+		partnermapper.deletePartnerMember(partnerBean);
+	}
 }

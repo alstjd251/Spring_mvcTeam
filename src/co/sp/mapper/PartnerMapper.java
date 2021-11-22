@@ -38,4 +38,7 @@ public interface PartnerMapper {
 	
 	@Update("update member_s set mem_grade = 2 where mem_num = #{partners_mnum}")
 	void partnersSetGrade(int partners_mnum);
+	
+	@Delete("delete from partners_s where partners_mnum = #{partners_mnum}")
+	void deletePartnerMember(Partners_s partnerBean);
 }

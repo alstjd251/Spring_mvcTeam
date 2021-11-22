@@ -258,13 +258,16 @@ public class AdminControl {
 	@PostMapping("admin_mem_delete_proc")
 	public String admin_mem_delete_proc(@ModelAttribute("qnaBean") Qna_s qnaBean, 
 										@ModelAttribute("reservationBean") Reservation_s reservationBean, 
+										@ModelAttribute("partnerBean") Partners_s partnerBean,
 										@ModelAttribute("memberBean") Member_s memberBean, Model m) {
 		qs.deleteMemberQna(memberBean.getMem_num());
 		rs.deleteMemberReservation(memberBean.getMem_num());
+		ps.deletePartnerMember(partnerBean);
 		ms.deleteMember(memberBean);
 		
 		m.addAttribute("qnaBean", qnaBean);
 		m.addAttribute("reservationBean", reservationBean);
+		m.addAttribute("partnerBean", partnerBean);
 		m.addAttribute("memberBean", memberBean);
 		
 		return "admin/admin_mem_delete_proc";

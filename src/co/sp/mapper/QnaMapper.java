@@ -29,4 +29,6 @@ public interface QnaMapper {
 	@Select("select count(*) from qna_s where q_qnatitle like '%'||#{keyword, jdbcType=VARCHAR}||'%'")
 	int qnaCount(BoardPage bp);
 	
+	@Delete("delete from qna_s where q_mnum = #{q_mnum}")
+	void deleteMemberQna(int q_mnum);
 }

@@ -37,4 +37,8 @@ public class QnaDao {
 	public int qnaCount(BoardPage bp) {
 		return qnamapper.qnaCount(bp);
 	}
+	
+	public void deleteMemberQna(int q_mnum) {
+		qnamapper.deleteMemberQna(q_mnum);
+	}
 }

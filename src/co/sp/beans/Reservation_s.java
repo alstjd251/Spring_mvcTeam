@@ -114,7 +114,6 @@ public class Reservation_s {
    public void setMem_phone(String mem_phone) {
       this.mem_phone = mem_phone;
    }
-
    public int getCourse_price() {
       return course_price;
    }

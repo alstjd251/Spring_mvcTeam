@@ -123,8 +123,7 @@ header .login #logout_button:hover {
     right: 140px;
 }
 .section #fade1 .fadeImg2 {
-	top:210px;
-	z-index:10;
+	z-index:12;
 	height: 50%;
 	position: absolute;
 	right: 100px;
@@ -338,7 +337,7 @@ margin-bottom: 5px;
 	font-size:15px;
 }
 
-.course_bt{
+.course_bt1,.course_bt2,.course_bt3,.course_bt4,.course_bt5,.course_bt6{
   border: 2px solid black;
   font-size: 14px;
   color:white;
@@ -350,7 +349,7 @@ margin-bottom: 5px;
 
 }
 
-.course_bt:hover{
+.course_bt1:hover,.course_bt2:hover,.course_bt3:hover,.course_bt4:hover,.course_bt5:hover,.course_bt6:hover{
 	background-color: white;
 	color:black;
 }

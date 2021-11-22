@@ -46,4 +46,8 @@ public interface MemMapper {
 	// 회원 전체 수
 	@Select("select count(*) from member_s where mem_name like '%'||#{keyword, jdbcType=VARCHAR}||'%'")
 	int memCount(BoardPage bp);
+	
+	// 비밀번호 변경
+	@Update("update member_s set mem_pw = #{mem_pw} where mem_num = #{mem_num}")
+	void memPwChange(Member_s memberBean);
 }

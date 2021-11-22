@@ -30,7 +30,7 @@
 		<form action = "${root }main"><input type ="submit" value = "main"/></form>
 		<form action = "${root }admin/admin_mem"><input type ="submit" value = "회원정보 관리"/></form>
 		<form action = "${root }admin/admin_partner"><input type ="submit" value = "기업정보 관리"/></form>
-		<form action = "${root }admin/admin_partnerReqeust"><input type ="submit" value = "기업신청 수락"/></form>
+		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 수락"/></form>
 		<form action = "${root }admin/admin_res"><input type ="submit" value = "예약정보 조회"/></form>
 		<form action = "${root }admin/admin_qna"><input type ="submit" value = "회원문의 관리"/></form>
 	</div>
@@ -75,10 +75,10 @@
 								<td>${obj.res_coursenum }</td>
 								<td>${obj.res_paydate }</td>
 								<td>${obj.res_mnum }</td>
-								<td>mem_name</td>
-								<td>mem_phone</td>
+								<td>${obj.mem_name }</td>
+								<td>${obj.mem_phone }</td>
 								<td>${obj.res_personnel }</td>
-								<td>c_price</td>
+								<td>${obj.course_price }</td>
 							</tr>
 						</c:forEach>
 					</tbody>

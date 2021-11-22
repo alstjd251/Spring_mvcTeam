@@ -27,6 +27,31 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
     />
     <title>Sul sure</title>
+    <script type="text/javascript">
+	$(window).ready( function() {
+		var courseNam = $("#courseNam").val();
+		switch(courseNam) {
+			case "Seoul":
+				$("#myTab li:first-child a").tab('show');
+			break;
+			case "Gyunggi":
+				$("#myTab li:nth-child(2) a").tab('show');
+			break;
+			case "Choongcheong":
+				$("#myTab li:nth-child(3) a").tab('show');
+			break;
+			case "Jeonla":
+				$("#myTab li:nth-child(4) a").tab('show');
+			break;
+			case "Gyungbook":
+				$("#myTab li:nth-child(5) a").tab('show');
+			break;
+			case "Gyungnam":
+				$("#myTab li:last-child a").tab('show');
+			break;
+		}
+	});
+	</script>
   </head>
   <body>
       <!-- 헤더 -->
@@ -58,9 +83,10 @@
             <p>#Cheers #Soju #Wine #Makgeolli</p>
         </div>
         <!-- 탭메뉴 -->
+        <input type="hidden" value="${param.courseNam }" id="courseNam">
         <div role="tabpanel" style="height: 100%;">
             <!-- Nav tabs -->
-            <ul class="nav nav-tabs" role="tablist" style="margin-left: 10%;">
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style="margin-left: 10%;">
               <li role="presentation" class="active"><a href="#Seoul" aria-controls="Seoul" role="tab" data-toggle="tab">서울코스</a></li>
               <li role="presentation"><a href="#Gyunggi" aria-controls="Gyunggi" role="tab" data-toggle="tab">경기코스</a></li>
               <li role="presentation"><a href="#Choongcheong" aria-controls="Choongcheong" role="tab" data-toggle="tab">충청코스</a></li>
@@ -89,6 +115,7 @@
                 	<c:import url="/WEB-INF/views/course/GyungnamCourse.jsp"/>
                 </div>
             </div>
+          </div>
     </section>
       <!-- 푸터 -->
     <footer>

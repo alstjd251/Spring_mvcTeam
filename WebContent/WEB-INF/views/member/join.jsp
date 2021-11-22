@@ -23,6 +23,7 @@
 <script type="text/javascript">
 	var pwCheck = "fail";
 	var idCheck = "fail";
+	
 	function idchecking() {
 		var mem_id = $("#inputid").val()
 		
@@ -40,7 +41,7 @@
 			Swal.fire({
 				icon: 'warning',
 				title : "입력 오류",
-			    text  : "아이디는 최소 5자 이상 입력해야 합니다.",
+			    text  : "아이디는 최소 4자 이상 입력해야 합니다.",
 			}).then(function(){
 				idCheck = "fail";
 				document.getElementById("idGroup").className = "form-group has-error has-feedback"
@@ -106,9 +107,11 @@
 		if(name == ""){
 			$("#name_input").text("이름을 입력 해주세요.").css("color","red");
 			$("#nameGroup").attr("class","form-group has-error has-feedback");
+			
 		}else{
 			$("#name_input").text("")
 			$("#nameGroup").attr("class","form-group has-success has-feedback");
+			
 		}
 	}
 	
@@ -117,9 +120,11 @@
 		if(joomin == ""){
 			$("#joomin_input").text("생년월일을 입력 해주세요.").css("color","red");
 			$("#joominGroup").attr("class","form-group has-error has-feedback");
+			
 		}else{
 			$("#joomin_input").text("")
 			$("#joominGroup").attr("class","form-group has-success has-feedback");
+			
 		}
 	}
 		
@@ -128,9 +133,11 @@
 		if(mail == ""){
 			$("#mail_input").text("이메일을 입력해주세요.").css("color","red");
 			$("#mailGroup").attr("class","form-group has-error has-feedback");
+			
 		}else{
 			$("#mail_input").text("")
 			$("#mailGroup").attr("class","form-group has-success has-feedback");
+			
 		}
 	}
 			
@@ -139,9 +146,11 @@
 		if(phone == ""){
 			$("#phone_input").text("연락처를 입력해주세요.").css("color","red");
 			$("#phoneGroup").attr("class","form-group has-error has-feedback");
+			
 		}else{
 			$("#phone_input").text("")
 			$("#phoneGroup").attr("class","form-group has-success has-feedback");
+			
 		}
 	}
 	
@@ -150,9 +159,11 @@
 		if(addr1 == ""){
 			$("#addr1_input").text("주소를 입력해주세요.").css("color","red");
 			$("#addr1Group").attr("class","form-group has-error has-feedback");
+			
 		}else{
 			$("#addr1_input").text("")
 			$("#addr1Group").attr("class","form-group has-success has-feedback");
+			
 		}
 	}
 	
@@ -161,9 +172,39 @@
 		if(addr2 == ""){
 			$("#addr2_input").text("상세주소를 입력해주세요.").css("color","red");
 			$("#addr2Group").attr("class","form-group has-error has-feedback");
+			
 		}else{
 			$("#addr2_input").text("")
 			$("#addr2Group").attr("class","form-group has-success has-feedback");
+			
+		}
+	}
+	
+	function regBut(){
+		if(idCheck == "success" && pwCheck == "success"){
+			$("#regForm").submit();
+		}
+		if(pwCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "비밀번호가 일치 하지 않습니다.",
+			    text  : "다시 입력해주세요.",
+			}).then(function(){
+				$("#").val('false')
+				document.getElementById("idGroup").className = "form-group has-error has-feedback"
+				$("#inputpw, #inputpw2").val("");
+			});
+		}
+		if(idCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "아이디 중복 확인이 되지 않았습니다.",
+			    text  : "중복 확인을 해주세요.",
+			}).then(function(){
+				$("#").val('false')
+				document.getElementById("idGroup").className = "form-group has-error has-feedback"
+				$("#inputid").focus();
+			});
 		}
 	}
 	
@@ -189,13 +230,13 @@
 	 		<h1>회원가입</h1>
 		</div>
 		<div style="margin-bottom: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
-			<form:form class="form-horizontal" action="${root }member/join_proc" modelAttribute="memberBean">
+			<form:form id="regForm" class="form-horizontal" action="${root }member/join_proc" modelAttribute="memberBean">
 				<form:hidden path="idExist"/>
 					<!-- 아이디 -->
 					<div id="idGroup" class="form-group" style="display:flex;">
 						<form:label style="width:120px; padding-left:0;" path="mem_id" for="inputid" class="col-sm-2 control-label">아이디*</form:label>
 						<div class="col-sm-10" style="display:flex;">
-							<form:input style="width:235px;" path="mem_id" class="form-control" id="inputid" onkeypress="resetUserIdExist()" placeholder="아이디" />
+							<form:input pattern="^[0-9]+$" style="width:235px;" path="mem_id" class="form-control" id="inputid" onkeypress="resetUserIdExist()" placeholder="아이디" />
 							<input type="button" style="margin-left:10px;" id="idcheck" onclick="idchecking()" value="중복확인"/>
 						</div>
 					</div>
@@ -219,7 +260,7 @@
 						</div>
 					</div>
 					<div id="pwGroup2" class="form-group" style="display:flex;">
-						<form:label style="width:120px; padding-left:0;" path="mem_pw" for="inputpw" class="col-sm-2 control-label">비밀번호확인*</form:label>
+						<label style="width:120px; padding-left:0;" for="inputpw2" class="col-sm-2 control-label">비밀번호확인*</label>
 						<div class="col-sm-10">
 							<input type="password" style="width:235px;" class="form-control" id="inputpw2" placeholder="비밀번호 확인" onkeyup="pwcheck()"/>
 						</div>
@@ -250,7 +291,7 @@
 						<div class="col-sm-10" style="display:flex; align-items: center;">
 							<form:input style="width:125px; padding-right:12px;" path="mem_joomin" class="form-control" id="inputjoomin" maxlength="6" placeholder="생년월일 6자리" onblur="joomincheck()"/>
 							<label style="margin:0 10px"> - </label>
-							<form:input style="width:35px; padding-right:12px;" path="mem_gender" class="form-control" id="inputgender" maxlength="1"/>
+							<form:input style="width:35px; padding-right:12px;" path="mem_gender" class="form-control" id="inputgender" maxlength="1" pattern="[1-4]"/>
 							<label style="margin-left: 5px;">*****</label>
 						</div>
 					</div>
@@ -312,7 +353,6 @@
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
-							<form:errors path="mem_addr1" style="color:red;"/>
 							<p id="addr1_input"></p>
 						</div>
 					</div>
@@ -325,13 +365,12 @@
 					<div class="form-group" style="display:flex;">
 						<label style="width:120px; padding-left:0;" class="col-sm-2 control-label"> </label>
 						<div class="col-sm-10">
-							<form:errors path="mem_addr2" style="color:red;"/>
 							<p id="addr2_input"></p>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-sm-offset-1 col-sm-10">
-							<form:button style="margin-left:125px;" class="btn btn-default btn-lg">회원가입</form:button>
+							<input type="button" style="margin-left:125px;" class="btn btn-default btn-lg" onclick="regBut()" value="회원가입"/>
 						</div>
 					</div>
 			</form:form>

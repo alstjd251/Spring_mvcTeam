@@ -5,7 +5,7 @@ body {
 	flex-direction: column;
 }
 
-/* �� ������ section css */
+/* mypage section css */
 section {
 	width: 80%;
 	margin-left: 10%;
@@ -55,6 +55,11 @@ section #mypage #mypage_con2 table {
 
 section #mypage #mypage_con2 #res_info table thead th {
 	background-color: #f1a99c;
+}
+
+section #mypage #mypage_con2 #res_info table thead th div {
+	width:max-content;
+	text-align: center;
 }
 
 section #mypage #mypage_con2 #res_info table tbody td div {

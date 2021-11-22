@@ -299,7 +299,7 @@
 		        pay_method : 'card',
 		        merchant_uid : 'merchant_' + new Date().getTime(),
 		        name : document.getElementById('c_name').innerHTML, //코스명
-		        amount : '100',//document.getElementById('p_price').value, //가격
+		        amount : document.getElementById('p_price').value,//document.getElementById('p_price').value, //가격
 		        buyer_email : '${loginBean.mem_mail }', //구매자이메일
 		        buyer_name : '${loginBean.mem_name }', //구매자이름
 		        buyer_tel : '${loginBean.mem_phone }', //구매자연락처

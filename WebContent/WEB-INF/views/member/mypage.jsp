@@ -257,7 +257,8 @@ function partnersReg(){
 				</div>
 				<div id="partners" class="tab_content">
 					<!--유효성검사 해야함-->
-					<h3>기업회원 신청</h3>
+
+					<h3><b>기업회원 신청</b></h3>
 					<form:form method="post" action="partnerRequest_proc" modelAttribute="partnerBean" id="partnersForm">
 					<form:hidden path="partners_mnum" value="${loginBean.mem_num }" />
 						<table class="table table-bordered">
@@ -291,6 +292,7 @@ function partnersReg(){
 								</td>
 							</tr>
 						</table>
+
 						<input type="button" class="btn btn-default" onclick="partnersReg()" value="신청"/>
 					</form:form>
 				</div>

@@ -150,17 +150,20 @@ public class RestControl {
 		
 		EmailSet email = new EmailSet();
 	    email.setReceiver("byungeun96@naver.com");
-	    email.setSubject("문의에 대한 답변 메일입니다.");
-	    email.setContent("<div style='text-align:center;width:80%;'>"
+	    email.setSubject("Sul Sure 문의에 대한 답변입니다.");
+	    email.setContent("<div style='align-items: center;width: 100%;display: flex;flex-direction: column;'><div>"
 	    		+ "<h1>Sul Sure 문의 답변</h1>"
 	    		+ "<hr>"
-	    		+ "<b>고객님께서 문의주신 내용</b><br>"
-	    		+ qna
-	    		+ "<hr>"
-	    		+ "<b>답변 내용</b><br>"
-	    		+ answer
-	    		+ ""
-	    		+ "</div>");
+	    		+ "<table border='1' style='width:700px; height:500px'>"
+	    		+ "<tr>"
+	    		+ "<th>내용</th>"
+	    		+ "<td style='padding:20px;'>" + qna + "</td>"
+	    		+ "</tr>"
+	    		+ "<tr>"
+	    		+ "<th>답변 내용</th>"
+	    		+ "<td style='padding:20px;'>" + answer + "</td>"
+	    		+ "</table>"
+	    		+ "</div></div>");
 
 	    emailSender.SendEmail(email);
 		

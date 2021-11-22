@@ -50,7 +50,7 @@ public class PartnerService {
 		partnerDao.partnersSetGrade(partners_mnum);
 	}
 	
-	public void deletePartnerMember(Partners_s partnerBean) {
-		partnerDao.deletePartnerMember(partnerBean);
+	public void deletePartnerMember(int partners_mnum) {
+		partnerDao.deletePartnerMember(partners_mnum);
 	}
 }

@@ -111,7 +111,7 @@ function partnersReg(){
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		dataType : 'text',
 		success : function(result){
-			if(result = 'success'){
+			if(result == 'success'){
 				Swal.fire({
 					icon: 'success',
 					title : "신청 완료",

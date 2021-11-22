@@ -185,7 +185,7 @@ public class RestControl {
 		
 		p_code = ps.getPcodeCheck(p_code);
 		
-		if(p_code == null) {
+		if(p_code == "") {
 			return "success";
 		}else {
 			return "fail";

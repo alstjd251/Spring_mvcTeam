@@ -42,13 +42,13 @@
 				<div id="postContainer01">
 					<div class="postTop">
 						<div class="postTop-board01">
-							<h2>공지사항</h2>
+							<h2><b>공지사항</b></h2>
 						</div>
 					</div>
-					<div id="postMiddle">
+					<div id="postMiddle" style="margin-top: 20px;">
 						<div class="postMiddle-board01">
 							<div class="postTitle">
-								글제목 : &nbsp;
+								<b>글 제목</b> &nbsp;
 								<div style="width:95%;">
 									<form:input path="n_noticetitle" value = "${noticeBean.n_noticetitle }" style = "width: 100%; border: none;"/>
 								</div>
@@ -68,7 +68,7 @@
 
 					<div class="postButton">
 						<div>
-							<form:button>수정하기</form:button>
+							<form:button id="n_modify_button">수정하기</form:button>
 						</div>
 					</div>
 				</div>

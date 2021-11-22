@@ -42,18 +42,19 @@
 				<div id="postContainer01">
 					<div class="postTop">
 						<div class="postTop-board01">
-							<h2>공지사항</h2>
+							<h2><b>공지사항</b></h2>
 						</div>
 						<div>
-							<a href="${root }board/NoticeList">목록</a>
+							<a href="${root }board/NoticeList" id="list_button">목록</a>
 						</div>
 					</div>
+					<hr>
 					<div id="postMiddle">
 						<div class="postMiddle-board01">
 							<div class="postTitle">
-								글제목 : &nbsp;
+								<b>글 제목</b> &nbsp;
 								<div style="width:95%;">
-									<form:input path="n_noticetitle" style = "width: 100%; border: none;"/>
+									<form:input path="n_noticetitle" id="n_noticetitle"/>
 								</div>
 							</div>
 							<!--제목DB-->
@@ -71,7 +72,7 @@
 
 					<div class="postButton">
 						<div>
-							<form:button>작성</form:button>
+							<form:button id="notice_write_button">작성</form:button>
 						</div>
 					</div>
 				</div>

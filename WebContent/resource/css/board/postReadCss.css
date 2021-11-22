@@ -1,5 +1,7 @@
 #post{
-	margin: 60px 0;
+	width: 80%;
+	display:flex;
+	margin-left: 10%;
 }
 
 #postContainer01 {
@@ -11,13 +13,33 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 20px;
+    padding-top:10%;
 }
 
 .postTop-board02 .postTop-list a{
     color: black;
     text-decoration: none;
 }
+
+.postTop #n_read_list_button, .postTop #n_read_modify_button{
+	text-decoration: none;
+	font-size : 15px;
+	width:120px;
+	background-color : lightslategrey;
+	padding: 7px;
+	padding-left : 30px;
+	padding-right : 30px;
+	text-align : center;
+	color:white;
+	margin-left: 10px;
+}
+
+.postTop #n_read_list_button:hover, .postTop #n_read_mpdify_button{
+	background-color: #5c6b7a;
+	color : white;
+}
+
+
 
 #postMiddle {
     display: flex;
@@ -28,11 +50,23 @@
 	width: 100%;
 	justify-content: space-between;
 }
+
+.postTitle b{
+	font-size:18px; 
+	width:100px;
+}
+
+.postTitle #n_title_text{
+	font-size:18px;
+	
+}
+
 .postMiddle-board01 {
     vertical-align: bottom;
     border-top: 1px solid #7e7e7e;
     background-color: #f9f9f9;
     padding: 10px 5%;
+    margin-top: 10px;
 }
 .postMiddle-board01 span {
     font-size: 20pt;
@@ -70,4 +104,22 @@ textarea {
 }
 textarea:focus  {
 	outline: 0;
+}
+
+#n_read_delete_button{
+	border:none;
+	font-size : 15px;
+	width:120px;
+	background-color : lightslategrey;
+	padding: 7px;
+	padding-left : 20px;
+	padding-right : 20px;
+	margin-top : 20px;
+	text-align : center;
+	color:white;
+}
+
+#n_read_delete_button:hover{
+	background-color: #5c6b7a;
+	color : white;
 }

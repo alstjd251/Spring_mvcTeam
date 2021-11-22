@@ -51,7 +51,7 @@ public class PartnerDao {
 		partnermapper.partnersSetGrade(partners_mnum);
 	}
 	
-	public void deletePartnerMember(Partners_s partnerBean) {
-		partnermapper.deletePartnerMember(partnerBean);
+	public void deletePartnerMember(int partners_mnum) {
+		partnermapper.deletePartnerMember(partners_mnum);
 	}
 }

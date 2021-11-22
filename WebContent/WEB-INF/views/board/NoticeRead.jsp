@@ -44,18 +44,18 @@
 				<div id="postContainer01">
 					<div class="postTop">
 						<div class="postTop-board01">
-							<h2>공지사항</h2>
+							<h2><b>공지사항</b></h2>
 						</div>
 						<div>
-							<a href="${root }board/NoticeList">목록</a>
-							<a href="${root }board/NoticeModify?n_noticenum=${noticeBean.getN_noticenum()}">수정</a>
+							<a href="${root }board/NoticeList" id="n_read_list_button">목록</a>
+							<a href="${root }board/NoticeModify?n_noticenum=${noticeBean.getN_noticenum()}" id="n_read_modify_button">수정</a>
 						</div>
 					</div>
 					<div id="postMiddle">
 						<div class="postMiddle-board01">
 							<div class="postTitle">
-								<div>
-									글제목 : ${noticeBean.getN_noticetitle()}
+								<div id="n_title_text">
+									<b>글 제목</b> &nbsp; ${noticeBean.getN_noticetitle()}
 								</div>
 								<div class="postMiddle-board02">
 									<div>
@@ -81,7 +81,7 @@
 
 					<div class="postButton">
 						<div>
-							<form:button>삭제</form:button>
+							<form:button id="n_read_delete_button">삭제</form:button>
 						</div>
 					</div>
 				</div>

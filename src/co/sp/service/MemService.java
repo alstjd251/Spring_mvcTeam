@@ -77,4 +77,8 @@ public class MemService {
 	public void memPwChange(Member_s memberBean) {
 		memDao.memPwChange(memberBean);
 	}
+	
+	public void deleteMember(Member_s memberBean) {
+		memDao.deleteMember(memberBean);
+	}
 }

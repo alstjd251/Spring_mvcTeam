@@ -71,12 +71,21 @@
 					<tbody>
 						<c:forEach var='obj' items="${memberList }">
 							<tr>
-								<td><a href="#">${obj.mem_num}</a></td>
+								<td><a onclick="window.open('${root}admin/admin_mem_delete?mem_num=${obj.mem_num }','회원 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.mem_num}</a></td>
 								<td><div>${obj.mem_grade }</div></td>
 								<td><div>${obj.mem_id }</div></td>
 								<td><div>${obj.mem_name }</div></td>
 								<td><div>${obj.mem_joomin }</div></td>
-								<td><div>${obj.mem_gender }</div></td>
+								<td>
+									<div>
+										<c:if test="${obj.mem_gender % 2 != 0}">
+											남자
+										</c:if>
+										<c:if test="${obj.mem_gender % 2 == 0}">
+											여자
+										</c:if>
+									</div>
+								</td>
 								<td><div>${obj.mem_phone }</div></td>
 								<td><div>${obj.mem_mail }</div></td>
 								<td><div>${obj.mem_date }</div></td>

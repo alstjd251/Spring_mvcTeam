@@ -2,6 +2,7 @@ package co.sp.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
@@ -50,4 +51,7 @@ public interface MemMapper {
 	// 비밀번호 변경
 	@Update("update member_s set mem_pw = #{mem_pw} where mem_num = #{mem_num}")
 	void memPwChange(Member_s memberBean);
+	
+	@Delete("delete from member_s where mem_num = #{mem_num}")
+	void deleteMember(Member_s memberBean);
 }

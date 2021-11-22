@@ -246,4 +246,27 @@ public class AdminControl {
 		
 		return "admin/admin_qna_answer_proc";
 	}
+	
+	@GetMapping("admin_mem_delete")
+	public String admin_mem_delete(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+
+		m.addAttribute("memberBean", ms.getMemberInfo(memberBean.getMem_num()));
+		
+		return "admin/admin_mem_delete";
+	}
+	
+	@PostMapping("admin_mem_delete_proc")
+	public String admin_mem_delete_proc(@ModelAttribute("qnaBean") Qna_s qnaBean, 
+										@ModelAttribute("reservationBean") Reservation_s reservationBean, 
+										@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		qs.deleteMemberQna(memberBean.getMem_num());
+		rs.deleteMemberReservation(memberBean.getMem_num());
+		ms.deleteMember(memberBean);
+		
+		m.addAttribute("qnaBean", qnaBean);
+		m.addAttribute("reservationBean", reservationBean);
+		m.addAttribute("memberBean", memberBean);
+		
+		return "admin/admin_mem_delete_proc";
+	}
 }

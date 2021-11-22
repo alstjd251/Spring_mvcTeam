@@ -38,10 +38,10 @@
 				<th>성별</th>
 				<td>
 					<div>
-						<c:if test="${obj.mem_gender % 2 != 0}">
+						<c:if test="${memberBean.mem_gender % 2 != 0}">
 							남자
 						</c:if>
-						<c:if test="${obj.mem_gender % 2 == 0}">
+						<c:if test="${memberBean.mem_gender % 2 == 0}">
 							여자
 						</c:if>
 					</div>

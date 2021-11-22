@@ -78,7 +78,17 @@ public class RestControl {
 		    EmailSet email = new EmailSet();
 		    email.setReceiver("byungeun96@naver.com");
 		    email.setSubject("Sul Sure 비밀번호 찾기 결과");
-		    email.setContent("고객님의 비밀번호는 " + ms.getFindPw(memberBean) +" 입니다.");
+		    email.setContent("<div style='text-align:center; width:80%;'>"
+		    		+ "<h1>비밀번호 찾기 결과</h1>"
+		    		+ "<hr>"
+		    		+ "안녕하세요. <b style=font-size:15px;'>Sul Sure</b> 입니다.\r\n"
+		    		+ "고객님께서 요청하신 비밀번호 입니다.\r\n"
+		    		+ "\r\n"
+		    		+ name + "회원님의 비밀번호 : <span style='font-weight:bold; font-size:15px'>" + ms.getFindPw(memberBean) + "</span>\r\n"
+		    		+ "\r\n"
+		    		+ "<b style='color:red; font-size:15px;'>비밀번호는 절대 남에게 보여주지 마세요.\r\n"
+		    		+ "고객님의 부주의로 인한 피해는 보상해드리지 않습니다.</b>"
+		    		+ "</div>");
 		    
 		    emailSender.SendEmail(email);
 			
@@ -141,7 +151,16 @@ public class RestControl {
 		EmailSet email = new EmailSet();
 	    email.setReceiver("byungeun96@naver.com");
 	    email.setSubject("문의에 대한 답변 메일입니다.");
-	    email.setContent(qna + "<br>"+ answer);
+	    email.setContent("<div style='text-align:center;width:80%;'>"
+	    		+ "<h1>Sul Sure 문의 답변</h1>"
+	    		+ "<hr>"
+	    		+ "<b>고객님께서 문의주신 내용</b><br>"
+	    		+ qna
+	    		+ "<hr>"
+	    		+ "<b>답변 내용</b><br>"
+	    		+ answer
+	    		+ ""
+	    		+ "</div>");
 
 	    emailSender.SendEmail(email);
 		

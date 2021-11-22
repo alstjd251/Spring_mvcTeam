@@ -71,7 +71,7 @@
 					</div>
 				</div>
 				<div id="cs-list">
-					<table class="cs-table" height="500px">
+					<table class="cs-table">
 						<thead>
 							<tr>
 								<th>번호</th>

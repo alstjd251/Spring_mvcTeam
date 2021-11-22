@@ -22,8 +22,8 @@ public class QnaService {
 		qnaDao.deleteQna(qnaBean);
 	}
 	
-	public Qna_s getQna(int q_mnum) {
-		return qnaDao.getQna(q_mnum);
+	public Qna_s getQna(Qna_s qnaBean) {
+		return qnaDao.getQna(qnaBean);
 	}
 	
 	public void updateQna(Qna_s qnaBean) {

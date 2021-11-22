@@ -230,16 +230,16 @@ public class AdminControl {
 	
 	@GetMapping("admin_qna_answer")
 	public String admin_qna_answer(@ModelAttribute("qnaBean") Qna_s qnaBean, Model m) {
-		m.addAttribute("qnaBean", qs.getQna(qnaBean.getQ_qnanum()));
+		m.addAttribute("qnaBean", qs.getQna(qnaBean));
 		
 		return "admin/admin_qna_answer";
 	}
 	
-//	@PostMapping("admin_qna_answer_proc")
-//	public String admin_qna_answer_proc(@ModelAttribute("qnaBean") Qna_s qnaBean, Model m) {
-//		qs.deleteQna(qnaBean);
-//		m.addAttribute("qnaBean", qnaBean);
-//		
-//		return "admin/admin_qna_answer_proc";
-//	}
+	@PostMapping("admin_qna_answer_proc")
+	public String admin_qna_answer_proc(@ModelAttribute("qnaBean") Qna_s qnaBean, Model m) {
+		qs.deleteQna(qnaBean);
+		m.addAttribute("qnaBean", qnaBean);
+		
+		return "admin/admin_qna_answer_proc";
+	}
 }

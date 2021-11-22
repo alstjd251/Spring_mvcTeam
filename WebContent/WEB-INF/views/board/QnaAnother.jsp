@@ -72,7 +72,7 @@
 		var qnastory = $("#qnastory").val();
 		if(qnasub != "" && qnastory != ""){
 			Swal.fire({
-				text: "문의하시겠습니까?",
+				title: "문의하시겠습니까?",
 				showCancelButton: true,
 				confirmButtonText: "네",
 				CancelButtonText: "아니오",
@@ -85,12 +85,12 @@
 		else if(qnasub == "") {
 			Swal.fire({
 				icon: "error",
-				text: "제목을 입력하세요.",
+				title: "제목을 입력하세요.",
 			});
 		}else if(qnastory == "") {
 			Swal.fire({
 				icon: "error",
-				text: "내용을 입력하세요.",
+				title: "내용을 입력하세요.",
 			});
 		}
 	}

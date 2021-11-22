@@ -15,18 +15,17 @@ public class Reservation_s {
    private int res_personnel;
    private int res_mnum;
    private int res_coursenum;
-
-
-	private int loginNum;
-	private String loginName;
-	private String loginPhone;
+   
+   private int loginNum;
+   private String loginName;
+   private String loginPhone;
 	
-	private String mem_name;
-	private String mem_phone;
-	private int course_num;
-	private int course_price;
-	private String course_names;
-	
+   private String mem_name;
+   private String mem_phone;
+   private int course_num;
+   private int course_price;
+   private String course_names;
+
 
    public String getRes_num() {
       return res_num;
@@ -115,28 +114,28 @@ public class Reservation_s {
    public void setMem_phone(String mem_phone) {
       this.mem_phone = mem_phone;
    }
+   public int getCourse_price() {
+      return course_price;
+   }
 
-	public int getCourse_price() {
-		return course_price;
-	}
 
-	public void setCourse_price(int course_price) {
-		this.course_price = course_price;
-	}
+   public void setCourse_price(int course_price) {
+      this.course_price = course_price;
+   }
 
-	public String getCourse_names() {
-		return course_names;
-	}
+   public String getCourse_names() {
+      return course_names;
+   }
 
-	public void setCourse_names(String course_names) {
-		this.course_names = course_names;
-	}
+   public void setCourse_names(String course_names) {
+      this.course_names = course_names;
+   }
 
-	public int getCourse_num() {
-		return course_num;
-	}
+   public int getCourse_num() {
+      return course_num;
+   }
 
-	public void setCourse_num(int course_num) {
-		this.course_num = course_num;
-	}
+   public void setCourse_num(int course_num) {
+      this.course_num = course_num;
+   }
 }

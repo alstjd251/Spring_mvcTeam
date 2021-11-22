@@ -262,7 +262,7 @@ public class AdminControl {
 										@ModelAttribute("memberBean") Member_s memberBean, Model m) {
 		qs.deleteMemberQna(memberBean.getMem_num());
 		rs.deleteMemberReservation(memberBean.getMem_num());
-		ps.deletePartnerMember(partnerBean);
+		ps.deletePartnerMember(memberBean.getMem_num());
 		ms.deleteMember(memberBean);
 		
 		m.addAttribute("qnaBean", qnaBean);

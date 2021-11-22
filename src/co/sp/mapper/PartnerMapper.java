@@ -40,5 +40,5 @@ public interface PartnerMapper {
 	void partnersSetGrade(int partners_mnum);
 	
 	@Delete("delete from partners_s where partners_mnum = #{partners_mnum}")
-	void deletePartnerMember(Partners_s partnerBean);
+	void deletePartnerMember(int partners_mnum);
 }

@@ -18,8 +18,7 @@ Swal.fire({
 	title : "신청 완료",
     text  : "성공적으로 신청 되었습니다.",
 }).then(function(){
-	opener.location.reload();
-	window.close();
+	location.href="${root}main";
 });
 </script>
 </body>

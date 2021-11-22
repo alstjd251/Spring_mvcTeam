@@ -223,7 +223,11 @@ public class AdminControl {
 	@PostMapping("/admin_partnerRequest_accept_proc")
 	public String admin_partnerRequest_accept_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		ps.acceptPartner(partnerBean);
-		m.addAttribute("partnerBean", partnerBean);
+		partnerBean = ps.getPartner(partnerBean.getPartners_code());
+		
+		int p_mnum = partnerBean.getPartners_mnum();
+		
+		ps.partnersSetGrade(p_mnum);
 		
 		return "admin/admin_partnerRequest_accept_proc";
 	}

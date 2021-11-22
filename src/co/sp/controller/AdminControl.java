@@ -223,7 +223,11 @@ public class AdminControl {
 	@PostMapping("/admin_partnerRequest_accept_proc")
 	public String admin_partnerRequest_accept_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
 		ps.acceptPartner(partnerBean);
-		m.addAttribute("partnerBean", partnerBean);
+		partnerBean = ps.getPartner(partnerBean.getPartners_code());
+		
+		int p_mnum = partnerBean.getPartners_mnum();
+		
+		ps.partnersSetGrade(p_mnum);
 		
 		return "admin/admin_partnerRequest_accept_proc";
 	}
@@ -241,5 +245,31 @@ public class AdminControl {
 		m.addAttribute("qnaBean", qnaBean);
 		
 		return "admin/admin_qna_answer_proc";
+	}
+	
+	@GetMapping("admin_mem_delete")
+	public String admin_mem_delete(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+
+		m.addAttribute("memberBean", ms.getMemberInfo(memberBean.getMem_num()));
+		
+		return "admin/admin_mem_delete";
+	}
+	
+	@PostMapping("admin_mem_delete_proc")
+	public String admin_mem_delete_proc(@ModelAttribute("qnaBean") Qna_s qnaBean, 
+										@ModelAttribute("reservationBean") Reservation_s reservationBean, 
+										@ModelAttribute("partnerBean") Partners_s partnerBean,
+										@ModelAttribute("memberBean") Member_s memberBean, Model m) {
+		qs.deleteMemberQna(memberBean.getMem_num());
+		rs.deleteMemberReservation(memberBean.getMem_num());
+		ps.deletePartnerMember(partnerBean);
+		ms.deleteMember(memberBean);
+		
+		m.addAttribute("qnaBean", qnaBean);
+		m.addAttribute("reservationBean", reservationBean);
+		m.addAttribute("partnerBean", partnerBean);
+		m.addAttribute("memberBean", memberBean);
+		
+		return "admin/admin_mem_delete_proc";
 	}
 }

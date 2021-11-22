@@ -48,4 +48,7 @@ public interface ResMapper {
 	// 예약취소
 	@Delete("delete from reservation_s where res_num = #{res_num}")
 	void deleteReservation(Reservation_s resBean);
+	
+	@Delete("delete from reservation_s where res_mnum = #{res_mnum}")
+	void deleteMemberReservation(int res_mnum);
 }

@@ -15,10 +15,11 @@
 <script>
 Swal.fire({
 	icon : "success",
-	title : "신청 완료",
-    text  : "성공적으로 신청 되었습니다.",
+	title : "삭제 완료",
+    text  : "성공적으로 삭제 되었습니다.",
 }).then(function(){
-	location.href="${root}main";
+	opener.location.reload();
+	window.close();
 });
 </script>
 </body>

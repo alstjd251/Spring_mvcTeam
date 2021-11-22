@@ -37,4 +37,8 @@ public class QnaService {
 	public int qnaCount(BoardPage bp) {
 		return qnaDao.qnaCount(bp);
 	}
+	
+	public void deleteMemberQna(int q_mnum) {
+		qnaDao.deleteMemberQna(q_mnum);
+	}
 }

@@ -13,6 +13,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="${root }css/mypageCss.css" />
 <link rel="stylesheet" href="${root }css/include/wave.css" />
 <script src="${root }js/zip.js"></script>
@@ -68,8 +69,6 @@ function delMember(){
 			icon: 'warning',
 			title : "입력 오류",
 		    text  : "비밀번호를 입력해주세요.",
-		}).then({
-			return;
 		});
 	}else{
 		var param2 = {'mem_num': mem_num2, 'mem_pw': mem_pw2}
@@ -101,6 +100,37 @@ function delMember(){
 		})
 	}
 }
+
+function partnersReg(){
+	var p_code = $("#partners_code").val();
+	
+	$.ajax({
+		url : '${root}member/pcodeCheck.do',
+		type : 'POST',
+		data : {'p_code' : p_code},
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		dataType : 'text',
+		success : function(result){
+			if(result = 'success'){
+				Swal.fire({
+					icon: 'success',
+					title : "신청 완료",
+				    text  : "성공적으로 신청이 완료 되었습니다.",
+				}).then(function(){
+					$("#partnersForm").submit();
+				});
+			}else{
+				Swal.fire({
+					icon: 'warning',
+					title : "등록 오류",
+				    text  : "이미 등록된 사업자등록번호 입니다.",
+				}).then(function(){
+					$("#partners_code").val("");
+				});
+			} 
+		}
+	});
+}
 </script>
 </head>
 <body>
@@ -124,7 +154,9 @@ function delMember(){
 				<ul class="tabs">
 					<li class="tab_link current" data-tab="modify">회원정보 수정</li>
 					<li class="tab_link" data-tab="res_info">예약정보 조회</li>
-					<li class="tab_link" data-tab="partners">기업회원 신청</li>
+					<c:if test="${loginBean.mem_grade == 1 }">
+						<li class="tab_link" data-tab="partners">기업회원 신청</li>
+					</c:if>
 					<li class="tab_link" data-tab="delete">탈퇴</li>
 				</ul>
 			</div>
@@ -226,7 +258,8 @@ function delMember(){
 				<div id="partners" class="tab_content">
 					<!--유효성검사 해야함-->
 					<h3>기업회원 신청</h3>
-					<form:form method="post" action="partnerRequest_proc" modelAttribute="partnerBean">
+					<form:form method="post" action="partnerRequest_proc" modelAttribute="partnerBean" id="partnersForm">
+					<form:hidden path="partners_mnum" value="${loginBean.mem_num }" />
 						<table class="table table-bordered">
 							<tr>
 								<th>업체명</th>
@@ -234,7 +267,7 @@ function delMember(){
 							</tr>
 							<tr>
 								<th>사업자등록번호</th>
-								<td><form:input type="text" path="partners_code" id="partners_code"/></td>
+								<td><form:input type="text" maxlength="10" path="partners_code" id="partners_code"/></td>
 							</tr>
 							<tr>
 								<th>대표자성명</th>
@@ -242,30 +275,30 @@ function delMember(){
 							</tr>
 							<tr>
 								<th>대표자번호</th>
-								<td><form:input type="text" path="partners_tel" id="partners_tel"/></td>
+								<td><form:input type="tel" path="partners_tel" maxlength="11" id="partners_tel"/></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td><form:input type="text" path="partners_mail" id="partners_mail"/></td>
+								<td><form:input type="email" path="partners_mail" id="partners_mail"/></td>
 							</tr>
 							<tr>
 								<th>사업장주소</th>
 								<td>
-									<form:input type="text" id="sample6_postcode" placeholder="우편번호" path="partners_brewery_post"/>
-									<form:button onclick="sample6_execDaumPostcode()">우편번호 찾기</form:button><br />
-									<form:input type="text" id="sample6_address" placeholder="주소" path="partners_brewery_addr1"/><br />
-									<form:input type="text" id="sample6_detailAddress" placeholder="상세주소" path="partners_brewery_addr2"/>
+									<form:input type="text" id="partner_postcode" placeholder="우편번호" path="partners_brewery_post" readonly="true"/>
+									<input type="button" onclick="partner_PostCode()" value="우편번호 찾기"><br />
+									<form:input type="text" id="partner_address" placeholder="주소" path="partners_brewery_addr1"/><br />
+									<form:input type="text" id="partner_detailAddress" placeholder="상세주소" path="partners_brewery_addr2"/>
 								</td>
 							</tr>
 						</table>
-						<form:button class="btn btn-default" id="">신청</form:button>
+						<input type="button" class="btn btn-default" onclick="partnersReg()" value="신청"/>
 					</form:form>
 				</div>
 				<div id="delete" class="tab_content">
 					<h3><b>정말 탈퇴하시겠습니까?</b></h3>
 					<form:form action="${root }member/deleteMember" modelAttribute="memberBean" id="deleteMember">
 						<form:hidden path="mem_num" id="del_mem_num"/>
-						<div>비밀번호</div> <form:password path="mem_pw" id="mem_pw2" value=""/>
+						<div><div style="width:max-content;">비밀번호</div></div><form:password path="mem_pw" id="mem_pw2" value=""/>
 						<input class="btn btn-default" type="button" id="delete_button" value="탈퇴" onclick="delMember()"/>
 					</form:form>
 				</div>

@@ -9,9 +9,24 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d50c23204031dd7ba2725e70baf1be2"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d50c23204031dd7ba2725e70baf1be2"></script>
 <link rel="stylesheet" href="${root }css/course/GyunggiCourse.css" />
 <title>Insert title here</title>
+  <script type="text/javascript">
+  function resizeMap() {
+      var mapContainer = document.getElementById('gyung_cose3');
+      mapContainer.style.width = '650px';
+      mapContainer.style.height = '650px'; 
+  }
+
+  function relayout() {    
+      
+      // 지도를 표시하는 div 크기를 변경한 이후 지도가 정상적으로 표출되지 않을 수도 있습니다
+      // 크기를 변경한 이후에는 반드시  map.relayout 함수를 호출해야 합니다 
+      // window의 resize 이벤트에 의한 크기변경은 map.relayout 함수가 자동으로 호출됩니다
+      map.relayout();
+  }
+  </script>
 </head>
 <body>
 	<div id="gg_breweryBox">
@@ -128,6 +143,7 @@
 						<div class="gg_cose_map" id="gg_cose3"></div>
 					</div>
 				</div>
+				<button onclick="relayout()">여기 클릭해주세요</button>
 			</div>
 		</div>
 	</div>

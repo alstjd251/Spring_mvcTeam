@@ -3,9 +3,9 @@
             var cose2 = new kakao.maps.LatLng(36.97125147009303, 126.87366355487707);
             var cose3 = new kakao.maps.LatLng(37.25743703925287, 126.58231542190053);
 
-            var mapContainer = document.querySelector("#gyung_cose1"), // 지도를 표시할 div 
+            var mapContainer = document.querySelector('#gyung_cose1'), // 지도를 표시할 div 
             mapOption = { 
-                center: cose1, // 지도의 중심좌표
+                center:cose1, // 지도의 중심좌표
                 level: 3 // 지도의 확대 레벨
             };
 
@@ -15,16 +15,15 @@
                     level: 3
                 };
             
-            var mapContainer3 = document.querySelector("#gyung_cose3"),
+            var mapContainer3 = document.querySelector("#           "),
             mapOption3 = {
               center: cose3,
               level: 3
                 };
             var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
             var map2 = new kakao.maps.Map(mapContainer2,mapOption2);
-            var map3 = new kakao.maps.Map(mapContainer3,mapOption3);
-
-
+            var map3 = new kakao.maps.Map(mapContainer3,mapOption3);   
+            
                     // 지도에 마커를 표시합니다 
             var marker = new kakao.maps.Marker({
                 map: map, 
@@ -56,7 +55,6 @@
                     // 커스텀 오버레이에 표시할 컨텐츠 입니다
             // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
             // 별도의 이벤트 메소드를 제공하지 않습니다 
-            var root = document.getElementById("root_context").value;
             var content = 
             '<div class="wrap">' + 
                     '    <div class="info">' + 
@@ -66,7 +64,7 @@
                     '        </div>' + 
                     '        <div class="body">' + 
                     '            <div class="img">' +
-                    '                <img src=root + "/resource/img/courseIntroduce/경기도-배혜정도가.png" width="73" height="70">' +
+                    '                <img src="./gyunggiIMG/경기도-배혜정도가.png" width="73" height="70">' +
                     '           </div>' + 
                     '            <div class="desc">' + 
                     '                <div class="ellipsis">서울시 종로구 창덕궁길 142</div>' + 
@@ -84,7 +82,7 @@
                         '        </div>' + 
                         '        <div class="body">' + 
                         '            <div class="img">' +
-                        '                <img src=root + "/resource/img/courseIntroduce/경기도-호랑이배꼽.png" width="73" height="70">' +
+                        '                <img src="./gyunggiIMG/경기도-호랑이배꼽.png" width="73" height="70">' +
                         '           </div>' + 
                         '            <div class="desc">' + 
                         '                <div class="ellipsis">서울시 은평구 증산로7길 28-13</div>' + 
@@ -102,7 +100,7 @@
                         '        </div>' + 
                         '        <div class="body">' + 
                         '            <div class="img">' +
-                        '                <img src= root + "/resource/img/courseIntroduce/경기도-그랑꼬또.png" width="73" height="70">' +
+                        '                <img src="./gyunggiIMG/경기도-그랑꼬또.png" width="73" height="70">' +
                         '           </div>' + 
                         '            <div class="desc">' + 
                         '                <div class="ellipsis">서울시 은평구 증산로7길 28-13</div>' + 
@@ -147,7 +145,7 @@ kakao.maps.event.addListener(marker3, 'click', function() {
 
 // 커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
 function closeOverlay() {
-    overlay.setMap(null);
+    overlay.setMap(null);     
 }
 
 function closeOverlay2() {
@@ -157,3 +155,10 @@ function closeOverlay2() {
 function closeOverlay3() {
     overlay3.setMap(null);     
 }
+	function relayout() {
+	map.relayout();
+            map2.relayout();
+            map3.relayout();
+	}
+
+},5000);

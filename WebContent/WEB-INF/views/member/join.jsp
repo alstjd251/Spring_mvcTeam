@@ -101,17 +101,18 @@
 			pwCheck = "success";
 		}
 	}
-	
+	var submitCheck = 'fail';
 	function namecheck(){
 		var name = $("#inputname").val();
 		if(name == ""){
 			$("#name_input").text("이름을 입력 해주세요.").css("color","red");
 			$("#nameGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
 			
 		}else{
 			$("#name_input").text("")
 			$("#nameGroup").attr("class","form-group has-success has-feedback");
-			
+			submitCheck = 'success';
 		}
 	}
 	
@@ -121,15 +122,18 @@
 		if(joomin == ""){
 			$("#joomin_input").text("생년월일을 입력 해주세요.").css("color","red");
 			$("#joominGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
 			
 		}else{
 			if(joominPattern.test(joomin)){
 				$("#joomin_input").text("")
 				$("#joominGroup").attr("class","form-group has-success has-feedback");
+				submitCheck = 'success';
 			}
 			else{
 				$("#joomin_input").text("생년월일을 확인 해주세요.").css("color","red");
 				$("#joominGroup").attr("class","form-group has-error has-feedback");
+				submitCheck = 'fail';
 			}
 		}
 	}
@@ -140,15 +144,18 @@
 		if(gedner == ""){
 			$("#gender_input").text("주민등록번호 뒷자리를 입력 해주세요.").css("color","red");
 			$("#joominGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
 			
 		}else{
 			if(genderPattern.test(gedner)){
 				$("#gender_input").text("")
 				$("#joominGroup").attr("class","form-group has-success has-feedback");
+				submitCheck = 'success';
 			}
 			else{
 				$("#gender_input").text("주민등록번호 뒷자리를 확인 해주세요.").css("color","red");
 				$("#joominGroup").attr("class","form-group has-error has-feedback");
+				submitCheck = 'fail';
 			}
 		}
 	}
@@ -158,10 +165,12 @@
 		if(mail == ""){
 			$("#mail_input").text("이메일을 입력해주세요.").css("color","red");
 			$("#mailGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
 			
 		}else{
 			$("#mail_input").text("")
 			$("#mailGroup").attr("class","form-group has-success has-feedback");
+			submitCheck = 'success';
 			
 		}
 	}
@@ -173,19 +182,23 @@
 		if(phone == ""){
 			$("#phone_input").text("연락처를 입력해주세요.").css("color","red");
 			$("#phoneGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
 			
 		}else{
 			if(phonePattern1.test(phone)){
 				$("#phone_input").text("")
 				$("#phoneGroup").attr("class","form-group has-success has-feedback");
+				submitCheck = 'success';
 			}
 			else if(phonePattern2.test(phone)){
 				$("#phone_input").text("")
 				$("#phoneGroup").attr("class","form-group has-success has-feedback");
+				submitCheck = 'success';
 			}
 			else{
 				$("#phone_input").text("연락처를 확인해주세요.").css("color","red");
 				$("#phoneGroup").attr("class","form-group has-error has-feedback");
+				submitCheck = 'fail';
 			}
 		}
 	}
@@ -195,10 +208,12 @@
 		if(addr1 == ""){
 			$("#addr1_input").text("주소를 입력해주세요.").css("color","red");
 			$("#addr1Group").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
 			
 		}else{
 			$("#addr1_input").text("")
 			$("#addr1Group").attr("class","form-group has-success has-feedback");
+			submitCheck = 'success';
 			
 		}
 	}
@@ -208,16 +223,18 @@
 		if(addr2 == ""){
 			$("#addr2_input").text("상세주소를 입력해주세요.").css("color","red");
 			$("#addr2Group").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
 			
 		}else{
 			$("#addr2_input").text("")
 			$("#addr2Group").attr("class","form-group has-success has-feedback");
+			submitCheck = 'success';
 			
 		}
 	}
 	
 	function regBut(){
-		if(idCheck == "success" && pwCheck == "success"){
+		if(idCheck == "success" && pwCheck == "success" && submitCheck == 'success'){
 			$("#regForm").submit();
 		}
 		if(pwCheck == "fail"){
@@ -242,6 +259,14 @@
 				$("#inputid").focus();
 			});
 		}
+		if(submitCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "입력 값 오류.",
+			    text  : "입력 값을 확인해주세요.",
+			})
+		}
+		
 	}
 	
 

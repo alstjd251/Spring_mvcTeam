@@ -69,7 +69,9 @@
 				</td>
 			</tr>
 		</table>
-		<form:button style="margin-left:45%;">삭제</form:button>
+		<c:if test="${memberBean.mem_grade != 0 }">
+			<form:button style="margin-left:45%;">삭제</form:button>
+		</c:if>
 	</form:form>
 </body>
 </html>

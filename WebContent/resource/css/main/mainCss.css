@@ -129,8 +129,8 @@ header .login #logout_button:hover {
 	position: absolute;
 	right: 100px;
 }
-/*기관소개*/
 
+/*기관소개*/
 .introduce_total {
   width: 100%;
   height: 100%;
@@ -352,6 +352,12 @@ margin-bottom: 5px;
 .course_bt1:hover,.course_bt2:hover,.course_bt3:hover,.course_bt4:hover,.course_bt5:hover,.course_bt6:hover{
 	background-color: white;
 	color:black;
+}
+
+#course_bt:hover{
+   background-color: white;
+   color:black;
+
 }
 
 /* footer ad css */

@@ -147,8 +147,10 @@ public class RestControl {
 		String answer = map.get("answer");
 		String mail = map.get("mem_mail");
 		int q_num = Integer.parseInt(map.get("q_num"));
+		int q_mnum = Integer.parseInt(map.get("q_mnum"));
 		
 		qnaBean.setQ_qnanum(q_num);
+		qnaBean.setQ_mnum(q_mnum);
 		
 		qnaBean = qs.getQna(qnaBean);
 		String qna = qnaBean.getQ_qnacontent();

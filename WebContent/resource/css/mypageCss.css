@@ -162,13 +162,13 @@ table tr td input{
 	margin-top: 5px;
 }
 
-#res_num, #course_names, #res_startdate, #res_paydate, #course_price, #mem_name, #mem_phone, #res_personnel {
+#res_num, #course_names, #res_startdate, #res_paydate, #course_price, #res_table #mem_name, #res_table #mem_phone, #res_personnel {
 	border:0;
 }
 
 #res_num:focus, #course_names:focus, #res_startdate:focus, 
-#res_paydate:focus, #course_price:focus, #mem_name:focus, 
-#mem_phone:focus, #res_personnel:focus {
+#res_paydate:focus, #course_price:focus, #res_table #mem_name:focus, 
+#res_table #mem_phone:focus, #res_personnel:focus {
 	outline: none;
 }
 

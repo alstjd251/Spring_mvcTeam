@@ -7,6 +7,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+	#mypage_con2 #mem_name:focus, #mem_id:focus, #mem_joomin:focus, #mem_gender:focus, #mem:focus {
+		outline:none;
+	}
+</style>
 <meta charset="UTF-8">
 <title>Sul Sure</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -75,7 +80,7 @@ function delMember(){
 		$.ajax({
 			url : '${root}member/pwcheck.do',
 			type : 'POST',
-			data : param1,
+			data : param2,
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			dataType : 'text',
 			success : function(result){
@@ -100,7 +105,7 @@ function delMember(){
 		})
 	}
 }
-
+var brewVaild = 'fail';
 function partnersReg(){
 	var p_code = $("#partners_code").val();
 	
@@ -111,15 +116,7 @@ function partnersReg(){
 		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 		dataType : 'text',
 		success : function(result){
-			if(result = 'success'){
-				Swal.fire({
-					icon: 'success',
-					title : "신청 완료",
-				    text  : "성공적으로 신청이 완료 되었습니다.",
-				}).then(function(){
-					$("#partnersForm").submit();
-				});
-			}else{
+			if(result == "fail"){
 				Swal.fire({
 					icon: 'warning',
 					title : "등록 오류",
@@ -127,9 +124,96 @@ function partnersReg(){
 				}).then(function(){
 					$("#partners_code").val("");
 				});
+			}else{
+				if(brewVaild == "fail"){
+					Swal.fire({
+						icon: 'warning',
+						title : "입력 오류",
+					    text  : "모든 정보를 제대로 입력해주세요.",
+					});
+				}else{
+					Swal.fire({
+						icon: 'success',
+						title : "신청 완료",
+					    text  : "성공적으로 신청이 완료 되었습니다.",
+					}).then(function(){
+						$("#partnersForm").submit();				
+					});
+				}
 			} 
 		}
 	});
+}
+
+
+function brewNameCh(){
+	if($("#partners_brewery_name").val() == ""){
+		$("#brew_name_error").text("업체 이름을 입력해주세요.").css("color", "red");
+		brewVaild = "fail";
+	}else{
+		$("#brew_name_error").text("");
+		brewVaild = "pass";
+	}
+}
+
+function PartnerCodeCh(){
+	if($("#partners_code").val() == ""){
+		$("#partner_code_error").text("사업자등록번호를 입력해주세요.").css("color", "red");
+		brewVaild = "fail";
+	}else{
+		$("#partner_code_error").text("");
+		brewVaild = "pass";
+	}
+}
+
+function PartnerNameCh(){
+	if($("#partners_name").val() == ""){
+		$("#partner_name_error").text("대표자성명을 입력해주세요.").css("color", "red");
+		brewVaild = "fail";
+	}else{
+		$("#partner_name_error").text("");
+		brewVaild = "pass";
+	}
+}
+
+function PartnerTelCh(){
+	if($("#partners_tel").val() == ""){
+		$("#partner_tel_error").text("대표자연락처를 입력해주세요.").css("color", "red");
+		brewVaild = "fail";
+	}else{
+		$("#partner_tel_error").text("");
+		brewVaild = "pass";
+	}
+}
+
+function PartnerMailCh(){
+	if($("#partners_mail").val() == ""){
+		$("#partner_mail_error").text("대표자이메일을 입력해주세요.").css("color", "red");
+		brewVaild = "fail";
+	}else{
+		$("#partner_mail_error").text("");
+		brewVaild = "pass";
+	}
+}
+
+function brewAddr1Ch(){
+	if($("#partner_address").val() == ""){
+		$("#brew_addr1_error").text("주소를 입력해주세요.").css("color", "red");
+		brewVaild = "fail";
+	}else{
+		$("#brew_addr1_error").text("");
+		brewVaild = "pass";
+	}
+}
+
+function brewAddr2Ch(){
+	if($("#partner_detailAddress").val() == ""){
+		$("#brew_addr2_error").text("상세주소를 입력해주세요.").css("color", "red");
+		brewVaild = "fail";
+	}else{
+		$("#brew_addr2_error").text("");
+		brewVaild = "pass";
+	}
 }
 </script>
 </head>
@@ -169,29 +253,23 @@ function partnersReg(){
 						<table class="table table-bordered">
 							<tr>
 								<th>아이디</th>
-								<td><form:input path="mem_id" id="mem_id" readonly="true"/></td>
+								<td><form:input style="border:none;" path="mem_id" id="mem_id" readonly="true"/></td>
 							</tr>
 							<tr>
 								<th>비밀번호</th>
 								<td>
 									<form:password path="mem_pw" id="mem_pw" value=""/>
-									<input type="button" class="btn btn-danger" id="pw_bt" value="비밀번호 변경하기" onclick="window.open('${root}member/pwChange?mem_num=${loginBean.mem_num }','비밀번호변경','scrollbars=yes width=700 height=500 left=100 top=50')">
+									<input type="button" class="btn btn-primary" id="pw_bt" value="비밀번호 변경하기" onclick="window.open('${root}member/pwChange?mem_num=${loginBean.mem_num }','비밀번호변경','scrollbars=yes width=700 height=500 left=100 top=50')">
 								</td>
 							</tr>
-							<!-- <tr>
-								<th>비밀번호 확인</th>
-								<td>
-									<input type="text" id="mem_pw2" disabled>
-								</td>
-							</tr> -->
 							<tr>
 								<th>이름</th>
-								<td><form:input path="mem_name" id="mem_name" readonly="true"/></td>
+								<td><form:input style="border:none;" path="mem_name" id="mem_name" readonly="true"/></td>
 							</tr>
 							<tr>
 								<th>주민번호</th>
-								<td><form:input maxlength="6" placeholder="생년월일 6자리" path="mem_joomin" id="mem_joomin" readonly="true"/>
-									- <form:input path="mem_gender" id="mem_gender" maxlength="1" size="1" readonly="true"/> ******</td>
+								<td><form:input style="border:none; width:70px" maxlength="6" placeholder="생년월일 6자리" path="mem_joomin" id="mem_joomin" readonly="true"/>
+									- <form:input style="border:none; width:15px" path="mem_gender" id="mem_gender" maxlength="1" size="1" readonly="true"/> ******</td>
 							</tr>
 
 							<tr>
@@ -204,7 +282,7 @@ function partnersReg(){
 							<tr>
 								<th>연락처</th>
 								<td>
-									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone"/>
+									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone" maxlength="11"/>
 									<form:errors path="mem_phone"/>
 								</td>
 							</tr>
@@ -258,30 +336,34 @@ function partnersReg(){
 				<div id="partners" class="tab_content">
 					<!--유효성검사 해야함-->
 
+<<<<<<< HEAD
 					<h3>기업회원 신청</h3>
 
+=======
+					<h3><b>기업회원 신청</b></h3>
+>>>>>>> branch 'dkxmrhe1' of https://github.com/alstjd251/Spring_mvcTeam.git
 					<form:form method="post" action="partnerRequest_proc" modelAttribute="partnerBean" id="partnersForm">
 					<form:hidden path="partners_mnum" value="${loginBean.mem_num }" />
 						<table class="table table-bordered">
 							<tr>
-								<th>업체명</th>
-								<td><form:input path="partners_brewery_name" id="partners_brewery_name"/></td>
+								<th width="170px">업체명</th>
+								<td><form:input path="partners_brewery_name" id="partners_brewery_name" onkeyup="brewNameCh()"/> <span id="brew_name_error"></span></td>
 							</tr>
 							<tr>
 								<th>사업자등록번호</th>
-								<td><form:input type="text" maxlength="10" path="partners_code" id="partners_code"/></td>
+								<td><form:input type="text" maxlength="10" path="partners_code" id="partners_code" onkeyup="PartnerCodeCh()"/> <span id="partner_code_error"></span></td>
 							</tr>
 							<tr>
 								<th>대표자성명</th>
-								<td><form:input type="text" path="partners_name" id="partners_name"/></td>
+								<td><form:input type="text" path="partners_name" id="partners_name" onkeyup="PartnerNameCh()"/> <span id="partner_name_error"></span></td>
 							</tr>
 							<tr>
-								<th>대표자번호</th>
-								<td><form:input type="tel" path="partners_tel" maxlength="11" id="partners_tel"/></td>
+								<th>대표자연락처</th>
+								<td><form:input type="tel" path="partners_tel" maxlength="11" id="partners_tel" onkeyup="PartnerTelCh()"/> <span id="partner_tel_error"></span></td>
 							</tr>
 							<tr>
 								<th>이메일</th>
-								<td><form:input type="email" path="partners_mail" id="partners_mail"/></td>
+								<td><form:input type="email" path="partners_mail" id="partners_mail" onkeyup="PartnerMailCh()"/> <span id="partner_mail_error"></span></td>
 							</tr>
 							<tr>
 								<th>사업장주소</th>
@@ -289,11 +371,12 @@ function partnersReg(){
 								<td>
 									<form:input type="text" id="partner_postcode" placeholder="우편번호" path="partners_brewery_post" readonly="true"/>
 									<input type="button" onclick="partner_PostCode()" value="우편번호 찾기"><br />
-									<form:input type="text" id="partner_address" placeholder="주소" path="partners_brewery_addr1"/><br />
-									<form:input type="text" id="partner_detailAddress" placeholder="상세주소" path="partners_brewery_addr2"/>
+									<form:input type="text" id="partner_address" placeholder="주소" path="partners_brewery_addr1" onkeyup="brewAddr1Ch()"/> <span id="brew_addr1_error"></span><br />
+									<form:input type="text" id="partner_detailAddress" placeholder="상세주소" path="partners_brewery_addr2" onkeyup="brewAddr2Ch()"/> <span id="brew_addr2_error"></span>
 								</td>
 							</tr>
 						</table>
+
 						<input type="button" class="btn btn-default" onclick="partnersReg()" value="신청"/>
 					</form:form>
 				</div>

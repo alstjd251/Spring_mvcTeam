@@ -180,15 +180,14 @@ public class RestControl {
 	
 	@PostMapping("/member/pcodeCheck.do")
 	public String pcodeCheck(@RequestParam Map<String, String> map, Partners_s partnersBean) throws Exception {
-		
 		String p_code = map.get("p_code");
-		
-		p_code = ps.getPcodeCheck(p_code);
-		
-		if(p_code == null) {
-			return "success";
-		}else {
+		String code = ps.getPcodeCheck(p_code);		
+
+		if(p_code.equals(code)) {
 			return "fail";
+			
+		}else {
+			return "success";
 		}
 	}
 }

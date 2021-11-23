@@ -12,7 +12,7 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-	<form:form method="post" action="admin_reservation_delete_proc" modelAttribute="partnerBean">
+	<form:form method="post" action="admin_reservation_delete_proc" modelAttribute="reservationBean">
 		<table class="table table-bordered">
 			<tr>
 				<th>예약번호</th>
@@ -36,11 +36,11 @@
 			</tr>
 			<tr>
 				<th>예약자명</th>
-				<td>mem_name</td>
+				<td><form:input path="loginName" id="mem_name" readonly="true"/></td>
 			</tr>
 			<tr>
 				<th>연락처</th>
-				<td>mem_phone</td>
+				<td><form:input path="loginPhone" id="mem_phone" readonly="true"/></td>
 			</tr>
 			<tr>
 				<th>인원</th>
@@ -48,10 +48,10 @@
 			</tr>
 			<tr>
 				<th>가격</th>
-				<td>c_price</td>
+				<td><form:input path="course_price" id="res_price" readonly="true"/></td>
 			</tr>
 		</table>
-		<form:button>삭제</form:button>
+		<form:button style="margin-left:45%;">삭제</form:button>
 	</form:form>
 </body>
 </html>

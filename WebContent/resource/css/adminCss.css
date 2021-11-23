@@ -72,7 +72,21 @@ section #con table thead th{
 	text-align: -webkit-center;
     background-color: rgb(255, 132, 132);
 }
-
+#t_set tbody tr td a:hover{
+	cursor:pointer;
+}
+#t_set1 tbody tr td a:hover{
+	cursor:pointer;
+}
+#t_set2 tbody tr td a:hover{
+	cursor:pointer;
+}
+#t_set3 tbody tr td a:hover{
+	cursor:pointer;
+}
+#t_set4 tbody tr td a:hover{
+	cursor:pointer;
+}
 section #con table thead th div{
 	text-align: -webkit-center;
    	width: max-content;

@@ -53,7 +53,7 @@
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
 			<div>
-				<table class="table table-striped table-bordered table-hover">
+				<table id="t_set3" class="table table-striped table-bordered">
 					<thead>
 						<tr>
 							<th>문의번호</th>

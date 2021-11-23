@@ -372,7 +372,7 @@ function brewAddr2Ch(){
 							</tr>
 						</table>
 
-						<input type="button" class="btn btn-default" onclick="partnersReg()" value="신청"/>
+						<input type="button" class="btn btn-default" onclick="partnersReg()" id="modify_button" value="신청"/>
 					</form:form>
 				</div>
 				<div id="delete" class="tab_content">

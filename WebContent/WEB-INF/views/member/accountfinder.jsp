@@ -115,11 +115,11 @@ function pwSearch(){
 	</header>
 	
 	<section>
-	<div style="display: flex; justify-content:space-around; margin-top:100px;">
+	<div style="display: flex; justify-content:space-around; margin-top:100px; width:70%; margin-left:15%">
 	<!-- 아이디 찾기-->
 		<div id="id_search">
 			<div class="page-header" align="center" style="margin-bottom:60px;">
-			 	<h1>아이디 찾기</h1>
+			 	<h1><b>아이디 찾기</b></h1>
 			</div>
 			<div>
 				<div style="margin-bottom: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -140,9 +140,9 @@ function pwSearch(){
 						</div>
 					</div>
 				</div>
-				<div class="form-group" style="margin-top:-240px;">
+				<div class="form-group" style="margin-top:-240px;display:flex; justify-content:center">
 					<div class="col-sm-offset-1 col-sm-10">
-						<button type="button" style="height: 80px;" class="btn btn-default btn-lg" onclick="idSearch()">아이디 찾기</button>
+						<button type="button" style="height: 60px;margin-top:10px; width:170px" class="btn btn-default btn-lg" onclick="idSearch()">아이디 찾기</button>
 					</div>
 				</div>
 			</div>
@@ -150,7 +150,7 @@ function pwSearch(){
 		<!-- 비밀번호 찾기-->
 		<div>
 			<div class="page-header" align="center" style="margin-bottom:60px;">
-		 		<h1>비밀번호 찾기</h1>
+		 		<h1><b>비밀번호 찾기</b></h1>
 			</div>
 			<div id="pw_search">
 				<div style="margin-bottom: 240px; display: flex; flex-direction: column; align-items: center; justify-content: center;">
@@ -162,7 +162,7 @@ function pwSearch(){
 							</div>
 						</div>
 					</div>
-					<div class="pwsign" style="display: flex">
+					<div class="pwsign" style="display: flex;margin-left:13px">
 						<div class="form-group">
 							<label for="id2" class="col-sm-3 control-label">아이디</label>
 							<div class="col-sm-10">
@@ -179,9 +179,9 @@ function pwSearch(){
 						</div>
 					</div>
 				</div>
-				<div class="form-group" style="margin-top:-240px;">
+				<div class="form-group" style="margin-top:-240px;display:flex; justify-content:center">
 					<div class="col-sm-offset-1 col-sm-10">
-						<button type="button" style="height: 80px;" class="btn btn-default btn-lg" onclick="pwSearch()">비밀번호 찾기</button>
+						<button type="button" style="height: 60px;margin-top:10px; width:170px" class="btn btn-default btn-lg" onclick="pwSearch()">비밀번호 찾기</button>
 					</div>
 				</div>
 			</div>

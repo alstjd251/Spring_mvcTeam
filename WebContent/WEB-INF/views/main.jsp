@@ -24,7 +24,6 @@
 <title>Sul Sure</title>
 </head>
 <body>
-<<<<<<< HEAD
 	<!-- 헤더 -->
 	<header>
 		<c:import url="/WEB-INF/views/include/header.jsp"/>
@@ -219,7 +218,7 @@
 							class="pimg5" /></a></li>
 				</div>
 			</div>
-			<footㄴer>
+			<footer>
 				<c:import url="/WEB-INF/views/include/footer.jsp" />
 		</div>
 		</footer>

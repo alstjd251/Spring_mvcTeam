@@ -9,7 +9,7 @@ header {
   position: fixed;
   z-index: 100;
 }
-/* header 濡쒓퀬 css */
+/* header logo css */
 header .logo {
   width: 200px;
   height: 60px;
@@ -25,7 +25,7 @@ header .logo a img {
   height: 100%;
 }
 
-/* header 硫붾돱 css */
+/* header menu bar css */
 header .menu_bar {
   display: flex;
   height: 60px;
@@ -43,7 +43,7 @@ header .menu_bar li a {
   font-weight: 700;
 }
 
-/* header 濡쒓렇 씤 css */
+/* header login css */
 header .login {
   width: 240px;
   height: 60px;
@@ -63,9 +63,9 @@ header .login a img {
   height: 60px;
 }
 header .login #loginimg {
-	position:absolute;
-	left:0px;
-	top: 5px;
+   position:absolute;
+   left:0px;
+   top: 5px;
 }
 header .login #loginimg span #my_name {
   position: absolute; 
@@ -89,7 +89,7 @@ header .login #logout_button:hover {
   border-color: gray;
   color: gray;
 }
-/* �꽮�뀡 ���럹�씠吏� �쟻�슜 css */
+/*  섹션 메인 css */
 .section {
   width: 100%;
   margin: 0;
@@ -122,13 +122,14 @@ header .login #logout_button:hover {
     position: absolute;
     right: 140px;
 }
+
 .section #fade1 .fadeImg2 {
 	z-index:12;
 	height: 50%;
 	position: absolute;
 	right: 100px;
 }
-/*----------湲곌��냼媛�-------------*/
+/*기관소개*/
 
 .introduce_total {
   width: 100%;
@@ -147,8 +148,8 @@ header .login #logout_button:hover {
   height: 100%;
 }
 .in_item #drink {
-	width: 150px;
-	height: 320px;
+   width: 150px;
+   height: 320px;
 }
 
 .in_item img:nth-child(2) {
@@ -160,18 +161,18 @@ header .login #logout_button:hover {
   height: 425px;
   opacity: 0.95;
 }
-/*--鍮꾩쑉7�씤 div�쁺�뿭----*/
+/*기관소개*/
 .introduce_total .in_item2 {
   width: 60%;
   height: 100%;
 }
-/*in_item2�넂�씠瑜� i_t1,i_t2媛곴컖 9:1濡쒕굹�닎*/
+/*in_item2 */
 .in_item2 .i_t1 {
   width: 100%;
   height: 90%;
   background-size: contain;
 }
-/*留덉슦�뒪�삱由대븣 �궗�씪吏�寃� �븯�뒗 div*/
+/* 메인기관소개 div*/
 .i_t1 .i_t1_front {
   width: 100%;
   height: 90%;
@@ -237,7 +238,6 @@ header .login #logout_button:hover {
 	border: 3px dotted #eedc3e;
 	border-radius: 15px;
 	font-size: 20px;
-	
 }
 
 #bus, #house, #map{
@@ -246,7 +246,7 @@ header .login #logout_button:hover {
 }
 
 .i_t1 .t1_property p{
-	text-align: center;
+   text-align: center;
 }
 
 .t1_property div:nth-child(1) {
@@ -279,12 +279,12 @@ header .login #logout_button:hover {
 #mainBrewery01,
 #mainBrewery03,
 #mainBrewery05 {
-	margin-top:55px;
+   margin-top:55px;
 }
 #mainBrewery02,
 #mainBrewery04,
 #mainBrewery06 {
-	margin-bottom:35px;
+   margin-bottom:35px;
 }
 
 #yang01,
@@ -297,27 +297,27 @@ header .login #logout_button:hover {
 }
 
 #mainBrewery01, #mainBrewery02, #mainBrewery03, #mainBrewery04, #mainBrewery05, #mainBrewery06 {
-	perspective : 500px;
+   perspective : 500px;
 }
 .breweryImg01, .breweryImg03, .breweryImg05{
-	transform:rotateY(-10deg);
-	margin-right: 18%;
-	box-shadow: -5px 5px 5px gray;
+   transform:rotateY(-10deg);
+   margin-right: 18%;
+   box-shadow: -5px 5px 5px gray;
 }
 
 .breweryImg02, .breweryImg04, .breweryImg06{
-	transform:rotateY(10deg);
-	margin-left: 18%;
-	box-shadow: 5px 5px 5px gray;
-	
+   transform:rotateY(10deg);
+   margin-left: 18%;
+   box-shadow: 5px 5px 5px gray;
+   
 }
 .breweryText01, .breweryText03, .breweryText05 {
-	margin-left: 20%;
+   margin-left: 20%;
 }
 
 .breweryText02, .breweryText04, .breweryText06 {
-	margin-right: 20%;
-	text-align: right;
+   margin-right: 20%;
+   text-align: right;
 }
 
 .breweryText01 h1, .breweryText03 h1, .breweryText05 h1, 
@@ -354,7 +354,7 @@ margin-bottom: 5px;
 	color:black;
 }
 
-/* 愿묎퀬 css */
+/* footer ad css */
 .section #footgg {
   display: flex;
   flex-direction: column;
@@ -387,7 +387,7 @@ margin-bottom: 5px;
 
 /* footer css */
 footer {
-  background-color: rgb(201, 154, 67, 0.4);
+  background-color: #E9D7B4;
   width: 100%;
   height: 250px;
   position: absolute;

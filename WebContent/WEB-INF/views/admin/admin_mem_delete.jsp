@@ -10,6 +10,7 @@
 <title>Sul Sure</title>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="${root }css/adminCss.css" />
 </head>
 <body>
 	<form:form method="post" action="admin_mem_delete_proc" modelAttribute="memberBean">
@@ -68,7 +69,7 @@
 				</td>
 			</tr>
 		</table>
-		<form:button>삭제</form:button>
+		<form:button style="margin-left:45%;">삭제</form:button>
 	</form:form>
 </body>
 </html>

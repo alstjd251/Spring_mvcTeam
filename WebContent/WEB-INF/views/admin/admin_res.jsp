@@ -37,7 +37,7 @@
 
 	<section>
 		<div id="con">
-			<h3>예약정보 관리</h3>
+			<h3><b>예약정보 관리</b></h3>
 			<select id="cntPerPage" name="sel" onchange="selChange()">
 				<option value="5"
 					<c:if test="${resPaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
@@ -48,11 +48,11 @@
 				<option value="20"
 					<c:if test="${resPaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 			</select>
-			<div>
-				<div class = "search">
+			<div class = "search">
 					<input type="text" name="keyword" placeholder="예약번호로 검색합니다." value="${resPaging.keyword }">
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
+			<div>
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>

@@ -55,7 +55,7 @@
 				</td>
 			</tr>
 		</table>
-		<form:button>수락</form:button>
+		<form:button style="margin-left:45%;">수락</form:button>
 	</form:form>
 </body>
 </html>

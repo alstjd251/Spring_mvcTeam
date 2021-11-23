@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
@@ -13,9 +13,9 @@
 <link rel="stylesheet" href="${root }css/main/mainCss.css" />
 <link rel="stylesheet" href="${root }css/include/wave.css" />
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
-	src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+   src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
 <script src="${root }js/zip.js"></script>
 <link
       rel="stylesheet"
@@ -24,6 +24,7 @@
 <title>Sul Sure</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<!-- 헤더 -->
 	<header>
 		<c:import url="/WEB-INF/views/include/header.jsp"/>
@@ -111,12 +112,10 @@
 						</p>
 						<button class="course_bt1" onclick="course_bt1()">코스 소개</button>
 				</div>
-
 				<div class="breweryImg01">
 					<img src="${root }img/course/서울코스.jpg" width="380px" height="250px">
 				</div>
 			</div>
-
 			<div id="mainBrewery02">
 				<div class="breweryImg02">
 					<img src="${root }img/course/경기코스.jpg" width="380px" height="250px">
@@ -250,5 +249,6 @@
 		location.href="${root}course/CourseTab?courseNam=Gyungnam";
 	}
 	</script>
+
 </body>
 </html>

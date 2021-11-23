@@ -71,5 +71,8 @@ public class NoticeControl {
 		
 		return "board/NoticeModify";
 	}
+	
+	
+	
 }
 

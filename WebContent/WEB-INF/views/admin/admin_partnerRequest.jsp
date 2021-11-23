@@ -37,7 +37,7 @@
 	
 	<section>
 		<div id="con">
-			<h3>기업정보 관리</h3>
+			<h3><b>기업신청 수락</b></h3>
 			<select id="cntPerPage" name="sel" onchange="selChange()">
 				<option value="5"
 					<c:if test="${partnerPaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
@@ -48,11 +48,11 @@
 				<option value="20"
 					<c:if test="${partnerPaging.cntPerPage == 20}">selected</c:if>>20줄 보기</option>
 			</select>
-			<div>
-				<div class = "search">
+			<div class = "search">
 					<input type="text" name="keyword" placeholder="업체명으로 검색합니다." value="${partnerPaging.keyword }">
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
+			<div>
 				<table class="table table-striped table-bordered table-hover">
 					<thead>
 						<tr>

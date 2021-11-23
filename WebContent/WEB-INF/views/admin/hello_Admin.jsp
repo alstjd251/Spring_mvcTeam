@@ -20,6 +20,11 @@
 <link rel="stylesheet" href="${root }css/adminCss.css" />
 </head>
 <body>
+	
+	<div class="admin_main">
+	<img src="${root }img/admin/admin_icon.png" width="150px" height="150px">
+	<h2 style = "text-align: center;"><b>관리자 전용 페이지입니다.</b></h2></div>
+	
 	<div class = "admin_menu_bar">
 		<form action = "${root }main"><input type ="submit" value = "main"/></form>
 		<form action = "${root }admin/admin_mem"><input type ="submit" value = "회원정보 관리"/></form>
@@ -28,6 +33,5 @@
 		<form action = "${root }admin/admin_res"><input type ="submit" value = "예약정보 조회"/></form>
 		<form action = "${root }admin/admin_qna"><input type ="submit" value = "회원문의 관리"/></form>
 	</div>
-	<h2 style = "text-align: center;">관리자 전용 페이지입니다.</h2>
 </body>
 </html>

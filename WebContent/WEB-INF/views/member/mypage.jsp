@@ -67,7 +67,7 @@ function pwCheck(){
 }
 
 function delMember(){
-	var mem_pw2 = $("#mem_pw").val();
+	var mem_pw2 = $("#mem_pw2").val();
 	var mem_num2 = $("#del_mem_num").val();
 	if(mem_pw == ""){
 		Swal.fire({
@@ -90,7 +90,7 @@ function delMember(){
 						title : "탈퇴 완료",
 					    text  : "회원 탈퇴가 정상적으로 완료되었습니다.",
 					}).then(function(){
-						$("#memModifyForm").submit();
+						$("#deleteMember").submit();
 					});
 				}else{
 					Swal.fire({

@@ -20,7 +20,7 @@ public interface NoticeMapper {
 	@Select("select * from notice_s where n_noticenum = #{n_noticenum}")
 	Notice_s getNotice(Notice_s noticeBean);
 	
-	@Update("update notice_s set n_noticetitle = #{n_noticetitle}, n_noticecontent = #{n_noticecontent} where n_mnum = #{n_mnum} and n_noticenum = #{n_noticenum}")
+	@Update("update notice_s set n_noticetitle = #{n_noticetitle}, n_noticecontent = #{n_noticecontent} where n_noticenum = #{n_noticenum}")
 	void updateNotice(Notice_s noticeBean);
 	
 	@Select("select count(*) from notice_s where n_noticetitle like '%'||#{keyword, jdbcType=VARCHAR}||'%'")

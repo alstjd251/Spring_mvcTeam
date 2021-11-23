@@ -134,11 +134,7 @@
 				<div class="gg_brewery-card03">
 					<div class="gg_card03-box">
 						<div>
-<<<<<<< HEAD
 							<img src="${root }img/courseIntroduce/그랑꼬또_logo.svg" class="breweryBody01_img06" width="300px" height="250px" />
-=======
-							<img src="${root }img/courseIntroduce/9ftM9P01.svg" class="breweryBody01_img05" />
->>>>>>> branch 'cldjs' of https://github.com/alstjd251/Spring_mvcTeam.git
 						</div>
 						<div class="gg_course_p">
 							<p>■주소: 경기 안산시 단원구 뻐꾹산길 107</p>
@@ -147,7 +143,6 @@
 						<div class="gg_cose_map" id="gg_cose3"></div>
 					</div>
 				</div>
-				<button onclick="relayout()">여기 클릭해주세요</button>
 			</div>
 		</div>
 	</div>

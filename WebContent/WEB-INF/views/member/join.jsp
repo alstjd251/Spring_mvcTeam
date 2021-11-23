@@ -168,14 +168,25 @@
 			
 	function phonecheck(){
 		var phone = $("#inputphone").val();
+		var phonePattern1 = RegExp(/^010[0-9]{8}$/);
+		var phonePattern2 = RegExp(/^01[179][0-9]{7,8}$/);
 		if(phone == ""){
 			$("#phone_input").text("연락처를 입력해주세요.").css("color","red");
 			$("#phoneGroup").attr("class","form-group has-error has-feedback");
 			
 		}else{
-			$("#phone_input").text("")
-			$("#phoneGroup").attr("class","form-group has-success has-feedback");
-			
+			if(phonePattern1.test(phone)){
+				$("#phone_input").text("")
+				$("#phoneGroup").attr("class","form-group has-success has-feedback");
+			}
+			else if(phonePattern2.test(phone)){
+				$("#phone_input").text("")
+				$("#phoneGroup").attr("class","form-group has-success has-feedback");
+			}
+			else{
+				$("#phone_input").text("연락처를 확인해주세요.").css("color","red");
+				$("#phoneGroup").attr("class","form-group has-error has-feedback");
+			}
 		}
 	}
 	

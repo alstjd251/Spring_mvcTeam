@@ -27,7 +27,7 @@
 <link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 function pwCheck(){
-	var mem_pw = $("#mem_pw2").val();
+	var mem_pw = $("#mem_pw").val();
 	var mem_num = $("#mem_num").val();
 	if(mem_pw == ""){
 		Swal.fire({
@@ -259,7 +259,7 @@ function brewAddr2Ch(){
 								<th>비밀번호</th>
 								<td>
 									<form:password path="mem_pw" id="mem_pw" value=""/>
-									<input type="button" class="btn btn-primary" id="pw_bt" value="비밀번호 변경하기" onclick="window.open('${root}member/pwChange?mem_num=${loginBean.mem_num }','비밀번호변경','scrollbars=yes width=700 height=500 left=100 top=50')">
+									<input type="button" class="btn btn-primary" id="pw_bt" value="비밀번호 변경하기" onclick="window.open('${root}member/pwChange?mem_num=${loginBean.mem_num }','비밀번호변경','scrollbars=yes width=500 height=500 left=100 top=50')">
 								</td>
 							</tr>
 							<tr>

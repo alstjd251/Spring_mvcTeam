@@ -37,11 +37,11 @@
 			});
 			return
 		}
-		if(mem_id.length < 5){
+		if(mem_id.length < 4){
 			Swal.fire({
 				icon: 'warning',
 				title : "입력 오류",
-			    text  : "아이디는 최소 4자 이상 입력해야 합니다.",
+			    text  : "아이디는 최소 4글자 이상 입력해야 합니다.",
 			}).then(function(){
 				idCheck = "fail";
 				document.getElementById("idGroup").className = "form-group has-error has-feedback"
@@ -108,12 +108,22 @@
 			$("#name_input").text("이름을 입력 해주세요.").css("color","red");
 			$("#nameGroup").attr("class","form-group has-error has-feedback");
 			submitCheck = 'fail';
-			
-		}else{
+		}else if(!isNaN(name)){
+			$("#name_input").text("숫자는 입력할 수 없습니다.").css("color","red");
+			$("#nameGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
+		}
+		else if(name.length < 2){
+			$("#name_input").text("이름은 2글자 이상 입력 해주세요.").css("color","red");
+			$("#nameGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
+		}
+		else{
 			$("#name_input").text("")
 			$("#nameGroup").attr("class","form-group has-success has-feedback");
 			submitCheck = 'success';
 		}
+		
 	}
 	
 	function joomincheck(){

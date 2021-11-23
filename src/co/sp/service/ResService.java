@@ -49,4 +49,8 @@ public class ResService {
 	public Reservation_s getOneReservation(String res_num) {
 		return resDao.getOneReservation(res_num);
 	}
+	
+	public void deleteMemberReservation(int res_mnum) {
+		resDao.deleteMemberReservation(res_mnum);
+	}
 }

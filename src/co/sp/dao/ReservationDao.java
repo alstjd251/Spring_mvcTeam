@@ -47,4 +47,8 @@ public class ReservationDao {
 	public Reservation_s getOneReservation(String res_num) {
 		return resMapper.getOneReservation(res_num);
 	}
+	
+	public void deleteMemberReservation(int res_mnum) {
+		resMapper.deleteMemberReservation(res_mnum);
+	}
 }

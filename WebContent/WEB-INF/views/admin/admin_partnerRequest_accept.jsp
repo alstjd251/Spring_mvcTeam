@@ -48,7 +48,11 @@
 			</tr>
 			<tr>
 				<th>신청 상태</th>
-				<td><form:input path="partners_state" id="partners_state" readonly="true"/></td>
+				<td>
+					<c:if test="${partnerBean.partners_state == 0}">
+						수락 대기중
+					</c:if>
+				</td>
 			</tr>
 		</table>
 		<form:button>수락</form:button>

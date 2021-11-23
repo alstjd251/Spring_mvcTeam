@@ -54,4 +54,8 @@ public class MemberDao {
 	public void memPwChange(Member_s memberBean) {
 		memMapper.memPwChange(memberBean);
 	}
+	
+	public void deleteMember(Member_s memberBean) {
+		memMapper.deleteMember(memberBean);
+	}
 }

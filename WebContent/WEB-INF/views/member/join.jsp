@@ -117,14 +117,39 @@
 	
 	function joomincheck(){
 		var joomin = $("#inputjoomin").val();
+		var joominPattern = RegExp(/^[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/);
 		if(joomin == ""){
 			$("#joomin_input").text("생년월일을 입력 해주세요.").css("color","red");
 			$("#joominGroup").attr("class","form-group has-error has-feedback");
 			
 		}else{
-			$("#joomin_input").text("")
-			$("#joominGroup").attr("class","form-group has-success has-feedback");
+			if(joominPattern.test(joomin)){
+				$("#joomin_input").text("")
+				$("#joominGroup").attr("class","form-group has-success has-feedback");
+			}
+			else{
+				$("#joomin_input").text("생년월일을 확인 해주세요.").css("color","red");
+				$("#joominGroup").attr("class","form-group has-error has-feedback");
+			}
+		}
+	}
+	
+	function gendercheck(){
+		var gedner = $("#inputgender").val();
+		var genderPattern = RegExp(/^[1-4]$/);
+		if(gedner == ""){
+			$("#gender_input").text("주민등록번호 뒷자리를 입력 해주세요.").css("color","red");
+			$("#joominGroup").attr("class","form-group has-error has-feedback");
 			
+		}else{
+			if(genderPattern.test(gedner)){
+				$("#gender_input").text("")
+				$("#joominGroup").attr("class","form-group has-success has-feedback");
+			}
+			else{
+				$("#gender_input").text("주민등록번호 뒷자리를 확인 해주세요.").css("color","red");
+				$("#joominGroup").attr("class","form-group has-error has-feedback");
+			}
 		}
 	}
 		
@@ -291,7 +316,7 @@
 						<div class="col-sm-10" style="display:flex; align-items: center;">
 							<form:input style="width:125px; padding-right:12px;" path="mem_joomin" class="form-control" id="inputjoomin" maxlength="6" placeholder="생년월일 6자리" onblur="joomincheck()"/>
 							<label style="margin:0 10px"> - </label>
-							<form:input style="width:35px; padding-right:12px;" path="mem_gender" class="form-control" id="inputgender" maxlength="1" pattern="[1-4]"/>
+							<form:input style="width:35px; padding-right:12px;" path="mem_gender" class="form-control" id="inputgender" maxlength="1" onblur="gendercheck()"/>
 							<label style="margin-left: 5px;">*****</label>
 						</div>
 					</div>
@@ -300,6 +325,8 @@
 						<div class="col-sm-10">
 							<form:errors path="mem_joomin" style="color:red;"/>
 							<p id="joomin_input"></p>
+							<form:errors path="mem_gender" style="color:red;"/>
+							<p id="gender_input"></p>
 						</div>
 					</div>
 					<!-- 이메일 -->

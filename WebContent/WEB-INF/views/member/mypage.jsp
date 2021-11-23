@@ -80,7 +80,7 @@ function delMember(){
 		$.ajax({
 			url : '${root}member/pwcheck.do',
 			type : 'POST',
-			data : param1,
+			data : param2,
 			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
 			dataType : 'text',
 			success : function(result){
@@ -282,7 +282,7 @@ function brewAddr2Ch(){
 							<tr>
 								<th>연락처</th>
 								<td>
-									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone"/>
+									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone" maxlength="11"/>
 									<form:errors path="mem_phone"/>
 								</td>
 							</tr>

@@ -18,9 +18,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import co.sp.beans.Member_s;
 import co.sp.beans.Partners_s;
+import co.sp.beans.Qna_s;
 import co.sp.beans.Reservation_s;
 import co.sp.service.MemService;
 import co.sp.service.PartnerService;
+import co.sp.service.QnaService;
 import co.sp.service.ResService;
 
 @Controller
@@ -35,6 +37,9 @@ public class MemControl {
 	
 	@Autowired
 	private PartnerService ps;
+	
+	@Autowired
+	private QnaService qs;
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
@@ -164,5 +169,23 @@ public class MemControl {
 	@GetMapping("/partners")
 	public String partners() {
 		return "partners";
+	}
+	
+	@PostMapping("deleteMember")
+	public String deleteMember(@ModelAttribute("memberBean") Member_s memberBean, Model m, HttpSession session) {
+		qs.deleteMemberQna(memberBean.getMem_num());
+		rs.deleteMemberReservation(memberBean.getMem_num());
+		ps.deletePartnerMember(memberBean.getMem_num());
+		ms.deleteMember(memberBean);
+		
+		loginBean.setMemLogin(false);
+		loginBean.setMem_num(-1);
+		loginBean.setMem_name("");
+		loginBean.setMem_phone("");
+		loginBean.setMem_mail("");
+		
+		session.setAttribute("loginBean", loginBean);
+		
+		return "member/deleteSuccess";
 	}
 }

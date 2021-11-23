@@ -7,22 +7,25 @@
 <!DOCTYPE html>
 <html>
 <body>
-<div class="FOOTER_TOTAL">
+	<div class="ocean">
+      <div class="wave" style="background: url(${root}img/footer/wave.svg) repeat-x;"></div>
+    </div>
+    <div class="FOOTER_TOTAL">
                 <div class="F_i F_i1">
                   <img src="${root }img/footer/M_LOGE.jpg"/>
                   <p><strong>대표자</strong> 박치언</p>
                   <p><strong>사업자등록번호</strong> 052-34-56789</p>
-                  <p><strong>통신판매업신고</strong> 제2015-울산울주-0164호</p>
+                  <p><strong>통신판매업신고</strong> 제2011-솔데스크-1014호</p>
                 </div>
                 <div class="F_i F_i2">
                   <img src="${root }img/footer/location.png" width="180px">
-                  <p><strong>울산광역시 울주군 상북면 향산동길 48</strong></p>
+                  <p><strong>서울특별시 종로구 종로12길 15 코아빌딩1</strong></p>
                 </div>
                 <div class="F_i F_i3">
                   <img src="${root }img/footer/call.png" width="180px"/>
-                  <p><strong>전화</strong> 052-879-1234</p>
-                  <p><strong>팩스</strong> 1577-6746</p>
-                  <p>soldesk@gmail.com</p>
+                  <p><strong>전화</strong> 0507-1430-7001</p>
+                  <p><strong>팩스</strong> 1577-1577</p>
+                  <p>soldesk@naver.com</p>
                 </div>
                 <div class="F_i F_i4">
                   <img src="${root }img/footer/open.png" width="180px"/>

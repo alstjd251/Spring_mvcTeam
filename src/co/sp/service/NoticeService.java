@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Notice_s;
 import co.sp.dao.NoticeDao;
 
@@ -21,7 +22,7 @@ public class NoticeService {
 		noticedao.deleteNotice(noticeBean);
 	}
 	
-	public List<Notice_s> getNotice(Notice_s noticeBean) {
+	public Notice_s getNotice(Notice_s noticeBean) {
 		return noticedao.getNotice(noticeBean);
 	}
 	
@@ -29,11 +30,14 @@ public class NoticeService {
 		noticedao.updateNotice(noticeBean);
 	}
 	
-	public int getNoticeTotal() {
-		return noticedao.getNoticeTotal();
+	public int getNoticeTotal(BoardPage bp) {
+		return noticedao.getNoticeTotal(bp);
 	}
 	
 	public void increaseNoticeCnt(Notice_s noticeBean) {
 		noticedao.increaseNoticeCnt(noticeBean);
+	}
+	public List<Notice_s> getNotice_desc(BoardPage bp){
+		return noticedao.getNotice_desc(bp);
 	}
 }

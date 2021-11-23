@@ -1,5 +1,7 @@
 package co.sp.config;
 
+import java.util.Properties;
+
 import javax.annotation.Resource;
 
 import org.apache.commons.dbcp2.BasicDataSource;
@@ -13,15 +15,22 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import co.sp.beans.Member_s;
+import co.sp.interceptor.AdminInterceptor;
+import co.sp.interceptor.LoginCheckInterceptor;
+import co.sp.interceptor.NoticeInterceptor;
 import co.sp.mapper.MemMapper;
 import co.sp.mapper.NoticeMapper;
+import co.sp.mapper.PartnerMapper;
+import co.sp.mapper.QnaMapper;
 import co.sp.mapper.ResMapper;
 
 // MVC 프로젝트 설정
@@ -34,6 +43,7 @@ import co.sp.mapper.ResMapper;
 
 @PropertySource("/WEB-INF/properties/dbconnection.properties")
 @PropertySource("/WEB-INF/properties/error_message.properties")
+@PropertySource("/WEB-INF/properties/MailProperties.properties")
 public class ServletContext implements WebMvcConfigurer {
 
 	@Value("${dbconnection.classname}")
@@ -47,6 +57,12 @@ public class ServletContext implements WebMvcConfigurer {
 
 	@Value("${dbconnection.password}")
 	private String db_password;
+	
+	@Value("${mail.username}")
+	private String username;
+	
+	@Value("${mail.password}")
+	private String password;
 	
 	@Resource(name = "loginBean")
 	private Member_s loginBean;
@@ -65,7 +81,6 @@ public class ServletContext implements WebMvcConfigurer {
 		registry.addResourceHandler("/img/**").addResourceLocations("/resource/img/");
 		registry.addResourceHandler("/js/**").addResourceLocations("/resource/js/");
 		registry.addResourceHandler("/css/**").addResourceLocations("/resource/css/");
-		registry.addResourceHandler("/modal/**").addResourceLocations("/resource/modal/");
 	}
 
 	// DB 접속 정보 관리
@@ -116,6 +131,22 @@ public class ServletContext implements WebMvcConfigurer {
 		return f;
 	}
 	
+	@Bean
+	public MapperFactoryBean<QnaMapper> QnaMapper(SqlSessionFactory fac) throws Exception {
+
+		MapperFactoryBean<QnaMapper> f = new MapperFactoryBean<QnaMapper>(QnaMapper.class);
+		f.setSqlSessionFactory(fac);
+		return f;
+	}
+	
+	@Bean
+	public MapperFactoryBean<PartnerMapper> PartnerMapper(SqlSessionFactory fac) throws Exception {
+
+		MapperFactoryBean<PartnerMapper> f = new MapperFactoryBean<PartnerMapper>(PartnerMapper.class);
+		f.setSqlSessionFactory(fac);
+		return f;
+	}
+	
 
 	@Bean
 	public static PropertySourcesPlaceholderConfigurer PropertySourcesPlaceholderConfigurer() {
@@ -130,21 +161,45 @@ public class ServletContext implements WebMvcConfigurer {
 		return res;
 	}
 	
+	@Bean
+	public JavaMailSenderImpl mailSender() {
+		
+		JavaMailSenderImpl mailsender = new JavaMailSenderImpl();
+		
+		mailsender.setHost("smtp.gmail.com");
+		mailsender.setPort(25);
+		mailsender.setUsername(username);
+		mailsender.setPassword(password);
+		Properties props = new Properties();
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.auth", "true");
+		mailsender.setJavaMailProperties(props);
+		
+		return mailsender;
+	}
+	
+	
+	
+	
+	
 	// Interceptors
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
 		WebMvcConfigurer.super.addInterceptors(registry);
 		
-//		TopMenuInterceptor topMenuInterceptor = new TopMenuInterceptor(topMenuService, loginBean);
+		NoticeInterceptor noticeInterceptor = new NoticeInterceptor(loginBean);	
+		InterceptorRegistration reg1 = registry.addInterceptor(noticeInterceptor);
+		reg1.addPathPatterns("/board/NoticeWrite","/board/NoticeModify");
 //		
-//		InterceptorRegistration reg1 = registry.addInterceptor(topMenuInterceptor);
-//		reg1.addPathPatterns("/**");
-//		
-//		LoginInterceptor loginInterceptor = new LoginInterceptor(loginBean);
-//		InterceptorRegistration reg2 = registry.addInterceptor(loginInterceptor);
-//		reg2.addPathPatterns("/user/modify", "/user/logout", "/board/*");
-//		reg2.excludePathPatterns("/board/main");
+		LoginCheckInterceptor loginInterceptor = new LoginCheckInterceptor(loginBean);
+		InterceptorRegistration reg2 = registry.addInterceptor(loginInterceptor);
+		reg2.addPathPatterns("/reservation/**","/board/QnaAnother");
+		reg2.excludePathPatterns("/main");
+		
+		AdminInterceptor adminInterceptor = new AdminInterceptor(loginBean);	
+		InterceptorRegistration reg3 = registry.addInterceptor(adminInterceptor);
+		reg3.addPathPatterns("/admin/**");
 //		
 //		WriterInterceptor writerInterceptor = new WriterInterceptor(loginBean, boardService);
 //		InterceptorRegistration reg3 = registry.addInterceptor(writerInterceptor);

@@ -1,93 +1,110 @@
 package co.sp.beans;
 
 //게시판 페이징용 빈
-public class BoardPage {
-	private int contentNum;
-	private int pageNum;
+public class BoardPage{
+	private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
+	private int cntPage = 5;
 	
-	private int prevPage;
-	private int nextPage;
-	private int currentPage;
+	private String keyword;
 	
-	private int min;
-	private int max;
-
-	public BoardPage(int contentCount, int currentPage, int contentPageCount, int pa) {
-
-		this.currentPage = currentPage;
-
-		pageNum = contentCount / contentPageCount;
-		if (contentCount % contentPageCount > 0) {
-			pageNum++;
+	public BoardPage() {
+	}
+	public BoardPage(int total, int nowPage, int cntPerPage, String keyword) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		setKeyword(keyword);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage());
+	}
+	// 제일 마지막 페이지 계산
+	public void calcLastPage(int total, int cntPerPage) {
+		setLastPage((int) Math.ceil((double)total / (double)cntPerPage));
+	}
+	// 시작, 끝 페이지 계산
+	public void calcStartEndPage(int nowPage, int cntPage) {
+		setEndPage(((int)Math.ceil((double)nowPage / (double)cntPage)) * cntPage);
+		if (getLastPage() < getEndPage()) {
+			setEndPage(getLastPage());
 		}
-
-		min = ((currentPage - 1) / contentPageCount) * contentPageCount + 1;
-		max = min + pa - 1;
-
-		if (max > pageNum) {
-			max = pageNum;
-		}
-
-		prevPage = min - 1;
-		nextPage = max + 1;
-		if (nextPage > pageNum) {
-			nextPage = pageNum;
+		setStartPage(getEndPage() - cntPage + 1);
+		if (getStartPage() < 1) {
+			setStartPage(1);
 		}
 	}
-
-	public int getContentNum() {
-		return contentNum;
+	// DB 쿼리에서 사용할 start, end값 계산
+	public void calcStartEnd(int nowPage, int cntPerPage) {
+		setEnd(nowPage * cntPerPage);
+		setStart(getEnd() - cntPerPage + 1);
 	}
-
-	public void setContentNum(int contentNum) {
-		this.contentNum = contentNum;
+	
+	public int getNowPage() {
+		return nowPage;
 	}
-
-	public int getPageNum() {
-		return pageNum;
+	public void setNowPage(int nowPage) {
+		this.nowPage = nowPage;
 	}
-
-	public void setPageNum(int pageNum) {
-		this.pageNum = pageNum;
+	public int getStartPage() {
+		return startPage;
 	}
-
-	public int getPrevPage() {
-		return prevPage;
+	public void setStartPage(int startPage) {
+		this.startPage = startPage;
 	}
-
-	public void setPrevPage(int prevPage) {
-		this.prevPage = prevPage;
+	public int getEndPage() {
+		return endPage;
 	}
-
-	public int getNextPage() {
-		return nextPage;
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
 	}
-
-	public void setNextPage(int nextPage) {
-		this.nextPage = nextPage;
+	public int getTotal() {
+		return total;
 	}
-
-	public int getCurrentPage() {
-		return currentPage;
+	public void setTotal(int total) {
+		this.total = total;
 	}
-
-	public void setCurrentPage(int currentPage) {
-		this.currentPage = currentPage;
+	public int getCntPerPage() {
+		return cntPerPage;
 	}
-
-	public int getMin() {
-		return min;
+	public void setCntPerPage(int cntPerPage) {
+		this.cntPerPage = cntPerPage;
 	}
-
-	public void setMin(int min) {
-		this.min = min;
+	public int getLastPage() {
+		return lastPage;
 	}
-
-	public int getMax() {
-		return max;
+	public void setLastPage(int lastPage) {
+		this.lastPage = lastPage;
 	}
-
-	public void setMax(int max) {
-		this.max = max;
+	public int getStart() {
+		return start;
 	}
+	public void setStart(int start) {
+		this.start = start;
+	}
+	public int getEnd() {
+		return end;
+	}
+	public void setEnd(int end) {
+		this.end = end;
+	}	
+	public int setCntPage() {
+		return cntPage;
+	}
+	public void getCntPage(int cntPage) {
+		this.cntPage = cntPage;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+	/*
+	@Override
+	public String toString() {
+		return "BoardPage [nowPage=" + nowPage + ", startPage=" + startPage + ", endPage=" + endPage + ", total=" + total
+				+ ", cntPerPage=" + cntPerPage + ", lastPage=" + lastPage + ", start=" + start + ", end=" + end
+				+ ", cntPage=" + cntPage + ", keyword=" + keyword + "]";
+	}
+	*/
 }

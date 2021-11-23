@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Reservation_s;
 import co.sp.dao.ReservationDao;
 
@@ -28,8 +29,28 @@ public class ResService {
 		return resDao.getCourseIdx();
 	}
 	
-	public List<Reservation_s> getAllList(String mem_num){
-		return resDao.getAllList(mem_num);
+	public List<Reservation_s> getMemReservation(int mem_num){
+
+		return resDao.getMemReservation(mem_num);
+	}
+
+	public List<Reservation_s> allReservation(BoardPage bp){
+		return resDao.allReservation(bp);
 	}
 	
+	public int resCount(BoardPage bp) {
+		return resDao.resCount(bp);
+	}
+	
+	public void deleteReservation(Reservation_s resBean) {
+		resDao.deleteReservation(resBean);
+	}
+	
+	public Reservation_s getOneReservation(String res_num) {
+		return resDao.getOneReservation(res_num);
+	}
+	
+	public void deleteMemberReservation(int res_mnum) {
+		resDao.deleteMemberReservation(res_mnum);
+	}
 }

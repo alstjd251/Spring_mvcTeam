@@ -10,7 +10,8 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="${root }css/include/header_footer.css" />
+<link rel="stylesheet" href="${root }css/include/n_header_footer.css" />
+<link href="${root }css/include/wave.css" rel="stylesheet" type="text/css" />
 <link href="${root }css/board/postWriteCss.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -26,10 +27,8 @@
 <body>
 	<!-- 헤더 -->
 	<header>
-		<!-- 헤더 배너광고 -->
-		<c:import url="/WEB-INF/views/include/ad.jsp"/>
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp"/>
 			</div>
@@ -43,23 +42,19 @@
 				<div id="postContainer01">
 					<div class="postTop">
 						<div class="postTop-board01">
-							<h2>공지사항</h2>
+							<h2><b>공지사항</b></h2>
 						</div>
 						<div>
-							<a href="${root }board/NoticeList">목록</a>
+							<a href="${root }board/NoticeList" id="list_button">목록</a>
 						</div>
 					</div>
+					<hr>
 					<div id="postMiddle">
 						<div class="postMiddle-board01">
 							<div class="postTitle">
-								<div>
-									<form:label path="n_noticetitle">글제목 : <form:input path="n_noticetitle"/></form:label>
-								</div>
-								<div class="postMiddle-board02">
-									<img src="${root }img/boardIcon/eye_new.png"><span></span>
-									<!--조회수DB-->
-									<img src="${root }img/boardIcon/sub_date_new.png"><span></span>
-									<!-- 등록일DB -->
+								<b>글 제목</b> &nbsp;
+								<div style="width:95%;">
+									<form:input path="n_noticetitle" id="n_noticetitle" placeholder="글 제목을 입력하세요."/>
 								</div>
 							</div>
 							<!--제목DB-->
@@ -68,16 +63,16 @@
 					</div>
 					<div id="postBottom">
 						<div class="postBottom-board">
-							<div class="poatBottom">
+							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" />
+								<form:textarea path="n_noticecontent" cols="1000" rows="40" placeholder="글 내용을 입력하세요."/>
 							</div>
 						</div>
 					</div>
 
 					<div class="postButton">
 						<div>
-							<form:button>작성</form:button>
+							<form:button id="notice_write_button">작성</form:button>
 						</div>
 					</div>
 				</div>
@@ -88,9 +83,8 @@
 	<!-- 푸터 -->
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp"/>
-		</div>
 	</footer>
-	<script type="text/javascript" src="${root }js/page.js"></script>
+	<script type="text/javascript" src="${root }js/n_page.js"></script>
 </body>
 
 </html>

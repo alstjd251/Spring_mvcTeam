@@ -4,15 +4,21 @@ $(window).on("load", function () {
   $(
     ".pimg1 , .pimg2 , .pimg3 , .pimg4 , .pimg5, #ggtwo, #ggtwo>li>a, #ggtwo>li"
   ).css({
-    width: innerWidth * 0.8 + "px",
+    width: innerWidth * 0.65 + "px",
   });
   $("#ggone , .pimg").css({ width: innerWidth * 0.2 + "px" });
   $(
-    "#yang01-course , #yang02-course, .section , #fade1 , #introduce, #reservation, #board"
+    ".section , #fade1 , #introduce, #reservation, #board"
   ).css({
     height: innerHeight + "px",
   });
-  $("#gg").css({ height: innerHeight - 400 + "px" });
+  $("#gg").css({ height: innerHeight - 460 + "px" });
+  $("#ggone, #ggtwo").css({
+    height: $("#gg").height() * 0.85 + 30 + "px",
+    marginTop: $("#gg").height() * 0.075 + "px",
+    marginBottom: $("#gg").height() * 0.075 - 30 + "px",
+  });
+  $(".menu_bar").css({width : innerWidth - 440 + "px"});
   /* 풀페이지 설정 */
   var sectionWrap = $(".section");
   var sect = $(".sect");
@@ -52,15 +58,17 @@ $(window).on("load", function () {
   }
   $("#drink").css({
     left: $("#intro").width() - $("#drink").width() / 2 + "px",
-    top: innerHeight * 0.9 - $("#drink").height() + 25 + "px",
+    top: innerHeight - ($(".i_t2").height() + $("#drink").height()) + "px",
   });
+  $(".fadeImg2").css({top : $(".fadeImg").height() / 2 + 70 + "px"});
 });
 $(window).on("resize", function () {
   /* 반응형 가로 세로 길이 */
+  $(".fadeImg2").css({top : $(".fadeImg").height() / 2 + 70 + "px"});
   $(
     ".pimg1 , .pimg2 , .pimg3 , .pimg4 , .pimg5, #ggtwo, #ggtwo>li>a, #ggtwo>li"
   ).css({
-    width: innerWidth * 0.8 + "px",
+    width: innerWidth * 0.65 + "px",
   });
   $("#ggone, .pimg").css({ width: innerWidth * 0.2 + "px" });
   $(
@@ -68,7 +76,13 @@ $(window).on("resize", function () {
   ).css({
     height: innerHeight + "px",
   });
-  $("#gg").css({ height: innerHeight - 400 + "px" });
+  $("#gg").css({ height: innerHeight - 460 + "px" });
+  $("#ggone, #ggtwo").css({
+    height: $("#gg").height() * 0.85 + 30 + "px",
+    marginTop: $("#gg").height() * 0.075 + "px",
+    marginBottom: $("#gg").height() * 0.075 - 30 + "px",
+  });
+  $(".menu_bar").css({width : innerWidth - 440 + "px"});
   /* 풀페이지 설정 */
   var sectionWrap = $(".section");
   var sect = $(".sect");
@@ -108,7 +122,7 @@ $(window).on("resize", function () {
   }
   $("#drink").css({
     left: $("#intro").width() - $("#drink").width() / 2 + "px",
-    top: innerHeight * 0.9 - $("#drink").height() + 25 + "px",
+    top: innerHeight - ($(".i_t2").height() + $("#drink").height()) + "px",
   });
 });
 /* 메인페이지 페이드인아웃 설정 */
@@ -129,13 +143,19 @@ $("#gg").css({ height: innerHeight - 400 + "px" });
 setInterval(function () {
   //함수 반복
   $("#gg>#ggtwo>li>a").delay(2500); //2.5초 정지
+  $("#gg>#ggtwo>li>a").animate({ marginLeft: "-100%" });
+  $("#gg>#ggtwo>li>a").delay(2500);
   $("#gg>#ggtwo>li>a").animate({ marginLeft: "-200%" });
+  $("#gg>#ggtwo>li>a").delay(2500);
+  $("#gg>#ggtwo>li>a").animate({ marginLeft: "-300%" });
   $("#gg>#ggtwo>li>a").delay(2500);
   $("#gg>#ggtwo>li>a").animate({ marginLeft: "-400%" });
   $("#gg>#ggtwo>li>a").delay(2500);
-  $("#gg>#ggtwo>li>a").animate({ marginLeft: "-600%" });
-  $("#gg>#ggtwo>li>a").delay(2500);
-  $("#gg>#ggtwo>li>a").animate({ marginLeft: "-800%" });
-  $("#gg>#ggtwo>li>a").delay(2500);
   $("#gg>#ggtwo>li>a").animate({ marginLeft: "0" }, "fast");
 });
+
+/* 코스 선택 버튼 클릭시 해당하는 코스상세페이지로 이동하는 js */
+function course_bt() {
+	var courseBt = $(".course_bt").get();
+
+}

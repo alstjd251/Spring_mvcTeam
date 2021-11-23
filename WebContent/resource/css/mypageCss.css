@@ -1,67 +1,203 @@
 body {
-  margin: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+	margin: 0;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
-/* 상세 페이지 section css */
+/* mypage section css */
 section {
-  width: 80%;
-  margin-left: 10%;
-  height: 100%;
+	width: 80%;
+	margin-left: 10%;
+	margin-top : 5%;
+	height: 100%;
+	margin-bottom: 10%;
 }
 
-section #mypage{
-    display: flex;
-    justify-content:space-between;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 40px;
-    margin-top: 20px;
+section #mypage {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 50px;
 }
 
-section #mypage #mypage_con1{
-    width: 25%;
-    height: 200px;
-    margin-right: 10%;
-    text-align: center;
+section #mypage #mypage_con1 {
+	width: 25%;
+	height: 200px;
+	margin-right: 10%;
+	text-align: center;
 }
 
-section #mypage_con1 #name_text{
-border-bottom: 2px solid gray;}
-
-section #mypage #mypage_con2{
-  width : 65%;
-  height: 100%;
+section #mypage_con1 #name_text {
+	border-bottom: 2px solid gray;
 }
 
-.tabs{
-    list-style: none;
-    padding: 0;
-    margin: 0;
+section #mypage #mypage_con2 {
+	width: 65%;
+	height: 100%;
+	margin-top: -30px;
 }
 
-.tabs li{
+section #mypage #mypage_con2 #res_info {
+	width: 100%;
+	height: 100%;
+	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	overflow-x: scroll;
+}
+
+section #mypage #mypage_con2 table {
+	margin-top: 20px;
+	justify-content: center;
+}
+
+section #mypage #mypage_con2 #res_info table thead th {
+	background-color: #f1a99c;
+}
+
+section #mypage #mypage_con2 #res_info table thead th div {
+	width:max-content;
+	text-align: center;
+}
+
+section #mypage #mypage_con2 #res_info table tbody td div {
+	width:max-content;
+}
+
+section #mypage #mypage_con2 #res_info table tbody td div a {
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+}
+
+section #mypage #mypage_con2 #res_info table tbody td div a:hover{
+	cursor: pointer;
+}
+
+.tabs {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.tabs li {
 	background: none;
 	color: rgb(97, 97, 97);
 	padding: 10px 15px;
 	cursor: pointer;
-  font-size: 18px;
+	font-size: 18px;
+}
+
+.tabs li.current {
+	background-color: #abc477;
+}
+
+.tab_content {
+	display: none;
+	padding: 15px;
+}
+
+.tab_content.current {
+	display: inherit;
+}
+
+table{
+	vertical-align: center;
 }
 
 
-.tabs li.current{
-    background-color: #bbd366cc;
+table tr th{
+	text-align: center;
+	background-color: #f1a99c;
+	font-size: 15px;
 }
 
-.tab_content{
-    display: none;
-    border-top: 2px solid gray;
-    background-color: #8688a6;
-    padding: 15px;
+table tr td input{
+	margin-left: 10px;
+	font-size: 15px;
+	
 }
 
-.tab_content.current{
-    display: inherit;
+#sample6_detailAddress{
+	margin-top: 5px;
+}
+
+#modify_button{
+	float: right;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 15px;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+#partner_button{
+	float: right;
+	padding-left: 30px;
+	padding-right: 30px;
+	font-size: 15px;
+	margin-right: 20px;
+	margin-top: 10px;
+}
+
+#button{
+	display: flex;
+	justify-content: center;
+}
+
+#cancel_button{
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 15px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+#close_button {
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 15px;
+	margin-top: 5px;
+}
+
+#res_num, #course_names, #res_startdate, #res_paydate, #course_price, #res_table #mem_name, #res_table #mem_phone, #res_personnel {
+	border:0;
+}
+
+#res_num:focus, #course_names:focus, #res_startdate:focus, 
+#res_paydate:focus, #course_price:focus, #res_table #mem_name:focus, 
+#res_table #mem_phone:focus, #res_personnel:focus {
+	outline: none;
+}
+
+
+#delete h3{
+	margin-top : 5%;
+}
+
+#delete #deleteMember{
+	display : flex;
+	justify-content : center;
+	margin-left : -35px;
+	width : 50%;
+	margin-top: 30px;
+}
+
+#deleteMember div{
+	font-size: 17px;
+	margin-top: 5px;
+	font-weight: bold;
+	margin-right: 20px;
+}
+
+#deleteMember #mem_pw2{
+	margin-right: 20px;
+}
+
+#delete_button{
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 15px;
 }

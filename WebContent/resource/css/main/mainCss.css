@@ -9,7 +9,7 @@ header {
   position: fixed;
   z-index: 100;
 }
-/* header 로고 css */
+/* header 濡쒓퀬 css */
 header .logo {
   width: 200px;
   height: 60px;
@@ -25,13 +25,11 @@ header .logo a img {
   height: 100%;
 }
 
-/* header 메뉴 css */
+/* header 硫붾돱 css */
 header .menu_bar {
   display: flex;
   height: 60px;
-  width: 100%;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left:200px;
   align-items: center;
   justify-content: space-evenly;
 }
@@ -45,14 +43,15 @@ header .menu_bar li a {
   font-weight: 700;
 }
 
-/* header 로그인 css */
+/* header 濡쒓렇 씤 css */
 header .login {
   width: 240px;
   height: 60px;
   position: absolute;
   right: 0;
+  top: 0;
+  font-size: 16px;
 }
-
 header .login a {
   color: black;
   text-decoration: none;
@@ -62,14 +61,19 @@ header .login a {
 header .login a img {
   width: 60px;
   height: 60px;
-  margin-top: 5px;
 }
-header .login a span #my_name {
+header .login #loginimg {
+	position:absolute;
+	left:0px;
+	top: 5px;
+}
+header .login #loginimg span #my_name {
   position: absolute; 
-  bottom:15px;
+  left:50px;
+  width: 93px;
+  top:20px;
 }
 header .login #logout_button {
-  margin-left: 5em;
   padding: 2px ;
   font-weight: bold;
   text-decoration: none;
@@ -78,14 +82,14 @@ header .login #logout_button {
   border-radius: 10px;
   color: black;
   position: absolute;
+  right: 15px;
   bottom: 10px;
 }
 header .login #logout_button:hover {
   border-color: gray;
   color: gray;
 }
-
-/* 섹션 풀페이지 적용 css */
+/* �꽮�뀡 ���럹�씠吏� �쟻�슜 css */
 .section {
   width: 100%;
   margin: 0;
@@ -93,7 +97,6 @@ header .login #logout_button:hover {
 }
 .section .sect {
   position: relative;
-  text-align: center;
   width: 100%;
 }
 .section #fade1 {
@@ -112,7 +115,20 @@ header .login #logout_button:hover {
   height: 100%;
   opacity: 0.85;
 }
-/*----------기관소개-------------*/
+.section #fade1 .fadeImg{
+    top: 100px;
+    z-index: 10;
+    height: 80%;
+    position: absolute;
+    right: 140px;
+}
+.section #fade1 .fadeImg2 {
+	z-index:12;
+	height: 50%;
+	position: absolute;
+	right: 100px;
+}
+/*----------湲곌��냼媛�-------------*/
 
 .introduce_total {
   width: 100%;
@@ -125,38 +141,42 @@ header .login #logout_button:hover {
   width: 40%;
   height: 100%;
 }
-/*--introduce이미지 크기조절*/
-.in_item img {
+/*--introduce*/
+.in_item #intro {
   width: 100%;
   height: 100%;
 }
-/*drink이미지*/
+.in_item #drink {
+	width: 150px;
+	height: 320px;
+}
+
 .in_item img:nth-child(2) {
   z-index: 1;
   position: absolute;
   top: 188px;
   left: 40%;
-  width: 150px;
+  width: 200px;
   height: 425px;
   opacity: 0.95;
 }
-/*--비율7인 div영역----*/
+/*--鍮꾩쑉7�씤 div�쁺�뿭----*/
 .introduce_total .in_item2 {
   width: 60%;
   height: 100%;
 }
-/*in_item2높이를 i_t1,i_t2각각 9:1로나눔*/
+/*in_item2�넂�씠瑜� i_t1,i_t2媛곴컖 9:1濡쒕굹�닎*/
 .in_item2 .i_t1 {
   width: 100%;
   height: 90%;
   background-size: contain;
 }
-/*마우스올릴때 사라지게 하는 div*/
+/*留덉슦�뒪�삱由대븣 �궗�씪吏�寃� �븯�뒗 div*/
 .i_t1 .i_t1_front {
   width: 100%;
   height: 90%;
   position: absolute;
-  background-color: rgb(163, 114, 49);
+  background-color: #e2e2e2;
 }
 .i_t1 .i_t1_front .i_t1_front1 {
   width: 100%;
@@ -166,9 +186,16 @@ header .login #logout_button:hover {
   display: flex;
   flex-direction: column;
   align-content: center;
-  justify-content: space-evenly;
+  justify-content: center;
+  line-height : 80px;
   height: 100%;
   width: 60%;
+  text-align: center;
+}
+
+.i_t1 .i_t1_front .i_t1_front1 .i_t1_flex #pattern{
+	margin-top: 80px;
+	margin-bottom: 30px;
 }
 
 @keyframes front {
@@ -197,171 +224,146 @@ header .login #logout_button:hover {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content:space-around;
+}
+
+.i_t1 .t1_property #img1, .i_t1 .t1_property #img2, .i_t1 .t1_property #img3{
+	display : flex;
+	flex-direction : column;
+	margin-top : 22%;
+	align-items : center;
+	width : 25%;
+	height : 350px;
+	border: 3px dotted #eedc3e;
+	border-radius: 15px;
+	font-size: 20px;
+	
+}
+
+#bus, #house, #map{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.i_t1 .t1_property p{
+	text-align: center;
 }
 
 .t1_property div:nth-child(1) {
-  margin-top: 40px;
+  margin-top: 100px;
 }
 .t1_property div:nth-child(2) {
-  margin-top: 120px;
+  margin-top: 140px;
 }
 .t1_property div:nth-child(3) {
-  margin-top: 200px;
+  margin-top: 180px;
 }
 
 .in_item2 .i_t2 {
-  background-color: lightblue;
+  background-color: #f2d541;
   width: 100%;
   height: 10%;
+  background-size: cover;
 }
 
-/* 양조장 코스 01 ( 서울, 경기, 충청) */
-#yang01 #yang01-course {
+/* 메인페이지 코스소개 */
+#mainBrewery01,
+#mainBrewery02,
+#mainBrewery03,
+#mainBrewery04,
+#mainBrewery05,
+#mainBrewery06 {
   display: flex;
-  align-items: center;
+  justify-content: space-around;
+}
+#mainBrewery01,
+#mainBrewery03,
+#mainBrewery05 {
+	margin-top:55px;
+}
+#mainBrewery02,
+#mainBrewery04,
+#mainBrewery06 {
+	margin-bottom:35px;
+}
+
+#yang01,
+#yang02,
+#yang03 {
+  display: flex;
   flex-direction: column;
-  width: auto;
-}
-.chi-course01 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-  margin-top: 40px;
-}
-.chi-course01 #course01-text01 {
-  margin-left: auto;
-  vertical-align: middle;
-  height: 100%;
-}
-.chi-course01 #course01-image01 {
-  height: 100%;
-}
-.chi-course01 #course01-image01 img {
-  width: 280px;
-  height: 100%;
-}
-.chi-course02 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-}
-.chi-course02 #course01-text02 {
-  margin-right: auto;
-  vertical-align: middle;
-  height: 100%;
-}
-.chi-course02 #course01-image02 {
-  height: 100%;
-}
-.chi-course02 #course01-image02 img {
-  width: 300px;
-  height: 100%;
-}
-.chi-course03 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-}
-.chi-course03 #course01-image03 {
-  margin-right: 5%;
-  height: 100%;
-}
-.chi-course03 #course01-text03 {
-  margin-left: auto;
-  vertical-align: middle;
-  height: 100%;
-}
-.chi-course03 #course01-image03 img {
-  width: 300px;
-  height: 100%;
+  justify-content: space-around;
+  background-size: cover;
 }
 
-/* <!--양조장 코스 02 (전라도 ,경상북도, 경상남도)--> */
-#yang02 #yang02-course {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: auto;
+#mainBrewery01, #mainBrewery02, #mainBrewery03, #mainBrewery04, #mainBrewery05, #mainBrewery06 {
+	perspective : 500px;
 }
-.chi-course04 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-  margin-top: 40px;
-}
-.chi-course04 #course02-text04 {
-  margin-right: auto;
-  vertical-align: middle;
-  height: 100%;
-}
-.chi-course04 #course02-image04 {
-  height: 100%;
-}
-.chi-course04 #course02-image04 img {
-  width: 350px;
-  height: 100%;
-}
-.chi-course05 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-}
-.chi-course05 #course02-text05 {
-  margin-left: auto;
-  vertical-align: middle;
-}
-.chi-course05 #course02-image05 {
-  height: 100%;
-}
-.chi-course05 #course02-image05 img {
-  width: 400px;
-  height: 100%;
-}
-.chi-course06 {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  margin-left: 10%;
-  margin-right: 10%;
-  height: 30%;
-}
-.chi-course06 #course02-text06 {
-  margin-right: auto;
-  vertical-align: middle;
-}
-.chi-course06 #course02-image06 {
-  height: 100%;
-}
-.chi-course06 #course02-image06 img {
-  width: 400px;
-  height: 100%;
+.breweryImg01, .breweryImg03, .breweryImg05{
+	transform:rotateY(-10deg);
+	margin-right: 18%;
+	box-shadow: -5px 5px 5px gray;
 }
 
-/* 광고 css */
+.breweryImg02, .breweryImg04, .breweryImg06{
+	transform:rotateY(10deg);
+	margin-left: 18%;
+	box-shadow: 5px 5px 5px gray;
+	
+}
+.breweryText01, .breweryText03, .breweryText05 {
+	margin-left: 20%;
+}
+
+.breweryText02, .breweryText04, .breweryText06 {
+	margin-right: 20%;
+	text-align: right;
+}
+
+.breweryText01 h1, .breweryText03 h1, .breweryText05 h1, 
+.breweryText02 h1, .breweryText04 h1, .breweryText06 h1{
+font-weight: 900;
+}
+.breweryText01 h4, .breweryText03 h4, .breweryText05 h4, 
+.breweryText02 h4, .breweryText04 h4, .breweryText06 h4{
+margin-top: 5px;
+margin-bottom: 5px;
+}
+
+#course_intro{
+	color:gray;
+	font-weight:bold;
+	line-height: 35px;
+	font-size:15px;
+}
+
+.course_bt1,.course_bt2,.course_bt3,.course_bt4,.course_bt5,.course_bt6{
+  border: 2px solid black;
+  font-size: 14px;
+  color:white;
+  background-color:black;
+  padding: 8px 25px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 5px;
+
+}
+
+.course_bt1:hover,.course_bt2:hover,.course_bt3:hover,.course_bt4:hover,.course_bt5:hover,.course_bt6:hover{
+	background-color: white;
+	color:black;
+}
+
+/* 愿묎퀬 css */
 .section #footgg {
   display: flex;
   flex-direction: column;
 }
 .section #footgg #gg {
-  display: flex;
-  margin-top: 60px;
-  margin-bottom: 40px;
+   display: flex;
+  margin-top: 100px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 .section #footgg #gg #ggone {
   height: 100%;
@@ -373,6 +375,8 @@ header .login #logout_button:hover {
 }
 .section #footgg #gg #ggtwo {
   display: flex;
+  margin-left: 5%;
+  overflow: hidden;
 }
 .section #footgg #gg #ggtwo li {
   list-style: none;
@@ -385,7 +389,9 @@ header .login #logout_button:hover {
 footer {
   background-color: rgb(201, 154, 67, 0.4);
   width: 100%;
-  height: 300px;
+  height: 250px;
+  position: absolute;
+  bottom: 0;
 }
 .FOOTER_TOTAL {
   width: 80%;
@@ -393,7 +399,6 @@ footer {
   margin-right: 10%;
   height: 80%;
   margin-top: 20px;
-
   display: flex;
   justify-content: space-around;
 }
@@ -402,12 +407,7 @@ footer {
 }
 .F_i2,
 .F_i3,
-.F_i4 {
-  padding-top: 15px;
-}
-.F_i2 {
-  padding-top: 15px;
-}
+.F_i4,
 .F_i2 p {
   padding-top: 15px;
 }

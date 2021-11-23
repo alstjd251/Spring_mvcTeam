@@ -1,9 +1,10 @@
 body {
-	margin: 0%;
+	margin: 0;
+	height: 900px;
 }
-
 .cs-container {
 	text-align: center;
+	margin: 60px 0;
 }
 
 .cs-board01 {
@@ -15,6 +16,7 @@ body {
 
 .cs-board01 #cs-menu {
 	display: flex;
+	margin-bottom: 30px;
 }
 
 .cs-board01 #cs-menu li {
@@ -22,6 +24,11 @@ body {
 	padding: 10px;
 	margin: 20px;
 	border-bottom: solid lightslategrey;
+}
+
+.cs-board01 #cs-menu li a { 
+		text-decoration: none;
+		font-size: 15px;
 }
 
 .cs-board01 #cs-backimg {
@@ -38,9 +45,13 @@ body {
 	margin: 20px;
 }
 
+.cs-board02 #cs-listContainer #cs-listBoard #cs-search #cntPerPage {
+	width: 120px;
+}
+
 #cs-titleBox {
 	height: auto;
-	text-align: left;
+	text-align: center;
 	vertical-align: top;
 }
 
@@ -62,6 +73,7 @@ table.cs-table {
 	border-collapse: collapse;
 	text-align: center;
 	line-height: 1.5;
+	margin-top: 20px;
 }
 
 table.cs-table thead tr th {
@@ -70,6 +82,8 @@ table.cs-table thead tr th {
 	vertical-align: top;
 	color: #369;
 	border-bottom: 3px solid lightslategrey;
+	text-align: center;
+	font-size: 14px;
 }
 
 tbody.cs-tbody {
@@ -82,6 +96,68 @@ tbody.cs-tbody {
 	margin: 20px 10px;
 }
 
+tbody.cs-tbody td{
+	padding: 5px 0;
+}
+
+
+#qna_text{
+	display : flex;
+	flex-direction : column;
+	align-items : center;
+	margin-top: -100px;
+	margin-bottom : 20%;
+}
+
 #cs-button {
 	text-align: right;
+}
+
+#search_button{
+	width:80px;
+	background-color : lightslategrey;
+	border: none;
+	padding: 5px;
+	text-align : center;
+	color:white;
+	margin-left: 10px;
+}
+
+#search_button:hover{
+	background-color: #5c6b7a;
+	color : white;
+}
+
+#write_button{
+	text-decoration: none;
+	font-size : 14px;
+	width:120px;
+	background-color : lightslategrey;
+	padding: 7px;
+	padding-left : 20px;
+	padding-right : 20px;
+	text-align : center;
+	color:white;
+}
+
+#write_button:hover{
+	background-color: #5c6b7a;
+	color : white;
+}
+
+#qna_button{
+	text-decoration: none;
+	font-size : 14px;
+	width:150px;
+	background-color : lightslategrey;
+	padding: 7px;
+	padding-left : 20px;
+	padding-right : 20px;
+	text-align : center;
+	color:white;
+}
+
+#qna_button:hover{
+	background-color: #5c6b7a;
+	color : white;
 }

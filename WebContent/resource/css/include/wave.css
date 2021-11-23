@@ -1,0 +1,109 @@
+section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  /*파도효과 화면 밖으로 넘치는 부분 자르는 용도*/
+}
+.introTitle {
+  width: 100%;
+  text-align: center;
+}
+.introTitle img {
+  width: 400px;
+  height: 200px;
+}
+.sulsure-Q {
+  text-align: center;
+  background-color: #42453d;
+  border: solid 1px #23303d;
+  width: 60%;
+  position: absolute;
+  z-index: 1;
+  left: 20%;
+}
+.sulsure-Q h3 {
+  color: snow;
+  border-bottom: solid 1px snow;
+}
+.sulsure-Q p {
+  color: snow;
+  font-size: 9pt;
+}
+.intro-container02 {
+  width: 100%;
+  margin: 0%;
+  display: flex;
+  margin-top: 70px;
+}
+.colorBox01 {
+  background-color: #bacac1;
+  width: 40%;
+  height: 800px;
+}
+.introText {
+  width: 60%;
+  margin-top: 80px;
+}
+.intro-container03 {
+  display: flex;
+}
+.introMap img {
+  width: 450px;
+  height: 650px;
+}
+.intro-container04 {
+  text-align: center;
+}
+.introBottle {
+  display: flex;
+  text-align: center;
+}
+.bottle01 {
+  width: 250px;
+  height: 400px;
+}
+/*svg파일 이용한 wave효과 */
+.ocean {
+  width: 100%;
+  z-index: 1;
+  height: 70px;
+  position: absolute;
+  bottom: 250px;
+}
+
+.wave {
+  height: 70px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+.wave:nth-of-type(2) {
+  top: -175px;
+  animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
+    swell 7s ease -1.25s infinite;
+  opacity: 1;
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%,
+  100% {
+    transform: translate3d(0, -25px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 5px, 0);
+  }
+}
+/*******wave효과 여기까지******/

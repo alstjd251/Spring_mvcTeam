@@ -1,10 +1,13 @@
 package co.sp.service;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import co.sp.beans.BoardPage;
 import co.sp.beans.Member_s;
 import co.sp.dao.MemberDao;
 
@@ -21,9 +24,6 @@ public class MemService {
 		memDao.addMember(memberBean);
 	}
 
-//	public Member_s getLoginMemberInfo(Member_s tempLoginMemberBean) {
-//		return memDao.getLoginMemberInfo(tempLoginMemberBean);
-//	}
 
 	public void getLoginMemberInfo(Member_s tempLoginMemberBean) {
 
@@ -32,12 +32,19 @@ public class MemService {
 		if (tempLoginMemberBean2 != null) {
 			loginBean.setMem_num(tempLoginMemberBean2.getMem_num());
 			loginBean.setMem_name(tempLoginMemberBean2.getMem_name());
+			loginBean.setMem_phone(tempLoginMemberBean2.getMem_phone());
+			loginBean.setMem_mail(tempLoginMemberBean2.getMem_mail());
+			loginBean.setMem_grade(tempLoginMemberBean2.getMem_grade());
 			loginBean.setMemLogin(true);
 		}
 	}
 	
-	public Member_s getFindId(Member_s memberBean) {
+	public String getFindId(Member_s memberBean) {
 		return memDao.getFindId(memberBean);
+	}
+	
+	public String getFindPw(Member_s memberBean) {
+		return memDao.getFindPw(memberBean);
 	}
 	
 	public boolean idCheck(String mem_id) {
@@ -49,5 +56,29 @@ public class MemService {
 		} else {
 			return false;
 		}
+	}
+	
+	public Member_s getMemberInfo(int mem_num) {
+		return memDao.getMemberInfo(mem_num);
+	}
+	
+	public void memberUpdate(Member_s memberBean) {
+		memDao.memberUpdate(memberBean);
+	}
+	
+	public List<Member_s> allMember(BoardPage bp){
+		return memDao.allMember(bp);
+	}
+	
+	public int memCount(BoardPage bp) {
+		return memDao.memCount(bp);
+	}
+	
+	public void memPwChange(Member_s memberBean) {
+		memDao.memPwChange(memberBean);
+	}
+	
+	public void deleteMember(Member_s memberBean) {
+		memDao.deleteMember(memberBean);
 	}
 }

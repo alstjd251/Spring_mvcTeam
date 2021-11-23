@@ -10,8 +10,9 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="${root }css/include/header_footer.css" rel="stylesheet" type="text/css" />
-<link href="${root }css/board/postCss.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/include/wave.css" rel="stylesheet" type="text/css" />
+<link href="${root }css/board/postReadCss.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script
@@ -27,9 +28,8 @@
 	<!-- 헤더 -->
 	<header>
 		<!-- 헤더 배너광고 -->
-		<c:import url="/WEB-INF/views/include/ad.jsp"/>
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp"/>
 			</div>
@@ -44,24 +44,26 @@
 				<div id="postContainer01">
 					<div class="postTop">
 						<div class="postTop-board01">
-							<h2>공지사항</h2>
+							<h2><b>공지사항</b></h2>
 						</div>
 						<div>
-							<a href="${root }board/NoticeList">목록</a>
-							<a href="${root }board/NoticeModify">수정</a>
+							<a href="${root }board/NoticeList" id="n_read_list_button">목록</a>
+							<a href="${root }board/NoticeModify?n_noticenum=${noticeBean.getN_noticenum()}" id="n_read_modify_button">수정</a>
 						</div>
 					</div>
 					<div id="postMiddle">
 						<div class="postMiddle-board01">
 							<div class="postTitle">
-								<div>
-									<form:label path="n_noticetitle">글제목 : ${noticeBean.n_noticetitle}</form:label>
+								<div id="n_title_text">
+									<b>글 제목</b> &nbsp; ${noticeBean.getN_noticetitle()}
 								</div>
 								<div class="postMiddle-board02">
-									<img src="${root }img/boardIcon/eye_new.png"><span></span>
-									<!--조회수DB-->
-									<img src="${root }img/boardIcon/sub_date_new.png"><span></span>
-									<!-- 등록일DB -->
+									<div>
+										<img src="${root }img/boardIcon/eye_new.png">${noticeBean.n_noticecnt }
+										<!--조회수DB-->
+										<img src="${root }img/boardIcon/sub_date_new.png">${noticeBean.n_noticedate }
+										<!-- 등록일DB -->
+									</div>
 								</div>
 							</div>
 							<!--제목DB-->
@@ -70,16 +72,16 @@
 					</div>
 					<div id="postBottom">
 						<div class="postBottom-board">
-							<div class="poatBottom">
+							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" />
+								<form:textarea path="n_noticecontent" cols="1000" rows="40" readonly="true"/>
 							</div>
 						</div>
 					</div>
 
 					<div class="postButton">
 						<div>
-							<form:button>삭제</form:button>
+							<form:button id="n_read_delete_button">삭제</form:button>
 						</div>
 					</div>
 				</div>

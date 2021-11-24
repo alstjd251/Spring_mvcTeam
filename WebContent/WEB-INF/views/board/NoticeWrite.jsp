@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="${root }css/include/n_header_footer.css" />
 <link href="${root }css/include/wave.css" rel="stylesheet" type="text/css" />
 <link href="${root }css/board/postWriteCss.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script
@@ -27,35 +28,21 @@
 	var contentCheck = "fail";
 	
 	function titlechecking(){
-		var title = $("n_noticetitle").val();
+		var title = $("#n_noticetitle").val();
 		
-		if(title.loength == 0){
-			Swal.fire({
-				icon: 'warning',
-				title : "입력 오류",
-			    text  : "제목을 입력해주세요.",
-			}).then(function(){
-				titleCheck = "fail";
-			});
-			return
+		if(title == ""){
+			titleCheck = "fail";
 		}
 		else{
 			titleCheck = "success";
 		}
 	}
 	
-	function titlechecking(){
-		var content = $("n_noticecontent").val();
+	function contentchecking(){
+		var content = $("#n_noticecontent").val();
 		
-		if(content.loength == 0){
-			Swal.fire({
-				icon: 'warning',
-				title : "입력 오류",
-			    text  : "내용을 입력해주세요.",
-			}).then(function(){
-				contentCheck = "fail";
-			});
-			return
+		if(content == ""){
+			contentCheck = "fail";
 		}
 		else{
 			contentCheck = "success";
@@ -66,14 +53,21 @@
 		if(titleCheck == "success" && contentCheck == "success"){
 			$("#noticeForm").submit();
 		}
-		if(titleCheck == "fail"){
+		else if(titleCheck == "fail" && contentCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "제목과 내용이 작성되지 않았습니다.",
+			    text  : "다시 입력해주세요.",
+			});
+		}
+		else if(titleCheck == "fail"){
 			Swal.fire({
 				icon: 'warning',
 				title : "제목이 작성되지 않았습니다.",
 			    text  : "다시 입력해주세요.",
 			});
 		}
-		if(contentCheck == "fail"){
+		else if(contentCheck == "fail"){
 			Swal.fire({
 				icon: 'warning',
 				title : "내용이 작성되지 않았습니다.",
@@ -125,7 +119,7 @@
 						<div class="postBottom-board">
 							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" id="n_noticecontent" cols="1000" rows="40" placeholder="글 내용을 입력하세요."/>
+								<form:textarea path="n_noticecontent" id="n_noticecontent" cols="1000" rows="40" placeholder="글 내용을 입력하세요." onkeyup="contentchecking()"/>
 							</div>
 						</div>
 					</div>

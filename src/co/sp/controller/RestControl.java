@@ -82,7 +82,7 @@ public class RestControl {
 			System.out.println("PW Email Send");
 		    
 		    EmailSet email = new EmailSet();
-		    email.setReceiver("tuitu2911@gmail.com");
+		    email.setReceiver(mail);
 		    email.setSubject("Sul Sure 비밀번호 찾기 결과");
 		    email.setContent("<div style='text-align:center; width:80%;'>"
 		    		+ "<h1>비밀번호 찾기 결과</h1>"
@@ -132,7 +132,7 @@ public class RestControl {
 		System.out.println("Reservation Email Send");
 	    
 	    EmailSet email = new EmailSet();
-	    email.setReceiver("tuitu2911@gmail.com");
+	    email.setReceiver(mail);
 	    email.setSubject(name + "님의 Sul Sure 예약 확인 메일입니다.");
 	    email.setContent("<div style='align-items: center;width: 100%;display: flex;flex-direction: column;'><div>"
 	             + "<h1>" + name + "님의 " + "Sul Sure 예약 확인</h1>"
@@ -191,7 +191,7 @@ public class RestControl {
 		answer = answer.replaceAll("\n", "<br>");
 		
 		EmailSet email = new EmailSet();
-	    email.setReceiver("tuitu2911@gmail.com");
+	    email.setReceiver(mail);
 	    email.setSubject("Sul Sure 문의에 대한 답변입니다.");
 	    email.setContent("<div style='align-items: center;width: 100%;display: flex;flex-direction: column;'><div>"
 	    		+ "<h1>Sul Sure 문의 답변</h1>"

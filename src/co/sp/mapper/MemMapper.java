@@ -54,4 +54,7 @@ public interface MemMapper {
 	
 	@Delete("delete from member_s where mem_num = #{mem_num}")
 	void deleteMember(Member_s memberBean);
+	
+	@Update("update member_s set mem_grade = 1 where mem_num = #{mem_num}")
+	void gradeDown(int mem_num);
 }

@@ -49,8 +49,6 @@ public class NoticeControl {
 	
 	@PostMapping("/NoticeModifyProc")
 	public String modifyProc(@ModelAttribute("noticeBean") Notice_s noticeBean, Model m) {
-		System.out.println(noticeBean.getN_noticetitle());
-		System.out.println(noticeBean.getN_noticecontent());
 		ns.updateNotice(noticeBean);
 		m.addAttribute("noticeBean", noticeBean);
 		

@@ -236,8 +236,8 @@ function brewAddr2Ch(){
 					<h4>${loginBean.mem_name } 님의 MyPage</h4>
 				</div>
 				<ul class="tabs">
-					<li class="tab_link current" data-tab="modify">회원정보 수정</li>
-					<li class="tab_link" data-tab="res_info">예약정보 조회</li>
+					<li class="tab_link current" data-tab="res_info">예약정보 조회</li>
+					<li class="tab_link" data-tab="modify">회원정보 수정</li>
 					<c:if test="${loginBean.mem_grade == 1 }">
 						<li class="tab_link" data-tab="partners">기업회원 신청</li>
 					</c:if>
@@ -245,7 +245,7 @@ function brewAddr2Ch(){
 				</ul>
 			</div>
 			<div id="mypage_con2">
-				<div id="modify" class="tab_content current">
+				<div id="modify" class="tab_content">
 					<!--유효성검사 해야함-->
 					<h3><b>회원정보 수정</b></h3>
 					<form:form action="${root }member/memberModify" method="post" modelAttribute="memberBean" id="memModifyForm">
@@ -302,7 +302,7 @@ function brewAddr2Ch(){
 						<input type="button" class="btn btn-default" id="modify_button" value="수정" onclick="pwCheck()"/>
 					</form:form>
 				</div>
-				<div id="res_info" class="tab_content">
+				<div id="res_info" class="tab_content current">
 					<h3><b>예약정보 조회</b></h3>
 						<table class="table table-bordered">
 							<thead>

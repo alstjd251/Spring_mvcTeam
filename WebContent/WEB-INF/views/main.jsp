@@ -248,6 +248,5 @@
 		location.href="${root}course/CourseTab?courseNam=Gyungnam";
 	}
 	</script>
-
 </body>
 </html>

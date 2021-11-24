@@ -172,7 +172,7 @@ public class AdminControl {
 	
 	@GetMapping("/admin_reservation_delete")
 	public String admin_reservation_delete(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
-		m.addAttribute("partnerBean", rs.getOneReservation(reservationBean.getRes_num()));
+		m.addAttribute("reservationBean", rs.getOneReservation(reservationBean.getRes_num()));
 		
 		return "admin/admin_reservation_delete";
 	}

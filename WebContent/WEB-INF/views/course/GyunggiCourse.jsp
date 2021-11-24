@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d50c23204031dd7ba2725e70baf1be2"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d50c23204031dd7ba2725e70baf1be2"></script>
 <link rel="stylesheet" href="${root }css/course/GyunggiCourse.css" />
 <title>Insert title here</title>
   <script type="text/javascript">

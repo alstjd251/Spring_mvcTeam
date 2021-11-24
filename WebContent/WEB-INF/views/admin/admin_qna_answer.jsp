@@ -17,8 +17,9 @@ function sendMail(){
 	var answer_mail = $("#answer_mail").val();
 	var mem_mail = $("#mem_mail").val();
 	var q_qnanum = $("#q_qnanum").val();
+	var q_mnum = $("#q_mnum").val();
 	
-	var param = {'answer': answer_mail, 'mem_mail': mem_mail, 'q_num' : q_qnanum}
+	var param = {'answer': answer_mail, 'mem_mail': mem_mail, 'q_num' : q_qnanum, 'q_mnum' : q_mnum}
 	
 	$.ajax({
 		url : '${root}admin/sendmail.do',

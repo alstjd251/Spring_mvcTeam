@@ -51,7 +51,7 @@
 				<td>c_price</td>
 			</tr>
 		</table>
-		<form:button>삭제</form:button>
+		<form:button style="margin-left:45%;">삭제</form:button>
 	</form:form>
 </body>
 </html>

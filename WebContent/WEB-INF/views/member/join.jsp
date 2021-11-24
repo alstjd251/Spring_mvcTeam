@@ -25,7 +25,7 @@
 	var idCheck = "fail";
 	
 	function idchecking() {
-		var mem_id = $("#inputid").val()
+		var mem_id = $("#inputid").val();
 		
 		if(mem_id.length == 0){
 			Swal.fire({
@@ -60,7 +60,7 @@
 						title : "사용 가능",
 					    text  : "사용 가능한 아이디 입니다.",
 					}).then(function(){
-						$("#idExist").val('true')
+						$("#idExist").val('true');
 						idCheck = "success";
 						document.getElementById("idGroup").className = "form-group has-success has-feedback"
 					});
@@ -70,7 +70,7 @@
 						title : "사용 불가능",
 					    text  : "사용할 수 없는 아이디 입니다.",
 					}).then(function(){
-						$("#idExist").val('false')
+						$("#idExist").val('false');
 						document.getElementById("idGroup").className = "form-group has-error has-feedback"
 						$("#inputid").val("");
 					});

@@ -66,6 +66,25 @@ function pwCheck(){
 	}
 }
 
+function phonecheck(){
+	var phone = $("#mem_phone").val();
+	var phonePattern1 = RegExp(/^010[0-9]{8}$/);
+	var phonePattern2 = RegExp(/^01[179][0-9]{7,8}$/);
+	if(phone == ""){
+		$("#phone_input").text("연락처를 입력해주세요.").css("color","red");	
+	}else{
+		if(phonePattern1.test(phone)){
+			$("#phone_input").text("");
+		}
+		else if(phonePattern2.test(phone)){
+			$("#phone_input").text("");
+		}
+		else{
+			$("#phone_input").text("연락처를 확인해주세요.").css("color","red");
+		}
+	}
+}
+
 function delMember(){
 	var mem_pw2 = $("#mem_pw2").val();
 	var mem_num2 = $("#del_mem_num").val();
@@ -177,12 +196,25 @@ function PartnerNameCh(){
 }
 
 function PartnerTelCh(){
-	if($("#partners_tel").val() == ""){
-		$("#partner_tel_error").text("대표자연락처를 입력해주세요.").css("color", "red");
+	var phone = $("#partners_tel").val();
+	var phonePattern1 = RegExp(/^010[0-9]{8}$/);
+	var phonePattern2 = RegExp(/^01[179][0-9]{7,8}$/);
+	if(phone == ""){
+		$("#partner_tel_error").text("연락처를 입력해주세요.").css("color","red");	
 		brewVaild = "fail";
 	}else{
-		$("#partner_tel_error").text("");
-		brewVaild = "pass";
+		if(phonePattern1.test(phone)){
+			$("#partner_tel_error").text("");
+			brewVaild = "pass";
+		}
+		else if(phonePattern2.test(phone)){
+			$("#partner_tel_error").text("");
+			brewVaild = "pass";
+		}
+		else{
+			$("#partner_tel_error").text("연락처를 확인해주세요.").css("color","red");
+			brewVaild = "fail";
+		}
 	}
 }
 
@@ -282,7 +314,8 @@ function brewAddr2Ch(){
 							<tr>
 								<th>연락처</th>
 								<td>
-									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone" maxlength="11"/>
+									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone" maxlength="11" onkeyup="phonecheck()"/>
+									<span id = "phone_input"></span>
 									<form:errors path="mem_phone"/>
 								</td>
 							</tr>

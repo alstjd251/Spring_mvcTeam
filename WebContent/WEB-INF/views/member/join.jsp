@@ -37,11 +37,11 @@
 			});
 			return
 		}
-		if(mem_id.length < 5){
+		if(mem_id.length < 4){
 			Swal.fire({
 				icon: 'warning',
 				title : "입력 오류",
-			    text  : "아이디는 최소 4자 이상 입력해야 합니다.",
+			    text  : "아이디는 최소 4글자 이상 입력해야 합니다.",
 			}).then(function(){
 				idCheck = "fail";
 				document.getElementById("idGroup").className = "form-group has-error has-feedback"
@@ -108,12 +108,22 @@
 			$("#name_input").text("이름을 입력 해주세요.").css("color","red");
 			$("#nameGroup").attr("class","form-group has-error has-feedback");
 			submitCheck = 'fail';
-			
-		}else{
+		}else if(!isNaN(name)){
+			$("#name_input").text("숫자는 입력할 수 없습니다.").css("color","red");
+			$("#nameGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
+		}
+		else if(name.length < 2){
+			$("#name_input").text("이름은 2글자 이상 입력 해주세요.").css("color","red");
+			$("#nameGroup").attr("class","form-group has-error has-feedback");
+			submitCheck = 'fail';
+		}
+		else{
 			$("#name_input").text("")
 			$("#nameGroup").attr("class","form-group has-success has-feedback");
 			submitCheck = 'success';
 		}
+		
 	}
 	
 	function joomincheck(){
@@ -186,12 +196,12 @@
 			
 		}else{
 			if(phonePattern1.test(phone)){
-				$("#phone_input").text("")
+				$("#phone_input").text("");
 				$("#phoneGroup").attr("class","form-group has-success has-feedback");
 				submitCheck = 'success';
 			}
 			else if(phonePattern2.test(phone)){
-				$("#phone_input").text("")
+				$("#phone_input").text("");
 				$("#phoneGroup").attr("class","form-group has-success has-feedback");
 				submitCheck = 'success';
 			}
@@ -243,7 +253,6 @@
 				title : "비밀번호가 일치 하지 않습니다.",
 			    text  : "다시 입력해주세요.",
 			}).then(function(){
-				$("#").val('false')
 				document.getElementById("idGroup").className = "form-group has-error has-feedback"
 				$("#inputpw, #inputpw2").val("");
 			});
@@ -254,7 +263,6 @@
 				title : "아이디 중복 확인이 되지 않았습니다.",
 			    text  : "중복 확인을 해주세요.",
 			}).then(function(){
-				$("#").val('false')
 				document.getElementById("idGroup").className = "form-group has-error has-feedback"
 				$("#inputid").focus();
 			});

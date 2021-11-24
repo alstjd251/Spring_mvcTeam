@@ -220,9 +220,8 @@
 			</div>
 			<footer>
 				<c:import url="/WEB-INF/views/include/footer.jsp" />
+			</footer>
 		</div>
-		</footer>
-	</div>
 	</div>
 	
 	<script type="text/javascript" src="${root }js/sooldesk.js"></script>

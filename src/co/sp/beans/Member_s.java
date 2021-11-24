@@ -33,8 +33,8 @@ public class Member_s {
 	@NotBlank
 	private String mem_pw;
 	
-	@Size(min = 2, max = 10)
-	@Pattern(regexp = "[가-힣]*")
+	@Size(min = 2, max = 30)
+	@Pattern(regexp = "[a-zA-Z가-힣]*")
 	@NotBlank
 	private String mem_name;
 	

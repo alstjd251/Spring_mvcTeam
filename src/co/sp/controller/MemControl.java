@@ -138,7 +138,7 @@ public class MemControl {
 		
 		ms.memberUpdate(memberBean);
 		
-		return "member/mypage";
+		return "/main";
 		
 	}
 	

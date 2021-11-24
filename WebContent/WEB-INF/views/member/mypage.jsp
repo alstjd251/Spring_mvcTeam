@@ -27,7 +27,7 @@
 <link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript">
 function pwCheck(){
-	var mem_pw = $("#mem_pw2").val();
+	var mem_pw = $("#mem_pw").val();
 	var mem_num = $("#mem_num").val();
 	if(mem_pw == ""){
 		Swal.fire({
@@ -63,6 +63,25 @@ function pwCheck(){
 				}
 			}
 		})
+	}
+}
+
+function phonecheck(){
+	var phone = $("#mem_phone").val();
+	var phonePattern1 = RegExp(/^010[0-9]{8}$/);
+	var phonePattern2 = RegExp(/^01[179][0-9]{7,8}$/);
+	if(phone == ""){
+		$("#phone_input").text("연락처를 입력해주세요.").css("color","red");	
+	}else{
+		if(phonePattern1.test(phone)){
+			$("#phone_input").text("");
+		}
+		else if(phonePattern2.test(phone)){
+			$("#phone_input").text("");
+		}
+		else{
+			$("#phone_input").text("연락처를 확인해주세요.").css("color","red");
+		}
 	}
 }
 
@@ -177,12 +196,25 @@ function PartnerNameCh(){
 }
 
 function PartnerTelCh(){
-	if($("#partners_tel").val() == ""){
-		$("#partner_tel_error").text("대표자연락처를 입력해주세요.").css("color", "red");
+	var phone = $("#partners_tel").val();
+	var phonePattern1 = RegExp(/^010[0-9]{8}$/);
+	var phonePattern2 = RegExp(/^01[179][0-9]{7,8}$/);
+	if(phone == ""){
+		$("#partner_tel_error").text("연락처를 입력해주세요.").css("color","red");	
 		brewVaild = "fail";
 	}else{
-		$("#partner_tel_error").text("");
-		brewVaild = "pass";
+		if(phonePattern1.test(phone)){
+			$("#partner_tel_error").text("");
+			brewVaild = "pass";
+		}
+		else if(phonePattern2.test(phone)){
+			$("#partner_tel_error").text("");
+			brewVaild = "pass";
+		}
+		else{
+			$("#partner_tel_error").text("연락처를 확인해주세요.").css("color","red");
+			brewVaild = "fail";
+		}
 	}
 }
 
@@ -236,8 +268,8 @@ function brewAddr2Ch(){
 					<h4>${loginBean.mem_name } 님의 MyPage</h4>
 				</div>
 				<ul class="tabs">
-					<li class="tab_link current" data-tab="modify">회원정보 수정</li>
-					<li class="tab_link" data-tab="res_info">예약정보 조회</li>
+					<li class="tab_link current" data-tab="res_info">예약정보 조회</li>
+					<li class="tab_link" data-tab="modify">회원정보 수정</li>
 					<c:if test="${loginBean.mem_grade == 1 }">
 						<li class="tab_link" data-tab="partners">기업회원 신청</li>
 					</c:if>
@@ -245,7 +277,7 @@ function brewAddr2Ch(){
 				</ul>
 			</div>
 			<div id="mypage_con2">
-				<div id="modify" class="tab_content current">
+				<div id="modify" class="tab_content">
 					<!--유효성검사 해야함-->
 					<h3><b>회원정보 수정</b></h3>
 					<form:form action="${root }member/memberModify" method="post" modelAttribute="memberBean" id="memModifyForm">
@@ -259,7 +291,7 @@ function brewAddr2Ch(){
 								<th>비밀번호</th>
 								<td>
 									<form:password path="mem_pw" id="mem_pw" value=""/>
-									<input type="button" class="btn btn-primary" id="pw_bt" value="비밀번호 변경하기" onclick="window.open('${root}member/pwChange?mem_num=${loginBean.mem_num }','비밀번호변경','scrollbars=yes width=700 height=500 left=100 top=50')">
+									<input type="button" class="btn btn-primary" id="pw_bt" value="비밀번호 변경하기" onclick="window.open('${root}member/pwChange?mem_num=${loginBean.mem_num }','비밀번호변경','scrollbars=yes width=500 height=500 left=100 top=50')">
 								</td>
 							</tr>
 							<tr>
@@ -282,7 +314,8 @@ function brewAddr2Ch(){
 							<tr>
 								<th>연락처</th>
 								<td>
-									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone" maxlength="11"/>
+									<form:input type="tel" placeholder="연락처 - 제외" path="mem_phone" id="mem_phone" maxlength="11" onkeyup="phonecheck()"/>
+									<span id = "phone_input"></span>
 									<form:errors path="mem_phone"/>
 								</td>
 							</tr>
@@ -302,7 +335,7 @@ function brewAddr2Ch(){
 						<input type="button" class="btn btn-default" id="modify_button" value="수정" onclick="pwCheck()"/>
 					</form:form>
 				</div>
-				<div id="res_info" class="tab_content">
+				<div id="res_info" class="tab_content current">
 					<h3><b>예약정보 조회</b></h3>
 						<table class="table table-bordered">
 							<thead>
@@ -362,6 +395,7 @@ function brewAddr2Ch(){
 							</tr>
 							<tr>
 								<th>사업장주소</th>
+								
 								<td>
 									<form:input type="text" id="partner_postcode" placeholder="우편번호" path="partners_brewery_post" readonly="true"/>
 									<input type="button" onclick="partner_PostCode()" value="우편번호 찾기"><br />
@@ -371,7 +405,7 @@ function brewAddr2Ch(){
 							</tr>
 						</table>
 
-						<input type="button" class="btn btn-default" onclick="partnersReg()" value="신청"/>
+						<input type="button" class="btn btn-default" onclick="partnersReg()" id="modify_button" value="신청"/>
 					</form:form>
 				</div>
 				<div id="delete" class="tab_content">

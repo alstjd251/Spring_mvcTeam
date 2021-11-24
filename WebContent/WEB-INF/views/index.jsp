@@ -11,7 +11,7 @@
 <script type="text/javascript">
 Swal.fire({
 	title : "PROJECT NAME 'SUL SURE'",
-    text  : "by soldesk 2팀",
+    text  : "by soldesk 놀이터",
     closeOnClickOutside : false,
 }).then(function(){
 	location.href="${root}main";

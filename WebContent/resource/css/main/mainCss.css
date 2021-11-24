@@ -9,7 +9,7 @@ header {
   position: fixed;
   z-index: 100;
 }
-/* header 濡쒓퀬 css */
+/* header logo css */
 header .logo {
   width: 200px;
   height: 60px;
@@ -25,7 +25,7 @@ header .logo a img {
   height: 100%;
 }
 
-/* header 硫붾돱 css */
+/* header menu bar css */
 header .menu_bar {
   display: flex;
   height: 60px;
@@ -43,7 +43,7 @@ header .menu_bar li a {
   font-weight: 700;
 }
 
-/* header 濡쒓렇 씤 css */
+/* header login css */
 header .login {
   width: 240px;
   height: 60px;
@@ -89,7 +89,7 @@ header .login #logout_button:hover {
   border-color: gray;
   color: gray;
 }
-/*  꽮 뀡    럹 씠吏   쟻 슜 css */
+/*  섹션 메인 css */
 .section {
   width: 100%;
   margin: 0;
@@ -128,7 +128,7 @@ header .login #logout_button:hover {
 	position: absolute;
 	right: 100px;
 }
-/*----------湲곌��냼媛�-------------*/
+
 .introduce_total {
   width: 100%;
   height: 100%;
@@ -159,18 +159,18 @@ header .login #logout_button:hover {
   height: 425px;
   opacity: 0.95;
 }
-/*--鍮꾩쑉7 씤 div 쁺 뿭----*/
+/*기관소개*/
 .introduce_total .in_item2 {
   width: 60%;
   height: 100%;
 }
-/*in_item2 넂 씠瑜  i_t1,i_t2媛곴컖 9:1濡쒕굹 닎*/
+/*in_item2 */
 .in_item2 .i_t1 {
   width: 100%;
   height: 90%;
   background-size: contain;
 }
-/*留덉슦 뒪 삱由대븣  궗 씪吏 寃   븯 뒗 div*/
+/* 메인기관소개 div*/
 .i_t1 .i_t1_front {
   width: 100%;
   height: 90%;
@@ -195,7 +195,6 @@ header .login #logout_button:hover {
 .i_t1 .i_t1_front .i_t1_front1 .i_t1_flex #pattern{
 	margin-top: 80px;
 	margin-bottom: 30px;
-
 }
 @keyframes front {
   20% {
@@ -352,7 +351,7 @@ margin-bottom: 5px;
 	color:black;
 }
 
-/* 愿묎퀬 css */
+/* footer ad css */
 .section #footgg {
   display: flex;
   flex-direction: column;

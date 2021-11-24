@@ -53,7 +53,7 @@
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
 			<div>
-				<table class="table table-striped table-bordered">
+				<table id="t_set1" class="table table-striped table-bordered">
 					<thead>
 						<tr>
 							<th>사업자번호</th>

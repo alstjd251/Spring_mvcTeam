@@ -21,6 +21,66 @@
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>Sul Sure</title>
+<script>
+	var titleCheck = "fail";
+	var contentCheck = "fail";
+	
+	function titlechecking(){
+		var title = $("n_noticetitle").val();
+		
+		if(title.loength == 0){
+			Swal.fire({
+				icon: 'warning',
+				title : "입력 오류",
+			    text  : "제목을 입력해주세요.",
+			}).then(function(){
+				titleCheck = "fail";
+			});
+			return
+		}
+		else{
+			titleCheck = "success";
+		}
+	}
+	
+	function titlechecking(){
+		var content = $("n_noticecontent").val();
+		
+		if(content.loength == 0){
+			Swal.fire({
+				icon: 'warning',
+				title : "입력 오류",
+			    text  : "내용을 입력해주세요.",
+			}).then(function(){
+				contentCheck = "fail";
+			});
+			return
+		}
+		else{
+			contentCheck = "success";
+		}
+	}
+	
+	function regBut(){
+		if(titleCheck == "success" && contentCheck == "success"){
+			$("#noticeForm").submit();
+		}
+		if(titleCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "제목이 작성되지 않았습니다.",
+			    text  : "다시 입력해주세요.",
+			});
+		}
+		if(contentCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "내용이 작성되지 않았습니다.",
+			    text  : "다시 입력해주세요.",
+			});
+		}
+	}
+</script>
 </head>
 
 <body>
@@ -34,7 +94,7 @@
 	</header>
 	<!--*** 게시글 섹션 ***-->
 	<section id="post">
-		<form:form action="${root }board/NoticeModifyProc" modelAttribute="noticeBean"
+		<form:form id="noticeForm" action="${root }board/NoticeModifyProc" modelAttribute="noticeBean"
 			method="post">
 			<form:hidden path="n_noticenum" />
 			<div>
@@ -49,7 +109,7 @@
 							<div class="postTitle">
 								<b>글 제목</b> &nbsp;
 								<div style="width:95%;">
-									<form:input path="n_noticetitle" value = "${noticeBean.n_noticetitle }" placeholder="글 제목을 입력하세요."/>
+									<form:input path="n_noticetitle" id="n_noticetitle" value = "${noticeBean.n_noticetitle }" placeholder="글 제목을 입력하세요."/>
 								</div>
 							</div>
 							<!--제목DB-->
@@ -60,14 +120,14 @@
 						<div class="postBottom-board">
 							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" cols="1000" rows="40" placeholder="글 내용을 입력하세요."/>
+								<form:textarea path="n_noticecontent" id="n_noticecontent" cols="1000" rows="40" placeholder="글 내용을 입력하세요."/>
 							</div>
 						</div>
 					</div>
 
 					<div class="postButton">
 						<div>
-							<form:button id="n_modify_button">수정하기</form:button>
+							<input type="button" id="notice_write_button" value="수정하기" onclick="regBut()">
 						</div>
 					</div>
 				</div>

@@ -17,23 +17,23 @@
 		<table class="table table-bordered">
 			<tr>
 				<th>회원번호</th>
-				<td><form:input path="mem_num" id="mem_num" readonly="true"/></td>
+				<td><form:input path="mem_num" id="mem_num" readonly="true" style="border:none;"/></td>
 			</tr>
 			<tr>
 				<th>회원등급</th>
-				<td><form:input path="mem_grade" id="mem_grade" readonly="true"/></td>
+				<td><form:input path="mem_grade" id="mem_grade" readonly="true" style="border:none;"/></td>
 			</tr>
 			<tr>
 				<th>아이디</th>
-				<td><form:input path="mem_id" id="mem_id" readonly="true"/></td>
+				<td><form:input path="mem_id" id="mem_id" readonly="true" style="border:none;"/></td>
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><form:input path="mem_name" id="mem_name" readonly="true"/></td>
+				<td><form:input path="mem_name" id="mem_name" readonly="true" style="border:none;"/></td>
 			</tr>
 			<tr>
 				<th>주민번호</th>
-				<td><form:input path="mem_joomin" id="mem_joomin" readonly="true"/></td>
+				<td><form:input path="mem_joomin" id="mem_joomin" readonly="true" style="border:none;"/></td>
 			</tr>
 			<tr>
 				<th>성별</th>
@@ -50,21 +50,21 @@
 			</tr>
 			<tr>
 				<th>연락처</th>
-				<td><form:input path="mem_phone" id="mem_phone" readonly="true"/></td>
+				<td><form:input path="mem_phone" id="mem_phone" readonly="true" style="border:none;"/></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td><form:input path="mem_mail" id="mem_mail" readonly="true"/></td>
+				<td><form:input path="mem_mail" id="mem_mail" readonly="true" style="border:none;"/></td>
 			</tr>
 			<tr>
 				<th>가입일</th>
-				<td><form:input path="mem_date" id="mem_date" readonly="true"/></td>
+				<td><form:input path="mem_date" id="mem_date" readonly="true" style="border:none;"/></td>
 			</tr>
 			<tr>
 				<th>사업장 주소</th>
 				<td>
-					<form:input path="mem_post" id="mem_post" readonly="true"/>
-					<form:input path="mem_addr1" id="mem_addr1" readonly="true"/>
+					<form:input path="mem_post" id="mem_post" readonly="true"/><br>
+					<form:input path="mem_addr1" id="mem_addr1" readonly="true"/><br>
 					<form:input path="mem_addr2" id="mem_addr2" readonly="true"/>
 				</td>
 			</tr>

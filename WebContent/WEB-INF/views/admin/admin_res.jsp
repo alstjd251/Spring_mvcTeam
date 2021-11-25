@@ -53,10 +53,10 @@
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
 			<div>
-				<table id="t_set4" class="table table-striped table-bordered">
+				<table id="t_set4" class="table">
 					<thead>
 						<tr>
-							<td></td>
+							<th></th>
 							<th>예약번호</th>
 							<th>예약일자</th>
 							<th>예약코스</th>

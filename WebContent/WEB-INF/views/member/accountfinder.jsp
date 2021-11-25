@@ -68,6 +68,11 @@ function pwSearch(){
 	var mem_mail = $("#mail2").val();
 	
 	var param2 = {'mem_name': mem_name, 'mem_id': mem_id, 'mem_mail': mem_mail}
+	Swal.fire({
+		icon : "warning",
+		title : "잠시만 기다려 주세요.",
+		showConfirmButton : false,
+	});
 	$.ajax({
 		url : '${root}member/pwsearch.do',
 		type : 'POST',
@@ -92,6 +97,7 @@ function pwSearch(){
 						$("#name2").val("");
 						$("#id2").val("");
 						$("#mail2").val("");
+						location.href="${root}member/login";
 					});
 				}
 			}
@@ -107,7 +113,7 @@ function pwSearch(){
 	<header>
 		<!-- 헤더 배너광고 -->
 		<!-- 헤더 메뉴 -->
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp" />
 			</div>

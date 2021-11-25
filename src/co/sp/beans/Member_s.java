@@ -70,6 +70,8 @@ public class Member_s {
 
 	private boolean idExist;
 	private boolean memLogin;
+	
+	private int RN;
 
 	public Member_s() {
 		this.idExist = false;
@@ -196,4 +198,11 @@ public class Member_s {
 		this.memLogin = memLogin;
 	}
 
+	public int getRN() {
+		return RN;
+	}
+
+	public void setRN(int rN) {
+		RN = rN;
+	}
 }

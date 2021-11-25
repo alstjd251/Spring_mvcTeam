@@ -70,7 +70,7 @@
 	function subut() {
 		var qnasub = $("#qnasub").val();
 		var qnastory = $("#qnastory").val();
-		if(qnasub != "" && qnastory != ""){
+		if(qnasub.trim() != "" && qnastory.trim() != ""){
 			Swal.fire({
 				title: "문의하시겠습니까?",
 				showCancelButton: true,
@@ -82,12 +82,12 @@
 					}
 				});
 		}
-		else if(qnasub == "") {
+		else if(qnasub.trim() == "") {
 			Swal.fire({
 				icon: "error",
 				title: "제목을 입력하세요.",
 			});
-		}else if(qnastory == "") {
+		}else if(qnastory.trim() == "") {
 			Swal.fire({
 				icon: "error",
 				title: "내용을 입력하세요.",

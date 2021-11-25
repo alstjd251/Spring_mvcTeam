@@ -164,8 +164,9 @@ public class AdminControl {
 	
 	@PostMapping("/admin_partner_delete_proc")
 	public String admin_partner_delete_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
-		ps.deletePartner(partnerBean);
+		System.out.println(partnerBean.getPartners_mnum());
 		ms.gradeDown(partnerBean.getPartners_mnum());
+		ps.deletePartner(partnerBean);
 		
 		m.addAttribute("partnerBean", partnerBean);
 		

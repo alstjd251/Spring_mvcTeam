@@ -13,6 +13,7 @@
 </head>
 <body>
 	<form:form method="post" action="admin_partner_delete_proc" modelAttribute="partnerBean">
+		<form:hidden path="partners_mnum" value="${partners_mnum}"/>
 		<table class="table table-bordered">
 			<tr>
 				<th width="150">사업자번호</th>

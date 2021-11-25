@@ -1,14 +1,14 @@
 $(window).ready( function() {
-   if($("body").height() < $(window).height()) {
-      $("footer").css({ top :window.innerHeight - 50 + "px"});
+   if(($("header").height() + $("section").height()) < $(window).height()) {
+      $("footer").css({ top :window.innerHeight - 150 + "px"});
    }else {
-      $("footer").css({top : 0, position : "relative"});
+      $("footer").css({top : $("header").height() + $("section").height() + "px"});
    }
 });
 $(window).on("resize" , function() {
-   if($("body").height() < $(window).height()) {
-      $("footer").css({ top :window.innerHeight - 50 + "px"});
+   if(($("header").height() + $("section").height()) < $(window).height()) {
+      $("footer").css({ top :window.innerHeight - 150 + "px"});
    } else {
-      $("footer").css({top : 0 , position : "relative"});
+      $("footer").css({top :  $("header").height() + $("section").height() + "px"});
    }
 });

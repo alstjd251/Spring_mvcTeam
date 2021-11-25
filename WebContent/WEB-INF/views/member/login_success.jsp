@@ -5,5 +5,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <c:set var='root' value="${pageContext.request.contextPath }/"/>
 <script>
-	location.href = '${root}member/login'
+	location.href = '${root}main';
 </script>

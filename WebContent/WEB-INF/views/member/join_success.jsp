@@ -17,7 +17,7 @@ Swal.fire({
 	title : "회원가입 완료",
     text  : "가입이 완료 되었습니다.",
 }).then(function(){
-	location.href = '${root}main';
+	location.href = '${root}member/login';
 });
 </script>
 </body>

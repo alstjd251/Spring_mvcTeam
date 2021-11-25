@@ -22,6 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=bf753863db3df43fe525ee9ef718c944"></script>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
@@ -50,7 +51,56 @@
 				$("#myTab li:last-child a").tab('show');
 			break;
 		}
+		document.cookie = "crossCookie=bar; SameSite=None; Secure";
 	});
+	function gg() {
+		// 경기도
+		var gg_cose1 = new kakao.maps.LatLng(37.48046381265308, 126.98317932931961);
+	    var gg_cose2 = new kakao.maps.LatLng(36.97125147009303, 126.87366355487707);
+	    var gg_cose3 = new kakao.maps.LatLng(37.25743703925287, 126.58231542190053);
+	    	gg_map.setCenter(gg_cose1);
+			gg_map2.setCenter(gg_cose2);
+			gg_map3.setCenter(gg_cose3);
+			gg_map.relayout();
+			gg_map2.relayout();
+			gg_map3.relayout();
+			// 충청
+			var cc_cose1 = new kakao.maps.LatLng(36.126484390664565, 127.74438125484708);
+		     var cc_cose2 = new kakao.maps.LatLng(36.19235151069039, 127.93682499532838);
+		     var cc_cose3 = new kakao.maps.LatLng(36.162822141115775, 127.78637386649156);
+		     cc_map.setCenter(cc_cose1);
+		     cc_map2.setCenter(cc_cose2);
+		     cc_map3.setCenter(cc_cose3);
+		     cc_map.relayout();
+		     cc_map2.relayout();
+		     cc_map3.relayout();
+		     //경북
+		     var gb_cose1 = new kakao.maps.LatLng(36.549756044738544, 128.70885076835506);
+		     var gb_cose2 = new kakao.maps.LatLng(36.77233886049045, 128.3140550260342);
+		     var gb_cose3 = new kakao.maps.LatLng(36.43729290311423, 128.72301776650133);
+		     gb_map.setCenter(gb_cose1);
+		     gb_map2.setCenter(gb_cose2);
+		     gb_map3.setCenter(gb_cose3);
+		     gb_map.relayout();
+		     gb_map2.relayout();
+		     gb_map3.relayout();
+		     // 경남
+		     var gn_cose1 = new kakao.maps.LatLng(35.58577153276394, 129.0974782529786);
+		     var gn_cose2 = new kakao.maps.LatLng(35.4701051467703, 127.67172748181025);
+		     gn_map.setCenter(gn_cose1);
+		     gn_map2.setCenter(gn_cose2);
+		     gn_map.relayout();
+		     gn_map2.relayout();
+		     //전라
+		     var jl_cose1 = new kakao.maps.LatLng(35.34530836228015, 126.81086249827507);
+		     var jl_cose2 = new kakao.maps.LatLng(35.36652696049865, 126.98533951267824);
+		     jl_map.setCenter(jl_cose1);
+		     jl_map2.setCenter(jl_cose2);
+		     jl_map.relayout();
+		     jl_map2.relayout();
+
+	}
+	
 	</script>
   </head>
   <body>
@@ -99,19 +149,19 @@
                 <div role="tabpanel" class="tab-pane fade in active" id="Seoul">
                     <c:import url="/WEB-INF/views/course/SeoulCourse.jsp"/>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="Gyunggi">
+               <div role="tabpanel" class="tab-pane fade" id="Gyunggi" onclick="gg()">
                 	<c:import url="/WEB-INF/views/course/GyunggiCourse.jsp"/>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="Choongcheong">
+                <div role="tabpanel" class="tab-pane fade" id="Choongcheong" onclick="gg()">
                 	<c:import url="/WEB-INF/views/course/ChoongcheongCourse.jsp"/>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="Jeonla">
+                <div role="tabpanel" class="tab-pane fade" id="Jeonla" onclick="gg()">
                 	<c:import url="/WEB-INF/views/course/JeonlaCourse.jsp"/>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="Gyungbook">
+                <div role="tabpanel" class="tab-pane fade" id="Gyungbook" onclick="gg()">
                 	<c:import url="/WEB-INF/views/course/GyungbookCourse.jsp"/>
                 </div>
-                <div role="tabpanel" class="tab-pane fade" id="Gyungnam">
+                <div role="tabpanel" class="tab-pane fade" id="Gyungnam" onclick="gg()">
                 	<c:import url="/WEB-INF/views/course/GyungnamCourse.jsp"/>
                 </div>
             </div>
@@ -121,9 +171,6 @@
     <footer>
     	<c:import url="/WEB-INF/views/include/footer.jsp" />    
     </footer>
-	<script type="text/javascript" src="${root}js/n_page.js"></script>
-</body>
-</html>
-
+	<script type="text/javascript" src="${root}js/nn_page.js"></script>
 </body>
 </html>

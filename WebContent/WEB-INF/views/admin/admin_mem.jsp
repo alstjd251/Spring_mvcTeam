@@ -53,10 +53,10 @@
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
 			<div>
-				<table id="t_set" class="table table-striped table-bordered">
+				<table id="t_set" class="table">
 					<thead>
 						<tr>
-							<td></td>
+							<th></th>
 							<th><div>회원번호</div></th>
 							<th><div>회원등급</div></th>
 							<th><div>아이디</div></th>

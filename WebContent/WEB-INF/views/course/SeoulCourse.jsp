@@ -8,7 +8,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="${root }css/course/SeoulCourse.css" />
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d50c23204031dd7ba2725e70baf1be2"></script>
 </head>
 <body>
 <div id="s_breweryBox">

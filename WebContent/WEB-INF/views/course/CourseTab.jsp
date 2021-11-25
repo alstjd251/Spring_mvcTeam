@@ -22,6 +22,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=bf753863db3df43fe525ee9ef718c944"></script>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
@@ -50,6 +51,7 @@
 				$("#myTab li:last-child a").tab('show');
 			break;
 		}
+		document.cookie = "crossCookie=bar; SameSite=None; Secure";
 	});
 	</script>
   </head>
@@ -64,7 +66,7 @@
         </div>
       </header>
       <!-- 섹션 -->
-      <section style="margin-bottom: 40px;">
+      <section style="margin-bottom: 40px;" onload="mapre()">
           <!-- 고정이미지 -->
         <div class="mainNotice-container01" style="padding: 10%; background: linear-gradient(
       0deg,
@@ -121,7 +123,13 @@
     <footer>
     	<c:import url="/WEB-INF/views/include/footer.jsp" />    
     </footer>
-	<script type="text/javascript" src="${root}js/n_page.js"></script>
+	<script type="text/javascript" src="${root}js/nn_page.js"></script>
+	<script type="text/javascript">
+	setTimeout( function() {
+		cc_map.relayout();
+		cc_map2.relayout();
+		cc_map3.relayout();
+	}, 500);</script>
 </body>
 </html>
 

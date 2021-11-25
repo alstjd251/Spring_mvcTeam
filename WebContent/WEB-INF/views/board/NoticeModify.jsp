@@ -13,6 +13,7 @@
 <link href="${root }css/include/n_header_footer.css" rel="stylesheet" type="text/css" />
 <link href="${root }css/include/wave.css" rel="stylesheet" type="text/css" />
 <link href="${root }css/board/postWriteCss.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <script
@@ -22,6 +23,59 @@
 <script
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>Sul Sure</title>
+<script>
+	var titleCheck = "success";
+	var contentCheck = "success";
+	
+	function titlechecking(){
+		var title = $("#n_noticetitle").val();
+		
+		if(title.trim() == ""){
+			titleCheck = "fail";
+		}
+		else{
+			titleCheck = "success";
+		}
+	}
+	
+	function contentchecking(){
+		var content = $("#n_noticecontent").val();
+		
+		if(content.trim() == ""){
+			contentCheck = "fail";
+		}
+		else{
+			contentCheck = "success";
+		}
+	}
+	
+	function regBut(){
+		if(titleCheck == "success" && contentCheck == "success"){
+			$("#noticeForm").submit();
+		}
+		else if(titleCheck == "fail" && contentCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "제목과 내용이 작성되지 않았습니다.",
+			    text  : "다시 입력해주세요.",
+			});
+		}
+		else if(titleCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "제목이 작성되지 않았습니다.",
+			    text  : "다시 입력해주세요.",
+			});
+		}
+		else if(contentCheck == "fail"){
+			Swal.fire({
+				icon: 'warning',
+				title : "내용이 작성되지 않았습니다.",
+			    text  : "다시 입력해주세요.",
+			});
+		}
+	}
+</script>
 </head>
 
 <body>
@@ -35,7 +89,7 @@
 	</header>
 	<!--*** 게시글 섹션 ***-->
 	<section id="post">
-		<form:form action="${root }board/NoticeModifyProc" modelAttribute="noticeBean"
+		<form:form id="noticeForm" action="${root }board/NoticeModifyProc" modelAttribute="noticeBean"
 			method="post">
 			<form:hidden path="n_noticenum" />
 			<div>
@@ -50,7 +104,7 @@
 							<div class="postTitle">
 								<b>글 제목</b> &nbsp;
 								<div style="width:95%;">
-									<form:input path="n_noticetitle" value = "${noticeBean.n_noticetitle }" placeholder="글 제목을 입력하세요."/>
+									<form:input path="n_noticetitle" id="n_noticetitle" value = "${noticeBean.n_noticetitle }" placeholder="글 제목을 입력하세요." onkeyup="titlechecking()"/>
 								</div>
 							</div>
 							<!--제목DB-->
@@ -61,14 +115,14 @@
 						<div class="postBottom-board">
 							<div class="postBottom">
 								<!--게시글 내용-->
-								<form:textarea path="n_noticecontent" cols="1000" rows="40" placeholder="글 내용을 입력하세요."/>
+								<form:textarea path="n_noticecontent" id="n_noticecontent" cols="1000" rows="40" placeholder="글 내용을 입력하세요." onkeyup="contentchecking()"/>
 							</div>
 						</div>
 					</div>
 
 					<div class="postButton">
 						<div>
-							<form:button id="n_modify_button">수정하기</form:button>
+							<input type="button" id="notice_write_button" value="수정하기" onclick="regBut()">
 						</div>
 					</div>
 				</div>

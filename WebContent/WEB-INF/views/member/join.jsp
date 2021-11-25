@@ -196,12 +196,12 @@
 			
 		}else{
 			if(phonePattern1.test(phone)){
-				$("#phone_input").text("")
+				$("#phone_input").text("");
 				$("#phoneGroup").attr("class","form-group has-success has-feedback");
 				submitCheck = 'success';
 			}
 			else if(phonePattern2.test(phone)){
-				$("#phone_input").text("")
+				$("#phone_input").text("");
 				$("#phoneGroup").attr("class","form-group has-success has-feedback");
 				submitCheck = 'success';
 			}
@@ -253,7 +253,6 @@
 				title : "비밀번호가 일치 하지 않습니다.",
 			    text  : "다시 입력해주세요.",
 			}).then(function(){
-				$("#").val('false')
 				document.getElementById("idGroup").className = "form-group has-error has-feedback"
 				$("#inputpw, #inputpw2").val("");
 			});
@@ -264,7 +263,6 @@
 				title : "아이디 중복 확인이 되지 않았습니다.",
 			    text  : "중복 확인을 해주세요.",
 			}).then(function(){
-				$("#").val('false')
 				document.getElementById("idGroup").className = "form-group has-error has-feedback"
 				$("#inputid").focus();
 			});

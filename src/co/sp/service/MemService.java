@@ -81,4 +81,8 @@ public class MemService {
 	public void deleteMember(Member_s memberBean) {
 		memDao.deleteMember(memberBean);
 	}
+	
+	public void gradeDown(int mem_num) {
+		memDao.gradeDown(mem_num);
+	}
 }

@@ -30,14 +30,14 @@
 		<form action = "${root }main"><input type ="submit" value = "main"/></form>
 		<form action = "${root }admin/admin_mem"><input type ="submit" value = "회원정보 관리"/></form>
 		<form action = "${root }admin/admin_partner"><input type ="submit" value = "기업정보 관리"/></form>
-		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 수락"/></form>
+		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 현황"/></form>
 		<form action = "${root }admin/admin_res"><input type ="submit" value = "예약정보 조회"/></form>
 		<form action = "${root }admin/admin_qna"><input type ="submit" value = "회원문의 관리"/></form>
 	</div>
 	
 	<section>
 		<div id="con">
-			<h3><b>기업신청 수락</b></h3>
+			<h3><b>기업신청 현황</b></h3>
 			<select id="cntPerPage" name="sel" onchange="selChange()">
 				<option value="5"
 					<c:if test="${partnerPaging.cntPerPage == 5}">selected</c:if>>5줄 보기</option>
@@ -56,6 +56,7 @@
 				<table id="t_set2" class="table table-striped table-bordered">
 					<thead>
 						<tr>
+							<td></td>
 							<th>사업자번호</th>
 							<th>업체명</th>
 							<th>대표자</th>
@@ -68,8 +69,9 @@
 					<tbody>
 						<c:forEach var='obj' items="${partnerList }">
 							<c:if test="${obj.partners_state == 0 }">
-								<tr>
-									<td><a onclick="window.open('${root}admin/admin_partnerRequest_accept?partners_code=${obj.partners_code }','협력업체 신청 수락','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.partners_code }</a></td>
+								<tr onclick="window.open('${root}admin/admin_partnerRequest_accept?partners_code=${obj.partners_code }','협력업체 신청 수락','scrollbars=yes width=500 height=500 left=100 top=50')">
+									<td>${partnerTotal - obj.RN + 1}</td>
+									<td>${obj.partners_code }</td>
 									<td>${obj.partners_brewery_name }</td>
 									<td>${obj.partners_name }</td>
 									<td>${obj.partners_tel }</td>

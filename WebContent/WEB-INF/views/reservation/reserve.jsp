@@ -57,6 +57,7 @@
 	Swal.fire({
 		icon : "warning",
 		title : "잠시만 기다려 주세요.",
+		showConfirmButton : false,
 	});		
 	var mem_name = $("#mem_name").val();
 	var mem_mail = $("#mem_mail").val();

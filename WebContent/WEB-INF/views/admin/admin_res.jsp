@@ -56,6 +56,7 @@
 				<table id="t_set4" class="table table-striped table-bordered">
 					<thead>
 						<tr>
+							<td></td>
 							<th>예약번호</th>
 							<th>예약일자</th>
 							<th>예약코스</th>
@@ -69,8 +70,9 @@
 					</thead>
 					<tbody>
 						<c:forEach var='obj' items="${resList }">
-							<tr>
-								<td><a onclick="window.open('${root}admin/admin_reservation_delete?res_num=${obj.res_num }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.res_num }</a></td>
+							<tr onclick="window.open('${root}admin/admin_reservation_delete?res_num=${obj.res_num }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">
+								<td>${resTotal - obj.RN + 1}</td>
+								<td>${obj.res_num }</td>
 								<td>${obj.res_startdate }</td>
 								<td>${obj.res_coursenum }</td>
 								<td>${obj.res_paydate }</td>

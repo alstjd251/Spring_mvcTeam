@@ -56,6 +56,7 @@
 				<table id="t_set" class="table table-striped table-bordered">
 					<thead>
 						<tr>
+							<td></td>
 							<th><div>회원번호</div></th>
 							<th><div>회원등급</div></th>
 							<th><div>아이디</div></th>
@@ -70,8 +71,9 @@
 					</thead>
 					<tbody>
 						<c:forEach var='obj' items="${memberList }">
-							<tr>
-								<td><a onclick="window.open('${root}admin/admin_mem_delete?mem_num=${obj.mem_num }','회원 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.mem_num}</a></td>
+							<tr onclick="window.open('${root}admin/admin_mem_delete?mem_num=${obj.mem_num }','회원 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">
+								<td>${memberTotal - obj.RN + 1}</td>
+								<td>${obj.mem_num}</td>
 								<td><div>${obj.mem_grade }</div></td>
 								<td><div>${obj.mem_id }</div></td>
 								<td><div>${obj.mem_name }</div></td>

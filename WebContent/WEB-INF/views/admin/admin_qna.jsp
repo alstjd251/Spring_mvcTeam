@@ -56,6 +56,7 @@
 				<table id="t_set3" class="table table-striped table-bordered">
 					<thead>
 						<tr>
+							<td></td>
 							<th>문의번호</th>
 							<th>회원번호</th>
 							<th>제목</th>
@@ -66,10 +67,11 @@
 					</thead>
 					<tbody>
 						<c:forEach var='obj' items="${qnaList }">
-							<tr>
-								<td><a onclick="window.open('${root}admin/admin_qna_answer?q_qnanum=${obj.q_qnanum }&q_mnum=${obj.q_mnum }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.q_qnanum }</a></td>
+							<tr onclick="window.open('${root}admin/admin_qna_answer?q_qnanum=${obj.q_qnanum }&q_mnum=${obj.q_mnum }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">
+								<td>${qnaTotal - obj.RN + 1}</td>
+								<td>${obj.q_qnanum }</td>
 								<td>${obj.q_mnum }</td>
-								<td><a onclick="window.open('${root}admin/admin_qna_answer?q_qnanum=${obj.q_qnanum }&q_mnum=${obj.q_mnum }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.q_qnatitle }</a></td>
+								<td>${obj.q_qnatitle }</td>
 								<td>${obj.mem_name }</td>
 								<td>${obj.mem_mail }</td>
 								<td>${obj.q_qnadate }</td>

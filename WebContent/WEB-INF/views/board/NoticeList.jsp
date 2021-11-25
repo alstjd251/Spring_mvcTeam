@@ -86,7 +86,6 @@
 						<tbody class="cs-tbody">
 							<!--게시글 <td> 들어가는 곳-->
 							<c:forEach var='obj' items="${noticeList }">
-							<c:set var = 'i' value = "${i + 1 }"/>
 								<tr>
 									<td>${noticeTotal - obj.RN + 1}</td>
 									<td>

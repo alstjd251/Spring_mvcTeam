@@ -56,7 +56,7 @@
 				<table id="t_set2" class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<td></td>
+							<th></th>
 							<th>사업자번호</th>
 							<th>업체명</th>
 							<th>대표자</th>

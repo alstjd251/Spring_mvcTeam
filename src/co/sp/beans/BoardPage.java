@@ -7,6 +7,8 @@ public class BoardPage{
 	
 	private String keyword;
 	
+	private int partnerState;
+	
 	public BoardPage() {
 	}
 	public BoardPage(int total, int nowPage, int cntPerPage, String keyword) {
@@ -14,6 +16,16 @@ public class BoardPage{
 		setCntPerPage(cntPerPage);
 		setTotal(total);
 		setKeyword(keyword);
+		calcLastPage(getTotal(), getCntPerPage());
+		calcStartEndPage(getNowPage(), cntPage);
+		calcStartEnd(getNowPage(), getCntPerPage());
+	}
+	public BoardPage(int total, int nowPage, int cntPerPage, String keyword, int partnerState) {
+		setNowPage(nowPage);
+		setCntPerPage(cntPerPage);
+		setTotal(total);
+		setKeyword(keyword);
+		setPartnerState(partnerState);
 		calcLastPage(getTotal(), getCntPerPage());
 		calcStartEndPage(getNowPage(), cntPage);
 		calcStartEnd(getNowPage(), getCntPerPage());
@@ -98,6 +110,12 @@ public class BoardPage{
 	}
 	public void setKeyword(String keyword) {
 		this.keyword = keyword;
+	}
+	public int getPartnerState() {
+		return partnerState;
+	}
+	public void setPartnerState(int partnerState) {
+		this.partnerState = partnerState;
 	}
 	/*
 	@Override

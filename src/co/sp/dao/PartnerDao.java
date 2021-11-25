@@ -2,6 +2,7 @@ package co.sp.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -53,5 +54,21 @@ public class PartnerDao {
 	
 	public void deletePartnerMember(int partners_mnum) {
 		partnermapper.deletePartnerMember(partners_mnum);
+	}
+	
+	public List<Partners_s> allPartnerRequest(BoardPage bp){
+		return partnermapper.allPartnerRequest(bp);
+	}
+	
+	public List<Partners_s> allPartnerAccept(BoardPage bp){
+		return partnermapper.allPartnerAccept(bp);
+	}
+	
+	public int partnerCountRequest(BoardPage bp) {
+		return partnermapper.partnerCountRequest(bp);
+	}
+	
+	public int partnerCountAccept(BoardPage bp) {
+		return partnermapper.partnerCountAccept(bp);
 	}
 }

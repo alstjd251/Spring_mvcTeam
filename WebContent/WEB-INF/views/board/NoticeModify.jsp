@@ -5,7 +5,6 @@
 <c:set var='root' value='${pageContext.request.contextPath }/' />
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -81,7 +80,7 @@
 <body>
 	<!-- 헤더 -->
 	<header>
-		<div class="menu" onscroll="menuscroll()">
+		<div class="menu">
 			<div class="menu1">
 				<c:import url="/WEB-INF/views/include/header.jsp"/>
 			</div>

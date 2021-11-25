@@ -8,7 +8,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="${root }css/course/JeonlaCourse.css" />
-
 </head>
 <body>
 <div id="jl_breweryBox">
@@ -108,62 +107,58 @@
 
 <script type="text/javascript">
 
-var cose1 = new kakao.maps.LatLng(35.34530836228015, 126.81086249827507);
-var cose2 = new kakao.maps.LatLng(35.36652696049865, 126.98533951267824);
+var jl_cose1 = new kakao.maps.LatLng(35.34530836228015, 126.81086249827507);
+var jl_cose2 = new kakao.maps.LatLng(35.36652696049865, 126.98533951267824);
 
 
-var mapContainer = document.querySelector('#jl_cose1'), // 지도를 표시할 div 
-mapOption = { 
-    center:cose1, // 지도의 중심좌표
+var jl_mapContainer = document.querySelector('#jl_cose1'), // 지도를 표시할 div 
+jl_mapOption = { 
+    center:jl_cose1, // 지도의 중심좌표
     level: 3 // 지도의 확대 레벨
 };
 
-var mapContainer2 = document.querySelector("#jl_cose2"),
-    mapOption2 = {
-        center: cose2,
+var jl_mapContainer2 = document.querySelector("#jl_cose2"),
+jl_mapOption2 = {
+        center: jl_cose2,
         level: 3
     };
 
-var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-var map2 = new kakao.maps.Map(mapContainer2,mapOption2);
-
-map.relayout();
-map2.relayout();
-
+var jl_map = new kakao.maps.Map(jl_mapContainer, jl_mapOption); // 지도를 생성합니다
+var jl_map2 = new kakao.maps.Map(jl_mapContainer2,jl_mapOption2);
 
         // 지도에 마커를 표시합니다 
-var marker = new kakao.maps.Marker({
-    map: map, 
-    position:cose1
+var jl_marker = new kakao.maps.Marker({
+    map: jl_map, 
+    position:jl_cose1
 });
-var marker2 = new kakao.maps.Marker({
-    map: map2,
-    position: cose2
+var jl_marker2 = new kakao.maps.Marker({
+    map: jl_map2,
+    position: jl_cose2
 });
 
 
 
 
 // 아래와 같이 옵션을 입력하지 않아도 된다
-var zoomControl = new kakao.maps.ZoomControl();
-var zoomControl2 = new kakao.maps.ZoomControl();
+var jl_zoomControl = new kakao.maps.ZoomControl();
+var jl_zoomControl2 = new kakao.maps.ZoomControl();
 
 
 // 지도 오른쪽에 줌 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
-map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+jl_map.addControl(jl_zoomControl, kakao.maps.ControlPosition.RIGHT);
 // 마커가 지도 위에 표시되도록 설정합니다
-map2.addControl(zoomControl2, kakao.maps.ControlPosition.RIGHT);
+jl_map2.addControl(jl_zoomControl2, kakao.maps.ControlPosition.RIGHT);
 
 
         // 커스텀 오버레이에 표시할 컨텐츠 입니다
 // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
 // 별도의 이벤트 메소드를 제공하지 않습니다 
-var content = 
+var jl_content = 
 '<div class="wrap">' + 
         '    <div class="info">' + 
         '        <div class="title">' + 
         '            (주)청산녹수' + 
-        '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+        '            <div class="close" onclick="jl_closeOverlay()" title="닫기"></div>' + 
         '        </div>' + 
         '        <div class="body">' + 
         '            <div class="img">' +
@@ -176,12 +171,12 @@ var content =
         '        </div>' + 
         '    </div>' +    
 '</div>';
-var content2 = 
+var jl_content2 = 
 '<div class="wrap">' + 
             '    <div class="info">' + 
             '        <div class="title">' + 
             '             추성고을' + 
-            '            <div class="close" onclick="closeOverlay2()" title="닫기"></div>' + 
+            '            <div class="close" onclick="jl_closeOverlay2()" title="닫기"></div>' + 
             '        </div>' + 
             '        <div class="body">' + 
             '            <div class="img">' +
@@ -196,37 +191,37 @@ var content2 =
             '</div>';
 //마커 위에 커스텀오버레이를 표시합니다
 //마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-var overlay = new kakao.maps.CustomOverlay({
-content: content,
-map: map,
-position: marker.getPosition()       
+var jl_overlay = new kakao.maps.CustomOverlay({
+content: jl_content,
+map: jl_map,
+position: jl_marker.getPosition()       
 });
 
-var overlay2 = new kakao.maps.CustomOverlay({
-content: content2,
-map : map2,
-position : marker2.getPosition()
+var jl_overlay2 = new kakao.maps.CustomOverlay({
+content: jl_content2,
+map : jl_map2,
+position : jl_marker2.getPosition()
 });
 
 
 //마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-kakao.maps.event.addListener(marker, 'click', function() {
-overlay.setMap(map);
+kakao.maps.event.addListener(jl_marker, 'click', function() {
+	jl_overlay.setMap(jl_map);
 });
 
-kakao.maps.event.addListener(marker2, 'click', function() {
-overlay2.setMap(map2);
+kakao.maps.event.addListener(jl_marker2, 'click', function() {
+	jl_overlay2.setMap(jl_map2);
 });
 
 
 
 //커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-function closeOverlay() {
-overlay.setMap(null);     
+function jl_closeOverlay() {
+	jl_overlay.setMap(null);     
 }
 
-function closeOverlay2() {
-overlay2.setMap(null);     
+function jl_closeOverlay2() {
+	jl_overlay2.setMap(null);     
 }
 
 </script>

@@ -41,4 +41,16 @@ public interface PartnerMapper {
 	
 	@Delete("delete from partners_s where partners_mnum = #{partners_mnum}")
 	void deletePartnerMember(int partners_mnum);
+	
+	@Select("select * from (select ROWNUM RN, A.* from (select * from partners_s where partners_brewery_name like '%'||#{keyword, jdbcType=VARCHAR}||'%' and partners_state = 0 order by partners_code) A) where RN between #{start} and #{end}")
+	List<Partners_s> allPartnerRequest(BoardPage bp);
+	
+	@Select("select * from (select ROWNUM RN, A.* from (select * from partners_s where partners_brewery_name like '%'||#{keyword, jdbcType=VARCHAR}||'%' and partners_state = 1 order by partners_code) A) where RN between #{start} and #{end}")
+	List<Partners_s> allPartnerAccept(BoardPage bp);
+	
+	@Select("select count(*) from partners_s where partners_name like '%'||#{keyword, jdbcType=VARCHAR}||'%' and partners_state = 0")
+	int partnerCountRequest(BoardPage bp);
+	
+	@Select("select count(*) from partners_s where partners_name like '%'||#{keyword, jdbcType=VARCHAR}||'%' and partners_state = 1")
+	int partnerCountAccept(BoardPage bp);
 }

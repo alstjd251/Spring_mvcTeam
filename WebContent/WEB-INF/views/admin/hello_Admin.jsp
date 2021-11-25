@@ -29,7 +29,7 @@
 		<form action = "${root }main"><input type ="submit" value = "main"/></form>
 		<form action = "${root }admin/admin_mem"><input type ="submit" value = "회원정보 관리"/></form>
 		<form action = "${root }admin/admin_partner"><input type ="submit" value = "기업정보 관리"/></form>
-		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 수락"/></form>
+		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 현황"/></form>
 		<form action = "${root }admin/admin_res"><input type ="submit" value = "예약정보 조회"/></form>
 		<form action = "${root }admin/admin_qna"><input type ="submit" value = "회원문의 관리"/></form>
 	</div>

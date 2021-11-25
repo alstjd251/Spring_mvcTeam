@@ -24,13 +24,13 @@
 	src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <title>Sul Sure</title>
 <script>
-	var titleCheck = "fail";
-	var contentCheck = "fail";
+	var titleCheck = "success";
+	var contentCheck = "success";
 	
 	function titlechecking(){
 		var title = $("#n_noticetitle").val();
 		
-		if(title == ""){
+		if(title.trim() == ""){
 			titleCheck = "fail";
 		}
 		else{
@@ -41,7 +41,7 @@
 	function contentchecking(){
 		var content = $("#n_noticecontent").val();
 		
-		if(content == ""){
+		if(content.trim() == ""){
 			contentCheck = "fail";
 		}
 		else{

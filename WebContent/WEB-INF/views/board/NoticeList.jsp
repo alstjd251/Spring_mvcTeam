@@ -20,6 +20,7 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"
     />
+    <script type="text/javascript" src="${root }js/n_page.js"></script>
 </head>
 <script>
 	function selChange() {
@@ -37,6 +38,7 @@
 			</div>
 		</div>
 	</header>
+	<section>
 	<div class="cs-container">
 		<h1>공지사항</h1>
 		<div class="cs-board01">
@@ -122,11 +124,11 @@
 			</div>
 		</div>
 	</div>
+	</section>
 	<!-- 푸터 -->
 	<footer>
 		<c:import url="/WEB-INF/views/include/footer.jsp"/>
 	</footer>
-	<script type="text/javascript" src="${root }js/n_page.js"></script>
 	
 	<form id="moveForm" method="get">
 		<input type="hidden" name="keyword" value="${noticePaging.keyword }">

@@ -30,7 +30,7 @@
 		<form action = "${root }main"><input type ="submit" value = "main"/></form>
 		<form action = "${root }admin/admin_mem"><input type ="submit" value = "회원정보 관리"/></form>
 		<form action = "${root }admin/admin_partner"><input type ="submit" value = "기업정보 관리"/></form>
-		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 수락"/></form>
+		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 현황"/></form>
 		<form action = "${root }admin/admin_res"><input type ="submit" value = "예약정보 조회"/></form>
 		<form action = "${root }admin/admin_qna"><input type ="submit" value = "회원문의 관리"/></form>
 	</div>
@@ -69,7 +69,7 @@
 							<tr>
 								<td><a onclick="window.open('${root}admin/admin_qna_answer?q_qnanum=${obj.q_qnanum }&q_mnum=${obj.q_mnum }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.q_qnanum }</a></td>
 								<td>${obj.q_mnum }</td>
-								<td>${obj.q_qnatitle }</td>
+								<td><a onclick="window.open('${root}admin/admin_qna_answer?q_qnanum=${obj.q_qnanum }&q_mnum=${obj.q_mnum }','예약 내역 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.q_qnatitle }</a></td>
 								<td>${obj.mem_name }</td>
 								<td>${obj.mem_mail }</td>
 								<td>${obj.q_qnadate }</td>

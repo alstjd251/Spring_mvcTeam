@@ -70,7 +70,7 @@
 						<c:forEach var='obj' items="${partnerList }">
 							<c:if test="${obj.partners_state == 0 }">
 								<tr onclick="window.open('${root}admin/admin_partnerRequest_accept?partners_code=${obj.partners_code }','협력업체 신청 수락','scrollbars=yes width=500 height=500 left=100 top=50')">
-									<td>${partnerTotal - obj.RN + 1}</td>
+									<td>${partnerCount - obj.RN + 1}</td>
 									<td>${obj.partners_code }</td>
 									<td>${obj.partners_brewery_name }</td>
 									<td>${obj.partners_name }</td>

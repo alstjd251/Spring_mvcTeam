@@ -53,4 +53,20 @@ public class PartnerService {
 	public void deletePartnerMember(int partners_mnum) {
 		partnerDao.deletePartnerMember(partners_mnum);
 	}
+	
+	public List<Partners_s> allPartnerRequest(BoardPage bp){
+		return partnerDao.allPartnerRequest(bp);
+	}
+	
+	public List<Partners_s> allPartnerAccept(BoardPage bp){
+		return partnerDao.allPartnerAccept(bp);
+	}
+	
+	public int partnerCountRequest(BoardPage bp) {
+		return partnerDao.partnerCountRequest(bp);
+	}
+	
+	public int partnerCountAccept(BoardPage bp) {
+		return partnerDao.partnerCountAccept(bp);
+	}
 }

@@ -76,25 +76,26 @@ public class AdminControl {
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
 			, @RequestParam(value="keyword", required=false)String keyword) {
-		if(partnerBean.getPartners_state() == 1) {
-			bp.setKeyword(keyword);
-			int partnerTotal = ps.partnerCount(bp);
-
-			if (nowPage == null && cntPerPage == null) {
-				nowPage = "1";
-				cntPerPage = "5";
-			} else if (nowPage == null) {
-				nowPage = "1";
-			} else if (cntPerPage == null) {
-				cntPerPage = "5";
-			}
-
-			bp = new BoardPage(partnerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
-
-			m.addAttribute("partnerList", ps.allPartner(bp));
-			m.addAttribute("partnerPaging", bp);
-			m.addAttribute("partnerTotal", partnerTotal);
+		bp.setKeyword(keyword);
+		partnerBean.setPartners_state(1);
+		int partnerTotal = ps.partnerCountAccept(bp);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
 		}
+		else if (nowPage == null) {
+			nowPage = "1";
+		}
+		else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		
+		bp = new BoardPage(partnerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword, 1);
+
+		m.addAttribute("partnerList", ps.allPartnerAccept(bp));
+		m.addAttribute("partnerPaging", bp);
+		m.addAttribute("partnerTotal", partnerTotal);
 		
 		return "admin/admin_partner";
 	}
@@ -193,25 +194,26 @@ public class AdminControl {
 			, @RequestParam(value="nowPage", required=false, defaultValue = "1")String nowPage
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
 			, @RequestParam(value="keyword", required=false)String keyword) {
-		if(partnerBean.getPartners_state() == 0) {
-			bp.setKeyword(keyword);
-			int partnerCount = ps.partnerCount(bp);
-
-			if (nowPage == null && cntPerPage == null) {
-				nowPage = "1";
-				cntPerPage = "5";
-			} else if (nowPage == null) {
-				nowPage = "1";
-			} else if (cntPerPage == null) {
-				cntPerPage = "5";
-			}
-
-			bp = new BoardPage(partnerCount, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
-
-			m.addAttribute("partnerList", ps.allPartner(bp));
-			m.addAttribute("partnerPaging", bp);
-			m.addAttribute("partnerCount", partnerCount);
+		bp.setKeyword(keyword);
+		partnerBean.setPartners_state(0);
+		int partnerCount = ps.partnerCountRequest(bp);
+		
+		if (nowPage == null && cntPerPage == null) {
+			nowPage = "1";
+			cntPerPage = "5";
 		}
+		else if (nowPage == null) {
+			nowPage = "1";
+		}
+		else if (cntPerPage == null) { 
+			cntPerPage = "5";
+		}
+		
+		bp = new BoardPage(partnerCount, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword, 1);
+
+		m.addAttribute("partnerList", ps.allPartnerRequest(bp));
+		m.addAttribute("partnerPaging", bp);
+		m.addAttribute("partnerCount", partnerCount);
 		
 		return "admin/admin_partnerRequest";
 	}

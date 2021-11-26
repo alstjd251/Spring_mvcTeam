@@ -132,9 +132,43 @@ public class RestControl {
 		System.out.println("Reservation Email Send");
 	    
 	    EmailSet email = new EmailSet();
-	    email.setReceiver("byungeun96@naver.com");
+	    email.setReceiver("vywls123@naver.com");
 	    email.setSubject(name + "님의 Sul Sure 예약 확인 메일입니다.");
-	    email.setContent("고객님의 예약 정보 : " + resBean.getCourse_names());
+	    email.setContent("<div style='align-items: center;width: 100%;display: flex;flex-direction: column;'><div>"
+	    		+ "<h1>" + name + "님의 " + "Sul Sure 예약 확인</h1>"
+	    		+ "<hr>"
+	    		+ "<table border='1' style='width:700px; height:500px; border-spacing:0px;'>"
+	    		+ "<tr>"
+	    		+ "<th>예약번호</th>"
+	    		+ "<td style='padding:20px;'>" + resBean.getRes_num() + "</td>"
+	    		+ "</tr>"
+	    		+ "<tr>"
+	    		+ "<th>예약일자</th>"
+	    		+ "<td style='padding:20px;'>" + resBean.getRes_startdate() + "</td>"
+	    	    + "<tr>"
+	    	    + "<th>예약코스</th>"
+	    	    + "<td style='padding:20px;'>" + resBean.getCourse_names() + "</td>"
+	    	    + "</tr>"
+	    	    + "<tr>"
+	    	    + "<th>결제일자</th>"
+	    	    + "<td style='padding:20px;'>" + resBean.getRes_paydate() + "</td>"
+	    	    + "</tr>"
+	    	    + "<tr>"
+	    	    + "<th>예약자명</th>"
+	    	    + "<td style='padding:20px;'>" + name + "</td>"
+	    	    + "</tr>"
+	    	    + "<tr>"
+	    	    + "<th>인원</th>"
+	    	    + "<td style='padding:20px;'>" + resBean.getRes_personnel() + "</td>"
+	    	    + "</tr>"
+	    	    + "<tr>"
+	    	    + "<th>가격</th>"
+	    	    + "<td style='padding:20px;'>" + resBean.getCourse_price() + " 원" + "</td>"
+	    	    + "</tr>"
+	    		+ "</table>"
+	    		+ "</div></div>");
+
+	    emailSender.SendEmail(email);
 	    
 	    emailSender.SendEmail(email);
 		
@@ -147,8 +181,10 @@ public class RestControl {
 		String answer = map.get("answer");
 		String mail = map.get("mem_mail");
 		int q_num = Integer.parseInt(map.get("q_num"));
+		int q_mnum = Integer.parseInt(map.get("q_mnum"));
 		
 		qnaBean.setQ_qnanum(q_num);
+		qnaBean.setQ_mnum(q_mnum);
 		
 		qnaBean = qs.getQna(qnaBean);
 		String qna = qnaBean.getQ_qnacontent();

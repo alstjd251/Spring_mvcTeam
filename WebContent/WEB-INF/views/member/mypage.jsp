@@ -51,7 +51,6 @@ function pwCheck(){
 					    text  : "회원 정보가 변경 되었습니다.",
 					}).then(function(){
 						$("#memModifyForm").submit();
-						location.href="${root}member/mypage";
 					});
 				}else{
 					Swal.fire({

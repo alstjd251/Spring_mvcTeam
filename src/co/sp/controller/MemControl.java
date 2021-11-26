@@ -135,11 +135,15 @@ public class MemControl {
 	
 	@PostMapping("/memberModify")
 	public String memberModify(@ModelAttribute("memberBean") Member_s memberBean, Model m) {
-		
 		ms.memberUpdate(memberBean);
 		
-		return "member/mypage";
+		return "member/memberModifyProc";
 		
+	}
+	
+	@GetMapping("/memberModifyProc")
+	public String memberModifyProc() {
+		return "member/mypage";
 	}
 	
 	@PostMapping("/partnerRequest_proc")

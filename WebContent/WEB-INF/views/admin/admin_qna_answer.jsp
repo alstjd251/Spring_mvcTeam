@@ -20,24 +20,29 @@ function sendMail(){
 	var q_mnum = $("#q_mnum").val();
 	
 	var param = {'answer': answer_mail, 'mem_mail': mem_mail, 'q_num' : q_qnanum, 'q_mnum' : q_mnum}
-	
-	$.ajax({
-		url : '${root}admin/sendmail.do',
-		type : 'POST',
-		data : param,
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		dataType : 'text',
-		success : function(result){
-			if(result == "success"){
-				Swal.fire({
-					icon : "success",
-					title : "메일 발송 완료.",
-				    text  : "답변 메일을 성공적으로 보냈습니다.",
-				}).then(function(){
-					$("#answer_proc").submit();
-				})
+	Swal.fire({
+		icon : "warning",
+		title : "잠시만 기다려 주세요.",
+		showConfirmButton : false,
+	});
+	Swal.fire({
+		icon : "success",
+		title : "메일 발송 완료.",
+	    text  : "답변 메일을 성공적으로 보냈습니다.",
+	}).then(function(){
+		$("#answer_proc").submit();
+		$.ajax({
+			url : '${root}admin/sendmail.do',
+			type : 'POST',
+			data : param,
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			dataType : 'text',
+			success : function(result){
+				if(result == "success"){
+					
+				}
 			}
-		}
+		})
 	})
 }
 </script>
@@ -78,7 +83,7 @@ function sendMail(){
 				<td><textarea id = "answer_mail" rows = "10" cols = "50" style = "resize: none;"></textarea></td>
 			</tr>
 		</table>
-		<input type="button" id="qnaSend" onclick="sendMail()" value="답변 완료" style="margin-left:45%"/>
+		<input type="button" id="qnaSend" onclick="sendMail()" value="답변 완료" style="margin-left:45%; margin-bottom:20px;"/>
 	</form:form>
 </body>
 </html>

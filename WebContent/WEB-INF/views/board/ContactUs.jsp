@@ -56,7 +56,7 @@
           </div>
           <div class="c_t_p2">
             <div class="p2_n">
-              <strong>서울 종로구 솔데스크</strong>
+              <strong>SulSure</strong>
             </div>
             <div class="p2_n">
               <div>

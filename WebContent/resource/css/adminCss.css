@@ -72,7 +72,12 @@ section #con table thead th{
 	text-align: -webkit-center;
     background-color: rgb(255, 132, 132);
 }
-
+section table tbody tr:hover {
+	cursor: pointer;
+	box-shadow: 1px 5px 5px gray;
+	background-color: #e6e6e6;
+	color: blue;
+}
 section #con table thead th div{
 	text-align: -webkit-center;
    	width: max-content;

@@ -8,7 +8,6 @@
 <html>
 <head>
 <link rel="stylesheet" href="${root }css/course/SeoulCourse.css" />
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2d50c23204031dd7ba2725e70baf1be2"></script>
 </head>
 <body>
 <div id="s_breweryBox">
@@ -120,13 +119,13 @@ var soul_cose2 = new kakao.maps.LatLng(37.58549613015663, 126.90688952421371);
 var mapContainer = document.querySelector('#s_cose1'), // 지도를 표시할 div 
 mapOption = { 
     center:soul_cose1, // 지도의 중심좌표
-    level: 3 // 지도의 확대 레벨
+    level: 4 // 지도의 확대 레벨
 };
 
 var soul_Container2 = document.querySelector("#s_cose2"),
     s_c2_Option = {
         center: soul_cose2,
-        level: 3
+        level: 4
     };
 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 var map2 = new kakao.maps.Map(soul_Container2,s_c2_Option);

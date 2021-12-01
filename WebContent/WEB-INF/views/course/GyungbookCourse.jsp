@@ -9,8 +9,6 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script type="text/javascript"
-   src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e3b77ddbf353b2397ed468cf5eb770f0"></script>
 <link rel="stylesheet" href="${root }css/course/GyungbookCourse.css" />
 </head>
 <body>
@@ -132,73 +130,73 @@
       </div>
    </div>
    <script type="text/javascript">
-   var cose1 = new kakao.maps.LatLng(36.549756044738544, 128.70885076835506);
-   var cose2 = new kakao.maps.LatLng(36.77233886049045, 128.3140550260342);
-   var cose3 = new kakao.maps.LatLng(36.43729290311423, 128.72301776650133);
+   var gb_cose1 = new kakao.maps.LatLng(36.549756044738544, 128.70885076835506);
+   var gb_cose2 = new kakao.maps.LatLng(36.77233886049045, 128.3140550260342);
+   var gb_cose3 = new kakao.maps.LatLng(36.43729290311423, 128.72301776650133);
 
-   var mapContainer = document.querySelector('#gb_cose1'), // 지도를 표시할 div 
-   mapOption = { 
-       center:cose1, // 지도의 중심좌표
+   var gb_mapContainer = document.querySelector('#gb_cose1'), // 지도를 표시할 div 
+   gb_mapOption = { 
+       center:gb_cose1, // 지도의 중심좌표
        level: 3 // 지도의 확대 레벨
    };
 
-   var mapContainer2 = document.querySelector("#gb_cose2"),
-       mapOption2 = {
-           center: cose2,
+   var gb_mapContainer2 = document.querySelector("#gb_cose2"),
+   gb_mapOption2 = {
+           center: gb_cose2,
            level: 3
        };
    
-   var mapContainer3 = document.querySelector("#gb_cose3"),
-   mapOption3 = {
-     center: cose3,
-     level: 3
+   var gb_mapContainer3 = document.querySelector("#gb_cose3"),
+   gb_mapOption3 = {
+     	center: gb_cose3,
+     	level: 3
        };
-   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-   var map2 = new kakao.maps.Map(mapContainer2,mapOption2);
-   var map3 = new kakao.maps.Map(mapContainer3,mapOption3);
+   var gb_map = new kakao.maps.Map(gb_mapContainer, gb_mapOption); // 지도를 생성합니다
+   var gb_map2 = new kakao.maps.Map(gb_mapContainer2,gb_mapOption2);
+   var gb_map3 = new kakao.maps.Map(gb_mapContainer3,gb_mapOption3);
    
-   map.relayout();
+   /*map.relayout();
    map2.relayout();
-   map3.relayout();
+   map3.relayout();*/
    
 
            // 지도에 마커를 표시합니다 
-   var marker = new kakao.maps.Marker({
-       map: map, 
-       position:cose1
+   var gb_marker = new kakao.maps.Marker({
+       map: gb_map, 
+       position:gb_cose1
    });
-   var marker2 = new kakao.maps.Marker({
-       map: map2,
-       position: cose2
+   var gb_marker2 = new kakao.maps.Marker({
+       map: gb_map2,
+       position: gb_cose2
    });
 
-   var marker3 = new kakao.maps.Marker({
-       map: map3,
-       position: cose3
+   var gb_marker3 = new kakao.maps.Marker({
+       map: gb_map3,
+       position: gb_cose3
    });
 
 
    // 아래와 같이 옵션을 입력하지 않아도 된다
-   var zoomControl = new kakao.maps.ZoomControl();
-   var zoomControl2 = new kakao.maps.ZoomControl();
-   var zoomControl3 = new kakao.maps.ZoomControl();
+   var gb_zoomControl = new kakao.maps.ZoomControl();
+   var gb_zoomControl2 = new kakao.maps.ZoomControl();
+   var gb_zoomControl3 = new kakao.maps.ZoomControl();
 
    // 지도 오른쪽에 줌 컨트롤이 표시되도록 지도에 컨트롤을 추가한다.
-   map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+   gb_map.addControl(gb_zoomControl, kakao.maps.ControlPosition.RIGHT);
    // 마커가 지도 위에 표시되도록 설정합니다
-   map2.addControl(zoomControl2, kakao.maps.ControlPosition.RIGHT);
+   gb_map2.addControl(gb_zoomControl2, kakao.maps.ControlPosition.RIGHT);
    
-   map3.addControl(zoomControl3, kakao.maps.ControlPosition.RIGHT);
+   gb_map3.addControl(gb_zoomControl3, kakao.maps.ControlPosition.RIGHT);
    
            // 커스텀 오버레이에 표시할 컨텐츠 입니다
    // 커스텀 오버레이는 아래와 같이 사용자가 자유롭게 컨텐츠를 구성하고 이벤트를 제어할 수 있기 때문에
    // 별도의 이벤트 메소드를 제공하지 않습니다 
-   var content = 
+   var gb_content = 
    '<div class="wrap">' + 
            '    <div class="info">' + 
            '        <div class="title">' + 
            '            안동소주' + 
-           '            <div class="close" onclick="closeOverlay()" title="닫기"></div>' + 
+           '            <div class="close" onclick="gb_closeOverlay()" title="닫기"></div>' + 
            '        </div>' + 
            '        <div class="body">' + 
            '            <div class="img">' +
@@ -211,12 +209,12 @@
            '        </div>' + 
            '    </div>' +    
    '</div>';
-   var content2 = 
+   var gb_content2 = 
    '<div class="wrap">' + 
                '    <div class="info">' + 
                '        <div class="title">' + 
                '             문경주조' + 
-               '            <div class="close" onclick="closeOverlay2()" title="닫기"></div>' + 
+               '            <div class="close" onclick="gb_closeOverlay2()" title="닫기"></div>' + 
                '        </div>' + 
                '        <div class="body">' + 
                '            <div class="img">' +
@@ -229,12 +227,12 @@
                '        </div>' + 
                '    </div>' +    
                '</div>';
-   var content3 = 
+   var gb_content3 = 
    '<div class="wrap">' + 
                '    <div class="info">' + 
                '        <div class="title">' + 
                '             한국애플리즈' + 
-               '            <div class="close" onclick="closeOverlay3()" title="닫기"></div>' + 
+               '            <div class="close" onclick="gb_closeOverlay3()" title="닫기"></div>' + 
                '        </div>' + 
                '        <div class="body">' + 
                '            <div class="img">' +
@@ -249,49 +247,49 @@
                '</div>';
 //마커 위에 커스텀오버레이를 표시합니다
 //마커를 중심으로 커스텀 오버레이를 표시하기위해 CSS를 이용해 위치를 설정했습니다
-var overlay = new kakao.maps.CustomOverlay({
-content: content,
-map: map,
-position: marker.getPosition()       
+var gb_overlay = new kakao.maps.CustomOverlay({
+	content: gb_content,
+	map: gb_map,
+	position: gb_marker.getPosition()       
 });
 
-var overlay2 = new kakao.maps.CustomOverlay({
-content: content2,
-map : map2,
-position : marker2.getPosition()
+var gb_overlay2 = new kakao.maps.CustomOverlay({
+	content: gb_content2,
+	map : gb_map2,
+	position : gb_marker2.getPosition()
 });
 
-var overlay3 = new kakao.maps.CustomOverlay({
-content: content3,
-map : map3,
-position : marker3.getPosition()
+var gb_overlay3 = new kakao.maps.CustomOverlay({
+	content: gb_content3,
+	map : gb_map3,
+	position : gb_marker3.getPosition()
 });
 
 
 //마커를 클릭했을 때 커스텀 오버레이를 표시합니다
-kakao.maps.event.addListener(marker, 'click', function() {
-overlay.setMap(map);
+kakao.maps.event.addListener(gb_marker, 'click', function() {
+	gb_overlay.setMap(gb_map);
 });
 
-kakao.maps.event.addListener(marker2, 'click', function() {
-overlay2.setMap(map2);
+kakao.maps.event.addListener(gb_marker2, 'click', function() {
+	gb_overlay2.setMap(gb_map2);
 });
 
-kakao.maps.event.addListener(marker3, 'click', function() {
-overlay3.setMap(map3);
+kakao.maps.event.addListener(gb_marker3, 'click', function() {
+	gb_overlay3.setMap(gb_map3);
 });
 
 //커스텀 오버레이를 닫기 위해 호출되는 함수입니다 
-function closeOverlay() {
-overlay.setMap(null);     
+function gb_closeOverlay() {
+	gb_overlay.setMap(null);     
 }
 
-function closeOverlay2() {
-overlay2.setMap(null);     
+function gb_closeOverlay2() {
+	gb_overlay2.setMap(null);     
 }
 
-function closeOverlay3() {
-overlay3.setMap(null);     
+function gb_closeOverlay3() {
+	gb_overlay3.setMap(null);     
 }
    </script>
 </body>

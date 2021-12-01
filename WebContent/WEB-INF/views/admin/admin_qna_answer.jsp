@@ -78,7 +78,8 @@ function sendMail(){
 				<td><textarea id = "answer_mail" rows = "10" cols = "50" style = "resize: none;"></textarea></td>
 			</tr>
 		</table>
-		<input type="button" id="qnaSend" onclick="sendMail()" value="답변 완료" style="margin-left: 45%;"/>
+
+		<input type="button" id="qnaSend" onclick="sendMail()" value="답변 완료" style="margin-left:45%"/>
 	</form:form>
 </body>
 </html>

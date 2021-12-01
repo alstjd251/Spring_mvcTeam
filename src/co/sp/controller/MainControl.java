@@ -18,6 +18,7 @@ public class MainControl {
 	@GetMapping("/main")
 	public String main(@ModelAttribute("memberBean") Member_s tempLoginMemberBean, HttpSession session) {
 		session.setAttribute("loginBean", loginBean);
+		
 		return "main";
 	}
 	

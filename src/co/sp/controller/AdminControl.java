@@ -77,7 +77,8 @@ public class AdminControl {
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
 			, @RequestParam(value="keyword", required=false)String keyword) {
 		bp.setKeyword(keyword);
-		int partnerTotal = ps.partnerCount(bp);
+		partnerBean.setPartners_state(1);
+		int partnerTotal = ps.partnerCountAccept(bp);
 		
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -90,9 +91,9 @@ public class AdminControl {
 			cntPerPage = "5";
 		}
 		
-		bp = new BoardPage(partnerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
+		bp = new BoardPage(partnerTotal, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword, 1);
 
-		m.addAttribute("partnerList", ps.allPartner(bp));
+		m.addAttribute("partnerList", ps.allPartnerAccept(bp));
 		m.addAttribute("partnerPaging", bp);
 		m.addAttribute("partnerTotal", partnerTotal);
 		
@@ -164,7 +165,10 @@ public class AdminControl {
 	
 	@PostMapping("/admin_partner_delete_proc")
 	public String admin_partner_delete_proc(@ModelAttribute("partnerBean") Partners_s partnerBean, Model m) {
+		System.out.println(partnerBean.getPartners_mnum());
+		ms.gradeDown(partnerBean.getPartners_mnum());
 		ps.deletePartner(partnerBean);
+		
 		m.addAttribute("partnerBean", partnerBean);
 		
 		return "admin/admin_partner_delete_proc";
@@ -172,7 +176,7 @@ public class AdminControl {
 	
 	@GetMapping("/admin_reservation_delete")
 	public String admin_reservation_delete(@ModelAttribute("reservationBean") Reservation_s reservationBean, Model m) {
-		m.addAttribute("partnerBean", rs.getOneReservation(reservationBean.getRes_num()));
+		m.addAttribute("reservationBean", rs.getOneReservation(reservationBean.getRes_num()));
 		
 		return "admin/admin_reservation_delete";
 	}
@@ -191,7 +195,8 @@ public class AdminControl {
 			, @RequestParam(value="cntPerPage", required=false, defaultValue = "5")String cntPerPage
 			, @RequestParam(value="keyword", required=false)String keyword) {
 		bp.setKeyword(keyword);
-		int partnerCount = ps.partnerCount(bp);
+		partnerBean.setPartners_state(0);
+		int partnerCount = ps.partnerCountRequest(bp);
 		
 		if (nowPage == null && cntPerPage == null) {
 			nowPage = "1";
@@ -204,9 +209,9 @@ public class AdminControl {
 			cntPerPage = "5";
 		}
 		
-		bp = new BoardPage(partnerCount, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword);
+		bp = new BoardPage(partnerCount, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage), keyword, 1);
 
-		m.addAttribute("partnerList", ps.allPartner(bp));
+		m.addAttribute("partnerList", ps.allPartnerRequest(bp));
 		m.addAttribute("partnerPaging", bp);
 		m.addAttribute("partnerCount", partnerCount);
 		

@@ -50,16 +50,15 @@ section #mypage #mypage_con2 #res_info {
 
 section #mypage #mypage_con2 table {
 	margin-top: 20px;
-	justify-content: center;
 }
 
 section #mypage #mypage_con2 #res_info table thead th {
 	background-color: #f1a99c;
 }
 
-section #mypage #mypage_con2 #res_info table thead th div {
+section #mypage #mypage_con2 #res_info table thead tr th div {
 	width:max-content;
-	text-align: center;
+	text-algin: center;
 }
 
 section #mypage #mypage_con2 #res_info table tbody td div {

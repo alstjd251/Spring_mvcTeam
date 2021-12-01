@@ -2,6 +2,7 @@ package co.sp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.context.annotation.SessionScope;
 
 import co.sp.beans.Member_s;

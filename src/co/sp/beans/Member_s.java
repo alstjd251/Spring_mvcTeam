@@ -33,8 +33,8 @@ public class Member_s {
 	@NotBlank
 	private String mem_pw;
 	
-	@Size(min = 2, max = 10)
-	@Pattern(regexp = "[가-힣]*")
+	@Size(min = 2, max = 30)
+	@Pattern(regexp = "[a-zA-Z가-힣]*")
 	@NotBlank
 	private String mem_name;
 	
@@ -70,6 +70,8 @@ public class Member_s {
 
 	private boolean idExist;
 	private boolean memLogin;
+	
+	private int RN;
 
 	public Member_s() {
 		this.idExist = false;
@@ -196,4 +198,11 @@ public class Member_s {
 		this.memLogin = memLogin;
 	}
 
+	public int getRN() {
+		return RN;
+	}
+
+	public void setRN(int rN) {
+		RN = rN;
+	}
 }

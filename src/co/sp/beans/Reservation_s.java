@@ -26,6 +26,7 @@ public class Reservation_s {
    private int course_price;
    private String course_names;
 
+   private int RN;
 
    public String getRes_num() {
       return res_num;
@@ -137,4 +138,12 @@ public class Reservation_s {
    public void setCourse_num(int course_num) {
       this.course_num = course_num;
    }
+
+	public int getRN() {
+		return RN;
+	}
+
+	public void setRN(int rN) {
+		RN = rN;
+	}
 }

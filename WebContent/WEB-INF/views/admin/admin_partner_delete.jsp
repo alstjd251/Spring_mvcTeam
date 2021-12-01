@@ -13,9 +13,10 @@
 </head>
 <body>
 	<form:form method="post" action="admin_partner_delete_proc" modelAttribute="partnerBean">
+		<form:hidden path="partners_mnum" value="${partners_mnum}"/>
 		<table class="table table-bordered">
 			<tr>
-				<th>사업자번호</th>
+				<th width="150">사업자번호</th>
 				<td><form:input path="partners_code" id="partners_code" readonly="true"/></td>
 			</tr>
 			<tr>
@@ -41,8 +42,8 @@
 			<tr>
 				<th>사업장 주소</th>
 				<td>
-					<form:input path="partners_brewery_post" id="partners_brewery_post" readonly="true"/>
-					<form:input path="partners_brewery_addr1" id="partners_brewery_addr1" readonly="true"/>
+					<form:input path="partners_brewery_post" id="partners_brewery_post" readonly="true"/><br>
+					<form:input path="partners_brewery_addr1" id="partners_brewery_addr1" readonly="true"/><br>
 					<form:input path="partners_brewery_addr2" id="partners_brewery_addr2" readonly="true"/>
 				</td>
 			</tr>

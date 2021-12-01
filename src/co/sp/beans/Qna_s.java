@@ -16,6 +16,8 @@ public class Qna_s {
 	
 	private String mem_name;
 	private String mem_mail;
+	
+	private int RN;
 
 	public int getQ_qnanum() {
 		return q_qnanum;
@@ -71,5 +73,13 @@ public class Qna_s {
 
 	public void setMem_mail(String mem_mail) {
 		this.mem_mail = mem_mail;
+	}
+
+	public int getRN() {
+		return RN;
+	}
+
+	public void setRN(int rN) {
+		RN = rN;
 	}
 }

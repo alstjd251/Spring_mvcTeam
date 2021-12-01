@@ -58,4 +58,8 @@ public class MemberDao {
 	public void deleteMember(Member_s memberBean) {
 		memMapper.deleteMember(memberBean);
 	}
+	
+	public void gradeDown(int mem_num) {
+		memMapper.gradeDown(mem_num);
+	}
 }

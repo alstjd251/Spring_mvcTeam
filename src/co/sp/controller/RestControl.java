@@ -82,7 +82,7 @@ public class RestControl {
 			System.out.println("PW Email Send");
 		    
 		    EmailSet email = new EmailSet();
-		    email.setReceiver("byungeun96@naver.com");
+		    email.setReceiver(mail);
 		    email.setSubject("Sul Sure 비밀번호 찾기 결과");
 		    email.setContent("<div style='text-align:center; width:80%;'>"
 		    		+ "<h1>비밀번호 찾기 결과</h1>"
@@ -132,44 +132,42 @@ public class RestControl {
 		System.out.println("Reservation Email Send");
 	    
 	    EmailSet email = new EmailSet();
-	    email.setReceiver("vywls123@naver.com");
+	    email.setReceiver(mail);
 	    email.setSubject(name + "님의 Sul Sure 예약 확인 메일입니다.");
 	    email.setContent("<div style='align-items: center;width: 100%;display: flex;flex-direction: column;'><div>"
-	    		+ "<h1>" + name + "님의 " + "Sul Sure 예약 확인</h1>"
-	    		+ "<hr>"
-	    		+ "<table border='1' style='width:700px; height:500px; border-spacing:0px;'>"
-	    		+ "<tr>"
-	    		+ "<th>예약번호</th>"
-	    		+ "<td style='padding:20px;'>" + resBean.getRes_num() + "</td>"
-	    		+ "</tr>"
-	    		+ "<tr>"
-	    		+ "<th>예약일자</th>"
-	    		+ "<td style='padding:20px;'>" + resBean.getRes_startdate() + "</td>"
-	    	    + "<tr>"
-	    	    + "<th>예약코스</th>"
-	    	    + "<td style='padding:20px;'>" + resBean.getCourse_names() + "</td>"
-	    	    + "</tr>"
-	    	    + "<tr>"
-	    	    + "<th>결제일자</th>"
-	    	    + "<td style='padding:20px;'>" + resBean.getRes_paydate() + "</td>"
-	    	    + "</tr>"
-	    	    + "<tr>"
-	    	    + "<th>예약자명</th>"
-	    	    + "<td style='padding:20px;'>" + name + "</td>"
-	    	    + "</tr>"
-	    	    + "<tr>"
-	    	    + "<th>인원</th>"
-	    	    + "<td style='padding:20px;'>" + resBean.getRes_personnel() + "</td>"
-	    	    + "</tr>"
-	    	    + "<tr>"
-	    	    + "<th>가격</th>"
-	    	    + "<td style='padding:20px;'>" + resBean.getCourse_price() + " 원" + "</td>"
-	    	    + "</tr>"
-	    		+ "</table>"
-	    		+ "</div></div>");
 
-	    emailSender.SendEmail(email);
-	    
+	             + "<h1>" + name + "님의 " + "Sul Sure 예약 확인</h1>"
+	             + "<hr>"
+	             + "<table border='1' style='width:700px; height:500px; border-spacing:0px;'>"
+	             + "<tr>"
+	             + "<th>예약번호</th>"
+	             + "<td style='padding:20px;'>" + resBean.getRes_num() + "</td>"
+	             + "</tr>"
+	             + "<tr>"
+	             + "<th>예약일자</th>"
+	             + "<td style='padding:20px;'>" + resBean.getRes_startdate() + "</td>"
+	              + "<tr>"
+	              + "<th>예약코스</th>"
+	              + "<td style='padding:20px;'>" + resBean.getCourse_names() + "</td>"
+	              + "</tr>"
+	              + "<tr>"
+	              + "<th>결제일자</th>"
+	              + "<td style='padding:20px;'>" + resBean.getRes_paydate() + "</td>"
+	              + "</tr>"
+	              + "<tr>"
+	              + "<th>예약자명</th>"
+	              + "<td style='padding:20px;'>" + name + "</td>"
+	              + "</tr>"
+	              + "<tr>"
+	              + "<th>인원</th>"
+	              + "<td style='padding:20px;'>" + resBean.getRes_personnel() + "</td>"
+	              + "</tr>"
+	              + "<tr>"
+	              + "<th>가격</th>"
+	              + "<td style='padding:20px;'>" + resBean.getCourse_price() + " 원" + "</td>"
+	              + "</tr>"
+	             + "</table>"
+	             + "</div></div>");
 	    emailSender.SendEmail(email);
 		
 	    return "success";
@@ -177,7 +175,7 @@ public class RestControl {
 	}
 	
 	@PostMapping("/admin/sendmail.do")
-	public String sendmail(@RequestParam Map<String, String> map,@ModelAttribute Qna_s qnaBean) throws Exception{
+	public String sendmail(@RequestParam Map<String, String> map,@ModelAttribute("qnaBean") Qna_s qnaBean) throws Exception{
 		String answer = map.get("answer");
 		String mail = map.get("mem_mail");
 		int q_num = Integer.parseInt(map.get("q_num"));
@@ -193,7 +191,7 @@ public class RestControl {
 		answer = answer.replaceAll("\n", "<br>");
 		
 		EmailSet email = new EmailSet();
-	    email.setReceiver("byungeun96@naver.com");
+	    email.setReceiver(mail);
 	    email.setSubject("Sul Sure 문의에 대한 답변입니다.");
 	    email.setContent("<div style='align-items: center;width: 100%;display: flex;flex-direction: column;'><div>"
 	    		+ "<h1>Sul Sure 문의 답변</h1>"
@@ -208,7 +206,8 @@ public class RestControl {
 	    		+ "<td style='padding:20px;'>" + answer + "</td>"
 	    		+ "</table>"
 	    		+ "</div></div>");
-
+	    
+	    
 	    emailSender.SendEmail(email);
 		
 	    return "success";

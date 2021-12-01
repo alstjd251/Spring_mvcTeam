@@ -85,7 +85,7 @@
 					}else{
 						Swal.fire({
 							icon : "warning",
-							title : "비밀번호가 옳바르지 않습니다.",
+							title : "비밀번호가 올바르지 않습니다.",
 						    text  : "다시 시도해주세요.",
 						}).then(function(){
 							$('#inputPassword1').val('')

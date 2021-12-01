@@ -30,7 +30,7 @@
 		<form action = "${root }main"><input type ="submit" value = "main"/></form>
 		<form action = "${root }admin/admin_mem"><input type ="submit" value = "회원정보 관리"/></form>
 		<form action = "${root }admin/admin_partner"><input type ="submit" value = "기업정보 관리"/></form>
-		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 수락"/></form>
+		<form action = "${root }admin/admin_partnerRequest"><input type ="submit" value = "기업신청 현황"/></form>
 		<form action = "${root }admin/admin_res"><input type ="submit" value = "예약정보 조회"/></form>
 		<form action = "${root }admin/admin_qna"><input type ="submit" value = "회원문의 관리"/></form>
 	</div>
@@ -53,9 +53,10 @@
 					<button class="btn btn-default" type="button">검색</button>
 				</div>
 			<div>
-				<table id="t_set" class="table table-striped table-bordered">
+				<table id="t_set" class="table">
 					<thead>
 						<tr>
+							<th></th>
 							<th><div>회원번호</div></th>
 							<th><div>회원등급</div></th>
 							<th><div>아이디</div></th>
@@ -70,8 +71,9 @@
 					</thead>
 					<tbody>
 						<c:forEach var='obj' items="${memberList }">
-							<tr>
-								<td><a onclick="window.open('${root}admin/admin_mem_delete?mem_num=${obj.mem_num }','회원 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">${obj.mem_num}</a></td>
+							<tr onclick="window.open('${root}admin/admin_mem_delete?mem_num=${obj.mem_num }','회원 삭제','scrollbars=yes width=500 height=500 left=100 top=50')">
+								<td>${memberTotal - obj.RN + 1}</td>
+								<td>${obj.mem_num}</td>
 								<td><div>${obj.mem_grade }</div></td>
 								<td><div>${obj.mem_id }</div></td>
 								<td><div>${obj.mem_name }</div></td>

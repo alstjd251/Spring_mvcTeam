@@ -21,6 +21,8 @@ public class Partners_s {
 	
 	private int partners_mnum;
 	private int partners_state;
+	
+	private int RN;
 
 	public String getPartners_code() {
 		return partners_code;
@@ -100,5 +102,13 @@ public class Partners_s {
 
 	public void setPartners_state(int partners_state) {
 		this.partners_state = partners_state;
+	}
+
+	public int getRN() {
+		return RN;
+	}
+
+	public void setRN(int rN) {
+		RN = rN;
 	}
 }

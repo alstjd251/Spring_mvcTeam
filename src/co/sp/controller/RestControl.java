@@ -78,28 +78,61 @@ public class RestControl {
 		
 		if(ms.getFindPw(memberBean) == null) {
 			return "error";
-		}else {
-			System.out.println("PW Email Send");
-		    
-		    EmailSet email = new EmailSet();
-		    email.setReceiver(mail);
-		    email.setSubject("Sul Sure 비밀번호 찾기 결과");
-		    email.setContent("<div style='text-align:center; width:80%;'>"
-		    		+ "<h1>비밀번호 찾기 결과</h1>"
-		    		+ "<hr>"
-		    		+ "안녕하세요. <b style=font-size:15px;'>Sul Sure</b> 입니다.\r\n"
-		    		+ "고객님께서 요청하신 비밀번호 입니다.\r\n"
-		    		+ "\r\n"
-		    		+ name + "회원님의 비밀번호 : <span style='font-weight:bold; font-size:15px'>" + ms.getFindPw(memberBean) + "</span>\r\n"
-		    		+ "\r\n"
-		    		+ "<b style='color:red; font-size:15px;'>비밀번호는 절대 남에게 보여주지 마세요.\r\n"
-		    		+ "고객님의 부주의로 인한 피해는 보상해드리지 않습니다.</b>"
-		    		+ "</div>");
-		    
-		    emailSender.SendEmail(email);
+		}
+		else {
+//			System.out.println("PW Email Send");
+//		    
+//		    EmailSet email = new EmailSet();
+//		    email.setReceiver(mail);
+//		    email.setSubject("Sul Sure 비밀번호 찾기 결과");
+//		    email.setContent("<div style='text-align:center; width:80%;'>"
+//		    		+ "<h1>비밀번호 찾기 결과</h1>"
+//		    		+ "<hr>"
+//		    		+ "안녕하세요. <b style=font-size:15px;'>Sul Sure</b> 입니다.\r\n"
+//		    		+ "고객님께서 요청하신 비밀번호 입니다.\r\n"
+//		    		+ "\r\n"
+//		    		+ name + "회원님의 비밀번호 : <span style='font-weight:bold; font-size:15px'>" + ms.getFindPw(memberBean) + "</span>\r\n"
+//		    		+ "\r\n"
+//		    		+ "<b style='color:red; font-size:15px;'>비밀번호는 절대 남에게 보여주지 마세요.\r\n"
+//		    		+ "고객님의 부주의로 인한 피해는 보상해드리지 않습니다.</b>"
+//		    		+ "</div>");
+//		    
+//		    emailSender.SendEmail(email);
 			
 		    return "success";
 		}
+	}
+	
+	@PostMapping("/member/pwsend.do")
+	public String memberPwSend(@RequestParam Map<String, String> map, Member_s memberBean) throws Exception {
+		
+		String name = map.get("mem_name");
+		String id = map.get("mem_id");
+		String mail = map.get("mem_mail");
+		
+		memberBean.setMem_name(name);
+		memberBean.setMem_id(id);
+		memberBean.setMem_mail(mail);
+		
+		    
+	    EmailSet email = new EmailSet();
+	    email.setReceiver(mail);
+	    email.setSubject("Sul Sure 비밀번호 찾기 결과");
+	    email.setContent("<div style='text-align:center; width:80%;'>"
+	    		+ "<h1>비밀번호 찾기 결과</h1>"
+	    		+ "<hr>"
+	    		+ "안녕하세요. <b style=font-size:15px;'>Sul Sure</b> 입니다.\r\n"
+	    		+ "고객님께서 요청하신 비밀번호 입니다.\r\n"
+	    		+ "\r\n"
+	    		+ name + "회원님의 비밀번호 : <span style='font-weight:bold; font-size:15px'>" + ms.getFindPw(memberBean) + "</span>\r\n"
+	    		+ "\r\n"
+	    		+ "<b style='color:red; font-size:15px;'>비밀번호는 절대 남에게 보여주지 마세요.\r\n"
+	    		+ "고객님의 부주의로 인한 피해는 보상해드리지 않습니다.</b>"
+	    		+ "</div>");
+	    
+	    emailSender.SendEmail(email);
+		
+	    return "success";
 	}
 	
 	@PostMapping("/member/pwcheck.do")

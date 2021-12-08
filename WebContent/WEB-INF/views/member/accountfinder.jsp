@@ -62,7 +62,7 @@ function idSearch(){
 	
 }
 
-function pwSearch(){
+/* function pwSearch(){
 	var mem_name = $("#name2").val();
 	var mem_id = $("#id2").val();
 	var mem_mail = $("#mail2").val();
@@ -103,6 +103,58 @@ function pwSearch(){
 			}
 		}
 	})	
+} */
+
+function pwSearch(){
+	var mem_name = $("#name2").val();
+	var mem_id = $("#id2").val();
+	var mem_mail = $("#mail2").val();
+	
+	var param2 = {'mem_name': mem_name, 'mem_id': mem_id, 'mem_mail': mem_mail}
+	Swal.fire({
+		icon : "warning",
+		title : "잠시만 기다려 주세요.",
+		showConfirmButton : false,
+	});
+	$.ajax({
+		url : '${root}member/pwsearch.do',
+		type : 'POST',
+		data : param2,
+		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+		dataType : 'text',
+		success : function(result){
+			var id = result;
+			if(id == "error"){
+				Swal.fire({
+					icon : "warning",
+					title : "오류",
+				    text  : "일치하는 회원정보가 없습니다.",
+				});
+			}else{
+				if(result == "success"){
+					Swal.fire({
+						icon : "success",
+						title : "메일 전송 완료",
+					    text  : "고객님의 메일로 비밀번호를 전송하였습니다.",
+					}).then(function(){
+						location.href="${root}member/login";
+						$.ajax({
+							url : '${root}member/pwsend.do',
+							type : 'POST',
+							data : param2,
+							contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+							dataType : 'text',
+							success : function(result){
+								$("#name2").val("");
+								$("#id2").val("");
+								$("#mail2").val("");
+							}
+						});
+					});
+				}
+			}
+		}
+	})
 }
 
 </script>

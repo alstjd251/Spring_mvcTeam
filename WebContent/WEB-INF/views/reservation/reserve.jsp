@@ -64,24 +64,25 @@
 	var res_num = $("#res_num").val();
 	
 	var param = {'mem_name': mem_name, 'mem_mail': mem_mail, 'res_num': res_num}
-	$.ajax({
-		url : '${root}reservation/reserveMail.do',
-		type : 'POST',
-		data : param,
-		contentType: "application/x-www-form-urlencoded; charset=UTF-8",
-		dataType : 'text',
-		success : function(result){
-			if(result == "success"){
-				Swal.fire({
-					icon : "success",
-					title : "예약 완료",
-					text : "예약 현황은 마이페이지와 고객님의 메일에서 확인 가능합니다.",
-				}).then(function() {
-					location.href="${root}main";
-				});		
+	Swal.fire({
+		icon : "success",
+		title : "예약 완료",
+		text : "예약 현황은 마이페이지와 고객님의 메일에서 확인 가능합니다.",
+	}).then(function() {
+		location.href="${root}main";
+		$.ajax({
+			url : '${root}reservation/reserveMail.do',
+			type : 'POST',
+			data : param,
+			contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+			dataType : 'text',
+			success : function(result){
+				if(result == "success"){
+					
+				}
 			}
-		}
-	});
+		});
+	});	
 </script>
 </body>
 </html>
